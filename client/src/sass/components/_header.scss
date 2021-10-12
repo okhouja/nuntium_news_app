@@ -1,0 +1,34 @@
+
+    .container {
+        width: 100%;
+        height: 16vh;
+        border: 1px solid red;
+        display: flex;
+        justify-content: space-between;
+    };
+
+.nav-div{
+    width: 100%;
+    height: 4vh;
+    @include spaceBetweenRow;
+    background-color: black;
+}
+ul{
+    width: 30%;
+    @include spaceBetweenRow;
+
+}
+li{
+    list-style:  none;
+    color: white;
+    
+}
+i{
+    color: white;
+}
+.logo{
+    position: relative;
+    top: -15vh;
+    height: 18vh;
+    width: 18vw;
+}

@@ -2,9 +2,12 @@
   "name": "nuntium_news_app",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server/server.js",
+    "server": "nodemon server/server.js",
+    "client": "npm start --prefix  client",
+    "dev": " concurrently  \"npm run server\" \"npm run client\" "
   },
   "repository": {
     "type": "git",
@@ -18,11 +21,12 @@
   },
   "homepage": "https://github.com/okhouja/nuntium_news_app#readme",
   "dependencies": {
+    "axios": "^0.22.0",
+    "concurrently": "^6.2.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^6.0.9",
     "morgan": "^1.10.0",
-    "nodemon": "^2.0.13",
-    "sass": "^1.42.1"
+    "nodemon": "^2.0.13"
   }
 }
