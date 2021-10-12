@@ -20,6 +20,7 @@ const userSchma = Schema(
     },
     country: String,
     city: String,
+    catogories: String,
     newletter: boolean,
     userAddedDate: {
       type: Date,
@@ -27,6 +28,7 @@ const userSchma = Schema(
       default: Date.now,
     },
     comment: [commentSchema],
+    fav: [{}],
   },
 
   { versionKey: false }
