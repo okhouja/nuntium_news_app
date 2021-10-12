@@ -5,21 +5,27 @@ const userSchma = Schema(
     _id: mongoose.Types.ObjectId,
     username: {
       type: String,
-      require: "You need to enter a Username",
+      required: [true, "You need to enter a Username"],
       unique: true,
       trim: true,
     },
     password: {
       type: String,
-      require: "You need to enter a Password",
+      required: [true, "You need to enter a Password"],
     },
     email: {
       type: String,
-      require: "You need to enter a Valid Email",
+      require: [true, "You need to enter a Valid Email"],
+      trim: true,
     },
     country: String,
     city: String,
     newletter: boolean,
+    userAddedDate: {
+      type: Date,
+      required: true,
+      default: Date.now,
+    },
     comment: [commentSchema],
   },
 
