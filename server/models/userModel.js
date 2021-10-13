@@ -19,7 +19,7 @@ const userSchma = Schema(
       trim: true,
     },
     country: String,
-    city: { String, required: true, trim: true },
+    city: { type: String, required: true, trim: true },
     general: Boolean,
     business: Boolean,
     entertainment: Boolean,
@@ -27,14 +27,16 @@ const userSchma = Schema(
     science: Boolean,
     sport: Boolean,
     technology: Boolean,
-    newletter: boolean,
+    newsletter: Boolean,
     userAddedDate: {
       type: Date,
       required: true,
       default: Date.now,
     },
     comment: [commentSchema],
-    fav: [{}],
+    fav: [],
+    likes: [],
+    dislike: [],
   },
 
   { versionKey: false }
