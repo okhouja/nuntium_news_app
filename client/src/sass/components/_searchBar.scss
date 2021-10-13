@@ -1,0 +1,13 @@
+.search-bar{
+    width: 80%;height: 12vh;
+    border: 1px solid red;
+}
+.ul-search-bar{
+    @include spaceBetweenRow;
+    width: 70%;
+
+
+}
+a{
+    text-decoration: none;
+}
