@@ -33,7 +33,7 @@ const userSchma = Schema(
       required: true,
       default: Date.now,
     },
-    comment: [commentSchema],
+    // comment: [commentSchema],
     fav: [],
     likes: [],
     dislike: [],
