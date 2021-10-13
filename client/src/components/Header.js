@@ -1,4 +1,5 @@
-import react from "react";
+import React, { useEffect } from 'react';
+
 import {
     FaFacebook,
     FaTwitter,
@@ -6,14 +7,22 @@ import {
     FaYoutube,
     FaUserAlt,
   } from "react-icons/fa";
-
 function Header (){
+  const today = new Date();
+  const showDate = today.getFullYear()+'-'+(today.getMonth(+1)+'-'+today.getDate());
+
+
+
+  
+
     return(
         <div >
             <div className="container">
             <div className="nav-div">    
                     <div className="weather"></div>
-                    <div className="date"></div>
+                    <div className="date">
+                      <input type="text"  value={showDate} readOnly="true"/>
+                      </div>
                     <ul className="ul-header">
                         <li className="li-header"><a  href="#"/>General</li>
                         <li className="li-header<"><a href="#"/>Bunsiness</li>
