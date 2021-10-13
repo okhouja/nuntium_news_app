@@ -1,7 +1,11 @@
 const express = require("express");
 const router = express.Router();
+const userController = require("../controllers/userController");
 
-// Model (Schema)
-const UserData = require("../models/userModel");
+// URL http://localhost:5000/user
+router
+  .route("/")
+  .get(userController.getAllUsers)
+  .post(userController.addNewUser);
 
-// GET All Users
+module.exports = router;
