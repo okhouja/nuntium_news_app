@@ -29,7 +29,7 @@ userController.addNewUser = async (req, res) => {
     password: req.body.password,
     email: req.body.email.toLowerCase(),
     country: req.body.country,
-    city: req.body.city,
+    city: req.body.city.toLowerCase(),
     general: req.body.general,
     business: req.body.business,
     entertainment: req.body.entertainment,
