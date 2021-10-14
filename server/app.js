@@ -2,7 +2,12 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 app.use(morgan("dev"));
+// Allow Express to understand json
+app.use(express.json());
 
+//Router
+const userRouter = require("./router/user");
+app.use("/user", userRouter);
 // Connect to MongoDB
 
 const mongoose = require("mongoose");
@@ -17,6 +22,12 @@ mongoose
     console.log(`There is a problem ${error.message}`);
   });
 
-app.route("/").get;
+app.get("/", (req, res) => {
+  try {
+    res.status(200).send("Welcome To Nuntuim News Website");
+  } catch (error) {
+    res.status(err.status).json(error.message);
+  }
+});
 
 module.exports = app;

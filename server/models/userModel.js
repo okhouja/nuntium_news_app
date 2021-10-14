@@ -1,8 +1,8 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const userSchma = Schema(
+const userSchema = Schema(
   {
-    _id: mongoose.Types.ObjectId,
+    // _id: mongoose.Types.ObjectId,
     username: {
       type: String,
       required: [true, "You need to enter a Username"],
@@ -34,13 +34,12 @@ const userSchma = Schema(
       default: Date.now,
     },
     // comment: [commentSchema],
-    fav: [],
-    likes: [],
-    dislike: [],
-  },
+    // fav: [],
+    // likes: [],
+    // dislike: [],
+  }
 
-  { versionKey: false }
+  // { versionKey: false }
 );
 
-const User = mongoose.model("User", userSchma);
-module.exports = User;
+module.exports = mongoose.model("users", userSchema);
