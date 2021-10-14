@@ -1,4 +1,3 @@
-import General from "../../components/General";
 import { helpFetchNews } from "../helpers/fetchApi";
 
 
@@ -6,12 +5,15 @@ import { helpFetchNews } from "../helpers/fetchApi";
     return async function (dispatch) {
         
             const response =await helpFetchNews(); 
+            const data = response.data;
+        
 
         dispatch({
             type: "GET-NEWS",
-            payload: response.data
+            payload:  data
+            
         })
-        console.log(response.data);
+        console.log(response);
     }
 }
 export default newsAction;
