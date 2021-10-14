@@ -25,7 +25,7 @@ const userController = {};
 
 userController.addNewUser = async (req, res) => {
   const user = new UserData({
-    userName: req.body.userName.toLowerCase(),
+    userName: req.body.userName,
     userPass: req.body.userPass,
     email: req.body.email,
     country: req.body.country,
@@ -41,7 +41,7 @@ userController.addNewUser = async (req, res) => {
   });
   try {
     const newUser = await user.save();
-    console.log(newUser);
+    // console.log(newUser);
     res.status(201).json({
       message: "New user has been created successfully",
       newUser,
