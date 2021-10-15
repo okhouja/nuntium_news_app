@@ -8,6 +8,9 @@ app.use(express.json());
 //Router
 const userRouter = require("./router/user");
 app.use("/user", userRouter);
+
+const articleRouter = require("./router/article");
+app.use("/article", articleRouter);
 // Connect to MongoDB
 
 const mongoose = require("mongoose");
