@@ -11,6 +11,9 @@ app.use("/user", userRouter);
 
 const articleRouter = require("./router/article");
 app.use("/article", articleRouter);
+
+const test = require("./router/test");
+app.use("/test", test);
 // Connect to MongoDB
 
 const mongoose = require("mongoose");
