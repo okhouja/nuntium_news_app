@@ -5,12 +5,14 @@
 }
 .ul-search-bar{
     @include spaceBetweenRow;
-    width: 70%;
+    width: 80%;
+    
 
 
 }
 .latest-news, .general, .sports, .health, .science, .more, .tech, .buniess, .entertainment{
     position: relative;
+    order: 1;
     &::after{
         content: "";
         width: 0;
@@ -25,6 +27,18 @@
 
     }
 }
+.search-li{
+    align-self:flex-start;
+    position: relative;
+    left: 16vw;
+
+}
+.search-but{
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+}
+
 
 
 .latest-news-overlay, .health-overlay, .general-overlay,.busniess-overlay,

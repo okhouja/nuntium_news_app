@@ -24,8 +24,10 @@ import React from 'react'
                       <a href="#"></a></div></li>
                       <li className="li-search-bar"><a className="more"  href="#">More</a><div className="more-overlay">
                       <a href="#"></a></div></li>
+                     <li className="search-li" > <button className="search-but">&#128269;</button> </li> 
                   
                   </ul>
+                  ""
 
 
                 </div>
