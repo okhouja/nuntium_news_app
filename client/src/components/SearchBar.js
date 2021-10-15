@@ -1,6 +1,26 @@
 import React from 'react'
+import { useRef } from 'react';
 
  function SearchBar  () {
+    const userInput = useRef();
+    const changeBg = () => {
+    if(!userInput){
+        (userInput.current.style.visibility = "visible");
+
+    }
+    else if(userInput){
+        (userInput.current.style.visibility = "hidden");
+
+
+    }
+    
+}
+
+
+
+
+    
+
     return (
         <div>
              <div className="search-bar">
@@ -24,10 +44,13 @@ import React from 'react'
                       <a href="#"></a></div></li>
                       <li className="li-search-bar"><a className="more"  href="#">More</a><div className="more-overlay">
                       <a href="#"></a></div></li>
-                     <li className="search-li" > <button className="search-but">&#128269;</button> </li> 
+                     <li className="search-li" > <button className="search-but" onClick={changeBg}   >&#128269;</button> </li> 
                   
                   </ul>
-                  ""
+                  <div className="search-div"   ref={userInput}>
+                  <input className="search-input" type="text" placeholder="Type here"/><button className="search-click">search</button>
+                  </div>
+                
 
 
                 </div>
