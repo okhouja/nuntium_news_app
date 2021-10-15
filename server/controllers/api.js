@@ -1,8 +1,7 @@
 // const ApiClient = require("./apiClient");
-const APP_KEY = require("../config");
 const axios = require("axios");
-const config = require("../../server/config");
-const APP_URL = `http://api.mediastack.com/v1/news?access_key=${APP_KEY}`;
+const config = require("../config");
+// const APP_URL = `http://api.mediastack.com/v1/news?`;
 
 const articleController = {};
 
@@ -12,11 +11,13 @@ articleController.news = async (req, res) => {
     access_key: myKey,
   };
   try {
-    const { data } = await axios.get({ APP_URL }, { headers });
+    const { data } = await axios.get(
+      `http://api.mediastack.com/v1/news?access_key=${myKey}&keywords=bbc`
+    );
     console.log(data);
-    res.status(200).send(data);
+    res.status(200).json(data);
   } catch (err) {
-    res.status(res.status).json({ message: err.message });
+    res.status(401).json({ message: err.message });
   }
 };
 
