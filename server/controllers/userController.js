@@ -24,12 +24,13 @@ const userController = {};
 */
 
 userController.addNewUser = async (req, res) => {
+  let city = req.body.city;
   const user = new UserData({
-    username: req.body.username.toLowerCase(),
+    username: req.body.username,
     password: req.body.password,
     email: req.body.email.toLowerCase(),
     country: req.body.country,
-    city: req.body.city,
+    city: city.charAt(0).toUpperCase() + city.slice(1).toLowerCase(),
     general: req.body.general,
     business: req.body.business,
     entertainment: req.body.entertainment,

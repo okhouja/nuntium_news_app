@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 // const Schema = mongoose.Schema;
 const userSchema = new mongoose.Schema(
   {
-    _id: mongoose.Types.ObjectId,
+    // _id: mongoose.Types.ObjectId,
     username: {
       type: String,
       required: [true, "You need to enter a Username"],
@@ -19,7 +19,11 @@ const userSchema = new mongoose.Schema(
       trim: true,
     },
     country: String,
-    city: { type: String, required: true, trim: true },
+    city: {
+      type: String,
+      required: [true, "You need to enter your City"],
+      trim: true,
+    },
     general: Boolean,
     business: Boolean,
     entertainment: Boolean,
@@ -34,9 +38,9 @@ const userSchema = new mongoose.Schema(
       default: Date.now,
     },
     // comment: [commentSchema],
-    // fav: [],
-    // likes: [],
-    // dislike: [],
+    fav: [],
+    likes: [],
+    dislike: [],
   },
 
   { versionKey: false }
