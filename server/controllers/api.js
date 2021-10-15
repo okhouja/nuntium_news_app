@@ -12,7 +12,7 @@ articleController.news = async (req, res) => {
   };
   try {
     const { data } = await axios.get(
-      `http://api.mediastack.com/v1/news?access_key=${myKey}&keywords=bbc`
+      `http://api.mediastack.com/v1/news?access_key=${myKey}&languages=de&sort=published_desc`
     );
     console.log(data);
     res.status(200).json(data);
