@@ -1,24 +1,27 @@
-import {React , useEffect} from 'react';
-import newsAction from "../store/actions/newsAction";
-import { useDispatch, useSelector } from 'react-redux';
+// import {React , useEffect} from 'react';
+// import newsAction from "../store/actions/newsAction";
+// import { useDispatch, useSelector } from 'react-redux';
 
 
- const General = () => {
+//  const General = () => {
      
-    const dispatch = useDispatch();
-    const news = useSelector(state => state.newsReducer.news);
-    useEffect(() => {
+//     const dispatch = useDispatch();
+//     const news = useSelector(state => state.newsReducer.news);
+//     useEffect(() => {
         
-        dispatch(newsAction())
+//         dispatch(newsAction())
 
         
-    }, []);
-    console.log(news);
-    return (
-        <div>
-            
-        </div>
-    )
-}
+//     }, []);
+//     console.log(news);
+//     return (
+//         <div>
+//             <ul>
+//                         {news.map((item,i)=> <li key={i}>{item.author}</li>)}
 
-export default General;
+//             </ul>
+//         </div>
+//     )
+// }
+
+// export default General;

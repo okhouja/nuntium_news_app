@@ -11,6 +11,11 @@ function Header (){
   const today = new Date();
   const showDate = today.getFullYear()+'-'+(today.getMonth(+1)+'-'+today.getDate());
 
+  function changeHandle(e) {
+    e.preventDefault();
+    
+  }
+
 
 
   
@@ -21,7 +26,7 @@ function Header (){
             <div className="nav-div">    
                     <div className="weather"></div>
                     <div className="date">
-                      <input type="text"  value={showDate} readOnly="true"/>
+                      <input type="text"   onChange={changeHandle} value={showDate} />
                       </div>
                     <ul className="ul-header">
                         <li className="li-header"><a  href="#"/>General</li>
