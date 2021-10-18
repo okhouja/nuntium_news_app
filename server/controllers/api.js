@@ -1,18 +1,15 @@
 // const ApiClient = require("./apiClient");
 const axios = require("axios");
 const config = require("../config");
-// const APP_URL = `http://api.mediastack.com/v1/news?`;
 
 const articleController = {};
 
 articleController.news = async (req, res) => {
   const myKey = config.APP_KEY;
-  const headers = {
-    access_key: myKey,
-  };
+
   try {
     const { data } = await axios.get(
-      `http://api.mediastack.com/v1/news?access_key=${myKey}&keywords=bbc`
+      `http://api.mediastack.com/v1/news?access_key=${myKey}&categories=sports&languages=de&sort=published_desc`
     );
     console.log(data);
     res.status(200).json(data);
