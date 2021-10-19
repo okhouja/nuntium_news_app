@@ -4,6 +4,7 @@ import { Store, StoreContext } from "./context";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import General from "./components/General";
+import Navbar from "./components/Navbar"
 
 import SearchBar from "./components/SearchBar";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -20,6 +21,7 @@ function App() {
 
       <Home />
      <Header /> 
+     <Navbar />
      <SearchBar/>
      </StoreContext.Provider>
      );
