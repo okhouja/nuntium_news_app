@@ -21,7 +21,7 @@
 @mixin  searchFlex {
   display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
 }
 @mixin spaceBetweenColumn {
   display: flex;

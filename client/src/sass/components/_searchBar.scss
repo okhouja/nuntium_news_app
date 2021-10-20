@@ -1,47 +1,28 @@
-// .search-bar{
-//     width: 80%;height: 12vh;
-//     border: 1px solid red;
-//     box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
-// }
-// .ul-search-bar{
-//     @include spaceBetweenRow;
-//     width: 80%;
-    
+.search-bar{
+    width: 80%;
+    margin: 25% auto;
+    height: 12vh;
+    border: 1px solid red;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
+    position: relative;
+    top: -22vw;
+}
+.ul-search-bar{
+    @include spaceBetweenCenterRow;
+    width: 70%;
+}
+a{
+    text-decoration: none;
+}
 
+.search-li{
+    align-self:flex-start;
+    position: relative;
+    left: 16vw;
+    list-style: none;
 
-// }
-// a{
-//     text-decoration: none;
-// }
-// .dropDown{
-//     position: relative;
-//     order: 1;
-//     &::after{
-//         content: "";
-//         width: 0;
-//         height: 0;
-//         border-left: 5px solid transparent;
-//         border-right: 5px solid transparent;
-//         border-top: 5px solid  gray;
-//         position: absolute;
-//         top: 1.5vh;
-//         right: -0.5vw;
+}
 
-
-//     }
-// }
-// .search-li{
-//     align-self:flex-start;
-//     position: relative;
-//     left: 16vw;
-
-// }
-// .search-but{
-//     border: none;
-//     outline: none;
-//     font-size: 1.5rem;
-//     cursor: pointer;
-// }
 
 
 
@@ -57,32 +38,35 @@
 //         transition: 500ms;
 //     }
 // }
-// .search-input{
-//     border: none;
-//     outline: none;
-//     border-bottom: 1px solid lightgray
-// }
-// .search-click{
-//     border: none;
-//     outline: none;
-//     background-color: rgb(0, 89, 255);
-//     min-width: 6vw;
-//     min-height: 4vh;
-
-    
-
-// }
-// .search-div{
-//     visibility: visible;
-//     width: 44vw;
-//     height: 6vh;
-//     background-color: wheat;
-//     position: relative;
-//     left: 33vw;
-//     top: -2vh;
-//     @include searchFlex;
-// }
-// .search-div-active{
-//     visibility: hidden;
-// }
+.search-input{
+    border: none;
+    outline: none;
+    border-bottom: 1px solid lightgray
+}
+.search-button{
+    border: none;
+    outline: none;
+    background-color: rgb(0, 89, 255);
+    min-width: 6vw;
+    min-height: 4vh;
+}
+.search-div{
+    visibility: visible;
+    width: 44vw;
+    height: 6vh;
+    background-color: wheat;
+    position: relative;
+    left: 18vw;
+    top: 2vh;
+    @include searchFlex;
+}
+.search-div-active{
+    visibility: hidden;
+}
+.searchClick{
+position: relative;
+left: 48vh;
+list-style: none;
+font-size: 1.7rem;
+}
 
