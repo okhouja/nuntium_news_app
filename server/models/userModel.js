@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 // const Schema = mongoose.Schema;
-const userSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema(
   {
     // _id: mongoose.Types.ObjectId,
     username: {
@@ -15,8 +15,10 @@ const userSchema = new mongoose.Schema(
     },
     email: {
       type: String,
-      require: [true, "You need to enter a Valid Email Address"],
+      require: [true, "You need to enter a Email Address"],
       trim: true,
+      unique: "Email already exists",
+      match: [/.+\@.+\..+/, "Please fill a valid email address"],
     },
     country: String,
     city: {
@@ -38,12 +40,10 @@ const userSchema = new mongoose.Schema(
       default: Date.now,
     },
     // comment: [commentSchema],
-    fav: [],
     likes: [],
-    dislike: [],
   },
 
   { versionKey: false }
 );
 
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model("User", UserSchema);

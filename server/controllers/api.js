@@ -8,9 +8,13 @@ articleController.news = async (req, res) => {
   const myKey = config.APP_KEY;
 
   try {
-    const { data } = await axios.get(
-      `http://api.mediastack.com/v1/news?access_key=${myKey}&categories=sports&languages=de&sort=published_desc`
-    );
+    const { data } = await axios
+      .get(
+        `http://api.mediastack.com/v1/news?access_key=${myKey}&categories=sports&languages=de&sort=published_desc`
+      )
+      .then()
+      .catch();
+
     console.log(data);
     res.status(200).json(data);
   } catch (err) {
