@@ -1,0 +1,64 @@
+.copyrightFather{
+    @include spaceBetweenStartRow;
+    width: 100vw;
+    
+}
+ 
+.rightFooter{
+    @include column;
+    width: 20%;
+
+
+}
+.midFooter{
+    @include spaceBetweenColumn;
+    width: 100%;
+    height: 18vh;
+
+
+}
+.ulFooter{
+    @include spaceBetweenCenterRow;
+
+
+}
+
+.leftFooter{
+height: 20vh;
+}
+.liFooter{
+    align-self: flex-start;
+    margin: 1vh;
+    color: white;
+    list-style: none;
+    cursor: pointer;
+}
+p{
+    color: white;
+}
+h1,h2{
+    color: white;
+}
+.copyright{
+    @include column;
+    width: 35%;
+    
+}
+.iconFatherFooter{
+    @include spaceBetweenStartRow;
+  width: 20%;
+    
+}
+.iconFooter{
+    color: white;
+
+}
+
+.leftFooter{
+    align-self: flex-end;
+
+}
+.logoFooter{
+    width: 18vw;
+    height: 18vh;
+}
