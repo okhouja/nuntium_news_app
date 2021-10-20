@@ -1,61 +1,52 @@
-import React from 'react'
-import { useRef } from 'react';
-
- function SearchBar  () {
-    const userInput = useRef();
-    const changeBg = () => {
-    if(!userInput){
-        (userInput.current.style.visibility = "visible");
-
-    }
-    else if(userInput){
-        (userInput.current.style.visibility = "hidden");
+import React, { useState, useEffect, useContext } from "react";
+import { Store, StoreContext } from "../context";
+import axios from "axios";
+import myKey from "../context/config";
+const API_KEY = myKey.apiKey;
 
 
-    }
-    
-}
+function SearchBar() {
+    const contextObj = useContext(StoreContext);
+    console.log(contextObj);
+    // Store.fetchData();
 
 
+    const [userInput, setUserInput] = useState(false);
+    // const handelChange = () => setUserInput(!userInput);
+    // const  [userInput , setUserInput] = useState(false);
+    // const [categories, setCategories] = useState("general");
+    // const [lang, setLang] = useState("en");
+    // const [countries, setCountries] = useState("");
+    // const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
 
-
-    
+    // useEffect(() => {
+    //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${lang}&countries=${countries}&keywords=corona&offset=4`).then(response=>console.log(response.data));
+    // }, [dropdown, categories, lang, countries])
 
     return (
         <div>
-             <div className="search-bar">
-                 
-                  <ul className="ul-search-bar">
-                      <li className="li-search-bar"><a className="latest-news" href="#">Latest News</a><div className="latest-news-overlay">
-                      <a href="#"></a></div></li>
-                      <li className="li-search-bar"><a  className="general" href="#">General</a><div className="general-overlay">
-                      <a href="#"></a></div></li>
-                      <li className="li-search-bar"><a className="busniess" href="#">Busniess</a><div className="busniess-overlay">
-                      <a href="#"></a></div></li>
-                      <li className="li-search-bar"><a className="entertainment" href="#">Entertainment</a><div className="entertainment-overlay">
-                      <a href="#"></a></div></li>
-                      <li className="li-search-bar"><a className="health"  href="#">Health</a><div className="health-overlay">
-                      <a href="#"></a></div></li>
-                      <li className="li-search-bar"><a  className="science-" href="#">Science</a><div className="science-overlay">
-                      <a href="#"></a></div></li>
-                      <li className="li-search-bar"><a className="sports"  href="#">Sports</a><div className="sports-overlay">
-                      <a href="#"></a></div></li>
-                      <li className="li-search-bar"><a className="tech"  href="#">Technology</a><div className="tech-overlay">
-                      <a href="#"></a></div></li>
-                      <li className="li-search-bar"><a className="more"  href="#">More</a><div className="more-overlay">
-                      <a href="#"></a></div></li>
-                     <li className="search-li" > <button className="search-but" onClick={changeBg}   >&#128269;</button> </li> 
-                  
-                  </ul>
-                  <div className="search-div"   ref={userInput}>
-                  <input className="search-input" type="text" placeholder="Type here"/><button className="search-click">search</button>
-                  </div>
+
+<div>
+<ul className="ul-header">
+    <li className="li-header"><a  href="#"/>General</li>
+    <li className="li-header<"><a href="#"/>Bunsiness</li>
+    <li className="li-header"><a href="#"/>Entertainment</li>
+    <li className="li-header"><a href="#"/>Health</li>
+    <li className="li-header"><a href="#"/>Science</li>
+    <li className="li-header"><a href="#"/>Sports</li>
+    <li className="li-header"><a href="#"/>Technology</li>
+</ul>
+                    </div>
+
+<div className="icon"/>
                 
-
-
-                </div>
-            
-        </div>
+                <div className={userInput ? "search-div-active" : "search - div"}>
+        < input className = "search-input" type = "text" placeholder = "Type here" /> <button className="search-click">search</button>
+                </div >
+            </div >
+        
     )
 };
 export default SearchBar;
+
+
