@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const userModel = require("userModel");
+// const userModel = require("userModel");
 
 const CommentSchema = new mongoose.Schema({
   text: {
@@ -30,4 +30,4 @@ const CommentSchema = new mongoose.Schema({
   },
 });
 
-export default mongoose.model("Comment", CommentSchema);
+module.exports = mongoose.model("Comment", CommentSchema);
