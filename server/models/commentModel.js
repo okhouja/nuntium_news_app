@@ -1,17 +1,22 @@
 const mongoose = require("mongoose");
-// const userModel = require("userModel");
+const Schema = mongoose.Schema;
 
-const ObjectId = mongoose.Schema.ObjectId;
-const CommentSchema = new mongoose.Schema({
+const ObjectId = mongoose.Schema.Types.ObjectId;
+const CommentSchema = new Schema({
   text: {
     type: String,
     required: "You need to write your comment",
   },
-  artikel: {
+  articel: {
     type: ObjectId,
-    ref: "Artikel",
+    ref: "Article",
   },
-  likes: [{ type: ObjectId, ref: "User" }],
+  likes: [
+    {
+      type: ObjectId,
+      ref: "User",
+    },
+  ],
   reply: [
     {
       text: String,

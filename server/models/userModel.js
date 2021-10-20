@@ -1,11 +1,11 @@
 const mongoose = require("mongoose");
-// const Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 const reqStrMax = {
   type: String,
   required: [true, "You need "],
 };
-const UserSchema = new mongoose.Schema(
+const UserSchema = new Schema(
   {
     _id: mongoose.Types.ObjectId,
     username: {

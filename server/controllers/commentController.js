@@ -4,8 +4,9 @@ const commentController = {};
 
 commentController.addNewComment = async (req, res) => {
   const comment = new CommentData({
-    user: user.id,
-    text,
+    user: req.user.id,
+    text: req.body.text,
+    aricle: req.body.article,
   });
   try {
     const newComment = await comment.save();
