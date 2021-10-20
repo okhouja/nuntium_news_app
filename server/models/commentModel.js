@@ -6,5 +6,28 @@ const CommentSchema = new mongoose.Schema({
     type: String,
     required: "You need to write your comment",
   },
-  likes: [{ type: mongoose.Schema.ObjectId, ref: "user" }],
+  likes: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
+  reply: [
+    {
+      text: String,
+      created: {
+        type: Date,
+        default: Date.now,
+      },
+      repliedBy: {
+        type: mongoose.Schema.ObjectID,
+        ref: "User",
+      },
+    },
+  ],
+  commentedBy: {
+    type: mongoose.Schema.ObjectID,
+    ref: "User",
+  },
+  created: {
+    type: Date,
+    default: Date.now,
+  },
 });
+
+export default mongoose.model("Comment", CommentSchema);
