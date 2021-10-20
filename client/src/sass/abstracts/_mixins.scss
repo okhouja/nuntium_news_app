@@ -4,11 +4,30 @@
   justify-content: center;
   align-items: center;
 }
-@mixin spaceBetweenRow {
+@mixin spaceBetweenCenterRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  
+}
+@mixin spaceBetweenStartRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  flex-direction: row;
+  
+}
+@mixin  searchFlex {
+  display: flex;
+    align-items: center;
+    justify-content: end;
+}
+@mixin spaceBetweenColumn {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-direction: row;
+  flex-direction: column;
   
 }
 

@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-
+import React from 'react';
 import {
     FaFacebook,
     FaTwitter,
@@ -8,31 +7,23 @@ import {
     FaUserAlt,
   } from "react-icons/fa";
 function Header (){
+
   const today = new Date();
   const showDate = today.getFullYear()+'-'+(today.getMonth(+1)+'-'+today.getDate());
 
-
-
-  
-
+  function changeHandle(e) {
+    e.preventDefault();
+    
+  }
     return(
         <div >
-            <div className="container">
-            <div className="nav-div">    
-                    <div className="weather"></div>
+          <div className="headerFather" >
+          <div className="weather"></div>
                     <div className="date">
-                      <input type="text"  value={showDate} readOnly="true"/>
+                      <input type="text"   onChange={changeHandle} value={showDate} />
                       </div>
-                    <ul className="ul-header">
-                        <li className="li-header"><a  href="#"/>General</li>
-                        <li className="li-header<"><a href="#"/>Bunsiness</li>
-                        <li className="li-header"><a href="#"/>Entertainment</li>
-                        <li className="li-header"><a href="#"/>Health</li>
-                        <li className="li-header"><a href="#"/>Science</li>
-                        <li className="li-header"><a href="#"/>Sports</li>
-                        <li className="li-header"><a href="#"/>Technology</li>
-                    </ul>
-                    <div className="icons">
+           
+<div className="iconFather">
                     <a className="icon" href="https://www.facebook.com/" target="_blank">
               <FaFacebook />
             </a>
@@ -49,15 +40,14 @@ function Header (){
                     <div className="sign-in">
                         <i><FaUserAlt/></i>    
                     </div>      
-            </div>
-            <div>
-            </div>
-            </div>
             <img className="logo" src="./img/Logo_lightmode.svg" alt="logo"></img> 
-            <div>
-                </div> 
-               
+            
+                
+            </div>   
         </div>
+        
+        
+
     )
 }
 export default Header;
