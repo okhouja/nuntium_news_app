@@ -1,12 +1,23 @@
 const mongoose = require("mongoose");
-// const userModel = require("userModel");
+const Schema = mongoose.Schema;
 
-const CommentSchema = new mongoose.Schema({
+
+const ObjectId = mongoose.Schema.Types.ObjectId;
+const CommentSchema = new Schema({
   text: {
     type: String,
     required: "You need to write your comment",
   },
-  likes: [{ type: mongoose.Schema.ObjectId, ref: "User" }],
+  articel: {
+    type: ObjectId,
+    ref: "Article",
+  },
+  likes: [
+    {
+      type: ObjectId,
+      ref: "User",
+    },
+  ],
   reply: [
     {
       text: String,
@@ -15,13 +26,13 @@ const CommentSchema = new mongoose.Schema({
         default: Date.now,
       },
       repliedBy: {
-        type: mongoose.Schema.ObjectID,
+        type: ObjectId,
         ref: "User",
       },
     },
   ],
   commentedBy: {
-    type: mongoose.Schema.ObjectID,
+    type: ObjectId,
     ref: "User",
   },
   created: {
