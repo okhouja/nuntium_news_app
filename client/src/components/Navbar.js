@@ -7,7 +7,10 @@ export const Navbar = () => {
     const [lang, setLang] = useState("en");
     const [countries, setCountries] = useState("");
     const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
+    const [userInput, setUserInput] = useState(false);
     const API_KEY = myKey.apiKey;
+    const handelchange = ()=> setUserInput(!userInput);
+
 
     
    
@@ -17,7 +20,7 @@ export const Navbar = () => {
 
   
   //   useEffect(() => {
-  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${lang}&countries=${countries}&keywords=corona&offset=4`).then(response=>console.log(response.data));
+  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${lang}&countries=${countries}&keywords=corona&offset=4&sort=published_desc`).then(response=>console.log(response.data));
   // }, [dropdown, categories, lang, countries])
   
 
@@ -28,11 +31,11 @@ export const Navbar = () => {
             <div className="nav-div">    
                     <div className="dropDownFather" >
                       <div>
-                        <div className={dropdown.cat? "openDropDown": "closeDropDown"} onClick={() =>  {if ({ cat: false, lang: false, countries: false }) {setDropdown({ cat: true, lang: false, countries: false });} else if ({ cat: true, lang: false, countries: false }) {setDropdown({ cat: false, lang: false, countries: false });}} }>categories{dropdown.cat? "˅ ": "^"  }</div>
+                        <div className={dropdown.cat? "openDropDown": "closeDropDown"} onClick={() => {setDropdown ({ cat: true, lang: false, countries: false })} }>categories{dropdown.cat? "˅ ": "^"  }</div>
                     
                         {dropdown.cat &&
                         <ul className="dropdownUl" >
-                            <li  className="categoryLi" onClick={()=>{setCategories("general"); setDropdown({ cat: false, lang: false, countries: false })  }}>General</li>
+                            <li className="categoryLi" onClick={()=>{setCategories("general"); setDropdown({ cat: false, lang: false, countries: false })  }}>General</li>
                             <li className="categoryLi" onClick={()=>{setCategories("sports"); setDropdown({ cat: false, lang: false, countries: false }) }}>Sports</li>
                             <li className="categoryLi" onClick={()=>{setCategories("technology"); setDropdown({ cat: false, lang: false, countries: false })}}>Technology</li>
                             <li className="categoryLi" onClick={()=>{setCategories("business"); setDropdown({ cat: false, lang: false, countries: false })}}>Business</li>

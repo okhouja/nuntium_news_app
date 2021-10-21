@@ -11,6 +11,13 @@
   flex-direction: row;
   
 }
+@mixin spaceBetweenendRow {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  flex-direction: row;
+  
+}
 @mixin spaceBetweenStartRow {
   display: flex;
   justify-content: space-around;
@@ -21,7 +28,7 @@
 @mixin  searchFlex {
   display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: center;
 }
 @mixin spaceBetweenColumn {
   display: flex;
@@ -30,6 +37,19 @@
   flex-direction: column;
   
 }
+@mixin column {
+  display: flex;
+  justify-content:flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  
+}
+.copyrightFather{
+width: 100%;
+height: 22vh;
+background-color: black;
+}
+
 
 
 
