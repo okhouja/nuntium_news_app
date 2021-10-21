@@ -7,7 +7,7 @@ app.use(express.json());
 
 //Router
 const userRouter = require("./router/user");
-app.use("/user", userRouter);
+app.use("/signup", userRouter);
 
 const articleRouter = require("./router/article");
 app.use("/article", articleRouter);
