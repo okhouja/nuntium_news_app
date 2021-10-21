@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
-const UserSchema = new Schema(
+const UserSchema = Schema(
   {
     _id: Schema.Types.ObjectId,
     username: {
@@ -40,16 +40,7 @@ const UserSchema = new Schema(
     //commentCollection: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     likes: [],
   },
-  { timestamp: true },
   { versionKey: false }
 );
-
-UserSchema.set("toJSON", {
-  transform: function (doc, ret) {
-    // remove the password property when serializing doc to JSON
-    delete ret.password;
-    return ret;
-  },
-});
 
 module.exports = mongoose.model("User", UserSchema);

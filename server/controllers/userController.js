@@ -1,5 +1,6 @@
 // Model (Schema)
 const UserData = require("../models/userModel");
+const mongoose = require("mongoose");
 
 const userController = {};
 
@@ -26,6 +27,7 @@ const userController = {};
 userController.addNewUser = async (req, res) => {
   let city = req.body.city;
   const user = new UserData({
+    _id: mongoose.Types.ObjectId(),
     username: req.body.username,
     password: req.body.password,
     email: req.body.email.toLowerCase(),
