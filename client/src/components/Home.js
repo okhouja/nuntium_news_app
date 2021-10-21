@@ -10,6 +10,7 @@ function Home() {
       <Header />
       <Navbar />
       <Searchbar />
+      <General />
      <Footer /> 
     
     </div>
