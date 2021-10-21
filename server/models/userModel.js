@@ -17,7 +17,8 @@ const UserSchema = new Schema(
       type: String,
       require: [true, "You need to enter a Email Address"],
       trim: true,
-      unique: "Email already exists",
+      lowercase: true,
+      unique: [true, "Email already exists"],
       match: [/.+\@.+\..+/, "Please fill a valid email address"],
     },
     country: String,
@@ -34,16 +35,21 @@ const UserSchema = new Schema(
     sport: Boolean,
     technology: Boolean,
     newsletter: Boolean,
-    userAddedDate: {
-      type: Date,
-      required: true,
-      default: Date.now,
-    },
-    // comment: [commentSchema],
+    articleCollection: [{ type: Schema.Types.ObjectId, ref: "Article" }],
+    userAddedDate: { type: Date, required: true, default: Date.now },
+    //commentCollection: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     likes: [],
   },
-
+  { timestamp: true },
   { versionKey: false }
 );
+
+UserSchema.set("toJSON", {
+  transform: function (doc, ret) {
+    // remove the password property when serializing doc to JSON
+    delete ret.password;
+    return ret;
+  },
+});
 
 module.exports = mongoose.model("User", UserSchema);
