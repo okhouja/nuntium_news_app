@@ -65,4 +65,34 @@ userController.getAllUsers = async (req, res) => {
   }
 };
 
+// Update user information
+userController.updateProfile = async (req, res) => {
+  try {
+    await UserData.findByIdAndUpdate(
+      { username: req.params.username },
+      {
+        $set: {
+          password: req.body.password,
+          email: req.body.email,
+          country: req.body.country,
+          city: city.charAt(0).toUpperCase() + city.slice(1).toLowerCase(),
+          general: req.body.general,
+          business: req.body.business,
+          entertainment: req.body.entertainment,
+          health: req.body.health,
+          science: req.body.science,
+          sport: req.body.sport,
+          technology: req.body.technology,
+          newsletter: req.body.newsletter,
+        },
+      }
+    );
+    res
+      .status(200)
+      .json({ message: "Your Profile has been successfully updated." });
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
+  }
+};
+
 module.exports = userController;
