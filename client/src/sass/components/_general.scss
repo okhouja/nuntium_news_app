@@ -1,0 +1,15 @@
+.generalFather{
+   @include spaceBetweenCenterRow;
+   height: 400px;
+   width: 800px;
+}
+.generalwrapper{
+   @include spaceBetweenColumn;
+   width: 100px;
+   height: 100px;
+}
+.imgGeneral{
+    width: 12vw;
+    height: 22vh;
+
+}
