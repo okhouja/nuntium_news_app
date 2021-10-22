@@ -2,7 +2,7 @@
 const UserModel = require("../models/userModel");
 const mongoose = require("mongoose");
 
-const userController = {};
+const userCont = {};
 
 // Add new user
 
@@ -24,15 +24,15 @@ const userController = {};
 } 
 */
 
-const addNewUser = async (req, res) => {
-  let city = req.body.city;
+userCont.addNewUser = async (req, res) => {
+  let cityVar = req.body.city;
   const user = new UserModel({
     _id: mongoose.Types.ObjectId(),
     username: req.body.username,
     password: req.body.password,
     email: req.body.email.toLowerCase(),
     country: req.body.country,
-    city: city.charAt(0).toUpperCase() + city.slice(1).toLowerCase(),
+    city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
     general: req.body.general,
     business: req.body.business,
     entertainment: req.body.entertainment,
@@ -56,7 +56,7 @@ const addNewUser = async (req, res) => {
 
 // GET All Users
 
-const getAllUsers = async (req, res) => {
+userCont.getAllUsers = async (req, res) => {
   try {
     const users = await UserModel.find();
     res.status(200).json(users);
@@ -66,48 +66,53 @@ const getAllUsers = async (req, res) => {
 };
 
 // Get User Profile
-const getUser = async (req, res) => {
-  const user = await UserModel.findOne({ _id: req.params.id });
+userCont.getUser = async (req, res) => {
+  const user = await UserModel.findById(req.params._id);
   try {
-    return res.status(200).json(user);
-    // if (!user) {
-    //   return res.status(404).json({ message: "User not found" });
-    // } else {
-
-    // }
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: "This profile does not yet exist." });
+    } else {
+      res.status(200).json(user);
+    }
   } catch (err) {
-    res.status(err.status).json({ message: err.message });
+    res.status(404).json({ message: "This profile does not exist." });
   }
 };
 
 // Update user information
-const updateProfile = async (req, res) => {
+userCont.updateProfile = async (req, res) => {
+  let cityVar = req.body.city;
   try {
-    await UserModel.findByIdAndUpdate(
-      { username: req.params.username },
+    const user = await UserModel.findByIdAndUpdate(
+      { _id: req.params._id },
+
       {
-        $set: {
-          password: req.body.password,
-          email: req.body.email,
-          country: req.body.country,
-          city: city.charAt(0).toUpperCase() + city.slice(1).toLowerCase(),
-          general: req.body.general,
-          business: req.body.business,
-          entertainment: req.body.entertainment,
-          health: req.body.health,
-          science: req.body.science,
-          sport: req.body.sport,
-          technology: req.body.technology,
-          newsletter: req.body.newsletter,
-        },
-      }
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        country: req.body.country,
+        city:
+          cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase() ||
+          res.user.city,
+        general: req.body.general,
+        business: req.body.business,
+        entertainment: req.body.entertainment,
+        health: req.body.health,
+        science: req.body.science,
+        sport: req.body.sport,
+        technology: req.body.technology,
+        newsletter: req.body.newsletter,
+      },
+      { new: true }
     );
     res
       .status(200)
-      .json({ message: "Your Profile has been successfully updated." });
+      .json({ message: "Your Profile has been successfully updated.", user });
   } catch (err) {
-    res.status(err.status).json({ message: err.message });
+    res.status(404).json({ message: err.message });
   }
 };
 
-module.exports = { addNewUser, getUser, getAllUsers, updateProfile };
+module.exports = userCont;
