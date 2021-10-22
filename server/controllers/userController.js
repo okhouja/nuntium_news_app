@@ -2,7 +2,7 @@
 const UserModel = require("../models/userModel");
 const mongoose = require("mongoose");
 
-// const userController = {};
+const userCont = {};
 
 // Add new user
 
@@ -24,15 +24,15 @@ const mongoose = require("mongoose");
 } 
 */
 
-const addNewUser = async (req, res) => {
-  let city = req.body.city;
+userCont.addNewUser = async (req, res) => {
+  let cityVar = req.body.city;
   const user = new UserModel({
     _id: mongoose.Types.ObjectId(),
     username: req.body.username,
     password: req.body.password,
     email: req.body.email.toLowerCase(),
     country: req.body.country,
-    city: city.charAt(0).toUpperCase() + city.slice(1).toLowerCase(),
+    city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
     general: req.body.general,
     business: req.body.business,
     entertainment: req.body.entertainment,
@@ -56,7 +56,7 @@ const addNewUser = async (req, res) => {
 
 // GET All Users
 
-const getAllUsers = async (req, res) => {
+userCont.getAllUsers = async (req, res) => {
   try {
     const users = await UserModel.find();
     res.status(200).json(users);
@@ -66,7 +66,7 @@ const getAllUsers = async (req, res) => {
 };
 
 // Get User Profile
-const getUser = async (req, res) => {
+userCont.getUser = async (req, res) => {
   const user = await UserModel.findById(req.params._id);
   try {
     if (!user) {
@@ -82,18 +82,20 @@ const getUser = async (req, res) => {
 };
 
 // Update user information
-const updateProfile = async (req, res) => {
-  let city = req.body.city;
+userCont.updateProfile = async (req, res) => {
+  let cityVar = req.body.city;
   try {
     const user = await UserModel.findByIdAndUpdate(
       { _id: req.params._id },
 
       {
-        username: req.body.username || res.user.username,
+        username: req.body.username,
         password: req.body.password,
         email: req.body.email,
         country: req.body.country,
-        city: city.charAt(0).toUpperCase() + city.slice(1).toLowerCase(),
+        city:
+          cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase() ||
+          res.user.city,
         general: req.body.general,
         business: req.body.business,
         entertainment: req.body.entertainment,
@@ -113,4 +115,4 @@ const updateProfile = async (req, res) => {
   }
 };
 
-module.exports = { addNewUser, getUser, getAllUsers, updateProfile };
+module.exports = userCont;
