@@ -83,31 +83,33 @@ const getUser = async (req, res) => {
 
 // Update user information
 const updateProfile = async (req, res) => {
+  let city = req.body.city;
   try {
-    await UserModel.findByIdAndUpdate(
-      { _id: req.user._id },
+    const user = await UserModel.findByIdAndUpdate(
+      { _id: req.params._id },
+
       {
-        $set: {
-          password: req.body.password,
-          email: req.body.email,
-          country: req.body.country,
-          city: city.charAt(0).toUpperCase() + city.slice(1).toLowerCase(),
-          general: req.body.general,
-          business: req.body.business,
-          entertainment: req.body.entertainment,
-          health: req.body.health,
-          science: req.body.science,
-          sport: req.body.sport,
-          technology: req.body.technology,
-          newsletter: req.body.newsletter,
-        },
-      }
+        username: req.body.username || res.user.username,
+        password: req.body.password,
+        email: req.body.email,
+        country: req.body.country,
+        city: city.charAt(0).toUpperCase() + city.slice(1).toLowerCase(),
+        general: req.body.general,
+        business: req.body.business,
+        entertainment: req.body.entertainment,
+        health: req.body.health,
+        science: req.body.science,
+        sport: req.body.sport,
+        technology: req.body.technology,
+        newsletter: req.body.newsletter,
+      },
+      { new: true }
     );
     res
       .status(200)
-      .json({ message: "Your Profile has been successfully updated." });
+      .json({ message: "Your Profile has been successfully updated.", user });
   } catch (err) {
-    res.status(err.status).json({ message: err.message });
+    res.status(404).json({ message: err.message });
   }
 };
 
