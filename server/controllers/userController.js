@@ -2,7 +2,7 @@
 const UserModel = require("../models/userModel");
 const mongoose = require("mongoose");
 
-const userController = {};
+// const userController = {};
 
 // Add new user
 
@@ -67,16 +67,17 @@ const getAllUsers = async (req, res) => {
 
 // Get User Profile
 const getUser = async (req, res) => {
-  const user = await UserModel.findOne({ _id: req.params.id });
+  const user = await UserModel.findById(req.params._id);
   try {
-    return res.status(200).json(user);
-    // if (!user) {
-    //   return res.status(404).json({ message: "User not found" });
-    // } else {
-
-    // }
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: "This profile does not yet exist." });
+    } else {
+      res.status(200).json(user);
+    }
   } catch (err) {
-    res.status(err.status).json({ message: err.message });
+    res.status(404).json({ message: "This profile does not exist." });
   }
 };
 
@@ -84,7 +85,7 @@ const getUser = async (req, res) => {
 const updateProfile = async (req, res) => {
   try {
     await UserModel.findByIdAndUpdate(
-      { username: req.params.username },
+      { _id: req.user._id },
       {
         $set: {
           password: req.body.password,
