@@ -24,7 +24,7 @@ const userController = {};
 } 
 */
 
-userController.addNewUser = async (req, res) => {
+const addNewUser = async (req, res) => {
   let city = req.body.city;
   const user = new UserModel({
     _id: mongoose.Types.ObjectId(),
@@ -56,7 +56,7 @@ userController.addNewUser = async (req, res) => {
 
 // GET All Users
 
-userController.getAllUsers = async (req, res) => {
+const getAllUsers = async (req, res) => {
   try {
     const users = await UserModel.find();
     res.status(200).json(users);
@@ -65,20 +65,23 @@ userController.getAllUsers = async (req, res) => {
   }
 };
 
-// Get on User Profile
-userController.getUser = async (req, res) => {
-  const user = await UserModel.findById(req.params.id);
+// Get User Profile
+const getUser = async (req, res) => {
+  const user = await UserModel.findOne({ _id: req.params.id });
   try {
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
+    return res.status(200).json(user);
+    // if (!user) {
+    //   return res.status(404).json({ message: "User not found" });
+    // } else {
+
+    // }
   } catch (err) {
     res.status(err.status).json({ message: err.message });
   }
 };
 
 // Update user information
-userController.updateProfile = async (req, res) => {
+const updateProfile = async (req, res) => {
   try {
     await UserModel.findByIdAndUpdate(
       { username: req.params.username },
@@ -107,4 +110,4 @@ userController.updateProfile = async (req, res) => {
   }
 };
 
-module.exports = userController;
+module.exports = { addNewUser, getUser, getAllUsers, updateProfile };
