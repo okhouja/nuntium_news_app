@@ -5,15 +5,17 @@ app.use(morgan("dev"));
 // Allow Express to understand json
 app.use(express.json());
 
-//Router
+// Import Router
 const userRouter = require("./router/user");
-app.use("/signup", userRouter);
+app.use("/", userRouter);
 
-const articleRouter = require("./router/article");
-app.use("/article", articleRouter);
+// Set Routers
 
-const test = require("./router/test");
-app.use("/test", test);
+// const articleRouter = require("./router/article");
+// app.use("/article", articleRouter);
+
+// const test = require("./router/test");
+// app.use("/test", test);
 // Connect to MongoDB
 
 const mongoose = require("mongoose");
