@@ -12,4 +12,6 @@ router.route("/signup").post(userCont.addNewUser);
 
 router.route("/update/:_id").patch(userCont.updateProfile);
 
+router.route("/delete/:_id").delete(userCont.deleteUser);
+
 module.exports = router;

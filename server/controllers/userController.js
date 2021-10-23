@@ -93,9 +93,7 @@ userCont.updateProfile = async (req, res) => {
         password: req.body.password,
         email: req.body.email,
         country: req.body.country,
-        city:
-          cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase() ||
-          res.user.city,
+        city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
         general: req.body.general,
         business: req.body.business,
         entertainment: req.body.entertainment,
@@ -112,6 +110,17 @@ userCont.updateProfile = async (req, res) => {
       .json({ message: "Your Profile has been successfully updated.", user });
   } catch (err) {
     res.status(404).json({ message: err.message });
+  }
+};
+
+userCont.deleteUser = async (req, res) => {
+  try {
+    const user = await UserModel.findByIdAndRemove(req.params._id);
+    res
+      .status(200)
+      .json({ message: "This profile has been deleted successfully", user });
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
   }
 };
 
