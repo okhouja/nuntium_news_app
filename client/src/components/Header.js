@@ -6,21 +6,36 @@ import {
     FaYoutube,
     FaUserAlt,
   } from "react-icons/fa";
-function Header (){
+  import { Link } from "react-router-dom";
+  import { Redirect } from "react-router-dom";
+  
 
-  const today = new Date();
-  const showDate = today.getFullYear()+'-'+(today.getMonth(+1)+'-'+today.getDate());
+function Header ({authorized}){
+  console.log(authorized);
+ 
+  
+
+
+  const today = new Date().toLocaleDateString();
+  console.log(today);
+  // const showDate = today.getFullYear()+'-'+today.getMonth() +'-'+today.getDate();
 
   function changeHandle(e) {
     e.preventDefault();
     
+  };
+  const handelChange = ()=>{
+
   }
+  
+  
+
     return(
         <div >
           <div className="headerFather" >
           <div className="weather"></div>
                     <div className="date">
-                      <input type="text"   onChange={changeHandle} value={showDate} />
+                      <input type="text"   onChange={changeHandle} value={today} />
                       </div>
            
 <div className="iconFather">
@@ -37,9 +52,12 @@ function Header (){
            < FaYoutube />
             </a>
          </div>   
-                    <div className="sign-in">
+         <button onClick={handelChange}>Sign</button>
+
+<div>
                         <i><FaUserAlt/></i>    
-                    </div>      
+                    </div>    
+                    
             <img className="logo" src="./img/Logo_lightmode.svg" alt="logo"></img> 
             
                 

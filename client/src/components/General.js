@@ -13,45 +13,49 @@ import axios from "axios";
      
     
     useEffect(() => {
-      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${languages}&keywords=corona&offset=4&sort=published_desc`).then((data)=>setGeneral(data.data.data));
+      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${languages}&sort=published_desc`).then((data)=>setGeneral(data.data.data));
       
   }, [])
   console.log(general);
   
     const generalNews = general.map((obj,i)=>{
         const {author, title, image, url, description} = obj;
-        if (i < 6){
+        if (i < 3 && image != (null))  {
         return(
-            <div className= "generalFather">
-                <div className="generalFathe">
-                    <div>
-                    <img className="imgGeneral" src={image} alt={title}    />
-
-                    </div>
-                  < div>
-                <h1>{title}</h1>
+            <div>
+            
+                <div className="generalwrapper">
+                    <div className="imgFather">
+                    
+                     <img className="imgGeneral" src={image} alt={title} width="200px" height="200px"   />
+</div>
+                    
+                  
+                <div className="otherFather">
+                <h1 className="generalTitle">{title}</h1>
                 <p>{description}</p>
-                <a href={url}>{title}</a>
-                <p>{author}</p>
+                <a className="linkGereral" href={url}>Click Here</a>
+                <p className="authorGeneral">{author}</p> 
+                </div>
+                
+                
                 </div>
                 </div> 
-
-
-              
-            </div>
-
         )
         }
 
     })
 
-    console.log()
+    
 
     return (
-        <div>
-            <div>
+        <div className="generalupFather">
+           <div className="general">GENERAL</div> 
+        <div  className="generalFather">
+            
                 {generalNews}
-            </div>
+
+        </div>
         </div>
     )
 }
