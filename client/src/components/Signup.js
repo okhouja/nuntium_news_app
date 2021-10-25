@@ -3,7 +3,7 @@ import { Redirect } from "react-router-dom";
 
 
 
-function signup() {
+function Signup() {
 
   return <div>
     <form action="./" method="get">
@@ -20,4 +20,4 @@ function signup() {
   </div>;
 }
 
-export default signup;
+export default Signup;

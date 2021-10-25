@@ -1,0 +1,48 @@
+.sports{
+    color:  black;;
+    font-size: 2rem;
+    font-weight: bolder;
+    position: relative;
+    top: -80vh;
+    left: 0vw;
+    &:hover{
+       color: yellow;
+    }
+ }
+ .sportsFather{
+    @include spaceBetweenColumn;
+     height: 800px;
+     width: 800px;
+     border:  solid 1px red;
+     flex-wrap: wrap;
+     position: relative;
+     top: -77vh;
+     left: 0vw;
+  }
+  .sportswrapper{
+    @include spaceBetweenStartRow;
+    border:  solid 1px blue;
+    height:250px ;
+    width: 680px;  
+ }
+
+.sportsTitle, .sportsLink, .sportsAuthor{
+    font-size: 1.5rem;
+    color: #000;
+    
+ }
+  .sportsAuthor{
+     text-align: center;
+ }
+
+ .sportsDescription{
+     font-size: 0.8rem;
+     color: #000;
+     overflow: hidden;
+ }
+ .othersportsFather{
+
+     @include spaceBetweenColumn;
+ }
+
+ 

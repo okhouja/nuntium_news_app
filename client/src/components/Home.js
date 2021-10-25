@@ -2,7 +2,8 @@ import {React, useState} from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Header from "./Header";
-import General from "./General";
+import WrapperCategories from "./WrapperCategories";
+
 import Navbar from "./Navbar";
 import Searchbar from "./SearchBar";
 import Footer from "./Footer";
@@ -17,24 +18,23 @@ function Home() {
 
   return (
     
-  
+  <div >
 
      
-   <Router >
+  
       <Header/>
 
 <Navbar />
 <Searchbar />
-<General />
+<WrapperCategories />
 <Footer />   
+</div>
       
-      <Switch>
-        <Route path="/home/signup" exact component={Signup}/>
+      
       
         
 
-      </Switch>
-      </Router>
+      
      
        
     
