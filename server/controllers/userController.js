@@ -1,5 +1,5 @@
 // Model (Schema)
-const UserModel = require("../models/userModel");
+const User = require("../models/userModel");
 const mongoose = require("mongoose");
 
 const userCont = {};
@@ -56,7 +56,7 @@ userCont.addNewUser = async (req, res) => {
 
 userCont.getAllUsers = async (req, res) => {
   try {
-    const users = await UserModel.find();
+    const users = await User.find();
     res.status(200).json(users);
   } catch (err) {
     res.status(err.status).json({ message: err.message });
@@ -64,8 +64,8 @@ userCont.getAllUsers = async (req, res) => {
 };
 
 // Get User Profile
-userCont.getUser = async (req, res) => {
-  const user = await UserModel.findById(req.params._id);
+userCont.checkUser = async (req, res, next) => {
+  const user = await User.findById(req.params._id);
   try {
     if (!user) {
       return res
@@ -77,13 +77,28 @@ userCont.getUser = async (req, res) => {
   } catch (err) {
     res.status(404).json({ message: "This profile does not exist." });
   }
+  req.user = user;
+  next();
+};
+
+userCont.getOneUser = async (req, res) => {
+  try {
+    const user = await User.findById(req.params._id).populate("comments");
+    // res.status(200).json(user);
+    res.status(200).json({
+      message: `${user.username} has ${user.books.length} comments`,
+      comments: user.comment.map((comment) => comment.content).join(", "),
+    });
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
+  }
 };
 
 // Update user information
 userCont.updateProfile = async (req, res) => {
   let cityVar = req.body.city;
   try {
-    const user = await UserModel.findByIdAndUpdate(
+    const user = await User.findByIdAndUpdate(
       { _id: req.params._id },
 
       {
@@ -114,7 +129,7 @@ userCont.updateProfile = async (req, res) => {
 
 userCont.deleteUser = async (req, res) => {
   try {
-    const user = await UserModel.findByIdAndDelete(req.params._id);
+    const user = await User.findByIdAndDelete(req.params._id);
     res.status(200).json({
       message: `profile ${user.Profile} has been deleted successfully`,
     });

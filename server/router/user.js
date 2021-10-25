@@ -6,7 +6,7 @@ const userCont = require("../controllers/userController");
 
 router.route("/users").get(userCont.getAllUsers);
 
-router.route("/user/:_id").get(userCont.getUser);
+router.route("/user/:_id").get(userCont.checkUser);
 
 router.route("/signup").post(userCont.addNewUser);
 
