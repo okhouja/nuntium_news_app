@@ -38,9 +38,10 @@ const UserSchema = Schema(
     articleCollection: [{ type: Schema.Types.ObjectId, ref: "Article" }],
     userAddedDate: { type: Date, required: true, default: Date.now },
     //commentCollection: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
-    likes: [],
+    likes: { type: Number, default: 0 },
   },
   { versionKey: false }
 );
 
-module.exports = mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
+module.exports = User;
