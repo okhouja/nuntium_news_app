@@ -13,6 +13,7 @@ const articleSchema = new Schema({
   languages: { type: String },
   country: { type: String },
   comments: [{ type: ObjectId, ref: "Comment" }],
+  likes: { type: Number, default: 0 },
   published_at: { type: Date },
 });
 

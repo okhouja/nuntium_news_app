@@ -1,8 +1,8 @@
 // Model (Schema)
-const UserData = require("../models/userModel");
+const UserModel = require("../models/userModel");
 const mongoose = require("mongoose");
 
-const userController = {};
+const userCont = {};
 
 // Add new user
 
@@ -24,15 +24,15 @@ const userController = {};
 } 
 */
 
-userController.addNewUser = async (req, res) => {
-  let city = req.body.city;
-  const user = new UserData({
+userCont.addNewUser = async (req, res) => {
+  let cityVar = req.body.city;
+  const user = new UserModel({
     _id: mongoose.Types.ObjectId(),
     username: req.body.username,
     password: req.body.password,
     email: req.body.email.toLowerCase(),
     country: req.body.country,
-    city: city.charAt(0).toUpperCase() + city.slice(1).toLowerCase(),
+    city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
     general: req.body.general,
     business: req.body.business,
     entertainment: req.body.entertainment,
@@ -56,13 +56,63 @@ userController.addNewUser = async (req, res) => {
 
 // GET All Users
 
-userController.getAllUsers = async (req, res) => {
+userCont.getAllUsers = async (req, res) => {
   try {
-    const users = await UserData.find();
+    const users = await UserModel.find();
     res.status(200).json(users);
   } catch (err) {
     res.status(err.status).json({ message: err.message });
   }
 };
 
-module.exports = userController;
+// Get User Profile
+userCont.getUser = async (req, res) => {
+  const user = await UserModel.findById(req.params._id);
+  try {
+    if (!user) {
+      return res
+        .status(404)
+        .json({ message: "This profile does not yet exist." });
+    } else {
+      res.status(200).json(user);
+    }
+  } catch (err) {
+    res.status(404).json({ message: "This profile does not exist." });
+  }
+};
+
+// Update user information
+userCont.updateProfile = async (req, res) => {
+  let cityVar = req.body.city;
+  try {
+    const user = await UserModel.findByIdAndUpdate(
+      { _id: req.params._id },
+
+      {
+        username: req.body.username,
+        password: req.body.password,
+        email: req.body.email,
+        country: req.body.country,
+        city:
+          cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase() ||
+          res.user.city,
+        general: req.body.general,
+        business: req.body.business,
+        entertainment: req.body.entertainment,
+        health: req.body.health,
+        science: req.body.science,
+        sport: req.body.sport,
+        technology: req.body.technology,
+        newsletter: req.body.newsletter,
+      },
+      { new: true }
+    );
+    res
+      .status(200)
+      .json({ message: "Your Profile has been successfully updated.", user });
+  } catch (err) {
+    res.status(404).json({ message: err.message });
+  }
+};
+
+module.exports = userCont;
