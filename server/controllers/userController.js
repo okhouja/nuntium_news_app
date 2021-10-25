@@ -43,11 +43,9 @@ userCont.addNewUser = async (req, res) => {
     newsletter: req.body.newsletter,
   });
   try {
-    const newUser = await user.save();
-    console.log(newUser);
+    await user.save();
     res.status(201).json({
-      message: "New user has been created successfully",
-      newUser,
+      message: `Your Profile ${user.username} has been created successfully`,
     });
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -93,9 +91,7 @@ userCont.updateProfile = async (req, res) => {
         password: req.body.password,
         email: req.body.email,
         country: req.body.country,
-        city:
-          cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase() ||
-          res.user.city,
+        city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
         general: req.body.general,
         business: req.body.business,
         entertainment: req.body.entertainment,
@@ -107,11 +103,23 @@ userCont.updateProfile = async (req, res) => {
       },
       { new: true }
     );
+    user.save();
     res
       .status(200)
-      .json({ message: "Your Profile has been successfully updated.", user });
+      .json({ message: `Your Profile has been successfully updated.` });
   } catch (err) {
     res.status(404).json({ message: err.message });
+  }
+};
+
+userCont.deleteUser = async (req, res) => {
+  try {
+    const user = await UserModel.findByIdAndDelete(req.params._id);
+    res.status(200).json({
+      message: `profile ${user.Profile} has been deleted successfully`,
+    });
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
   }
 };
 
