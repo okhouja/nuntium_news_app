@@ -1,6 +1,6 @@
 const CommentData = require("../models/commentModel");
 
-const commentController = {};
+const commentCont = {};
 
 commentController.addNewComment = async (req, res) => {
   const comment = new CommentData({

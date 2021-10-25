@@ -1,25 +1,22 @@
 // const ApiClient = require("./apiClient");
 const axios = require("axios");
+const Article = require("../models/articleModel");
 const config = require("../config");
 
-const articleController = {};
+const myKey = config.APP_KEY;
+const articleCont = {};
 
-articleController.news = async (req, res) => {
-  const myKey = config.APP_KEY;
-
-  try {
-    const { data } = await axios
-      .get(
-        `http://api.mediastack.com/v1/news?access_key=${myKey}&categories=sports&languages=de&sort=published_desc`
-      )
-      .then()
-      .catch();
-
-    console.log(data);
-    res.status(200).json(data);
-  } catch (err) {
-    res.status(401).json({ message: err.message });
-  }
+articleCont.news = async (req, res) => {
+  await axios
+    .get(
+      `http://api.mediastack.com/v1/news?access_key=${myKey}&categories=sports&languages=en&sort=published_desc`
+    )
+    .then((articles) => {
+      res.status(200).json(articles.data);
+    })
+    .catch((err) => {
+      res.status(401).json({ message: err.message });
+    });
 };
 
 // articleController.getArticle = async (req, res) => {
@@ -31,4 +28,4 @@ articleController.news = async (req, res) => {
 //   }
 // };
 
-module.exports = articleController;
+module.exports = articleCont;

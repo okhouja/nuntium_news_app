@@ -35,9 +35,9 @@ const UserSchema = Schema(
     sport: Boolean,
     technology: Boolean,
     newsletter: Boolean,
-    articleCollection: [{ type: Schema.Types.ObjectId, ref: "Article" }],
-    userAddedDate: { type: Date, required: true, default: Date.now },
-    //commentCollection: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
+    //articleCollection: [{ type: Schema.Types.ObjectId, ref: "Article" }],
+    registerDate: { type: Date, required: true, default: Date.now },
+    commentCollection: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     likes: { type: Number, default: 0 },
   },
   { versionKey: false }
