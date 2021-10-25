@@ -1,15 +1,41 @@
 .generalFather{
-   @include spaceBetweenCenterRow;
-   height: 400px;
+  @include spaceBetweenColumn;
+   height: 800px;
    width: 800px;
+   border:  solid 1px red;
+   flex-wrap: wrap;
+   position: relative;
+   top: -77vh;
 }
 .generalwrapper{
-   @include spaceBetweenColumn;
-   width: 100px;
-   height: 100px;
-}
-.imgGeneral{
-    width: 12vw;
-    height: 22vh;
+   @include spaceBetweenStartRow;
+   border:  solid 1px blue;
+   height:220px ;
+   width: 800px;
+   
+   
 
+   
+}
+
+.generalTitle{
+   font-size: 1.5rem;
+}
+
+// .imgFather{
+//    @include spaceBetweenColumn;
+//    border:  solid 1px yellow;
+
+
+
+// }
+.otherFather{
+   @include spaceBetweenColumn;
+
+
+}
+.general{
+   color:  white;;
+   position: relative;
+   top: -77vh;
 }
