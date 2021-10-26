@@ -10,32 +10,28 @@
 .generalwrapper{
    @include spaceBetweenStartRow;
    border:  solid 1px blue;
-   height:220px ;
+   height:250px ;
    width: 800px;
-   
-   
-
-   
 }
 
-.generalTitle{
+.generalTitle, .gererallink, .generalAuthor, .generaldescription{
    font-size: 1.5rem;
+   color: #000;
 }
 
-// .imgFather{
-//    @include spaceBetweenColumn;
-//    border:  solid 1px yellow;
 
-
-
-// }
 .otherFather{
    @include spaceBetweenColumn;
 
 
 }
 .general{
-   color:  white;;
+   color:  black;;
+   font-size: 2rem;
+   font-weight: bolder;
    position: relative;
-   top: -77vh;
+   top: -80vh;
+   &:hover{
+      color: yellow;
+   }
 }

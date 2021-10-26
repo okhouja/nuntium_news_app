@@ -1,6 +1,6 @@
 import React from "react";
 
-function login() {
+function Login() {
   return <div>
     <input type="text" name="username"/>
     <input type="password" name="password" />
@@ -9,4 +9,4 @@ function login() {
   </div>;
 }
 
-export default login;
+export default Login;
