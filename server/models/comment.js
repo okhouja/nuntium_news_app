@@ -11,11 +11,11 @@ const replySchema = new Schema({
 });
 
 const CommentSchema = new Schema({
-  postedBy: [{ type: ObjectId, ref: "User" }],
+  postedBy: { type: ObjectId, ref: "User" },
   content: String,
   articel: { type: ObjectId, ref: "Article" },
-  likes: [{ type: ObjectId, ref: "User" }],
-  publishedAt: [{ type: Date, required: true, default: Date.now }],
+  likes: { type: ObjectId, ref: "User" },
+  publishedAt: { type: Date, required: true, default: Date.now },
   replies: [replySchema],
 });
 
