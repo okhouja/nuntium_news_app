@@ -51,6 +51,12 @@ h1,h2{
 }
 .iconFooter{
     color: white;
+    &:hover{
+        color: yellow;
+    }
+    &:active{
+        color: red;
+    }
 
 }
 
@@ -61,4 +67,13 @@ h1,h2{
 .logoFooter{
     width: 18vw;
     height: 18vh;
+}
+.footerLink{
+    color: white;
+    &:hover{
+        color: yellow;
+    }
+    &:active{
+color: red;
+    }
 }

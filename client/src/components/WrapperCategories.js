@@ -1,11 +1,11 @@
 import React from 'react'
-import General from './General';
-import Sports from "./Sports"
-import Business from "./Business";
-import Science from "./Science";
-import Technology from "./Technology";
-import Health from "./Health";
-import Entertainment from "./Entertainment";
+import General from './categories/General';
+import Sports from "./categories/Sports"
+import Business from "./categories/Business";
+import Science from "./categories/Science";
+import Technology from "./categories/Technology";
+import Health from "./categories/Health";
+import Entertainment from "./categories/Entertainment";
 
 
 

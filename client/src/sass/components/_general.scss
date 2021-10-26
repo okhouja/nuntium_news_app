@@ -1,7 +1,7 @@
 .generalFather{
   @include spaceBetweenColumn;
    height: 800px;
-   width: 800px;
+   width: 1200px;
    border:  solid 1px red;
    flex-wrap: wrap;
    position: relative;
@@ -11,7 +11,7 @@
    @include spaceBetweenStartRow;
    border:  solid 1px blue;
    height:250px ;
-   width: 800px;
+   width: 600px;
 }
 
 .generalTitle, .gererallink, .generalAuthor, .generaldescription{
@@ -33,5 +33,8 @@
    top: -80vh;
    &:hover{
       color: yellow;
+   }
+   &:active{
+      color: red;
    }
 }

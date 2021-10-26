@@ -1,20 +1,20 @@
 import {React , useEffect, useState} from 'react';
-import myKey from "../context/config";
+import myKey from "../../context/config";
 import axios from "axios";
 
- const Technology = () => {
-     const [categories, setCategories] = useState("technology");
+ const Sports = () => {
+     const [categories, setCategories] = useState("sports");
      const [languages , setLanguages] = useState("en");
-     const [technology, setTechnology] = useState([]);
+     const [sports, setSports] = useState([]);
      const API_KEY = myKey.apiKey;
      
-    useEffect(() => {
-      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${languages}&sort=published_desc`).then((data)=>setTechnology(data.data.data.filter((item)=> item.image).slice(0,3)));
+  //   useEffect(() => {
+  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${languages}&sort=published_desc`).then((data)=>setSports(data.data.data.filter((item)=> item.image).slice(0,6)));
       
-  }, [])
-  console.log(technology);
+  // }, [])
+  // console.log(sports);
 
-  const technolgyNews = technology.map((item)=>{
+  const sportNews = sports.map((item)=>{
     const {author, title, image, url, description} = item;
     return(
                    <div>          
@@ -34,12 +34,12 @@ import axios from "axios";
   })
     return (
      <div >
-          <div className="technology">TECHNOLOGY</div> 
+          <div id="sports" className="sports">SPORTS</div> 
     <div  className="sportsFather">     
-              {technolgyNews}
+              {sportNews}
        </div>    
             </div>
        
     )
 }
-export default Technology;
+export default Sports;
