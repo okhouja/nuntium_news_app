@@ -26,7 +26,7 @@ const userCont = {};
 
 userCont.addNewUser = async (req, res) => {
   let cityVar = req.body.city;
-  const user = new UserModel({
+  const user = new User({
     _id: mongoose.Types.ObjectId(),
     username: req.body.username,
     password: req.body.password,
@@ -83,10 +83,12 @@ userCont.checkUser = async (req, res, next) => {
 
 userCont.getOneUser = async (req, res) => {
   try {
-    const user = await User.findById(req.params._id).populate("comments");
+    const user = await User.findById(req.params._id).populate(
+      "commentCollection"
+    );
     // res.status(200).json(user);
     res.status(200).json({
-      message: `${user.username} has ${user.books.length} comments`,
+      message: `${user.username} has ${user.books.length} commentCollection`,
       comments: user.comment.map((comment) => comment.content).join(", "),
     });
   } catch (err) {

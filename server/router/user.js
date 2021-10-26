@@ -10,8 +10,8 @@ router.route("/user/:_id").get(userCont.checkUser);
 
 router.route("/signup").post(userCont.addNewUser);
 
-router.route("/update/:_id").patch(userCont.updateProfile);
+router.route("/user/update/:_id").patch(userCont.updateProfile);
 
-router.route("/delete/:_id").delete(userCont.deleteUser);
+router.route("/user/delete/:_id").delete(userCont.deleteUser);
 
 module.exports = router;

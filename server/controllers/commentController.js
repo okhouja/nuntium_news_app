@@ -20,6 +20,8 @@ const commentCont = {};
 // };
 
 // Get All Comments for All users Profile
+
+// for future  get commnets for one article
 commentCont.getAllComments = async (req, res) => {
   try {
     const comment = await Comment.find();
@@ -30,20 +32,24 @@ commentCont.getAllComments = async (req, res) => {
 };
 
 commentCont.addNewComment = async (req, res) => {
-  User.findById(req.params.id)
+  User.findById(req.params._id)
     .then((user) => {
       if (user) {
+        console.log(user);
         const comment = new Comment({
           _id: new mongoose.Types.ObjectId(),
-          postedBy: req.params.id,
+          postedBy: req.params._id,
           content: req.body.content,
         });
         comment.save();
-        user.comments.push(comment);
+        user.commentCollection.push(comment._id);
         user.save();
         res
           .status(201)
-          .json({ message: "Your comment has been added successfully" });
+          .json({
+            message: "Your comment has been added successfully",
+            comment,
+          });
       } else {
         return res.status(404).json({ message: "User Not Found" });
       }
@@ -55,3 +61,5 @@ commentCont.addNewComment = async (req, res) => {
 };
 
 // Get
+
+module.exports = commentCont;
