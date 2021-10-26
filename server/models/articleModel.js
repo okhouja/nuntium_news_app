@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
-const articleSchema = new Schema({
+const articleSchema = Schema({
   title: { type: String },
   author: { type: String },
   description: { type: String },
@@ -14,7 +14,9 @@ const articleSchema = new Schema({
   country: { type: String },
   comments: [{ type: ObjectId, ref: "Comment" }],
   likes: { type: Number, default: 0 },
-  published_at: { type: Date },
+  published_at: { type: Date, default: Date.now },
 });
 
-module.exports = mongoose.model("Article", articleSchema);
+const Article = mongoose.model("Article", articleSchema);
+
+module.exports = Article;
