@@ -5,6 +5,7 @@ const mongoose = require("mongoose");
 
 const articleCont = {};
 
+//                                              Get All Articles
 articleCont.getAllArticle = async (req, res) => {
   try {
     const articles = await Article.find();
@@ -13,6 +14,8 @@ articleCont.getAllArticle = async (req, res) => {
     res.status(err.status).json(err.message);
   }
 };
+
+//                                   Check if the article exists
 
 articleCont.checkArticle = async (req, res, next) => {
   const article = await Article.findById(req.params._id);
@@ -26,5 +29,8 @@ articleCont.checkArticle = async (req, res, next) => {
   req.article = article;
   next();
 };
+
+// Add new Article
+articleCont.addNewArticle = async (req, res) => {};
 
 module.exports = articleCont;
