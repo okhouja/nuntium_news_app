@@ -30,6 +30,18 @@ articleCont.checkArticle = async (req, res, next) => {
   next();
 };
 
+// Get Article
+
+articleCont.getArticle = async (req, res) => {
+  try {
+    const article = await Article.findById(req.params._id).populate(
+      "commentCollection"
+    );
+    res.status(200).json(article);
+  } catch (err) {
+    res.status(err.message).json({ message: err.message });
+  }
+};
 // Add new Article
 articleCont.addNewArticle = async (req, res) => {};
 

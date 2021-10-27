@@ -84,13 +84,14 @@ userCont.checkUser = async (req, res, next) => {
 userCont.getOneUser = async (req, res) => {
   try {
     const user = await User.findById(req.params._id).populate(
-      "commentCollection"
+      "commentCollection",
+      "articleCollection"
     );
-    // res.status(200).json(user);
-    res.status(200).json({
-      message: `${user.username} has ${user.books.length} commentCollection`,
-      comments: user.comment.map((comment) => comment.content).join(", "),
-    });
+    res.status(200).json(user);
+    // res.status(200).json({
+    //   message: `${user.username} has ${user.commentCollection.length} commentCollection`,
+    //   comments: user.comment.map((comment) => comment.content).join(", "),
+    // });
   } catch (err) {
     res.status(err.status).json({ message: err.message });
   }
