@@ -1,4 +1,5 @@
-import React from 'react'
+import {ReactChild, useState} from 'react'
+import poweredStyle from "./styles/style";
 import {
     FaFacebook,
     FaTwitter,
@@ -7,6 +8,14 @@ import {
   } from "react-icons/fa";
 
  const Footer = () => {
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [active, setActive] = useState(false);
+    const [hover, setHover] = useState(false);
+
+
+
+
+
      const centerText = {
         textAlign: "center",
         wordSpacing: "5px",
@@ -17,12 +26,12 @@ import {
          wordSpacing: "5px",
          margin: "auto",
      }
-
-     const color = {
-        wordSpacing: "5px",
-        color: "blue",
-
+     const powered = {
+         color: "blue"
      }
+     
+
+     
     return (
         <div>
             <div className="copyrightFather">
@@ -54,18 +63,65 @@ import {
 
                         <div>
                               <ul className="ulFooter">
-                                 <li className="liFooter"><a  href="#"/>General</li>
-                                 <li className="liFooter"><a href="#"/>Bunsiness</li>
-                                 <li className="liFooter"><a href="#"/>Entertainment</li>
-                                 <li className="liFooter"><a href="#"/>Health</li>
-                                 <li className="liFooter"><a href="#"/>Science</li>
-                                 <li className="liFooter"><a href="#"/>Sports</li>
-                                 <li className="liFooter"><a href="#"/>Technology</li>
+                              <li className="liFooter" onClick={() => setMenuOpen(false)}>
+          <a className="footerLink" href="#general">
+            GENERAL
+          </a>
+        </li>
+        <li className="liFooter" onClick={() => setMenuOpen(false)}>
+          <a  className="footerLink" href="#business">
+            BUSINESS
+          </a>
+        </li>
+        <li className="liFooter" onClick={() => setMenuOpen(false)}>
+          <a className="footerLink"  href="#sports">
+            SPORT
+          </a>
+        </li>
+        <li className="liFooter" onClick={() => setMenuOpen(false)}>
+          <a className="footerLink" href="#health">
+            HEALTH
+          </a>
+        </li>
+        <li className="liFooter" onClick={() => setMenuOpen(false)}>
+          <a className="footerLink" href="#science">
+            SCIENCE
+          </a>
+        </li>
+        <li className="liFooter" onClick={() => setMenuOpen(false)}>
+          <a className="footerLink" href="#technology">
+            TECHNOLOGY
+          </a>
+        </li>
+        <li className="liFooter" onClick={() => setMenuOpen(false)}>
+          <a className="footerLink" href="#entertainment">
+            ENTERTAINMENT
+          </a>
+        </li>
                              </ul>
                         </div>
 
                 <div className="copyright">
-                    <p  style={{wordSpacing: "5px", margin: "auto"}} className="copyrightnfo">Powered By <a style={color} href="https://mediastack.com/">Meidastack</a> </p>
+                    <p  style={{wordSpacing: "5px", margin: "auto"}} className="copyrightnfo">Powered By <a 
+             
+                 onMouseOver={()=>{
+                         setHover(true);
+                    }}
+                    onFocus={()=>{
+                        setActive(true);
+                    }}
+                    onMouseOut={()=>{
+                        setActive(false)
+                    }}
+                    onMouseLeave={()=>{
+                        setHover(false)
+                    }}
+                                         
+                     style={{
+                         ...poweredStyle.normal,
+                         ...(active? poweredStyle.active: hover? poweredStyle.hover: null),
+                     }}
+                    href="https://mediastack.com/">Meidastack</a> </p>
                     <p style={{wordSpacing: "5px"}} className="copyrightnfo">Made by Ahmed & Omar & Kenana at DCI © 2021</p>
                     <p style={wordSpace} className="copyrightnfo">All rights reserved</p>
                 </div>

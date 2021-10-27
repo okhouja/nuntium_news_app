@@ -1,5 +1,5 @@
 import {React , useEffect, useState} from 'react';
-import myKey from "../context/config";
+import myKey from "../../context/config";
 import axios from "axios";
 
  const Business = () => {
@@ -9,7 +9,7 @@ import axios from "axios";
      const API_KEY = myKey.apiKey;
      
   //   useEffect(() => {
-  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${languages}&sort=published_desc`).then((data)=>setBusiness(data.data.data.filter((item)=> item.image).slice(0,3)));
+  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${languages}&sort=published_desc`).then((data)=>setBusiness(data.data.data.filter((item)=> item.image).slice(0,6)));
       
   // }, [])
   // console.log(business);
@@ -34,7 +34,7 @@ import axios from "axios";
   })
     return (
      <div >
-          <div className="business">BUSINESS</div> 
+          <div id="business" className="business">BUSINESS</div> 
     <div  className="sportsFather">     
               {businessNews}
        </div>    
