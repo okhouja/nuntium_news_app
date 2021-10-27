@@ -44,12 +44,10 @@ commentCont.addNewComment = async (req, res) => {
         comment.save();
         user.commentCollection.push(comment._id);
         user.save();
-        res
-          .status(201)
-          .json({
-            message: "Your comment has been added successfully",
-            comment,
-          });
+        res.status(201).json({
+          message: "Your comment has been added successfully",
+          comment,
+        });
       } else {
         return res.status(404).json({ message: "User Not Found" });
       }
@@ -59,6 +57,17 @@ commentCont.addNewComment = async (req, res) => {
       res.status(400).json({ message: err.message });
     });
 };
+
+commentCont.addReply = async (req, res) => {
+  Comment.findById(req.params._id)
+    .then((comment) => {
+      comment;
+    })
+    .catch((err) => {
+      res.status(400).json({ message: err.message });
+    });
+};
+// Add Replay to comment
 
 // Get
 
