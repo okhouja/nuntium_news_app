@@ -42,7 +42,28 @@ articleCont.getArticle = async (req, res) => {
     res.status(err.message).json({ message: err.message });
   }
 };
-// Add new Article
-articleCont.addNewArticle = async (req, res) => {};
+// Create Article
+articleCont.create = async (req, res) => {
+  Article.findOne({ url: req.body.url })
+    .then((article) => {
+      if (article) {
+        User.findById(req.user._id).then((user) => {
+          user.articleCollection.push(article._id);
+          user.save();
+        });
+      } else {
+        Article.create(req.body).then((article) => {
+          User.findById(req.params._id).then((user) => {
+            user.articleCollection.push(article._id);
+            user.save();
+            res.status(200).json(article);
+          });
+        });
+      }
+    })
+    .catch((err) => {
+      res.status(err.status).json({ message: err.message });
+    });
+};
 
 module.exports = articleCont;
