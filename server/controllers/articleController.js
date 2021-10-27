@@ -55,6 +55,7 @@ articleCont.AddNewArticle = async (req, res) => {
         article.save();
         user.articleCollection.push(article._id);
         user.save();
+        res.status(201).json(article);
       } else {
         return res
           .status(404)
