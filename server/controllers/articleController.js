@@ -43,22 +43,22 @@ articleCont.getArticle = async (req, res) => {
   }
 };
 // Create Article
-articleCont.create = async (req, res) => {
-  Article.findOne({ url: req.body.url })
-    .then((article) => {
-      if (article) {
-        User.findById(req.user._id).then((user) => {
-          user.articleCollection.push(article._id);
-          user.save();
+articleCont.AddNewArticle = async (req, res) => {
+  User.findById(req.params._id)
+    .then((user) => {
+      if (user) {
+        console.log(user);
+        const article = new Article({
+          _id: new mongoose.Types.ObjectId(),
+          url: req.body.url,
         });
+        article.save();
+        user.articleCollection.push(article._id);
+        user.save();
       } else {
-        Article.create(req.body).then((article) => {
-          User.findById(req.params._id).then((user) => {
-            user.articleCollection.push(article._id);
-            user.save();
-            res.status(200).json(article);
-          });
-        });
+        return res
+          .status(404)
+          .json({ message: "You need to sign in to create a new comment" });
       }
     })
     .catch((err) => {
