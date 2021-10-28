@@ -79,7 +79,7 @@ articleCont.createArticle = async (req, res) => {
         res.status(200).json(article);
       });
     } else {
-      Article.create(req.body).then((article) => {
+      Article.createArticle(req.body).then((article) => {
         User.findById(req.user._id).then((user) => {
           user.articleCollection.push(article._id);
           user.save();

@@ -1,5 +1,7 @@
 const Comment = require("../models/comment");
 const User = require("../models/userModel");
+
+const Article = require("../models/articleModel");
 const mongoose = require("mongoose");
 
 const commentCont = {};
@@ -53,6 +55,22 @@ commentCont.addNewComment = async (req, res) => {
       }
     })
 
+    .catch((err) => {
+      res.status(400).json({ message: err.message });
+    });
+};
+
+commentCont.addComment = async (req, res) => {
+  Comment.createArticle(req.body.comment)
+    .then((comment) => {
+      Article.findById(req.params._id)
+        .populate("comment")
+        .then((article) => {
+          article.comments.push(comment._id);
+          article.save();
+          res.status(201).json(article);
+        });
+    })
     .catch((err) => {
       res.status(400).json({ message: err.message });
     });
