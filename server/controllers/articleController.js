@@ -34,9 +34,7 @@ articleCont.checkArticle = async (req, res, next) => {
 
 articleCont.getArticle = async (req, res) => {
   try {
-    const article = await Article.findById(req.params._id).populate(
-      "commentCollection"
-    );
+    const article = await Article.findById(req.params._id).populate("comments");
     res.status(200).json(article);
   } catch (err) {
     res.status(err.message).json({ message: err.message });
@@ -50,7 +48,7 @@ articleCont.AddNewArticle = async (req, res) => {
         console.log(user);
         const article = new Article({
           _id: new mongoose.Types.ObjectId(),
-          url: req.body.url,
+          url: req.params.url,
         });
         article.save();
         user.articleCollection.push(article._id);
@@ -65,6 +63,31 @@ articleCont.AddNewArticle = async (req, res) => {
     .catch((err) => {
       res.status(err.status).json({ message: err.message });
     });
+};
+
+articleCont.createArticle = async (req, res) => {
+  Article.findOne({ url: req.body.url }).then((article) => {
+    if (!article) {
+      const article = new Article({
+        _id: new mongoose.Types.ObjectId(),
+        url: req.params.url,
+      });
+      User.findById(req.user._id).then((user) => {
+        article.save();
+        user.articleCollection.push(article._id);
+        user.save();
+        res.status(200).json(article);
+      });
+    } else {
+      Article.create(req.body).then((article) => {
+        User.findById(req.user._id).then((user) => {
+          user.articleCollection.push(article._id);
+          user.save();
+          res.status(200).json(article);
+        });
+      });
+    }
+  });
 };
 
 module.exports = articleCont;
