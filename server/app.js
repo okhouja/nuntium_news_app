@@ -12,7 +12,8 @@ app.use("/", userRouter);
 const commentRouter = require("./router/comment");
 app.use("/", commentRouter);
 
-// Set Routers
+const articleRouter = require("./router/article");
+app.use("/", articleRouter);
 
 // const articleRouter = require("./router/article");
 // app.use("/article", articleRouter);

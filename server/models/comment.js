@@ -5,7 +5,7 @@ const ObjectId = Schema.Types.ObjectId;
 
 const CommentSchema = Schema({
   _id: ObjectId,
-  postedBy: { type: ObjectId, ref: "User" },
+  postedBy: String,
   content: String,
   articel: { type: ObjectId, ref: "Article" },
   likes: { type: Number, default: 0, ref: "User" },

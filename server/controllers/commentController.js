@@ -1,5 +1,7 @@
-const Comment = require("../models/comment");
-const User = require("../models/userModel");
+const { Comment } = require("../models/comment");
+//const User = require("../models/userModel");
+
+const Article = require("../models/articleModel");
 const mongoose = require("mongoose");
 
 const commentCont = {};
@@ -32,27 +34,70 @@ commentCont.getAllComments = async (req, res) => {
 };
 
 commentCont.addNewComment = async (req, res) => {
-  User.findById(req.params._id)
-    .then((user) => {
-      if (user) {
-        console.log(user);
-        const comment = new Comment({
-          _id: new mongoose.Types.ObjectId(),
-          postedBy: req.params._id,
-          content: req.body.content,
-        });
-        comment.save();
-        user.commentCollection.push(comment._id);
-        user.save();
+  const comment = new Comment({
+    _id: new mongoose.Types.ObjectId(),
+    postedBy: req.body.username,
+    content: req.body.content,
+  });
+  await comment.save();
+  Article.findOne({ url: req.body.url })
+    .then((article) => {
+      if (article) {
+        console.log(article);
+        article.comments.push(comment._id);
+        article.save();
         res.status(201).json({
           message: "Your comment has been added successfully",
           comment,
         });
       } else {
-        return res.status(404).json({ message: "User Not Found" });
+        const article = new Article({
+          _id: new mongoose.Types.ObjectId(),
+          url: req.body.url,
+        });
+
+        article.comments.push(comment._id);
+        article.save();
+
+        res.status(201).json({ message: "Article has been saved" });
       }
     })
 
+    .catch((err) => {
+      res.status(400).json({ message: err.message });
+    });
+};
+
+// commentCont.addlike = async (req, res) => {
+//   const like = new Comment({
+//     _id: new mongoose.Types.ObjectId(),
+//     postedBy: req.body.username,
+//     like: req.body.like,
+//   });
+//   Comment.findById(req.body._id)
+//     .then((article) => {
+//       if(article){
+//         console.log(article);
+//         article.
+//       }
+//     })
+
+//     .catch((err) => {
+//       res.status(400).json({ message: err.message });
+//     });
+// };
+/*
+commentCont.addComment = async (req, res) => {
+  Comment.createArticle(req.body.comment)
+    .then((comment) => {
+      Article.findById(req.params._id)
+        .populate("comment")
+        .then((article) => {
+          article.comments.push(comment._id);
+          article.save();
+          res.status(201).json(article);
+        });
+    })
     .catch((err) => {
       res.status(400).json({ message: err.message });
     });
@@ -70,5 +115,5 @@ commentCont.addReply = async (req, res) => {
 // Add Replay to comment
 
 // Get
-
+*/
 module.exports = commentCont;
