@@ -41,11 +41,50 @@ articleCont.getArticle = async (req, res) => {
   }
 };
 // Create Article
+
+articleCont.likeArticle = async (req, res) => {
+  const like = new Article({
+    _id: new mongoose.Types.ObjectId(),
+    postedBy: req.body.username,
+    like: req.body.like,
+  });
+  const counter = like === true ? +1 : -1;
+  await like.save();
+  Article.findOne({ url: req.body.url })
+    .then((article) => {
+      if (article) {
+        console.log(article);
+        article.likes.push(counter);
+        article.save();
+        res.status(201).json({
+          message: "Your Like has been added successfully",
+          like,
+        });
+      } else {
+        const article = new Article({
+          _id: new mongoose.Types.ObjectId(),
+          url: req.body.url,
+          likes: req.body.likes,
+        });
+
+        article.likes.push(counter);
+        article.save();
+
+        res.status(201).json({ message: "Article has been saved" });
+      }
+    })
+
+    .catch((err) => {
+      res.status(400).json({ message: err.message });
+    });
+};
+
+/*
 articleCont.AddNewArticle = async (req, res) => {
-  User.findById(req.params._id)
-    .then((user) => {
-      if (user) {
-        console.log(user);
+  Article.findOne({ url: req.body.url })
+    .then((article) => {
+      if (article) {
+        console.log(article);
         const article = new Article({
           _id: new mongoose.Types.ObjectId(),
           url: req.params.url,
@@ -57,7 +96,7 @@ articleCont.AddNewArticle = async (req, res) => {
       } else {
         return res
           .status(404)
-          .json({ message: "You need to sign in to create a new comment" });
+          .json({ message: "You need to sign in to create a new Artikel" });
       }
     })
     .catch((err) => {
@@ -65,14 +104,17 @@ articleCont.AddNewArticle = async (req, res) => {
     });
 };
 
+*/
+/*
+
 articleCont.createArticle = async (req, res) => {
   Article.findOne({ url: req.body.url }).then((article) => {
     if (!article) {
       const article = new Article({
         _id: new mongoose.Types.ObjectId(),
-        url: req.params.url,
+        url: req.body.url,
       });
-      User.findById(req.user._id).then((user) => {
+      User.findById(req.body._id).then((user) => {
         article.save();
         user.articleCollection.push(article._id);
         user.save();
@@ -89,5 +131,7 @@ articleCont.createArticle = async (req, res) => {
     }
   });
 };
+
+*/
 
 module.exports = articleCont;
