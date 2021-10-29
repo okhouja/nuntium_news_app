@@ -1,27 +1,37 @@
 .generalFather{
-  @include spaceBetweenColumn;
-   height: 800px;
+  @include spaceBetweenendRow;
+   height: 1000px;
    width: 1200px;
    border:  solid 1px red;
-   flex-wrap: wrap;
    position: relative;
    top: -77vh;
+   flex-wrap: wrap;
 }
 .generalwrapper{
-   @include spaceBetweenStartRow;
-   border:  solid 1px blue;
+   @include spaceBetweenColumn;
+   border: 1px solid black ;
    height:250px ;
-   width: 600px;
+   width: 200px;
+   
 }
 
-.generalTitle, .gererallink, .generalAuthor, .generaldescription{
+.generalTitle, .generalAuthor{
    font-size: 1.5rem;
    color: #000;
+
+
 }
 
+.generalDescription{
+   color:#000;
+   overflow: hidden;
+
+}
 
 .otherFather{
    @include spaceBetweenColumn;
+   height: 22vh;
+
 
 
 }
@@ -37,4 +47,8 @@
    &:active{
       color: red;
    }
+}
+.generalwrapper1{
+width: 1000px;
+
 }

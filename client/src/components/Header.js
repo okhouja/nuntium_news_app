@@ -1,4 +1,5 @@
 import React from 'react';
+import Signup from "./Signup";
 import {
     FaFacebook,
     FaTwitter,
@@ -7,29 +8,17 @@ import {
     FaUserAlt,
   } from "react-icons/fa";
   import { Link } from "react-router-dom";
-  import { Redirect } from "react-router-dom";
   
 
-function Header ({authorized}){
-  console.log(authorized);
- 
-  
-
+function Header (){
 
   const today = new Date().toLocaleDateString();
-  console.log(today);
   // const showDate = today.getFullYear()+'-'+today.getMonth() +'-'+today.getDate();
 
   function changeHandle(e) {
     e.preventDefault();
     
-  };
-  const handelChange = ()=>{
-
   }
-  
-  
-
     return(
         <div >
           <div className="headerFather" >
@@ -52,7 +41,7 @@ function Header ({authorized}){
            < FaYoutube />
             </a>
          </div>   
-         <button onClick={handelChange}>Sign</button>
+         <Link to="/signup"><button>Sign Up</button></Link>
 
 <div>
                         <i><FaUserAlt/></i>    
