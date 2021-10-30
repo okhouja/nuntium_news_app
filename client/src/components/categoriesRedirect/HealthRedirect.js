@@ -16,17 +16,20 @@ import { Link } from 'react-router-dom';
 //   console.log(health);
 
   const healthNews = health.map((item,i)=>{
-    const {author, title, image, url, description} = item;
+    const {author, title, image, url, description, published_at,source}= item;
     return(
       <div  key={i}>          
          <div className="redirectContainer">
               <div className="redirectimgFather" >
-                                  <img className="imgRedirect" src={image} alt={title} width="200px" height="250px"   />
+                                  <img className="imgRedirect" src={image} alt={title}    />
 </div>               
           <div className="otherredirectFather">
           <h3 className="redirectTitle"><a href={url}>{title}</a></h3>
+          <p className="redirectPuplished">{published_at}</p>
            <p style={{height: "8vh"}} className="redirectDescription">{description}</p>
           <p className="redirectAuthor">{author}</p> 
+          <p className="redirectSource">{source}</p> 
+
         </div>           
        </div>
            </div> 

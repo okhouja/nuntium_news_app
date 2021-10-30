@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import Footer from "./components/Footer";
 import Signup from "./components/Signup";
+import Login from "./components/Login";
 import GeneralRediect from "./components/categoriesRedirect/GeneralRedirect";
 import SportsRedirect from "./components/categoriesRedirect/SportsRedirect";
 import BusinessRedirect from "./components/categoriesRedirect/BusinessRedirect";
@@ -34,6 +35,7 @@ function App() {
        <Route path="/home" exact component={Home} /> 
 
        <Route path="/signup" exact component={Signup} />
+       <Route path="/login" exact component={Login} />
        <Route path="/generalRedirect" exact component={GeneralRediect} />
        <Route path="/sportsRedirect" exact component={SportsRedirect} />
        <Route path="/businessRedirect" exact component={BusinessRedirect} />

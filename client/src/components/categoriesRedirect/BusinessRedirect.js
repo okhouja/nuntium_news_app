@@ -16,7 +16,7 @@ import { Link } from 'react-router-dom';
 //   console.log(business);
 
   const businessNews = business.map((item,i)=>{
-    const {author, title, image, url, description} = item;
+    const {author, title, image, url, description, source,published_at} = item;
     return(
       <div  key={i}>          
          <div className="redirectContainer">
@@ -25,8 +25,11 @@ import { Link } from 'react-router-dom';
 </div>               
           <div className="otherredirectFather">
           <h3 className="redirectTitle"><a href={url}>{title}</a></h3>
+          <p className="redirectPuplished">{published_at}</p>
            <p style={{height: "8vh"}} className="redirectDescription">{description}</p>
           <p className="redirectAuthor">{author}</p> 
+          <p className="redirectSource">{source}</p> 
+
         </div>           
        </div>
            </div> 

@@ -17,27 +17,27 @@ import { Link } from 'react-router-dom';
   // console.log(health);
 
   const healthNews = health.map((item,i)=>{
-    const {author, title, image, url, description} = item;
+    const {author, title, image, url, description,source, published_at} = item;
     return(
-                   <div key={i}>          
-                      <div className="sportswrapper">
-                           <div className="imgFather">
-                                               <img className="imgGeneral" src={image} alt={title} width="200px" height="250px"   />
-        </div>               
-                       <div className="othersportsFather">
-                       <h3 className="sportsTitle"><a href={url}>{title}</a></h3>
-                        <p style={{height: "8vh"}} className="sportsDescription">{description}</p>
-                       <p className="sportsAuthor">{author}</p> 
-                     </div>           
-                    </div>
-                        </div> 
-               )
+      <div   >          
+         <div   key={i} className= {i === 0 ? "generalwrapperActive":"generalwrapper"}  >   
+            <img className={i === 0? "imgActive" : "img"} src={image} alt={title} width="200px" height="250px"   />
+          <h3 className={i == 0 ? "generalTitleActive": "generalTitle"}><a href={url}>{title}</a></h3>
+          <p className={i === 0? "generalPublishActive": "generalPublish"}>{published_at}</p> 
+           <p  className={i === 0? "generalDescriptionActive": "generalDescription"}>{description}</p>
+          <p className="generalAuthor">{author}</p> 
+          <p className="generalSource">{source}</p> 
+
+        </div>           
+       </div>
+       
+  )
   })
     return (
      <div >
       <Link to="/healthRedirect"> 
           <div id="health" className="health">HEALTH</div> </Link>
-    <div  className="sportsFather">     
+    <div  className="generalFather">     
               {healthNews}
        </div>    
             </div>

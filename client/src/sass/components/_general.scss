@@ -10,14 +10,37 @@
 .generalwrapper{
    @include spaceBetweenColumn;
    border: 1px solid black ;
-   height:250px ;
-   width: 200px;
+   height:400px ;
+   width: 250px;
+   position: relative;
+   top: -1.8vh;
+.generalwrapperActive{
+   @include spaceBetweenColumn;
+   
+   margin: 5% auto;
+   
+
+}
    
 }
-
-.generalTitle, .generalAuthor{
-   font-size: 1.5rem;
+.generalDescriptionActive{
+   width:44vw;
    color: #000;
+   font-size: 1rem;
+   overflow: hidden;
+   text-align: center;
+}
+.generalTitleActive{
+   width:44vw;
+   color: #000;
+   font-size: 1.5rem;
+   text-align: center;
+}
+
+.generalTitle, .generalAuthor, .generalPublish, .generalDescription{
+   font-size: 1rem;
+   color: #000;
+   text-align: center;
 
 
 }
@@ -35,6 +58,10 @@
 
 
 }
+.imgActive{
+   width: 44vw;
+   height: 30vh;
+}
 .general{
    color:  black;;
    font-size: 2rem;
@@ -48,7 +75,4 @@
       color: red;
    }
 }
-.generalwrapper1{
-width: 1000px;
 
-}

@@ -31,15 +31,17 @@ margin: auto;
     @include spaceBetweenColumn;
     height: 22vh;
     
-
-
-    
+    margin:1% auto;
 }
-.redirectDescription, .redirectAuthor{
+.redirectDescription, .redirectAuthor, .redirectPuplished,.redirectSource{
 color: #000;
 }
 .redirectTitle, .redirectDescription{
     margin-left: 2vh;
+    width: 70%;
+}
+.redirectDescription{
+    font-family: sans-serif;
 }
 .back{
     text-decoration: none;
@@ -55,5 +57,10 @@ color: #000;
     background-color: rgb(0, 153, 255);
     font-weight: bolder;
 
+}
+.imgRedirect{
+    min-width: 200px;
+    max-width: 200px;
+    height: 100%;
 }
 

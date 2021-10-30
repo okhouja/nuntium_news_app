@@ -17,17 +17,20 @@ import { Link } from 'react-router-dom';
   
 
   const generalNews = general.map((item,i)=>{
-    const {author, title, image, url, description} = item;
+    const {author, title, image, url, description,source,published_at} = item;
     return(
                    <div   >          
-                      <div   key={i} className= {"generalwrapper"+i}  >
+                      <div   key={i} className= {i === 0 ? "generalwrapperActive":"generalwrapper"}  >
                            
-                         <img className="img" src={image} alt={title} width="200px" height="250px"   />
+                         <img className={i === 0? "imgActive" : "img"} src={image} alt={title} width="200px" height="250px"   />
                    
                        
-                       <h3 className="generalTitle"><a href={url}>{title}</a></h3>
-                        <p style={{height: "8vh"}} className="generalDescription">{description}</p>
+                       <h3 className={i == 0 ? "generalTitleActive": "generalTitle"}><a href={url}>{title}</a></h3>
+                       <p className={i === 0? "generalPublishActive": "generalPublish"}>{published_at}</p> 
+                        <p  className={i === 0? "generalDescriptionActive": "generalDescription"}>{description}</p>
                        <p className="generalAuthor">{author}</p> 
+                       <p className="generalSource">{source}</p> 
+
                      </div>           
                     </div>
                     

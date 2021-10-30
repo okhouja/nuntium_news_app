@@ -41,10 +41,12 @@ function Header (){
            < FaYoutube />
             </a>
          </div>   
-         <Link to="/signup"><button>Sign Up</button></Link>
 
 <div>
-                        <i><FaUserAlt/></i>    
+                      <Link className="signUp" to="signup">  <i><FaUserAlt/></i> </Link>
+                      <Link className="signUp" to="login"><button>Log In</button></Link>
+
+
                     </div>    
                     
             <img className="logo" src="./img/Logo_lightmode.svg" alt="logo"></img> 

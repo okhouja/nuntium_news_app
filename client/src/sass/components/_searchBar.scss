@@ -15,7 +15,7 @@ a{
     text-decoration: none;
 }
 
-.search-li{
+.searchLi{
     align-self:flex-start;
     position: relative;
     left: 16vw;
@@ -38,7 +38,7 @@ a{
 //         transition: 500ms;
 //     }
 // }
-.search-input{
+.searchInput{
     border: none;
     outline: none;
     border-bottom: 1px solid lightgray
@@ -59,6 +59,8 @@ a{
     left: 18vw;
     top: 2vh;
     @include searchFlex;
+    border-radius: 0 70%;
+
 }
 .search-div-active{
     visibility: hidden;
