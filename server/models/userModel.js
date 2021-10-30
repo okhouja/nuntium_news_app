@@ -36,8 +36,8 @@ const UserSchema = Schema(
     technology: Boolean,
     newsletter: Boolean,
     articleCollection: [{ type: Schema.Types.ObjectId, ref: "Article" }],
-    userAddedDate: { type: Date, required: true, default: Date.now },
-    //commentCollection: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
+    registerDate: { type: Date, required: true, default: Date.now },
+    // commentCollection: [{ type: Schema.Types.ObjectId, ref: "Comment" }],
     likes: { type: Number, default: 0 },
   },
   { versionKey: false }

@@ -1,8 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const articleController = require("../controllers/api");
+const articleCont = require("../controllers/articleController");
 
 // URL http://localhost:5000/article
-router.route("/").get(articleController.news);
+router.route("/articles").get(articleCont.getAllArticle);
+
+router.route("/article/:_id").get(articleCont.getArticle);
+
+router.route("/article/").post(articleCont.likeArticle);
 
 module.exports = router;

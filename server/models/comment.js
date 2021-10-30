@@ -3,20 +3,24 @@ const Schema = mongoose.Schema;
 
 const ObjectId = Schema.Types.ObjectId;
 
-const replySchema = new Schema({
-  postedBy: [{ type: ObjectId, ref: "User" }],
-  content: String,
-  likes: [{ type: ObjectId, ref: "User" }],
-  publishedAt: [{ type: Date, required: true, default: Date.now }],
-});
-
-const CommentSchema = new Schema({
-  postedBy: [{ type: ObjectId, ref: "User" }],
+const CommentSchema = Schema({
+  _id: ObjectId,
+  postedBy: String,
   content: String,
   articel: { type: ObjectId, ref: "Article" },
-  likes: [{ type: ObjectId, ref: "User" }],
-  publishedAt: [{ type: Date, required: true, default: Date.now }],
-  replies: [replySchema],
+  likes: { type: Number, default: 0, ref: "User" },
+  publishedAt: { type: Date, required: true, default: Date.now },
+  replies: [{ type: ObjectId, ref: "Reply" }],
 });
 
-module.exports = mongoose.model("Comment", CommentSchema);
+const replySchema = Schema({
+  postedBy: { type: ObjectId, ref: "User" },
+  content: String,
+  likes: { type: Number, default: 0, ref: "User" },
+  publishedAt: { type: Date, required: true, default: Date.now },
+});
+const Comment = mongoose.model("Comment", CommentSchema);
+
+const Reply = mongoose.model("Reply", replySchema);
+
+module.exports = { Comment, Reply };

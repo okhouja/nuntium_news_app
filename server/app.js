@@ -9,7 +9,11 @@ app.use(express.json());
 const userRouter = require("./router/user");
 app.use("/", userRouter);
 
-// Set Routers
+const commentRouter = require("./router/comment");
+app.use("/", commentRouter);
+
+const articleRouter = require("./router/article");
+app.use("/", articleRouter);
 
 // const articleRouter = require("./router/article");
 // app.use("/article", articleRouter);
