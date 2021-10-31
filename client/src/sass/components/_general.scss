@@ -1,36 +1,71 @@
 .generalFather{
-  @include spaceBetweenColumn;
-   height: 800px;
+  @include spaceBetweenendRow;
+
+   height: 1000px;
    width: 1200px;
    border:  solid 1px red;
-   flex-wrap: wrap;
    position: relative;
-   top: -77vh;
+   flex-wrap: wrap;
+   margin: 3% auto;
 }
 .generalwrapper{
-   @include spaceBetweenStartRow;
-   border:  solid 1px blue;
-   height:250px ;
-   width: 600px;
+   @include spaceBetweenColumn;
+   border: 1px solid black ;
+   height:400px ;
+   width: 250px;
+   position: relative;
+   top: -1.8vh;
+.generalwrapperActive{
+   @include spaceBetweenColumn;
+   margin: 5% auto;
 }
-
-.generalTitle, .gererallink, .generalAuthor, .generaldescription{
-   font-size: 1.5rem;
+   
+}
+.generalDescriptionActive{
+   width:44vw;
    color: #000;
+   font-size: 1rem;
+   overflow: hidden;
+   text-align: center;
+}
+.generalTitleActive{
+   width:44vw;
+   color: #000;
+   font-size: 1.5rem;
+   text-align: center;
 }
 
+.generalTitle, .generalAuthor, .generalPublish, .generalDescription{
+   font-size: 1rem;
+   color: #000;
+   text-align: center;
+
+
+}
+
+.generalDescription{
+   color:#000;
+   overflow: hidden;
+
+}
 
 .otherFather{
    @include spaceBetweenColumn;
+   height: 22vh;
 
 
+
+}
+.imgActive{
+   width: 44vw;
+   height: 30vh;
 }
 .general{
    color:  black;;
    font-size: 2rem;
    font-weight: bolder;
    position: relative;
-   top: -80vh;
+   top: 1vh;
    &:hover{
       color: yellow;
    }
@@ -38,3 +73,4 @@
       color: red;
    }
 }
+

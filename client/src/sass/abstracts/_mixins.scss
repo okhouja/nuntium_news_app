@@ -4,6 +4,13 @@
   justify-content: center;
   align-items: center;
 }
+
+@mixin flexCenterColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 @mixin spaceBetweenCenterRow {
   display: flex;
   justify-content: space-around;
@@ -30,9 +37,17 @@
     align-items: center;
     justify-content: center;
 }
+@mixin spaceBetweenStartColumn {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  
+}
 @mixin spaceBetweenColumn {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-direction: column;
 

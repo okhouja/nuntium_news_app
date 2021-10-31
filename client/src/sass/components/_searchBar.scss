@@ -1,11 +1,11 @@
 .search-bar{
     width: 80%;
-    margin: 25% auto;
     height: 12vh;
     border: 1px solid red;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
     position: relative;
-    top: -22vw;
+    top: 2vw;
+    left: 8vw;
 }
 .ul-search-bar{
     @include spaceBetweenCenterRow;
@@ -15,7 +15,7 @@ a{
     text-decoration: none;
 }
 
-.search-li{
+.searchLi{
     align-self:flex-start;
     position: relative;
     left: 16vw;
@@ -38,7 +38,7 @@ a{
 //         transition: 500ms;
 //     }
 // }
-.search-input{
+.searchInput{
     border: none;
     outline: none;
     border-bottom: 1px solid lightgray
@@ -59,6 +59,8 @@ a{
     left: 18vw;
     top: 2vh;
     @include searchFlex;
+    border-radius: 0 70%;
+
 }
 .search-div-active{
     visibility: hidden;

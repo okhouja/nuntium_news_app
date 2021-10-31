@@ -1,16 +1,17 @@
 
   body{
-    display: block;
     justify-content: center;
     align-items: center;
 width:100vw;
-height: 100vh;  
+height: 100%;  
 // background-color: rgba(211, 211, 211, 0.13);
 // background-color: black;
 
 }
 .wrapperCategories{
   @include spaceBetweenColumn;
+  position: relative;
+  top: 3vh;
   
   // border: 1px solid  yellow;
 }

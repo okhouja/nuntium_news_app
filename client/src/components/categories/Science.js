@@ -1,41 +1,44 @@
 import {React , useEffect, useState} from 'react';
 import myKey from "../../context/config";
 import axios from "axios";
+import { Link } from 'react-router-dom';
+
 
  const Science = () => {
-     const [categories, setCategories] = useState("science");
-     const [languages , setLanguages] = useState("en");
+     
      const [science, setScience] = useState([]);
      const API_KEY = myKey.apiKey;
      
-  //   useEffect(() => {
-  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${languages}&sort=published_desc`).then((data)=>setScience(data.data.data.filter((item)=> item.image).slice(0,6)));
+  //    useEffect(() => {
+  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=science&languages=en&sort=published_desc`)
+  // .then((data)=>setScience(data.data.data.filter((item)=> item.image).slice(0,6)))
+  // .catch((err) => console.log(`Your had an ${err}`));
       
   // }, [])
   // console.log(science);
 
-  const scienceNews = science.map((item)=>{
-    const {author, title, image, url, description} = item;
+  const scienceNews = science.map((item,i)=>{
+    const {author, title, image, url, description,source,published_at}= item;
     return(
-                   <div>          
-                      <div className="sportswrapper">
-                           <div className="imgFather">
-                                               <img className="imgGeneral" src={image} alt={title} width="200px" height="250px"   />
-        </div>               
-                       <div className="othersportsFather">
-                       <h1 className="sportsTitle">{title}</h1>
-                        <p className="sportsDescription">{description}</p>
-                        <a className="sportsLink" href={url}>Click Here</a>
-                       <p className="sportsAuthor">{author}</p> 
-                     </div>           
-                    </div>
-                        </div> 
-               )
+      <div   >          
+         <div   key={i} className= {i === 0 ? "generalwrapperActive":"generalwrapper"}  >      
+            <img className={i === 0? "imgActive" : "img"} src={image} alt={title} width="200px" height="250px"   />
+          <h3 className={i == 0 ? "generalTitleActive": "generalTitle"}><a href={url}>{title}</a></h3>
+          <p className={i === 0? "generalPublishActive": "generalPublish"}>{published_at}</p> 
+           <p  className={i === 0? "generalDescriptionActive": "generalDescription"}>{description}</p>
+          <p className="generalAuthor">{author}</p> 
+          <p className="generalSource">{source}</p> 
+
+        </div>           
+       </div>
+       
+  )
   })
     return (
      <div >
-          <div id="science" className="science">SCIENCE</div> 
-    <div  className="sportsFather">     
+       <Link to="/scienceredirect" >
+          <div id="science" className="general">SCIENCE</div> </Link>
+    <div  className="generalFather">     
               {scienceNews}
        </div>    
             </div>
