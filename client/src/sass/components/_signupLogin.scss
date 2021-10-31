@@ -1,0 +1,53 @@
+.signUpWrapper{
+    
+    @include spaceBetweenStartColumn;
+margin: 5% auto
+}
+.formFather{
+    @include spaceBetweenStartColumn;
+height: 30vh;
+}
+
+
+.inputFather, .inputFather{
+    @include spaceBetweenStartRow;
+    width: 22vw;
+margin: 2% auto;
+}
+.password{
+    position: relative;
+    left: 0.4vh;
+}
+.passConf{
+    position: relative;
+    left: -0.6vw;
+}
+.email{
+    position: relative;
+    left: 0.6vw;
+}
+.submit, .clear{
+    position: relative;
+    left: 4vw;
+    width: 8vw;
+    height: 4vh;
+    background-color: rgb(0, 119, 255);
+    font-weight: bolder;
+}
+.clear{
+top: 2vh;
+}
+.loginFather{
+    @include spaceBetweenColumn;
+margin: 12%;
+
+}
+ .login{
+    width: 9.6vw;
+    height: 4vh;
+    background-color: rgb(0, 119, 255);
+}
+.loginPass{
+    position: relative;
+    left: 0.1vw;
+}

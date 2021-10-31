@@ -10,6 +10,8 @@ height: 100%;
 }
 .wrapperCategories{
   @include spaceBetweenColumn;
+  position: relative;
+  top: 3vh;
   
   // border: 1px solid  yellow;
 }

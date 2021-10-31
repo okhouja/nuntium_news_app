@@ -1,11 +1,12 @@
 .generalFather{
   @include spaceBetweenendRow;
+
    height: 1000px;
    width: 1200px;
    border:  solid 1px red;
    position: relative;
-   top: -77vh;
    flex-wrap: wrap;
+   margin: 3% auto;
 }
 .generalwrapper{
    @include spaceBetweenColumn;
@@ -16,10 +17,7 @@
    top: -1.8vh;
 .generalwrapperActive{
    @include spaceBetweenColumn;
-   
    margin: 5% auto;
-   
-
 }
    
 }
@@ -67,7 +65,7 @@
    font-size: 2rem;
    font-weight: bolder;
    position: relative;
-   top: -80vh;
+   top: 1vh;
    &:hover{
       color: yellow;
    }

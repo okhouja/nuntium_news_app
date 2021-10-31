@@ -36,7 +36,7 @@ import { Link } from 'react-router-dom';
     return (
      <div >
      <Link to="/technologyredirect" > 
-          <div id="technology" className="technology">TECHNOLOGY</div> </Link>
+          <div id="technology" className="general">TECHNOLOGY</div> </Link>
     <div  className="generalFather">     
               {technolgyNews}
        </div>    

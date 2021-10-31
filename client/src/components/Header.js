@@ -42,7 +42,7 @@ function Header (){
             </a>
          </div>   
 
-<div>
+<div className="signUpFather">
                       <Link className="signUp" to="signup">  <i><FaUserAlt/></i> </Link>
                       <Link className="signUp" to="login"><button>Log In</button></Link>
 

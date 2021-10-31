@@ -36,5 +36,9 @@
     width: 80%;height: 12vh;
     border: 1px solid red;
 }
+.signUpFather{
+    @include spaceBetweenStartRow;
+    width: 8vw;
+}
 
 

@@ -5,10 +5,7 @@ import WrapperCategories from "./WrapperCategories";
 
 
 function Home() {
-  // const [menuopen, setMenuopen] = useState(false);
-
-  const [authorized, setAuthorized] = useState(true);
-
+  
 
   return (
     

@@ -39,7 +39,7 @@ import { Link } from 'react-router-dom';
     return (
      <div >
        <Link to="/entertainmentRedirect">
-          <div id="entertainment" className="entertainment">ENTERTAINMENT</div> </Link>
+          <div id="entertainment" className="general">ENTERTAINMENT</div> </Link>
     <div  className="generalFather">     
               {entertainmentNews}
        </div>    

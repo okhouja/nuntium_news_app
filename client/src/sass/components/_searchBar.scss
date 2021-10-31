@@ -1,11 +1,11 @@
 .search-bar{
     width: 80%;
-    margin: 25% auto;
     height: 12vh;
     border: 1px solid red;
     box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
     position: relative;
-    top: -22vw;
+    top: 2vw;
+    left: 8vw;
 }
 .ul-search-bar{
     @include spaceBetweenCenterRow;
