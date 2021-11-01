@@ -33,6 +33,8 @@ commentCont.getAllComments = async (req, res) => {
   }
 };
 
+// Add new comments
+
 commentCont.addNewComment = async (req, res) => {
   const comment = new Comment({
     _id: new mongoose.Types.ObjectId(),

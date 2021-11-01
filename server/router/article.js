@@ -7,6 +7,6 @@ router.route("/articles").get(articleCont.getAllArticle);
 
 router.route("/article/:_id").get(articleCont.getArticle);
 
-router.route("/article/").post(articleCont.likeArticle);
+router.route("/article/like").post(articleCont.likeArticle);
 
 module.exports = router;

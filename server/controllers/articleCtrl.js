@@ -42,7 +42,7 @@ articleCont.getArticle = async (req, res) => {
 };
 // Create Article
 
-articleCont.likeArticle = async (req, res) => {
+articleCont.likeArticle = async (req, res, next) => {
   const like = new Article({
     _id: new mongoose.Types.ObjectId(),
     postedBy: req.body.username,
