@@ -54,12 +54,15 @@ userCont.addNewUser = async (req, res) => {
 
     await newuser.save();
     res.status(201).json({
-      message: `Your Profile ${User.username} has been created successfully`,
+      message: `Your Profile ${newuser.username} has been created successfully`,
     });
   } catch (err) {
     res.status(400).json({ message: err.message });
   }
 };
+
+// Login
+userCont;
 
 // GET All Users
 
@@ -108,14 +111,20 @@ userCont.getOneUser = async (req, res) => {
 
 // Update user information
 userCont.updateProfile = async (req, res) => {
-  let cityVar = req.body.city;
+  const userCheck = await User.findOne({ username: req.body.username });
+  if (userCheck) {
+    return res.status(400).send("This username is already exists.");
+  }
+
   try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    let cityVar = req.body.city;
     const user = await User.findByIdAndUpdate(
       { _id: req.params._id },
 
       {
         username: req.body.username,
-        password: req.body.password,
+        password: hashedPassword,
         email: req.body.email,
         country: req.body.country,
         city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
