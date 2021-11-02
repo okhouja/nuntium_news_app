@@ -1,8 +1,9 @@
-const { Comment } = require("../models/comment");
+const { Comment } = require("../models/Comment");
 //const User = require("../models/userModel");
 
-const Article = require("../models/articleModel");
+const { Article } = require("../models/Articlel");
 const mongoose = require("mongoose");
+const { User } = require("../models/User");
 
 const commentCont = {};
 
@@ -67,6 +68,26 @@ commentCont.addNewComment = async (req, res) => {
 
     .catch((err) => {
       res.status(400).json({ message: err.message });
+    });
+};
+commentCont.saveComment = async (req, res) => {
+  const user = await User.findById(req.params.id);
+  const newComment = new Comment({
+    _id: new mongoose.Types.ObjectId(),
+    postedBy: user.username,
+    content: req.body.content,
+    user: req.user.id,
+  });
+  const comment = await newComment.save;
+  const newarticle = new Article({
+    _id: new mongoose.Types.ObjectId(),
+    url: req.body.url,
+  });
+  const article = await Article.findOne({ url: req.body.url });
+  comment
+    .then((user) => {})
+    .catch((err) => {
+      res.status(err.status).json({ message: err.message });
     });
 };
 

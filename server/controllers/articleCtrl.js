@@ -1,6 +1,6 @@
-const Comment = require("../models/comment");
-const User = require("../models/userModel");
-const Article = require("../models/articleModel");
+const Comment = require("../models/Comment");
+// const User = require("../models/User");
+const { Article } = require("../models/Articlel");
 const mongoose = require("mongoose");
 
 const articleCont = {};
