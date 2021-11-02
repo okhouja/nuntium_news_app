@@ -1,5 +1,6 @@
 // Model (Schema)
 const { User } = require("../models/User");
+const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const userCont = {};
@@ -25,27 +26,35 @@ const userCont = {};
 */
 
 userCont.addNewUser = async (req, res) => {
-  let cityVar = req.body.city;
-  const user = new User({
-    _id: mongoose.Types.ObjectId(),
-    username: req.body.username,
-    password: req.body.password,
-    email: req.body.email.toLowerCase(),
-    country: req.body.country,
-    city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
-    general: req.body.general,
-    business: req.body.business,
-    entertainment: req.body.entertainment,
-    health: req.body.health,
-    science: req.body.science,
-    sport: req.body.sport,
-    technology: req.body.technology,
-    newsletter: req.body.newsletter,
-  });
+  const userCheck = await User.findOne({ username: req.body.username });
+  if (userCheck) {
+    return res.status(400).send("This user is already exists.");
+  }
+
   try {
-    await user.save();
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    console.log(hashedPassword);
+    let cityVar = req.body.city;
+    const newuser = new User({
+      _id: mongoose.Types.ObjectId(),
+      username: req.body.username,
+      password: hashedPassword,
+      email: req.body.email.toLowerCase(),
+      country: req.body.country,
+      city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
+      general: req.body.general,
+      business: req.body.business,
+      entertainment: req.body.entertainment,
+      health: req.body.health,
+      science: req.body.science,
+      sport: req.body.sport,
+      technology: req.body.technology,
+      newsletter: req.body.newsletter,
+    });
+
+    await newuser.save();
     res.status(201).json({
-      message: `Your Profile ${user.username} has been created successfully`,
+      message: `Your Profile ${User.username} has been created successfully`,
     });
   } catch (err) {
     res.status(400).json({ message: err.message });

@@ -22,6 +22,7 @@
   "homepage": "https://github.com/okhouja/nuntium_news_app#readme",
   "dependencies": {
     "axios": "^0.22.0",
+    "bcrypt": "^5.0.1",
     "concurrently": "^6.2.2",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
