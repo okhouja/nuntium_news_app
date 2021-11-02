@@ -1,5 +1,6 @@
-import React from 'react';
+import {React, useEffect, useState} from 'react';
 import Signup from "./Signup";
+import axios from "axios";
 import {
     FaFacebook,
     FaTwitter,
@@ -8,9 +9,28 @@ import {
     FaUserAlt,
   } from "react-icons/fa";
   import { Link } from "react-router-dom";
+  import myKey from "../context/config";
   
 
+
+
 function Header (){
+  const [weatherNow , setWeatherNow] = useState({});
+  const [weather , setWeather] = useState({});
+
+  const API_KEY = myKey.apiKeyWeather;
+  
+  useEffect(() => {
+    axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeatherNow(data.data.current));
+  }, []);
+  console.log( weatherNow);
+
+  useEffect(() => {
+    axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg`).then((data)=> setWeather(data.data.forecast.forecastday[0].day));
+  }, []);
+  console.log( weather);
+
+
 
   const today = new Date().toLocaleDateString();
   // const showDate = today.getFullYear()+'-'+today.getMonth() +'-'+today.getDate();
@@ -19,10 +39,48 @@ function Header (){
     e.preventDefault();
     
   }
-    return(
+  
+   return(
+     <div >
         <div >
           <div className="headerFather" >
-          <div className="weather"></div>
+          <div className="weather">
+            <div className="imgWeatherFather">
+              <img  src={weather.condition.icon} alt="img" />
+            </div>
+            <div className="fatherCurrentWeather">
+
+              <div className="currentFather">
+                <label className="currentLabel">Feels Like</label>
+                <span className="currentData">{weatherNow.feelslike_c}</span>
+              </div>
+              <div className="currentFather">
+                <label className="currentLabel">Temp</label>
+                <span className="currentData">{weatherNow.temp_c}</span>
+              </div>
+              <div className="currentFather">
+                <label className="currentLabel">Humidity</label>
+                <span className="currentData">{weatherNow.humidity}</span>
+              </div>
+
+            </div>
+            <div className="fatherCurrentWeather" >
+            <div className="currentFather">
+                <label className="currentLabel">High</label>
+                <span className="currentData">{weather.maxtemp_c}</span>
+              </div>
+              <div className="currentFather">
+                <label style={{marginLeft: "2vh"}} className="currentLabel">Low</label>
+                <span style={{marginLeft: "2vh"}} className="currentData">{weather.mintemp_c}</span>
+              </div>
+              <div className="currentFather">
+                <label className="currentLabelHumidity">HumidityAve</label>
+                <span className="currentData">{weather.avghumidity}</span>
+              </div>
+
+            </div>
+            </div>
+          
                     <div className="date">
                       <input type="text"   onChange={changeHandle} value={today} />
                       </div>
@@ -49,10 +107,11 @@ function Header (){
 
                     </div>    
                     
-            <img className="logo" src="./img/Logo_lightmode.svg" alt="logo"></img> 
+            <img id="img" className="logo" src="./img/Logo_lightmode.svg" alt="logo"></img> 
             
                 
             </div>   
+        </div>
         </div>
         
         

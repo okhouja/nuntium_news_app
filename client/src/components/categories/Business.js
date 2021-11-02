@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
  const Business = () => {
      const [business, setBusiness] = useState([]);
      const API_KEY = myKey.apiKey;
+     console.log(API_KEY);
+     
      
   //   useEffect(() => {
   //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=business&languages=en&sort=published_desc`)

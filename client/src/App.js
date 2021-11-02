@@ -13,6 +13,7 @@ import ScienceRedirect from "./components/categoriesRedirect/ScienceRedirect";
 import TechnologyRedirect from "./components/categoriesRedirect/TechnologyRedirect";
 import HealthRedirect from "./components/categoriesRedirect/HealthRedirect";
 import EntertainmentRedirect from "./components/categoriesRedirect/EntertainmentRedirect";
+import NewsCollection from "./components/NewsCollection";
 
 
 
@@ -32,7 +33,7 @@ function App() {
   
      <Switch>
        <Route path="/" exact component={Home}/>
-       <Route path="/home" exact component={Home} /> 
+       {/* <Route path="/home" exact component={Home} />  */}
 
        <Route path="/signup" exact component={Signup} />
        <Route path="/login" exact component={Login} />
@@ -43,6 +44,7 @@ function App() {
        <Route path="/technologyRedirect" exact component={TechnologyRedirect} />
        <Route path="/healthRedirect" exact component={HealthRedirect} />
        <Route path="/entertainmentRedirect" exact component={EntertainmentRedirect} />
+       <Route path="/newscollection" exact component={NewsCollection}/>
      </Switch>
      <Footer />
 

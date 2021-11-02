@@ -122,7 +122,7 @@ import {
                          ...(active? poweredStyle.active: hover? poweredStyle.hover: null),
                      }}
                     href="https://mediastack.com/">Meidastack</a> </p>
-                    <p style={{wordSpacing: "5px"}} className="copyrightnfo">Made by Ahmed & Omar & Kenana at DCI © 2021</p>
+                    <p style={{wordSpacing: "5px"}} className="copyrightnfo">Made by Ahmed & Omar at DCI © 2021</p>
                     <p style={wordSpace} className="copyrightnfo">All rights reserved</p>
                 </div>
             </div>

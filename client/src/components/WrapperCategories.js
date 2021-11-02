@@ -7,11 +7,6 @@ import Technology from "./categories/Technology";
 import Health from "./categories/Health";
 import Entertainment from "./categories/Entertainment";
 
-
-
-
-
-
  const WrapperCategories = () => {
     return (
         <div className="wrapperCategories">
@@ -22,6 +17,7 @@ import Entertainment from "./categories/Entertainment";
             <Technology />
             <Health />
             <Entertainment />
+            <div className="goUp"><a className="goUpanchor" href="#img">˄</a></div>
         </div>
     )
 }

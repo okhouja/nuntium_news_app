@@ -14,7 +14,8 @@ function SearchBar() {
 
   const handelChange = () => setSearchIcon(!searchIcon);
   const categories = "business,sports,entertainment,health,science,technology,general";
-  const search = "corona,netflix,"
+  const search = "virus,fragrances,netflix,starvation,coup,share,inflation,shrink,vaccine"
+  
     
   //   useEffect(() => {
   //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=${categories}&languages=en&search=${search}&sort=published_desc`)
@@ -23,24 +24,29 @@ function SearchBar() {
       
   // }, [])
   // console.log(data);
-  console.log(search);
+  // console.log(search);
   const changeHandle = (e) => {
     setUserInput(e.target.value);
   };
   const lookUp = () => {
     const userText = userInput.toLocaleLowerCase().trim();
-    const userTextLength = userText.length;
-    // const searchText = userText ? userText : "";
-    let newArr = data.filter((item) => {
-      const slicedProductName = item.productName.slice(0, userTextLength);
-      return slicedProductName === userText;
-    });
-    setFilteredData(newArr);
+    const text = search.split(" ");
+    text.filter((item)=>{
+      if(userText === ""){
+        return item;
+      } else if (item.toLocaleLowerCase().includes(userText)){
+        return item;
+      }
+      
+    })
+
+
+    
   };
-  
 
 const handleSubmit = (e) => {
   e.preventDefault();
+  lookUp();
 
 };
 
@@ -50,14 +56,14 @@ const handleSubmit = (e) => {
       <div className="search-bar">
         <div>
           <ul className="ul-search-bar">
-          <Link to="/home"><li className="searchLi">Home</li></Link>
+          <Link to="/"><li className="searchLi">Home</li></Link>
           <Link to="/generalredirect"><li className="searchLi">General</li></Link>
           <Link to="/sportsrediredt"><li className="searchLi">Sports</li></Link>
           <Link to="/businessredirect"><li className="searchLi">Business</li></Link>
           <Link to="/scienceredirect"><li className="searchLi">Science</li></Link>
           <Link to="/technologyredirect"><li className="searchLi">Technology</li></Link>
           <Link to="/healthredirect"><li className="searchLi">Health</li></Link>
-          <Link to="/home"><li className="searchLi">Entertainment</li></Link>
+          <Link to="/"><li className="searchLi">Entertainment</li></Link>
             <li className="searchClick" onClick={handelChange}>
               🔍
             </li>

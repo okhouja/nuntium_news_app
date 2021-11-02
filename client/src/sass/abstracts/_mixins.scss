@@ -60,11 +60,13 @@
   flex-direction: column;
   
 }
-.copyrightFather{
-width: 100%;
-height: 22vh;
-background-color: black;
+@mixin centerRow{
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
 }
+
 
 
 
