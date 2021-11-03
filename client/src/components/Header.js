@@ -46,7 +46,7 @@ function Header (){
           <div className="headerFather" >
           <div className="weather">
             <div className="imgWeatherFather">
-              <img  src={weather.condition.icon} alt="img" />
+              {/* <img src={`${process.env.PUBLIC_URL}/${weather.condition.icon}`} alt="img" /> */}
             </div>
             <div className="fatherCurrentWeather">
 
