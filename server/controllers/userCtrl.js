@@ -1,5 +1,6 @@
 // Model (Schema)
-const User = require("../models/userModel");
+const { User } = require("../models/User");
+const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
 
 const userCont = {};
@@ -25,30 +26,55 @@ const userCont = {};
 */
 
 userCont.addNewUser = async (req, res) => {
-  let cityVar = req.body.city;
-  const user = new User({
-    _id: mongoose.Types.ObjectId(),
-    username: req.body.username,
-    password: req.body.password,
-    email: req.body.email.toLowerCase(),
-    country: req.body.country,
-    city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
-    general: req.body.general,
-    business: req.body.business,
-    entertainment: req.body.entertainment,
-    health: req.body.health,
-    science: req.body.science,
-    sport: req.body.sport,
-    technology: req.body.technology,
-    newsletter: req.body.newsletter,
-  });
+  const userCheck = await User.findOne({ username: req.body.username });
+  if (userCheck) {
+    return res.status(400).send("This user is already exists.");
+  }
+
   try {
-    await user.save();
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    console.log(hashedPassword);
+    let cityVar = req.body.city;
+    const newuser = new User({
+      _id: mongoose.Types.ObjectId(),
+      username: req.body.username,
+      password: hashedPassword,
+      email: req.body.email.toLowerCase(),
+      country: req.body.country,
+      city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
+      general: req.body.general,
+      business: req.body.business,
+      entertainment: req.body.entertainment,
+      health: req.body.health,
+      science: req.body.science,
+      sport: req.body.sport,
+      technology: req.body.technology,
+      newsletter: req.body.newsletter,
+    });
+
+    await newuser.save();
     res.status(201).json({
-      message: `Your Profile ${user.username} has been created successfully`,
+      message: `Your Profile ${newuser.username} has been created successfully`,
     });
   } catch (err) {
     res.status(400).json({ message: err.message });
+  }
+};
+
+// Login
+userCont.login = async (req, res) => {
+  const user = await User.findOne({ username: req.body.username });
+  if (!user) {
+    return res.status(400).send("username not Found");
+  }
+  try {
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      res.send(`Welcome Back ${user.username}`);
+    } else {
+      res.json({ loginSuccess: false, message: "Wrong Password, try again." });
+    }
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
   }
 };
 
@@ -99,14 +125,20 @@ userCont.getOneUser = async (req, res) => {
 
 // Update user information
 userCont.updateProfile = async (req, res) => {
-  let cityVar = req.body.city;
+  const userCheck = await User.findOne({ username: req.body.username });
+  if (userCheck) {
+    return res.status(400).send("This username is already exists.");
+  }
+
   try {
+    const hashedPassword = await bcrypt.hash(req.body.password, 10);
+    let cityVar = req.body.city;
     const user = await User.findByIdAndUpdate(
       { _id: req.params._id },
 
       {
         username: req.body.username,
-        password: req.body.password,
+        password: hashedPassword,
         email: req.body.email,
         country: req.body.country,
         city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),

@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const userCont = require("../controllers/userController");
+const userCont = require("../controllers/userCtrl");
 
 // URL http://localhost:5000/user
 
