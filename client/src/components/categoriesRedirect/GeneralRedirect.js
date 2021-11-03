@@ -10,11 +10,11 @@ import { Link } from 'react-router-dom';
      const API_KEY = myKey.apiKey;
      
      
-//      useEffect(() => {
-//       axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=general&languages=en&sort=published_desc`)
-// .then((data)=>setGeneralredirect(data.data.data.filter((item)=> item.image)));
-//   }, [])
-//   console.log(generalredirect);
+     useEffect(() => {
+      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=general&languages=en&sort=published_desc`)
+.then((data)=>setGeneralredirect(data.data.data.filter((item)=> item.image)));
+  }, [])
+  console.log(generalredirect);
 
   const generalNews = generalredirect.map((item,i)=>{
     const {author, title, image, url, description,source,published_at} = item;

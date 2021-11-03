@@ -40,5 +40,27 @@
     @include spaceBetweenStartRow;
     width: 8vw;
 }
+.fatherCurrentWeather{
+    @include centerRow;
+    width: 16vw;
+}
+.currentFather{
+    @include spaceBetweenColumn;
+    width: 8vw;
+}
+.currentLabel, .currentData{
+    color: white;
+    text-align: center;
+}
+.currentLabelHumidity{
+    width: 6vw;
+    color: white;
+    text-align: center;
+}
+.imgWeatherFather{
+
+   @include flex-center; 
+}
+
 
 

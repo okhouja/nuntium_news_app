@@ -1,11 +1,13 @@
 import {React , useEffect, useState} from 'react';
 import myKey from "../../context/config";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+
 
  const General = () => {
      const [general, setGeneral] = useState([]);
      const API_KEY = myKey.apiKey;
+     const history = useHistory();
      
   //   useEffect(() => {
   //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=general&languages=en&sort=published_desc`)
@@ -15,6 +17,11 @@ import { Link } from 'react-router-dom';
   // }, [])
   // console.log(general);
   
+  //   const myfunc = (lang)=>{
+// history.push({pathname:"/newscollection",language:lang })
+//   }
+  
+//onClick={myfunc("en")}
 
   const generalNews = general.map((item,i)=>{
     const {author, title, image, url, description,source,published_at} = item;
@@ -38,8 +45,8 @@ import { Link } from 'react-router-dom';
   })
     return (
      <div >
-        <Link to="/generalredirect">  <div  id="general" className="general">GENERAL</div> 
-        </Link>
+     <div onClick={()=>history.push({pathname:"/newscollection",state: {category:"sports"}})} id="general" className="general">GENERAL</div> 
+        
     <div className="generalFather"  >     
               {generalNews}
        </div>    

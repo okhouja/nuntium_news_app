@@ -3,38 +3,39 @@ import axios from "axios";
 import myKey from "../context/config";
 
 export const Navbar = () => {
-    const [categories, setCategories] = useState("general");
-    const [lang, setLang] = useState("en");
+    const [categories, setCategories] = useState("");
+    const [lang, setLang] = useState("");
     const [countries, setCountries] = useState("");
     const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
-    const [userInput, setUserInput] = useState(false);
+    const [userinput , setUserinput] = useState([]);
     const API_KEY = myKey.apiKey;
-    const handelchange = ()=> setUserInput(!userInput);
 
+//     useEffect(() => {
+//       axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${lang}&countries=${countries}&sort=published_desc`).then((data)=>setUserinput(data.data.data));
+//   }, [dropdown, categories, lang, countries])
 
-    
-   
-   
-    
-
-
+//   console.log(userinput);
   
-  //   useEffect(() => {
-  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${lang}&countries=${countries}&keywords=corona&offset=4&sort=published_desc`).then(response=>console.log(response.data));
-  // }, [dropdown, categories, lang, countries])
-  
-
+const categoryShow = userinput.map((item)=>{
+    return(
+        <div>
+            <div>
+                {item.title}
+            </div>
+        </div>
+    )
+})
 
     return (
-        <div>
-             
+        <div>   
             <div className="nav-div">    
                     <div className="dropDownFather" >
                       <div>
-                        <div className={dropdown.cat? "openDropDown": "closeDropDown"} onClick={() => {setDropdown ({ cat: true, lang: false, countries: false })} }>categories{dropdown.cat? "˅ ": "^"  }</div>
+                        <div className={dropdown.cat? "openDropDown": "closeDropDown"} onClick={() => {dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? "˅ ": "^"  }</div>
                     
                         {dropdown.cat &&
                         <ul className="dropdownUl" >
+                            
                             <li className="categoryLi" onClick={()=>{setCategories("general"); setDropdown({ cat: false, lang: false, countries: false })  }}>General</li>
                             <li className="categoryLi" onClick={()=>{setCategories("sports"); setDropdown({ cat: false, lang: false, countries: false }) }}>Sports</li>
                             <li className="categoryLi" onClick={()=>{setCategories("technology"); setDropdown({ cat: false, lang: false, countries: false })}}>Technology</li>
@@ -47,7 +48,7 @@ export const Navbar = () => {
                                 }
                                 </div>
                                 <div>
-                        <div className={dropdown.lang? "openDropDown": "closeDropDown"} onClick={() => {setDropdown({ cat: false, lang: true, countries: false }) }}>Languages{dropdown.lang?  "˅ ": "^"  }</div>
+                                <div className={dropdown.lang? "openDropDown": "closeDropDown"} onClick={() => {dropdown.lang? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: true, countries: false })}}>Languages{dropdown.lang? "˅ ": "^"  }</div>
                         
                         {dropdown.lang &&
 
@@ -71,7 +72,7 @@ export const Navbar = () => {
 <div>
 
 
-                        <div className={dropdown.countries? "openDropDown": "closeDropDown"} onClick={() => {setDropdown({ cat: false, lang: false, countries: true }) }}>Countries{dropdown.countries?   "˅ ": "^"  }</div>
+<div className={dropdown.countries? "openDropDown": "closeDropDown"} onClick={() => {dropdown.countries? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: false, countries: true })}}>Countries{dropdown.lang? "˅ ": "^"  }</div>
                         
                         {dropdown.countries &&
 
@@ -89,17 +90,11 @@ export const Navbar = () => {
                             <li className="countriesLi" onClick={()=>{setCountries("sa"); setDropdown({ cat: false, lang: false, countries: false })}}>Saudi Arabia</li>
                             <li className="countriesLi" onClick={()=>{setCountries("ae"); setDropdown({ cat: false, lang: false, countries: false })}}>UAE</li>
                             <li className="countriesLi" onClick={()=>{setCountries("gb"); setDropdown({ cat: false, lang: false, countries: false })}}>United Kingdom</li>
-                        </ul>
-                        
+                        </ul>                      
 }
 </div>
-
-
-
 </div>
-</div>
-
-            
+</div>           
         </div>
     )
 }

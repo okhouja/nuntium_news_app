@@ -73,4 +73,27 @@
       color: red;
    }
 }
+.goUpanchor{
+   color: #000;
+
+}
+.goUp{
+   
+   font-size: 3rem;
+   position: relative;
+   width: 4vh;
+   height: 4vw;
+
+   top: -2vh;
+   animation: go 1s infinite ease-in-out;
+@keyframes go {
+   from{
+      transform: scale(0);
+
+   }
+   to{
+      transform: scale(1);
+   }  
+}
+}
 
