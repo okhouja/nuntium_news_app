@@ -2,6 +2,7 @@
 const { User } = require("../models/User");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
+const Session = require("../models");
 
 const userCont = {};
 
