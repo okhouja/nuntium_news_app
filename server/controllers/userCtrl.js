@@ -62,7 +62,21 @@ userCont.addNewUser = async (req, res) => {
 };
 
 // Login
-userCont;
+userCont.login = async (req, res) => {
+  const user = await User.findOne({ username: req.body.username });
+  if (!user) {
+    return res.status(400).send("username not Found");
+  }
+  try {
+    if (await bcrypt.compare(req.body.password, user.password)) {
+      res.send(`Welcome Back ${user.username}`);
+    } else {
+      res.json({ loginSuccess: false, message: "Wrong Password, try again." });
+    }
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
+  }
+};
 
 // GET All Users
 

@@ -5,22 +5,8 @@ const ObjectId = Schema.Types.ObjectId;
 const articleSchema = Schema({
   _id: ObjectId,
   url: String,
-  comments: [
-    {
-      user: {
-        type: ObjectId,
-        ref: "User",
-      },
-    },
-  ],
-  likes: [
-    {
-      user: {
-        type: ObjectId,
-        ref: "User",
-      },
-    },
-  ],
+  comments: { type: ObjectId, ref: "Comment" },
+  likes: { type: Number, default: 0 },
   published_at: { type: Date, default: Date.now },
 });
 

@@ -57,6 +57,7 @@ commentCont.addNewComment = async (req, res) => {
         const article = new Article({
           _id: new mongoose.Types.ObjectId(),
           url: req.body.url,
+          likes: 0,
         });
 
         article.comments.push(comment._id);

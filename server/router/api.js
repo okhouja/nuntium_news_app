@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const makeRequest = require("../controllers/apiClient");
+const apiCtrl = require("../controllers/apiCtrl");
 
 // URL http://localhost:5000/test
-router.route("/").get(makeRequest);
+router.route("/api/news/").get(apiCtrl.news);
 
 module.exports = router;
