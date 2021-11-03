@@ -62,16 +62,34 @@ userCont.addNewUser = async (req, res) => {
 };
 
 // Login
+// userCont.login = async (req, res) => {
+//   const user = await User.findOne({ username: req.body.username });
+//   if (!user) {
+//     return res.status(400).send("username not Found");
+//   }
+//   try {
+//     if (await bcrypt.compare(req.body.password, user.password)) {
+//       res.send(`Welcome Back ${user.username}`);
+//     } else {
+//       res.json({ loginSuccess: false, message: "Wrong Password, try again." });
+//     }
+//   } catch (err) {
+//     res.status(err.status).json({ message: err.message });
+//   }
+// };
+
 userCont.login = async (req, res) => {
   const user = await User.findOne({ username: req.body.username });
   if (!user) {
-    return res.status(400).send("username not Found");
+    return res.status(404).send(`Unfortunately an error has occurred.
+      The username or password are not entered correctly. Please try again. If an account has not yet been created, please click on "Register"`);
   }
   try {
     if (await bcrypt.compare(req.body.password, user.password)) {
-      res.send(`Welcome Back ${user.username}`);
+      res.send(`Welcome Back ${user.username}!`);
     } else {
-      res.json({ loginSuccess: false, message: "Wrong Password, try again." });
+      res.send(`Unfortunately an error has occurred.
+        The username or password are not entered correctly. Please try again. If an account has not yet been created, please click on "Register"`);
     }
   } catch (err) {
     res.status(err.status).json({ message: err.message });
@@ -172,5 +190,7 @@ userCont.deleteUser = async (req, res) => {
     res.status(err.status).json({ message: err.message });
   }
 };
+
+//
 
 module.exports = userCont;
