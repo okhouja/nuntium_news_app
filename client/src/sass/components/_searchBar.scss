@@ -19,7 +19,15 @@ a{
     align-self:flex-start;
     position: relative;
     left: 16vw;
+    font-weight: bolder;
     list-style: none;
+    cursor: pointer;
+    &:hover{
+        color: yellow;
+    }
+    &:active{
+        color: red;
+    }
 
 }
 

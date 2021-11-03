@@ -37,13 +37,6 @@ function App() {
 
        <Route path="/signup" exact component={Signup} />
        <Route path="/login" exact component={Login} />
-       <Route path="/generalRedirect" exact component={GeneralRediect} />
-       <Route path="/sportsRedirect" exact component={SportsRedirect} />
-       <Route path="/businessRedirect" exact component={BusinessRedirect} />
-       <Route path="/scienceRedirect" exact component={ScienceRedirect} />
-       <Route path="/technologyRedirect" exact component={TechnologyRedirect} />
-       <Route path="/healthRedirect" exact component={HealthRedirect} />
-       <Route path="/entertainmentRedirect" exact component={EntertainmentRedirect} />
        <Route path="/newscollection" exact component={NewsCollection}/>
      </Switch>
      <Footer />

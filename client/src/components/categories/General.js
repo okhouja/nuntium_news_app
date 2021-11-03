@@ -45,7 +45,8 @@ import { Link, useHistory } from 'react-router-dom';
   })
     return (
      <div >
-     <div onClick={()=>history.push({pathname:"/newscollection",state: {category:"sports"}})} id="general" className="general">GENERAL</div> 
+     <div onClick={()=>history.push({pathname:"/newscollection",
+     state: {category:"general"}})} id="general" className="general">GENERAL</div> 
         
     <div className="generalFather"  >     
               {generalNews}

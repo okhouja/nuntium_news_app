@@ -1,12 +1,14 @@
 import {React , useEffect, useState} from 'react';
 import myKey from "../../context/config";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
  const Entertainment = () => {
      const [entertainment, setEntertainment] = useState([]);
      const API_KEY = myKey.apiKey;
+
+     const history = useHistory();
      
   //   useEffect(() => {
   //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=entertainment&languages=en&sort=published_desc`)
@@ -38,8 +40,9 @@ import { Link } from 'react-router-dom';
   })
     return (
      <div >
-       <Link to="/entertainmentRedirect">
-          <div id="entertainment" className="general">ENTERTAINMENT</div> </Link>
+            <div onClick={()=>history.push({pathname:"/newscollection",
+            state: {category:"entertainment"}})} id="general" className="general">ENTERTAINMENT</div> 
+
     <div  className="generalFather">     
               {entertainmentNews}
        </div>    

@@ -1,13 +1,14 @@
 import {React , useEffect, useState} from 'react';
 import myKey from "../../context/config";
 import axios from "axios";
-import { Link } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 
  const Business = () => {
      const [business, setBusiness] = useState([]);
      const API_KEY = myKey.apiKey;
      console.log(API_KEY);
+     const history = useHistory();
      
      
   //   useEffect(() => {
@@ -40,8 +41,9 @@ import { Link } from 'react-router-dom';
   })
     return (
      <div >
-       <Link to="/businessredirect"
->          <div id="business" className="general">BUSINESS</div></Link> 
+            <div onClick={()=>history.push({pathname:"/newscollection",
+            state: {category:"business"}})} id="general" className="general">BUSINESS</div>
+
     <div  className="generalFather">     
               {businessNews}
        </div>    
