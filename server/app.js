@@ -15,6 +15,9 @@ app.use("/", commentRouter);
 const articleRouter = require("./router/article");
 app.use("/", articleRouter);
 
+const apiRouter = require("./router/api");
+app.use("/", apiRouter);
+
 // const articleRouter = require("./router/article");
 // app.use("/article", articleRouter);
 

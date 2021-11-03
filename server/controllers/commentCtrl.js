@@ -57,6 +57,7 @@ commentCont.addNewComment = async (req, res) => {
         const article = new Article({
           _id: new mongoose.Types.ObjectId(),
           url: req.body.url,
+          likes: 0,
         });
 
         article.comments.push(comment._id);
@@ -78,7 +79,7 @@ commentCont.saveComment = async (req, res) => {
     content: req.body.content,
     user: req.user.id,
   });
-  const comment = await newComment.save;
+  const comment = await newComment.save();
   const newarticle = new Article({
     _id: new mongoose.Types.ObjectId(),
     url: req.body.url,

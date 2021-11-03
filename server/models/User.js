@@ -35,7 +35,7 @@ const UserSchema = Schema(
     sport: Boolean,
     technology: Boolean,
     newsletter: Boolean,
-    articleCollection: [{ type: Schema.Types.ObjectId, ref: "Article" }],
+    likedArticles: [{ type: Schema.Types.ObjectId, ref: "Article" }],
     registerDate: { type: Date, required: true, default: Date.now },
   },
   { versionKey: false }

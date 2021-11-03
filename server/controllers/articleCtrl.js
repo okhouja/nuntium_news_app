@@ -2,6 +2,7 @@ const Comment = require("../models/Comment");
 // const User = require("../models/User");
 const { Article } = require("../models/Articlel");
 const mongoose = require("mongoose");
+const { User } = require("../models/User");
 
 const articleCont = {};
 
@@ -42,19 +43,12 @@ articleCont.getArticle = async (req, res) => {
 };
 // Create Article
 
-articleCont.likeArticle = async (req, res, next) => {
-  const like = new Article({
-    _id: new mongoose.Types.ObjectId(),
-    postedBy: req.body.username,
-    like: req.body.like,
-  });
-  const counter = like === true ? +1 : -1;
-  await like.save();
+articleCont.likeArticle = (req, res) => {
   Article.findOne({ url: req.body.url })
     .then((article) => {
       if (article) {
         console.log(article);
-        article.likes.push(counter);
+        article.likes += 1;
         article.save();
         res.status(201).json({
           message: "Your Like has been added successfully",
@@ -64,11 +58,20 @@ articleCont.likeArticle = async (req, res, next) => {
         const article = new Article({
           _id: new mongoose.Types.ObjectId(),
           url: req.body.url,
-          likes: req.body.likes,
+          likes: 1,
+          comments: [],
         });
 
-        article.likes.push(counter);
         article.save();
+
+        // after Auth
+        // User.findById(req.id)
+
+        User.findById(req.body.id).then((user) => {
+          user.likes += 1;
+          user.save();
+          res.status(201).json(user.likes);
+        });
 
         res.status(201).json({ message: "Article has been saved" });
       }

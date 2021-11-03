@@ -1,12 +1,12 @@
 // const ApiClient = require("./apiClient");
 const axios = require("axios");
-const Article = require("../models/articleModel");
+// const Article = require("../models/articleModelOld");
 const config = require("../config");
 
 const myKey = config.APP_KEY;
-const articleCont = {};
+const apiCtrl = {};
 
-articleCont.news = async (req, res) => {
+apiCtrl.news = async (req, res) => {
   await axios
     .get(
       `http://api.mediastack.com/v1/news?access_key=${myKey}&categories=sports&languages=en&sort=published_desc`
@@ -28,4 +28,4 @@ articleCont.news = async (req, res) => {
 //   }
 // };
 
-module.exports = articleCont;
+module.exports = apiCtrl;
