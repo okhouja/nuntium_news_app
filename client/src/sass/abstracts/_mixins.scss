@@ -13,14 +13,14 @@
 }
 @mixin spaceBetweenCenterRow {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   
 }
 @mixin spaceBetweenendRow {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
   flex-direction: row;
   

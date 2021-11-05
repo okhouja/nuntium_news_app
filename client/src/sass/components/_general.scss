@@ -6,24 +6,28 @@
    border:  solid 1px red;
    position: relative;
    flex-wrap: wrap;
-   margin: 3% auto;
+   margin: 1% auto;
 }
 .generalwrapper{
-   @include spaceBetweenColumn;
-   border: 1px solid black ;
-   height:400px ;
+   @include spaceBetweenStartColumn;
+   height:450px ;
    width: 250px;
    position: relative;
    top: -1.8vh;
-.generalwrapperActive{
-   @include spaceBetweenColumn;
-   margin: 5% auto;
-}
+
+   
+// .generalwrapperActive{
+//    @include spaceBetweenStartColumn ;
+//    height:20000000000000000000000000px ;
+//    width: 250px;
+//    border: 10px solid black ;
+// }
    
 }
 .generalDescriptionActive{
    width:44vw;
    color: #000;
+   height: 80%;
    font-size: 1rem;
    overflow: hidden;
    text-align: center;
@@ -33,29 +37,70 @@
    color: #000;
    font-size: 1.5rem;
    text-align: center;
+   cursor: pointer;
+}
+.generalPublishActive{
+   color: #000;
+   text-align: center
+   
+}
+.generalTitle{
+   cursor: pointer;
+
 }
 
-.generalTitle, .generalAuthor, .generalPublish, .generalDescription{
+.generalTitle, .generalPublish, .generalDescription, .generalPublish{
    font-size: 1rem;
    color: #000;
    text-align: center;
 
 
 }
+.generalDown{
+   width: 100%;
+
+}
+.generalAuthorFatherActive{
+   @include centerRow;
+   width: 100%;
+   
+
+}
+.generalAuthorWordActive{
+   color: #000;
+   font-weight: bolder;
+   
+}
+.generalAuthorActive{
+   color: #000;
+   margin-left: 2vh;
+   width: auto;
+   
+}
+.generalAuthorFather{
+   @include spaceBetweenendRow;
+   width: 100%;
+   
+}
+.generalAuthorWord, .generalAuthor{
+   color: #000;
+   width: auto;
+   height: 2vh;
+}
+.generalAuthorWord{
+   font-weight: bolder;
+}
+
+
 
 .generalDescription{
    color:#000;
+   height: 10%;
    overflow: hidden;
 
 }
 
-.otherFather{
-   @include spaceBetweenColumn;
-   height: 22vh;
 
-
-
-}
 .imgActive{
    width: 44vw;
    height: 30vh;
@@ -76,6 +121,13 @@
 .goUpanchor{
    color: #000;
 
+}
+.goupWord{
+   color:#000;
+   position: relative;
+   top: -4vh;
+   left: -1vh;
+   font-weight: bolder;
 }
 .goUp{
    

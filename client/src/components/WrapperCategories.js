@@ -18,6 +18,7 @@ import Entertainment from "./categories/Entertainment";
             <Health />
             <Entertainment />
             <div className="goUp"><a className="goUpanchor" href="#img">˄</a></div>
+            <p className="goupWord">Go up</p>
         </div>
     )
 }

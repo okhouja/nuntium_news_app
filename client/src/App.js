@@ -6,20 +6,8 @@ import SearchBar from "./components/SearchBar";
 import Footer from "./components/Footer";
 import Signup from "./components/Signup";
 import Login from "./components/Login";
-import GeneralRediect from "./components/categoriesRedirect/GeneralRedirect";
-import SportsRedirect from "./components/categoriesRedirect/SportsRedirect";
-import BusinessRedirect from "./components/categoriesRedirect/BusinessRedirect";
-import ScienceRedirect from "./components/categoriesRedirect/ScienceRedirect";
-import TechnologyRedirect from "./components/categoriesRedirect/TechnologyRedirect";
-import HealthRedirect from "./components/categoriesRedirect/HealthRedirect";
-import EntertainmentRedirect from "./components/categoriesRedirect/EntertainmentRedirect";
 import NewsCollection from "./components/NewsCollection";
-
-
-
-
-
-
+import LinksCollection from "./components/LinksCollection";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
@@ -38,6 +26,8 @@ function App() {
        <Route path="/signup" exact component={Signup} />
        <Route path="/login" exact component={Login} />
        <Route path="/newscollection" exact component={NewsCollection}/>
+       <Route path="/linkscollection" exact component={LinksCollection}/>
+
      </Switch>
      <Footer />
 
