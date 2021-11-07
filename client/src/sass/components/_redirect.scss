@@ -38,7 +38,13 @@ text-align: center;
 .redirectTitle{
     margin-top: 1vh;
     cursor: pointer;
-    color: blue;
+    color: #000;
+    &:hover{
+        color: yellow;
+     }
+     &:active{
+        color: red;
+     }
 }
 .redirectDescription{
     color: #000;

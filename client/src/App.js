@@ -8,6 +8,10 @@ import Signup from "./components/Signup";
 import Login from "./components/Login";
 import NewsCollection from "./components/NewsCollection";
 import LinksCollection from "./components/LinksCollection";
+import LanguagesCollection from "./components/LanguagesCollection";
+import CountriesCollection from "./components/CountriesCollection";
+
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
@@ -27,6 +31,10 @@ function App() {
        <Route path="/login" exact component={Login} />
        <Route path="/newscollection" exact component={NewsCollection}/>
        <Route path="/linkscollection" exact component={LinksCollection}/>
+       <Route path="/languagescollection" exact component={LanguagesCollection}/>
+       <Route path="/countriescollection" exact component={CountriesCollection}/>
+
+
 
      </Switch>
      <Footer />

@@ -14,6 +14,7 @@
    width: 250px;
    position: relative;
    top: -1.8vh;
+   
 
    
 // .generalwrapperActive{
@@ -38,6 +39,12 @@
    font-size: 1.5rem;
    text-align: center;
    cursor: pointer;
+   &:hover{
+      color: yellow;
+   }
+   &:active{
+      color: red;
+   }
 }
 .generalPublishActive{
    color: #000;
@@ -46,6 +53,12 @@
 }
 .generalTitle{
    cursor: pointer;
+   &:hover{
+      color: yellow;
+   }
+   &:active{
+      color: red;
+   }
 
 }
 
@@ -104,6 +117,9 @@
 .imgActive{
    width: 44vw;
    height: 30vh;
+}
+.img{
+width: 100%;
 }
 .general{
    color:  black;;

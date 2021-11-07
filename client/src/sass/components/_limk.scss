@@ -24,9 +24,9 @@ top: 4vh;
    left: 8vh;
    
 }
-.linkInfo{
+.linkPuplish, .linkInfo{
     height: 3vh;
-    @include spaceBetweenCenterRow;
+    @include centerRow;
     width: 50%;
     
 

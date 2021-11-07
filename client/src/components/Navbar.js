@@ -1,30 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import axios from "axios";
 import myKey from "../context/config";
+import {useHistory} from "react-router-dom";
 
 export const Navbar = () => {
     const [categories, setCategories] = useState("");
     const [lang, setLang] = useState("");
     const [countries, setCountries] = useState("");
     const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
-    const [userinput , setUserinput] = useState([]);
     const API_KEY = myKey.apiKey;
+    const history = useHistory();
 
-//     useEffect(() => {
-//       axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=50&categories=${categories}&languages=${lang}&countries=${countries}&sort=published_desc`).then((data)=>setUserinput(data.data.data));
-//   }, [dropdown, categories, lang, countries])
+    
+    useEffect(() => {
+        document.body.addEventListener("mousedown", ()=>{
+            if (dropdown.cat || dropdown.lang || dropdown.countries ){
+                setDropdown({cat: false, lang:false , countries: false})
 
-//   console.log(userinput);
+            }
+        })
+        
+    }, [])
+
+
   
-const categoryShow = userinput.map((item)=>{
-    return(
-        <div>
-            <div>
-                {item.title}
-            </div>
-        </div>
-    )
-})
 
     return (
         <div>   
@@ -36,13 +35,13 @@ const categoryShow = userinput.map((item)=>{
                         {dropdown.cat &&
                         <ul className="dropdownUl" >
                             
-                            <li className="categoryLi" onClick={()=>{setCategories("general"); setDropdown({ cat: false, lang: false, countries: false })  }}>General</li>
-                            <li className="categoryLi" onClick={()=>{setCategories("sports"); setDropdown({ cat: false, lang: false, countries: false }) }}>Sports</li>
-                            <li className="categoryLi" onClick={()=>{setCategories("technology"); setDropdown({ cat: false, lang: false, countries: false })}}>Technology</li>
-                            <li className="categoryLi" onClick={()=>{setCategories("business"); setDropdown({ cat: false, lang: false, countries: false })}}>Business</li>
-                            <li className="categoryLi" onClick={()=>{setCategories("science"); setDropdown({ cat: false, lang: false, countries: false })}}>Science</li>
-                            <li className="categoryLi" onClick={()=>{setCategories("entertainment");setDropdown({ cat: false, lang: false, countries: false }) }}>Entertainment</li>
-                            <li className="categoryLi" onClick={()=>{setCategories("health"); setDropdown({ cat: false, lang: false, countries: false })}}>Health</li>
+                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state: {category: "general"}}); setDropdown({ cat: false, lang: false, countries: false })  }}>General</li>
+                            <li className="categoryLi" onClick={()=>{history.push({pathname: "/newscollection", state:{category: "sports"}}); setDropdown({ cat: false, lang: false, countries: false }) }}>Sports</li>
+                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category: "business"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Technology</li>
+                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category: "science"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Business</li>
+                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category:"technology"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Science</li>
+                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category:"health"}});setDropdown({ cat: false, lang: false, countries: false }) }}>Entertainment</li>
+                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category:"entertainment"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Health</li>
 
                         </ul>
                                 }
@@ -53,16 +52,16 @@ const categoryShow = userinput.map((item)=>{
                         {dropdown.lang &&
 
                         <ul className="dropdownUl" >
-                            <li className="langLi" onClick={()=>{setLang("en"); setDropdown({ cat: false, lang: false, countries: false })}}>English</li>
-                            <li className="langLi" onClick={()=>{setLang("de"); setDropdown({ cat: false, lang: false, countries: false })}}>Germany</li>
-                            <li className="langLi" onClick={()=>{setLang("ar"); setDropdown({ cat: false, lang: false, countries: false })}}>Arabic</li>
-                            <li className="langLi" onClick={()=>{setLang("es"); setDropdown({ cat: false, lang: false, countries: false })}}>Spanish</li>
-                            <li className="langLi" onClick={()=>{setLang("it"); setDropdown({ cat: false, lang: false, countries: false })}}>Italian</li>
-                            <li className="langLi" onClick={()=>{setLang("fr"); setDropdown({ cat: false, lang: false, countries: false })}}>French</li>
-                            <li className="langLi" onClick={()=>{setLang("nl"); setDropdown({ cat: false, lang: false, countries: false })}}>Dutch</li>
-                            <li className="langLi" onClick={()=>{setLang("no"); setDropdown({ cat: false, lang: false, countries: false })}}>Norweigan</li>
-                            <li className="langLi" onClick={()=>{setLang("pt"); setDropdown({ cat: false, lang: false, countries: false })}}>Portgueese</li>
-                            <li className="langLi" onClick={()=>{setLang("ru"); setDropdown({ cat: false, lang: false, countries: false })}}>Russian</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"en"}); setDropdown({ cat: false, lang: false, countries: false })}}>English</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"de"}); setDropdown({ cat: false, lang: false, countries: false })}}>Germany</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"ar"}); setDropdown({ cat: false, lang: false, countries: false })}}>Arabic</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"es"}); setDropdown({ cat: false, lang: false, countries: false })}}>Spanish</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"it"}); setDropdown({ cat: false, lang: false, countries: false })}}>Italian</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"fr"}); setDropdown({ cat: false, lang: false, countries: false })}}>French</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"nl"}); setDropdown({ cat: false, lang: false, countries: false })}}>Dutch</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"no"}); setDropdown({ cat: false, lang: false, countries: false })}}>Norweigan</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"pt"}); setDropdown({ cat: false, lang: false, countries: false })}}>Portgueese</li>
+                            <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"ru"}); setDropdown({ cat: false, lang: false, countries: false })}}>Russian</li>
 
                         </ul>
         
@@ -78,18 +77,18 @@ const categoryShow = userinput.map((item)=>{
 
                         <ul className="dropdownUl" >
                             
-                            <li className="countriesLi" onClick={()=>{setCountries("au"); setDropdown({ cat: false, lang: false, countries: false })}}>Australia</li>
-                           <li className="countriesLi" onClick={()=>{setCountries("be"); setDropdown({ cat: false, lang: false, countries: false })}}>Belgium</li> 
-                           <li className="countriesLi" onClick={()=>{setCountries("ca"); setDropdown({ cat: false, lang: false, countries: false })}}>Canda</li>
-                            <li className="countriesLi" onClick={()=>{setCountries("eh"); setDropdown({ cat: false, lang: false, countries: false })}}>Egypt</li>
-                            <li className="countriesLi" onClick={()=>{setCountries("fr"); setDropdown({ cat: false, lang: false, countries: false })}}>France</li>
-                            <li className="countriesLi" onClick={()=>{setCountries("de"); setDropdown({ cat: false, lang: false, countries: false })}}>Germany</li>
-                            <li className="countriesLi" onClick={()=>{setCountries("it"); setDropdown({ cat: false, lang: false, countries: false })}}>Italy</li>
-                            <li className="countriesLi" onClick={()=>{setCountries("nl"); setDropdown({ cat: false, lang: false, countries: false })}}>Nethertheland</li>
-                            <li className="countriesLi" onClick={()=>{setCountries("no"); setDropdown({ cat: false, lang: false, countries: false })}}>Norway</li>
-                            <li className="countriesLi" onClick={()=>{setCountries("sa"); setDropdown({ cat: false, lang: false, countries: false })}}>Saudi Arabia</li>
-                            <li className="countriesLi" onClick={()=>{setCountries("ae"); setDropdown({ cat: false, lang: false, countries: false })}}>UAE</li>
-                            <li className="countriesLi" onClick={()=>{setCountries("gb"); setDropdown({ cat: false, lang: false, countries: false })}}>United Kingdom</li>
+                            <li className="countriesLi" onClick={()=>{history.push({pathname: "/countriescollection", country: "au"}); setDropdown({ cat: false, lang: false, countries: false })}}>Australia</li>
+                           <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "be"})}; setDropdown({ cat: false, lang: false, countries: false })}}>Belgium</li> 
+                           <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "ca"}); setDropdown({ cat: false, lang: false, countries: false })}}}>Canda</li>
+                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "eg"}); setDropdown({ cat: false, lang: false, countries: false })}}}>Egypt</li>
+                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "fr"}); setDropdown({ cat: false, lang: false, countries: false })}}}>France</li>
+                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "de"}); setDropdown({ cat: false, lang: false, countries: false })}}}>Germany</li>
+                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "nl"}); setDropdown({ cat: false, lang: false, countries: false })}}}>Nethertheland</li>
+                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "no"}); setDropdown({ cat: false, lang: false, countries: false })}}}>Norway</li>
+                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "pt"}); setDropdown({ cat: false, lang: false, countries: false })}}}>Portugal</li>
+                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "ch"}); setDropdown({ cat: false, lang: false, countries: false })}}}>Switzerland</li>
+                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "us"}); setDropdown({ cat: false, lang: false, countries: false })}}}>U.S.A</li>
+                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "gb"}); setDropdown({ cat: false, lang: false, countries: false })}}}>United Kingdom</li>
                         </ul>                      
 }
 </div>

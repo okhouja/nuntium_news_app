@@ -2,7 +2,7 @@ import {React, useState} from 'react';
 import {Link} from "react-router-dom";
  const LinksCollection = (props) => {
           
-    const [linkArr, setLinkArr] = useState(props.location.state.item);
+    const [linkArr, setLinkArr] = useState(props.location.state.value);
     console.log(linkArr);
 
     
@@ -13,7 +13,7 @@ import {Link} from "react-router-dom";
             <div className="linkFather">
             
            <div className="linkInfo , linkTitle">{linkArr.title}</div> 
-           <div className="linkInfo">{linkArr.published_at}</div> 
+           <div className="linkPuplish">{linkArr.published_at}</div> 
           <div className="linkmidFather"> 
            <div className="linkInfo"><p className="linkAuthorWord">Author:</p><p className="linkAuthor">{linkArr.author}</p></div> 
            <div className="linkInfo"><p className="linkAuthorWord">Source:</p><p className="linkAuthor">{linkArr.source}</p></div> 

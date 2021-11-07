@@ -8,21 +8,16 @@ import { v4 as uuidv4 } from "uuid";
 
  const General = () => {
      const [general, setGeneral] = useState([]);
-    //  const [link, setLink] = useState([]);
-
-    //  const [didMount, setDidMount] = useState(false); 
-
      const API_KEY = myKey.apiKey;
      const history = useHistory();
      
-    useEffect(() => {
-      // setDidMount(true);
-      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=general&languages=en&sort=published_desc`)
- .then((data)=>setGeneral(data.data.data.filter((item)=> item.image).slice(0,6)))
-  .catch((err) => console.log(`Your had an ${err}`));
+//     useEffect(() => {
+//       axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=general&languages=en&sort=published_desc`)
+//  .then((data)=>setGeneral(data.data.data.filter((item)=> item.image).slice(0,6)))
+//   .catch((err) => console.log(`Your had an ${err}`));
       
-  }, [])
-  console.log(general);
+//   }, [])
+//   console.log(general);
   
 
   
@@ -32,9 +27,9 @@ import { v4 as uuidv4 } from "uuid";
   
 //onClick={myfunc("en")}
 
-  const generalNews = general.map((item,i)=>{
+  const generalNews = general.map((value,i)=>{
   
-    const {author, title, image, url, description,source,published_at} = item;
+    const {author, title, image, url, description,source,published_at} = value;
     return(
                    <div   >   
                    <div key={i}>    
@@ -42,9 +37,9 @@ import { v4 as uuidv4 } from "uuid";
                          <img className={i === 0? "imgActive" : "img"} src={image} alt={title} width="200px" height="250px"   />    
                        <h3 className={i == 0 ? "generalTitleActive": "generalTitle"}
                        onClick={()=>
-                        {if(i === 0 || i){
-                         history.push({pathname: "/linkscollection", state: {item}
-                        })}}}
+                        {if(i === 0 || i)
+                         history.push({pathname: "/linkscollection", state: {value}
+                        })}}
                        >{title}</h3>
                        <p className={i === 0? "generalPublishActive": "generalPublish"}>{published_at}</p> 
                         <p  className={i === 0? "generalDescriptionActive": "generalDescription"}>{description}</p>
