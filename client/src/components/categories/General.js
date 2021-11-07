@@ -8,7 +8,7 @@ import { v4 as uuidv4 } from "uuid";
 
  const General = () => {
      const [general, setGeneral] = useState([]);
-     const API_KEY = myKey.apiKey;
+     const API_KEY = myKey.news.apiKey;
      const history = useHistory();
      
 //     useEffect(() => {

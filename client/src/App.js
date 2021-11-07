@@ -1,4 +1,4 @@
-import {React, useState} from "react";
+import {React, useState, useEffect} from "react";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import Navbar from "./components/Navbar";
@@ -10,12 +10,22 @@ import NewsCollection from "./components/NewsCollection";
 import LinksCollection from "./components/LinksCollection";
 import LanguagesCollection from "./components/LanguagesCollection";
 import CountriesCollection from "./components/CountriesCollection";
+import Loading  from "./components/Loading";
 
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 
 function App() {
+  const [load , setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+  if (load) return <Loading />;
+
   
   return (
    <Router>

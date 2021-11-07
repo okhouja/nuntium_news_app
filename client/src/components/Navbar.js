@@ -10,17 +10,16 @@ export const Navbar = () => {
     const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
     const API_KEY = myKey.apiKey;
     const history = useHistory();
-
     
     useEffect(() => {
-        document.body.addEventListener("mousedown", ()=>{
+        document.addEventListener("mousedown", ()=>{
             if (dropdown.cat || dropdown.lang || dropdown.countries ){
                 setDropdown({cat: false, lang:false , countries: false})
 
             }
         })
         
-    }, [])
+    }, [dropdown.cat, dropdown.lang, dropdown.countries])
 
 
   
@@ -30,7 +29,7 @@ export const Navbar = () => {
             <div className="nav-div">    
                     <div className="dropDownFather" >
                       <div>
-                        <div className={dropdown.cat? "openDropDown": "closeDropDown"} onClick={() => {dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? "˅ ": "^"  }</div>
+                        <div className={dropdown.cat? "openDropDown": "closeDropDown"} onClick={() => {dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? "ᐯ ": "ᐱ"  }</div>
                     
                         {dropdown.cat &&
                         <ul className="dropdownUl" >
@@ -47,7 +46,7 @@ export const Navbar = () => {
                                 }
                                 </div>
                                 <div>
-                                <div className={dropdown.lang? "openDropDown": "closeDropDown"} onClick={() => {dropdown.lang? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: true, countries: false })}}>Languages{dropdown.lang? "˅ ": "^"  }</div>
+                                <div className={dropdown.lang? "openDropDown": "closeDropDown"} onClick={() => {dropdown.lang? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: true, countries: false })}}>Languages{dropdown.lang? "ᐯ ": "ᐱ"  }</div>
                         
                         {dropdown.lang &&
 
@@ -71,7 +70,7 @@ export const Navbar = () => {
 <div>
 
 
-<div className={dropdown.countries? "openDropDown": "closeDropDown"} onClick={() => {dropdown.countries? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: false, countries: true })}}>Countries{dropdown.lang? "˅ ": "^"  }</div>
+<div className={dropdown.countries? "openDropDown": "closeDropDown"} onClick={() => {dropdown.countries? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: false, countries: true })}}>Countries{dropdown.countries? "ᐯ": "ᐱ"  }</div>
                         
                         {dropdown.countries &&
 

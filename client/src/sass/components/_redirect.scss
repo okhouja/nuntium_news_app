@@ -2,7 +2,7 @@
     @include spaceBetweenStartColumn;
     position: relative;
     top: 4vh;
-    
+      
 }
 .redirectContainer{
     @include spaceBetweenStartRow;
@@ -90,8 +90,15 @@ width: 12vw
     font-weight: bolder;
     color: #000;
     top: -4vh;
+    
 }
 
+.goUpanchor{
+    @include responsive(bigScreen){
+        position: relative;
+    top: -1vh;
+    }
+}
 .goUpRedirect{
     font-size: 4rem;
     position: relative;
@@ -99,6 +106,9 @@ width: 12vw
     
     width: 4vh;
     height: 4vw;
+    @include responsive(bigScreen){
+        margin: 1vh auto;
+    }
     animation: go 1s infinite ease-in-out;
  @keyframes go {
     from{

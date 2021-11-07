@@ -39,11 +39,23 @@
 .fatherCurrentWeather{
     @include centerRow;
     width: 16vw;
+    @include responsive (bigScreen){
+        width: auto;
+    }
 }
-.currentFather{
+.currentFather, .aveFather{
     @include spaceBetweenColumn;
     width: 8vw;
+    
 }
+.currentFather{
+    @include responsive(bigScreen){
+        width: 6vw;
+        align-items: flex-start;
+    }
+}
+
+
 .currentLabel, .currentData{
     color: white;
     text-align: center;
@@ -56,9 +68,14 @@
 .imgWeatherFather{
 
    @include flex-center; 
+  
 }
 .date{
     color: white;
+    @include responsive(bigScreen){
+        width: 816w;
+        
+    }
 }
 .dateFather{
     width: 12vh;

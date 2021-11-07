@@ -13,13 +13,15 @@ import {
   
 function Header (){
   const [weather , setWeather] = useState({});
-
-  const API_KEY = myKey.apiKeyWeather;
   
-  // useEffect(() => {
-  //   axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
-  // }, []);
-  // console.log( weather);
+
+  const API_KEY = myKey.weather.apiKeyWeather;
+  
+  
+  useEffect(() => {
+    axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
+  }, []);
+  console.log(weather );
 
   let date = new Date();
 let day = date.toLocaleString('en-us', {weekday: 'short'});
@@ -28,12 +30,22 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
   const fulldate = day + " " +  today;
   
   // const showDate = today.getFullYear()+'-'+today.getMonth() +'-'+today.getDate();
-
-  function changeHandle(e) {
-    e.preventDefault();
-    
-  }
+useEffect(() => {
+  const weatherToParse = localStorage.getItem("weather");
   
+
+  if (weatherToParse){
+
+setWeather(JSON.parse(weatherToParse))
+}
+}, [])
+
+
+  useEffect(() => {
+    
+  localStorage.setItem("weather", JSON.stringify(weather))
+  }, [weather])
+  console.log(localStorage);
    return(
      <div >
         
@@ -44,7 +56,7 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
             </div>
             <div className="fatherCurrentWeather">
 
-              <div className="currentFather">
+              <div className="aveFather">
                 <label className="currentLabel">Feels Like</label>
                 {/* <span className="currentData">{weather.current.feelslike_c}</span> */}
               </div>

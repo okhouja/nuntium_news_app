@@ -49,6 +49,12 @@ h1,h2{
     width: 35%;
     
 }
+.copyrightinfo{
+    @include responsive(bigScreen){
+        width: 28vw;
+        
+    }
+}
 .iconFatherFooter{
     @include spaceBetweenStartRow;
   width: 20%;

@@ -5,7 +5,7 @@ import {Link , useHistory} from "react-router-dom";
 
 
  const NewsCollection = (props) => {
-    const API_KEY = myKey.apiKey;
+    const API_KEY = myKey.news.apiKey;
 
     const history = useHistory();
 
@@ -20,8 +20,8 @@ import {Link , useHistory} from "react-router-dom";
 //         console.log(newsarray);
 //         console.log(category);
     
-        const showNews = newsarray.map((item,i)=>{
-            const {author, title, image, url, description,source,published_at} = item;
+        const showNews = newsarray.map((value,i)=>{
+            const {author, title, image, description,source,published_at} = value;
             
             return(
                            <div  key={i}>          
@@ -33,7 +33,7 @@ import {Link , useHistory} from "react-router-dom";
                                <h3 className="redirectTitle"
                        onClick={()=>
                         {if(i === 0 || i){
-                         history.push({pathname: "/linkscollection", state: {item}
+                         history.push({pathname: "/linkscollection", state: {value}
                         })}}}
                        >{title}</h3>
                                <p className="redirectPuplished">{published_at}</p>
@@ -52,11 +52,13 @@ import {Link , useHistory} from "react-router-dom";
              <div >
             <div  className="redirectFather">     
                       {showNews}
+                      
                       <Link className="backLink" to="/home"><p className="back">Back</p></Link>
                <div className="goUpRedirect"><a className="goUpanchor" href="#img">˄</a></div>
                <p className="goupwordRedirect">Go up</p>
 
                </div> 
+               
               
                    
                     </div>

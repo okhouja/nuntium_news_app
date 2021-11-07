@@ -67,6 +67,12 @@ align-items: center;
 flex-direction: row;
 }
 
+@mixin  responsive($breakpoint) {
+  @if $breakpoint == bigScreen {
+@media only screen and (min-width:1200px ){@content};
+  }
+}
+
 
 
 

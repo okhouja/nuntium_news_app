@@ -14,11 +14,13 @@ import {Link} from "react-router-dom";
             
            <div className="linkInfo , linkTitle">{linkArr.title}</div> 
            <div className="linkPuplish">{linkArr.published_at}</div> 
-          <div className="linkmidFather"> 
+          <div className="imgDiv">
+        <img className="imgLink" src={linkArr.image} alt={linkArr.title} />
+        <div className="linkmidFather"> 
            <div className="linkInfo"><p className="linkAuthorWord">Author:</p><p className="linkAuthor">{linkArr.author}</p></div> 
            <div className="linkInfo"><p className="linkAuthorWord">Source:</p><p className="linkAuthor">{linkArr.source}</p></div> 
            </div>
-        <img className="imgLink" src={linkArr.image} alt={linkArr.title} />
+           </div>
         <div className="seemoreFather">
            <div className="linkDes">{linkArr.description} </div><div className="linkInfo"><a href={linkArr.url}>See more</a></div> 
            </div>
