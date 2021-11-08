@@ -2,7 +2,8 @@
 const { User } = require("../models/User");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const Session = require("../models");
+const Session = require("../models/session");
+const uuid = require("uuid").v4;
 
 const userCont = {};
 
@@ -31,7 +32,7 @@ userCont.addNewUser = async (req, res) => {
   if (userCheck) {
     return res.status(400).send("This user is already exists.");
   }
-
+  req.session.done = true;
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     console.log(hashedPassword);
