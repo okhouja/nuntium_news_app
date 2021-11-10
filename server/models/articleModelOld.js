@@ -3,10 +3,11 @@ const Schema = mongoose.Schema;
 const ObjectId = Schema.Types.ObjectId;
 
 const articleSchema = Schema({
+  _id: ObjectId,
   title: { type: String },
   author: { type: String },
   description: { type: String },
-  url: { type: String, unique: true },
+  content: { type: String, unique: true },
   source: { type: String },
   image: { type: String },
   category: { type: String },

@@ -4,10 +4,10 @@ const { Article } = require("../models/Articlel");
 const mongoose = require("mongoose");
 const { User } = require("../models/User");
 
-const articleCont = {};
+const articleCtrl = {};
 
 //                                              Get All Articles
-articleCont.getAllArticle = async (req, res) => {
+articleCtrl.getAllArticle = async (req, res) => {
   try {
     const articles = await Article.find();
     res.status(200).json(articles);
@@ -18,7 +18,7 @@ articleCont.getAllArticle = async (req, res) => {
 
 //                                   Check if the article exists
 
-articleCont.checkArticle = async (req, res, next) => {
+articleCtrl.checkArticle = async (req, res, next) => {
   const article = await Article.findById(req.params._id);
   try {
     if (!article) {
@@ -33,7 +33,7 @@ articleCont.checkArticle = async (req, res, next) => {
 
 // Get Article
 
-articleCont.getArticle = async (req, res) => {
+articleCtrl.getArticle = async (req, res) => {
   try {
     const article = await Article.findById(req.params._id).populate("comments");
     res.status(200).json(article);
@@ -43,7 +43,7 @@ articleCont.getArticle = async (req, res) => {
 };
 // Create Article
 
-articleCont.likeArticle = (req, res) => {
+articleCtrl.likeArticle = (req, res) => {
   Article.findOne({ url: req.body.url })
     .then((article) => {
       if (article) {
@@ -82,8 +82,10 @@ articleCont.likeArticle = (req, res) => {
     });
 };
 
+articleCtrl;
+
 /*
-articleCont.AddNewArticle = async (req, res) => {
+articleCtrl.AddNewArticle = async (req, res) => {
   Article.findOne({ url: req.body.url })
     .then((article) => {
       if (article) {
@@ -110,7 +112,7 @@ articleCont.AddNewArticle = async (req, res) => {
 */
 /*
 
-articleCont.createArticle = async (req, res) => {
+articleCtrl.createArticle = async (req, res) => {
   Article.findOne({ url: req.body.url }).then((article) => {
     if (!article) {
       const article = new Article({
@@ -137,4 +139,4 @@ articleCont.createArticle = async (req, res) => {
 
 */
 
-module.exports = articleCont;
+module.exports = articleCtrl;
