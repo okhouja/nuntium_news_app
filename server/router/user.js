@@ -14,4 +14,6 @@ router.route("/user/update/:_id").patch(userCont.updateProfile);
 
 router.route("/user/delete/:_id").delete(userCont.deleteUser);
 
+router.route("/login").post(userCont.login);
+
 module.exports = router;
