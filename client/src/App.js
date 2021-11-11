@@ -29,14 +29,13 @@ function App() {
   
   return (
    <Router>
+         <Navbar />
+
     <Header />
-    <Navbar />
     <SearchBar />
   
      <Switch>
        <Route path="/" exact component={Home}/>
-       {/* <Route path="/home" exact component={Home} />  */}
-
        <Route path="/signup" exact component={Signup} />
        <Route path="/login" exact component={Login} />
        <Route path="/newscollection" exact component={NewsCollection}/>

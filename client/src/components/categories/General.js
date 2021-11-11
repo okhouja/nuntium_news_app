@@ -2,8 +2,6 @@ import {React , useEffect, useState} from 'react';
 import myKey from "../../context/config";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
-import { v4 as uuidv4 } from "uuid";
-
 
 
  const General = () => {
@@ -21,7 +19,7 @@ import { v4 as uuidv4 } from "uuid";
   
 
   
-  //   const myfunc = (lang)=>{
+  //   const myfunc = (lang)=>{/*  */
 // history.push({pathname:"/newscollection",language:lang })
 //   }
   
@@ -34,7 +32,8 @@ import { v4 as uuidv4 } from "uuid";
                    <div   >   
                    <div key={i}>    
                       <div    className= {i === 0 ? "generalwrapperActive":"generalwrapper"}  >                          
-                         <img className={i === 0? "imgActive" : "img"} src={image} alt={title} width="200px" height="250px"   />    
+                         <img className={i === 0? "imgActive" : "generalimg"} src={image} alt={title} width="200px" height="250px"   />    
+                       <div className= "otherFather">
                        <h3 className={i == 0 ? "generalTitleActive": "generalTitle"}
                        onClick={()=>
                         {if(i === 0 || i)
@@ -43,18 +42,21 @@ import { v4 as uuidv4 } from "uuid";
                        >{title}</h3>
                        <p className={i === 0? "generalPublishActive": "generalPublish"}>{published_at}</p> 
                         <p  className={i === 0? "generalDescriptionActive": "generalDescription"}>{description}</p>
-                        <div className="generalDown">
-                          
-                             <div className={i === 0? "generalAuthorFatherActive" : "generalAuthorFather"}
-                             ><p className={ i === 0? "generalAuthorWordActive": "generalAuthorWord"}>Author: </p>
-                              <p className={ i === 0? "generalAuthorActive": "generalAuthor"}> {author}</p></div>
+                        
+                          <div className="generalAuthorContainer">
                              <div className={i === 0? "generalAuthorFatherActive" : "generalAuthorFather"}>
+                             <p className={ i === 0? "generalAuthorWordActive": "generalAuthorWord"}>Author: </p>
+                              <p className={ i === 0? "generalAuthorActive": "generalAuthor"}> {author}</p></div>
+                              <div className={i === 0? "generalAuthorFatherActive" : "generalAuthorFather"} >
                                <p className={ i === 0? "generalAuthorWordActive": "generalAuthorWord"} >Source: </p> 
                                <p className={ i === 0? "generalAuthorActive": "generalAuthor"}> {source}</p></div>
+                               </div>
+                               </div>
                              </div> 
-                     </div>           
-                     </div>    
-                     </div>   
+                             </div>
+                             </div>
+                    
+                    
                )
   })
     return (

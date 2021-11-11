@@ -1,0 +1,14 @@
+.trendFather{
+  @include  centerRow;
+  width: 88vw;
+  height: 22vh;
+  border: 1px solid red;
+}
+.trendNewsFather{
+    @include flexCenterColumn;
+    height: 22vh;
+    width: 22vw;
+    border: 1px solid black;
+
+
+}

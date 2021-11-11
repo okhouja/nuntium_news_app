@@ -1,11 +1,43 @@
-.nav-div{
+.navbarFather{
     width: 100%;
     height: 4vh;
+    background-color: #000;
+   @include spaceBetweenCenterRow;
+}
+.weather{
+    width: 10%;
+}
+.dateFather{
+    width: 20%;
+    
+}
+.date{
+    color: white;
+}
+.iconFather{
+    width:10%;
     @include spaceBetweenStartRow;
-    background-color: #556;
+    margin-right: 4vh;
+
+}
+.icon{
+    color: white;
+}
+.signUpFather{
+    width: 10%;
+    @include spaceBetweenStartRow;
+
+}
+.signUp{
+    color: white;
 }
 
 .dropDownFather{
+    width: 80%;
+@include spaceBetweenCenterRow
+}
+
+.dropDown{
     @include spaceBetweenStartRow;
     width: 40%;
      color: white;
@@ -13,9 +45,11 @@
     left: 1vw;
     font-weight: bolder;
     z-index: 5;
+    
 }
+
 .openDropDown{
-    color: black;
+    color: yellow;
     font-weight: bolder;
     
     &:hover{
@@ -47,7 +81,6 @@ margin: 1vh;
 cursor: pointer;
 list-style: none;
 color: white;
-font-weight: bolder;
 
 
 &:hover{
@@ -63,6 +96,8 @@ font-weight: bolder;
     @include spaceBetweenColumn;
     background-color: black;
     width: 100%;
+    height: auto;
+
     
 }
 .categoeryLiActive{

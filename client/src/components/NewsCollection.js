@@ -11,14 +11,14 @@ import {Link , useHistory} from "react-router-dom";
 
      const [newsarray, setNewsarray] = useState([]);
      const [category, setCategorx] =useState(props.location.state && props.location.state.category)
-//     useEffect(() => { 
-//             axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=${category}&languages=en&sort=published_desc`)
-//         .then((data)=>setNewsarray(data.data.data.filter((item)=> item.image)))
-//         .catch((err) => console.log(`Your had an ${err}`));
+    useEffect(() => { 
+            axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=${category}&languages=en&sort=published_desc`)
+        .then((data)=>setNewsarray(data.data.data.filter((item)=> item.image)))
+        .catch((err) => console.log(`Your had an ${err}`));
             
-//         }, [category])
-//         console.log(newsarray);
-//         console.log(category);
+        }, [category])
+        console.log(newsarray);
+        console.log(category);
     
         const showNews = newsarray.map((value,i)=>{
             const {author, title, image, description,source,published_at} = value;

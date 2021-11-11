@@ -1,40 +1,98 @@
-import React, { useEffect, useState } from 'react';
+import {React, useEffect, useState} from 'react';
 import axios from "axios";
-import myKey from "../context/config";
-import {useHistory} from "react-router-dom";
+import {
+    FaFacebook,
+    FaTwitter,
+    FaInstagram,
+    FaYoutube,
+    FaUserAlt,
+  } from "react-icons/fa";
+  import { Link, useHistory } from "react-router-dom";
+  import myKey from "../context/config";
 
 export const Navbar = () => {
-    const [categories, setCategories] = useState("");
-    const [lang, setLang] = useState("");
-    const [countries, setCountries] = useState("");
-    const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
-    const API_KEY = myKey.apiKey;
-    const history = useHistory();
     
-    useEffect(() => {
-        document.addEventListener("mousedown", ()=>{
-            if (dropdown.cat || dropdown.lang || dropdown.countries ){
-                setDropdown({cat: false, lang:false , countries: false})
-
-            }
-        })
-        
-    }, [dropdown.cat, dropdown.lang, dropdown.countries])
-
-
+    const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
+    const [weather , setWeather] = useState({});
+  const API_KEY = myKey.weather.apiKeyWeather;
   
+//   useEffect(() => {
+//     axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
+//   }, []);
+//   console.log(weather );
+
+  let date = new Date();
+let day = date.toLocaleString('en-us', {weekday: 'short'});
+  
+  const today = new Date().toLocaleString();
+  const fulldate = day + " " +  today;
+  
+  // const showDate = today.getFullYear()+'-'+today.getMonth() +'-'+today.getDate();
+// useEffect(() => {
+//   const weatherToParse = localStorage.getItem("weather");
+  
+
+//   if (weatherToParse){
+
+// setWeather(JSON.parse(weatherToParse))
+// }
+// }, [])
+
+
+  // useEffect(() => {
+    
+  // localStorage.setItem("weather", JSON.stringify(weather))
+  // }, [weather])
+  // console.log(localStorage);
+   
+    
+    // useEffect(() => {
+    //     document.addEventListener("mousedown", ()=>{
+    //         if (dropdown.cat || dropdown.lang || dropdown.countries ){
+    //             setDropdown({cat: false, lang:false , countries: false})
+
+    //         }
+            
+    //     })
+        
+    // }, [dropdown.cat, dropdown.lang, dropdown.countries])
+
+
+    const history = useHistory();
+
 
     return (
         <div>   
-            <div className="nav-div">    
-                    <div className="dropDownFather" >
+              <div className="navbarFather" >
+          <div className="weather">
+            <div className="imgWeatherFather">
+              {/* <img src={`${process.env.PUBLIC_URL}/${weather.current.condition.icon}`} alt="img" /> */}
+            </div>
+        <div className="weatherHihg">
+
+            </div>
+            <div>/ </div>
+            <div className="weatherLow">
+
+            </div>
+    
+            </div>
+        
+          
+                    <div className="dateFather" >
+                      <div className="date">{fulldate}</div>
+                      </div> 
+
+                       <div className="dropDownFather">
+                    <div className="dropDown" >
+                        
                       <div>
                         <div className={dropdown.cat? "openDropDown": "closeDropDown"} onClick={() => {dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? "ᐯ ": "ᐱ"  }</div>
                     
                         {dropdown.cat &&
                         <ul className="dropdownUl" >
                             
-                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state: {category: "general"}}); setDropdown({ cat: false, lang: false, countries: false })  }}>General</li>
+                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state: {category: "general"}}); setDropdown({cat:false, lang:false, countries:false})}}>General</li>
                             <li className="categoryLi" onClick={()=>{history.push({pathname: "/newscollection", state:{category: "sports"}}); setDropdown({ cat: false, lang: false, countries: false }) }}>Sports</li>
                             <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category: "business"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Technology</li>
                             <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category: "science"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Business</li>
@@ -45,7 +103,10 @@ export const Navbar = () => {
                         </ul>
                                 }
                                 </div>
-                                <div>
+                            
+                                
+                                
+                               <div>
                                 <div className={dropdown.lang? "openDropDown": "closeDropDown"} onClick={() => {dropdown.lang? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: true, countries: false })}}>Languages{dropdown.lang? "ᐯ ": "ᐱ"  }</div>
                         
                         {dropdown.lang &&
@@ -66,6 +127,7 @@ export const Navbar = () => {
         
 }
 </div>
+
 
 <div>
 
@@ -91,9 +153,42 @@ export const Navbar = () => {
                         </ul>                      
 }
 </div>
+
 </div>
-</div>           
-        </div>
+</div>
+
+
+
+
+
+
+<div className="iconFather">
+                    <a className="icon" href="https://www.facebook.com/" target="_blank">
+              <FaFacebook />
+            </a>
+            <a  className="icon" href="https://www.instagram.com/" target="_blank">
+              <FaInstagram />
+            </a>
+            <a  className="icon" href="https://www.twitter.com/" target="_blank">
+              < FaTwitter />
+            </a>
+            <a  className="icon" href="https://www.yoiutube.com/" target="_blank">
+           < FaYoutube />
+            </a>
+         </div>   
+
+<div className="signUpFather">
+                      <Link className="signUp" to="signup">  <i><FaUserAlt/></i> </Link>
+                      <Link className="signUp" to="login"><button>Log In</button></Link>
+           
+</div>
+</div>
+</div>
+
+
+
+        
+        
     )
 }
 export default Navbar;

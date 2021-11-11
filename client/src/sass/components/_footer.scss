@@ -50,6 +50,7 @@ h1,h2{
     
 }
 .copyrightinfo{
+    text-align: center;
     @include responsive(bigScreen){
         width: 28vw;
         

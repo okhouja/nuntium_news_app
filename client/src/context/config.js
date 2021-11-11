@@ -1,5 +1,5 @@
 const news  = {
-         apiKey: "5bc492908afdbe53b4205db06a485df6",
+         apiKey: "067ffb4d194c6f3d70b271a31ef60932",
       };
 
   const weather  = {
