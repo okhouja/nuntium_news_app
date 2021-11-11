@@ -1,0 +1,68 @@
+.linkContainer{
+    @include spaceBetweenStartColumn;
+width: 100%;
+height: 100%;
+position: relative;
+top: 4vh;
+
+}
+
+.linkFather{
+   @include spaceBetweenStartColumn;
+   width: 800px;
+   height: 1000px;
+   
+}
+.imgLink{
+    height: 400px;
+    width: 800px;
+}
+.linkmidFather{
+    width: 100%;
+   @include spaceBetweenColumn;
+   position: relative;
+   left: 8vh;
+   
+}
+.linkPuplish, .linkInfo{
+    height: 3vh;
+    @include centerRow;
+    width: 50%;
+    
+
+}
+.imgDiv{
+    width: 100%;
+    height: 50%;
+    background-color: blanchedalmond;
+}
+
+.linkAuthorWord, .linkAuthor{
+    color: #000;
+    width: 12vw;
+
+}
+.linkAuthorWord{
+    font-weight: bolder;
+}
+ .linkDes{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    height: 4vh;
+    width: 800px;
+    overflow: hidden;
+}
+.seemoreFather{
+    @include spaceBetweenendRow;
+    width: 70%;
+}
+.linkTitle{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    height: 4vh;
+    width: 800px;
+    text-align: center;
+}
+.linkAuthor, .linkSpurce{
+    color: #000;
+}

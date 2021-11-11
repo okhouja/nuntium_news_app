@@ -1,0 +1,40 @@
+.scienceContainer{
+    @include spaceBetweenCenterRow;
+    height: 250px;
+    width: 1400px;
+}
+.scienceFather{
+    @include column;
+    width: 200px;
+    height: 100%;
+}
+.scienceImg{
+   height: 100px;
+   width: 100%;
+
+}
+.scienceTitle, .sciencePuplish, .scienceAuthorWord, .scienceAuthor{
+    color: #000;
+    width: auto;
+    height: 100%;
+    font-size: 15px;
+}
+.scienceAuthorContainer{
+    @include column;
+    width: 100%;
+    height: 2vh;
+}
+.scienceAuthorFather{
+   @include spaceBetweenStartRow;
+   width: 100%;
+   height: 2vh;
+}
+
+.scienceAuthorWord{
+    color: #000;
+    
+}
+.scienceAuthor{
+    color: #000;
+    width: 100%;
+}

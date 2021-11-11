@@ -1,7 +1,9 @@
-// module.exports = {
-//          apiKey: "5bc492908afdbe53b4205db06a485df6",
-//       };
+const news  = {
+         apiKey: "067ffb4d194c6f3d70b271a31ef60932",
+      };
 
-      module.exports = {
+  const weather  = {
          apiKeyWeather: "2f7fd80a15454cd4bc1174146213110",
       };
+
+      module.exports = {news, weather};

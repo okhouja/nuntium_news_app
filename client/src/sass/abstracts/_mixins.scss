@@ -13,14 +13,21 @@
 }
 @mixin spaceBetweenCenterRow {
   display: flex;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row;
+  
+}
+@mixin startRow {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
   flex-direction: row;
   
 }
 @mixin spaceBetweenendRow {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: flex-end;
   flex-direction: row;
   
@@ -39,7 +46,7 @@
 }
 @mixin spaceBetweenStartColumn {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
 
@@ -65,6 +72,12 @@ display: flex;
 justify-content: center;
 align-items: center;
 flex-direction: row;
+}
+
+@mixin  responsive($breakpoint) {
+  @if $breakpoint == bigScreen {
+@media only screen and (min-width:1200px ){@content};
+  }
 }
 
 

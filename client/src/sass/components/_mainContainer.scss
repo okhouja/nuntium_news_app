@@ -1,0 +1,186 @@
+.mainContainerWrapper{
+    @include centerRow;
+    width: 1200px;
+    height: 100%;
+    border: 1px solid yellow;
+}
+.generalFather{
+    width: 600px;
+}
+.generalwrapperActive{
+    @include spaceBetweenColumn;
+    width: 100%;
+    height: 10%;
+    margin-bottom: 12vh
+
+}
+.generalwrapper{
+  @include  spaceBetweenCenterRow;
+    width: 100%;
+    height: 12vh;
+    margin: 2% auto;
+}
+.generalAuthorContainer{
+   @include column;
+   height: 8vh;
+   width: 100%;
+}
+.otherFather{
+   @include spaceBetweenStartColumn;
+   width: auto;
+   height: auto;
+   margin-left: 2vh
+}
+.generalAuthorFather{
+   @include startRow;
+   width: 100%;
+   height: 2vh;
+
+}
+.generalAuthorFatherActive{
+    @include centerRow;
+    height: 2vh;
+    width: 50%;
+
+}
+.generalPublish,.generalTitle, .generalAuthorWord, .generalAuthorWord {
+    color: #000;
+    font-size: 15px;
+    width: 100%;
+   
+}
+.generalAuthor{
+    color: #000;
+    width: 95%;
+    
+}
+.generalAuthorActive{
+    color: #000;
+    width: 75%;
+    
+    
+}
+.generalAuthorWordActive{
+    color: #000;
+    width: 25%;
+   
+}
+
+.generalAuthorWord {
+width: 5%;
+}
+
+ .generalPublishActive, .generalDescriptionActive,.generalAuthorWordActive,.generalAuthorActive{
+    color: #000;
+}
+.generalTitleActive{
+    color: #000;
+    text-align: center;
+}
+.img{
+    height: 100%;
+    width: 6vw;
+}
+.generalimg{
+    height: 100%;
+    width: 25%;
+}
+.imgActive{
+    width: 100%;
+}
+.generalDescription{
+    display: none;
+}
+.SportsFather{
+    @include spaceBetweenStartColumn;
+    width: 300px;
+    border: 1px solid black;
+}
+.sportswrapper, .businesswrapper{
+    @include spaceBetweenStartRow;
+    width: 100%;
+    height: 14vh;
+    margin: 5% auto;
+}
+.sportsOthers{
+   @include spaceBetweenColumn;
+   height: 14vh;
+   
+}
+.sportswrapperActive, .businessContainerActive{
+    @include spaceBetweenColumn;
+    width: 100%;
+    height: auto;
+    margin-bottom: 12vh;
+}
+.sportsOthers{
+    @include spaceBetweenStartColumn;
+    width: auto;
+    height: 10%;
+}
+.businessOthers{
+    @include spaceBetweenStartColumn;
+width: 100%;
+}
+.businessFather{
+    @include column;
+    width: 300px;
+    height: 100%;
+    
+}
+
+.businessContainerActive{
+    @include column;
+    height: 4vh;
+
+}
+.businessContainer{
+    @include column;
+    height: 1vh;
+    width: 100%;
+
+}
+.businessAuthorFatherActive{
+  @include  spaceBetweenStartRow;
+   height: 2vh;
+   width: 100%;
+}
+.businessAuthorFather{
+    @include  spaceBetweenStartRow;
+    width: 100%;
+
+}
+.businessAuthorWordActive, .businessAuthorWord{
+color: #000;
+font-weight: bolder;
+}
+.businessAuthorActive, .businessAuthor{
+    width: 100%;
+    color: #000;
+}
+.general{
+    margin-bottom: 1vh;
+       color:  black;;
+       font-size: 2rem;
+       font-weight: bolder;
+       position: relative;
+       top: 1vh;
+       &:hover{
+          color: yellow;
+       }
+       &:active{
+          color: red;
+       }
+    }
+    .advertise{
+        width: 55vw;
+        height: 12vh;
+        border: 1px  solid red;
+        margin: 5% auto;
+    }
+    .line{
+        width: 66vw;
+        border: gray 3px solid;
+        margin: 5% auto;
+
+    }

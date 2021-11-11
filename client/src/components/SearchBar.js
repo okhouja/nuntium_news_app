@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import axios from "axios";
 import myKey from "../context/config";
-import {Link} from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 const API_KEY = myKey.apiKey;
 
 function SearchBar() {
@@ -9,6 +9,8 @@ function SearchBar() {
   const [data , setData] = useState("");
   const [userInput, setUserInput] = useState("");
   const [filteredData, setFilteredData] = useState([]);
+
+  const history = useHistory();
 
 
 
@@ -56,14 +58,31 @@ const handleSubmit = (e) => {
       <div className="search-bar">
         <div>
           <ul className="ul-search-bar">
-          <Link to="/"><li className="searchLi">Home</li></Link>
-          <Link to="/generalredirect"><li className="searchLi">General</li></Link>
-          <Link to="/sportsrediredt"><li className="searchLi">Sports</li></Link>
-          <Link to="/businessredirect"><li className="searchLi">Business</li></Link>
-          <Link to="/scienceredirect"><li className="searchLi">Science</li></Link>
-          <Link to="/technologyredirect"><li className="searchLi">Technology</li></Link>
-          <Link to="/healthredirect"><li className="searchLi">Health</li></Link>
-          <Link to="/"><li className="searchLi">Entertainment</li></Link>
+
+          <li className="searchLi" onClick={()=>history.push( "/")} >Home</li> 
+          
+
+          <li className="searchLi" onClick={()=>history.push({pathname:"/newscollection",
+     state: {category:"general"}})} >General</li> 
+
+<li className="searchLi" onClick={()=>history.push({pathname:"/newscollection",
+     state: {category:"business"}})} >Business</li> 
+          
+          <li className="searchLi" onClick={()=>history.push({pathname:"/newscollection",
+     state: {category:"sports"}})} >Sports</li> 
+          
+          <li className="searchLi" onClick={()=>history.push({pathname:"/newscollection",
+     state: {category:"science"}})} >Science</li> 
+          
+          <li className="searchLi" onClick={()=>history.push({pathname:"/newscollection",
+     state: {category:"technology"}})} >Technology</li> 
+          
+          <li className="searchLi" onClick={()=>history.push({pathname:"/newscollection",
+     state: {category:"health"}})} >Health</li> 
+          
+          <li className="searchLi" onClick={()=>history.push({pathname:"/newscollection",
+     state: {category:"entertainment"}})} >Entertainment</li> 
+
             <li className="searchClick" onClick={handelChange}>
               🔍
             </li>

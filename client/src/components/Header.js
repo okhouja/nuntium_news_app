@@ -1,3 +1,20 @@
+<<<<<<< HEAD
+import {React} from 'react';
+
+  
+function Header (){
+  
+   return(
+     <div >
+        
+        
+                    <div  className="imgDivFather">                      
+            <img id="img" className="logo" src="./img/Logo_lightmode.svg" alt="logo"></img>                
+            </div>   
+        </div>
+        
+    )
+=======
 import { React, useEffect, useState } from "react";
 import Signup from "./Signup";
 import axios from "axios";
@@ -141,5 +158,6 @@ function Header() {
       </div>
     </div>
   );
+>>>>>>> main
 }
 export default Header;

@@ -1,66 +1,100 @@
 
-    .headerFather {
-        width: 100%;
-        height: 14vh;
-        display: flex;
-        justify-content: space-between;
-        background-color: black
-    };
+//     .headerFather {
+//         width: 100%;
+//         height: 14vh;
+//         display: flex;
+//         justify-content: space-between;
+//         background-color: black
+//     };
+
+// .iconFather{
+//     @include spaceBetweenStartRow;
+//     width: 10%;
+// }
+// .icon{
+//     text-decoration: none;
+//     color: white;
+//     position: relative;
+//     left: 22vw;
+// }
+// .signUp{
+//     position: relative;
+//     left: 22vw;
+//     color: white;
+// }
+// .search-bar{
+//     width: 80%;height: 12vh;
+//     border: 1px solid red;
+// }
+// .signUpFather{
+//     @include spaceBetweenStartRow;
+//     width: 8vw;
+// }
+// .fatherCurrentWeather{
+//     @include centerRow;
+//     width: 16vw;
+//     @include responsive (bigScreen){
+//         width: auto;
+//     }
+// }
+// .currentFather, .aveFather{
+//     @include spaceBetweenColumn;
+//     width: 8vw;
+    
+// }
+// .currentFather{
+//     width: 6vw;
+//     align-items: flex-start;
+
+// }
+// .currentFather{
+//     @include responsive(bigScreen){
+//         width: 6vw;
+//         align-items: flex-start;
+//     }
+// }
 
 
+// .currentLabel, .currentData{
+//     color: white;
+//     text-align: center;
+// }
+// .currentLabelHumidity{
+//     width: 6vw;
+//     color: white;
+//     text-align: center;
+// }
+// .imgWeatherFather{
 
+//    @include flex-center; 
+  
+// }
+// .date{
+//     color: white;
+//     @include responsive(bigScreen){
+//         width: 816w;
+        
+//     }
+// }
+// .dateFather{
+//     width: 12vh;
+//     height: 2vh;
 
-.logo{
-    position: relative;
-    height: 18vh;
-    width: 18vw;
-    top: -2vh;
-    left: -44vw;
-}
-.iconFather{
-    @include spaceBetweenStartRow;
-    width: 10%;
-}
-.icon{
-    text-decoration: none;
-    color: white;
-    position: relative;
-    left: 22vw;
-}
-.signUp{
-    position: relative;
-    left: 22vw;
-    color: white;
-}
-.search-bar{
-    width: 80%;height: 12vh;
-    border: 1px solid red;
-}
-.signUpFather{
-    @include spaceBetweenStartRow;
-    width: 8vw;
-}
-.fatherCurrentWeather{
-    @include centerRow;
-    width: 16vw;
-}
-.currentFather{
-    @include spaceBetweenColumn;
-    width: 8vw;
-}
-.currentLabel, .currentData{
-    color: white;
-    text-align: center;
-}
-.currentLabelHumidity{
-    width: 6vw;
-    color: white;
-    text-align: center;
-}
-.imgWeatherFather{
-
+// }
+.imgDivFather{
+    width: 100%;
+    height: 16vh;
+    background-repeat:no-repeat;
+    background-image: url("./images/360_F_435309207_QlHm8Ep8USg6CFzpsLPXYVAwTaPc1zlI.jpg");
+    background-size: cover;
    @include flex-center; 
+
 }
+.logo{
+         position: relative;
+         height: 18vh;
+         width: 18vw;
+ }
 
 
 
