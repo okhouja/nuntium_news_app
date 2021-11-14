@@ -11,10 +11,17 @@
   align-items: center;
   flex-direction: column;
 }
-@mixin spaceBetweenCenterRow {
+@mixin spaceBetweenStartRow {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  flex-direction: row;
+  
+}
+@mixin spaceBetweenCenterRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   flex-direction: row;
   
 }
@@ -28,6 +35,13 @@
 @mixin spaceBetweenendRow {
   display: flex;
   justify-content: space-between;
+  align-items: flex-end;
+  flex-direction: row;
+  
+}
+@mixin endRow {
+  display: flex;
+  justify-content: flex-end;
   align-items: flex-end;
   flex-direction: row;
   
@@ -49,20 +63,23 @@
   justify-content: space-between;
   align-items: center;
   flex-direction: column;
-
-  
 }
 @mixin spaceBetweenColumn {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  
 }
 @mixin column {
   display: flex;
   justify-content:flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+  
+}
+@mixin startColumn {
+  display: flex;
+  justify-content:space-between;
   align-items: flex-start;
   flex-direction: column;
   

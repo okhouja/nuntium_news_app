@@ -1,15 +1,15 @@
 import React from 'react'
-import Trending from './Trending';
 import Science from "./categories/Science";
 import Technology from "./categories/Technology";
 import Health from "./categories/Health";
 import Entertainment from "./categories/Entertainment";
 import MainContainer from './MainContainer';
+import Trending from './categories/Trending';
 
  const WrapperCategories = () => {
     return (
         <div className="wrapperCategories">
-            <Trending />
+        <Trending />
             <MainContainer />
          <Science />
             <Technology />

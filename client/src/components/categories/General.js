@@ -54,9 +54,7 @@ import { Link, useHistory } from 'react-router-dom';
                                </div>
                              </div> 
                              </div>
-                             </div>
-                    
-                    
+                             </div> 
                )
   })
     return (
