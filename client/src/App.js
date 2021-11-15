@@ -11,7 +11,7 @@ import LinksCollection from "./components/LinksCollection";
 import LanguagesCollection from "./components/LanguagesCollection";
 import CountriesCollection from "./components/CountriesCollection";
 import Loading  from "./components/Loading";
-
+// import General from "./components/categories/General";
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -33,6 +33,8 @@ function App() {
 
     <Header />
     <SearchBar />
+
+   
   
      <Switch>
        <Route path="/" exact component={Home}/>

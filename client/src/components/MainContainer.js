@@ -2,7 +2,6 @@ import React from 'react';
 import General from './categories/General';
 import Sports from "./categories/Sports";
 import Business from "./categories/Business";
-
  const MainContainer = () => {
     return (
         <div>

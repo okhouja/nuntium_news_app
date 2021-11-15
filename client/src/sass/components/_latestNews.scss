@@ -1,0 +1,66 @@
+.latestContainer{
+    @include spaceBetweenStartColumn;
+    height: 100px;
+    width: 200px;
+    margin-left: 33vw;
+    &::after{
+        content: "";
+        border-top: 2px solid gray;
+        position: absolute;
+        width: 16vw;
+        top: 60vh;
+        height: 1vh;
+    }
+}
+.latestFather{
+    @include  spaceBetweenStartRow;
+    width: 300px;
+    height: 100px;
+    margin: 2vh;
+    position: relative;
+    
+}
+.latestFatherActive{
+    @include spaceBetweenColumn;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 12vh;
+    
+
+}
+.latestOther{
+    @include spaceBetweenStartColumn;
+    width: 100%;
+    height: 100px;
+}
+.latestImg{
+    width: 50%;
+    height: 100px;
+}
+.latestImgActive{
+    width: 100%;
+    height: 100%;
+}
+.latestTitle,  .latestpublish{
+    color: #000;
+    font-size: 10px;
+    text-align: center;
+}
+.latestTitleActive, .latestpublishActive{
+color: #000;
+font-size: 20px
+}
+.authorLatestFather, .authorLatestFatherActive{
+  @include  startRow;
+  width: 100%;
+}
+.latestAuthorWordActive, .latestAuthorActive{
+    color: #000;
+    font-size: 15px;
+}
+.latestAuthorWord, .latestAuthor{
+    color: #000;
+    font-size: 10px;
+}.latestAuthor{
+    width: 100%;
+}

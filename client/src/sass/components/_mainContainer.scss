@@ -2,7 +2,6 @@
     @include centerRow;
     width: 1200px;
     height: 100%;
-    border: 1px solid yellow;
 }
 .generalFather{
     width: 600px;
@@ -11,11 +10,18 @@
     @include spaceBetweenColumn;
     width: 100%;
     height: 10%;
-    margin-bottom: 12vh
-
+    margin-bottom: 12vh;
+    &::after{
+        content: "";
+        border-top: 2px solid gray;
+        position: absolute;
+        width: 32vw;
+        top: 74vh;
+        height: 1vh;
+    }
 }
 .generalwrapper{
-  @include  spaceBetweenCenterRow;
+  @include  spaceBetweenStartRow;
     width: 100%;
     height: 12vh;
     margin: 2% auto;
@@ -35,41 +41,32 @@
    @include startRow;
    width: 100%;
    height: 2vh;
-
 }
 .generalAuthorFatherActive{
     @include centerRow;
     height: 2vh;
     width: 50%;
-
 }
 .generalPublish,.generalTitle, .generalAuthorWord, .generalAuthorWord {
     color: #000;
     font-size: 15px;
     width: 100%;
-   
 }
 .generalAuthor{
     color: #000;
     width: 95%;
-    
 }
 .generalAuthorActive{
     color: #000;
     width: 75%;
-    
-    
 }
 .generalAuthorWordActive{
     color: #000;
     width: 25%;
-   
 }
-
 .generalAuthorWord {
 width: 5%;
 }
-
  .generalPublishActive, .generalDescriptionActive,.generalAuthorWordActive,.generalAuthorActive{
     color: #000;
 }
@@ -94,8 +91,7 @@ width: 5%;
 .SportsFather{
     @include spaceBetweenStartColumn;
     width: 300px;
-    border: 1px solid black;
-}
+   }
 .sportswrapper, .businesswrapper{
     @include spaceBetweenStartRow;
     width: 100%;
@@ -112,6 +108,14 @@ width: 5%;
     width: 100%;
     height: auto;
     margin-bottom: 12vh;
+    &::after{
+        content: "";
+        border-top: 2px solid gray;
+        position: absolute;
+        width: 16vw;
+        top: 88vh;
+        height: 1vh;
+    }
 }
 .sportsOthers{
     @include spaceBetweenStartColumn;
@@ -184,3 +188,34 @@ font-weight: bolder;
         margin: 5% auto;
 
     }
+    .goUpanchor{
+   color: #000;
+
+}
+.goupWord{
+   color:#000;
+   position: relative;
+   top: -4vh;
+   left: -1vh;
+   font-weight: bolder;
+}
+.goUp{
+   
+   font-size: 3rem;
+   position: relative;
+   width: 4vh;
+   height: 4vw;
+
+   top: -2vh;
+   animation: go 1s infinite ease-in-out;
+@keyframes go {
+   from{
+      transform: scale(0);
+
+   }
+   to{
+      transform: scale(1);
+   }  
+}
+}
+
