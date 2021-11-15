@@ -30,3 +30,11 @@ allowedAccess.allowToView = async (req, res, next) => {
       .send("You are not authorized <br> <a href='/'>Home</a>");
   }
 };
+
+allowedAccess.loggedStatus = (req, res, next) => {
+  if (req.cookies.session_id) {
+    req.title = "You are already logged in";
+    req.done = true;
+  } else {
+  }
+};
