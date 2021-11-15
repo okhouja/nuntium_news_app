@@ -38,3 +38,5 @@ allowedAccess.loggedStatus = (req, res, next) => {
   } else {
   }
 };
+
+module.exports = allowedAccess;

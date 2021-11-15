@@ -1,13 +1,46 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
-function Signup() {
+const Signup = () => {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [ConfPassword, setConfPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  axios.defaults.withCredentials = true;
+  const signup = () => {
+    const data = new FormData();
+    data.append("username", username);
+    data.append("password", password);
+    data.append("ConfPassword", ConfPassword);
+    data.append("email", email);
+
+    axios
+      .post("", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  };
+
   return (
     <div>
       <div className="signUpWrapper">
         <form className="formFather" action="/" method="get">
           <div className="inputFather">
             <label>User Name</label>
-            <input className="userName" type="text" name="username" />
+            <input
+              className="userName"
+              type="text"
+              value={username}
+              name="username"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
+            />
           </div>
           <div className="inputFather">
             <label>Password</label>
@@ -34,6 +67,6 @@ function Signup() {
       </div>
     </div>
   );
-}
+};
 
 export default Signup;
