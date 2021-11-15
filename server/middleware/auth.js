@@ -19,3 +19,14 @@ allowedAccess.allowedtoDelete = async (req, res, next) => {
       .send("You are not authorized <br> <a href='/'>Home</a> ");
   }
 };
+allowedAccess.allowToView = async (req, res, next) => {
+  const username = req.params.name;
+  const user = await User.fineOne({ username });
+  if (req.cookies.role == "ADMIN" || req.cookies.user_id == user.id) {
+    next();
+  } else {
+    return res
+      .status(401)
+      .send("You are not authorized <br> <a href='/'>Home</a>");
+  }
+};
