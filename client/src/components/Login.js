@@ -3,7 +3,17 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 function Login() {
-  const [users, setUsers] = useState([]);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState("");
+
+  axios.defaults.withCredentials = true;
+  const loginUser = () => {
+    axios.post("http://localhost:3000/login", {
+      username,
+      password,
+    });
+  };
   useEffect(() => {
     getData();
   }, []);
