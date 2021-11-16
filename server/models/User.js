@@ -21,7 +21,7 @@ const UserSchema = Schema(
       unique: [true, "Email already exists"],
       match: [/.+\@.+\..+/, "Please fill a valid email address"],
     },
-    // country: String,
+    /* country: String,
     // city: {
     //   type: String,
     //   required: [true, "You need to enter your City"],
@@ -34,7 +34,8 @@ const UserSchema = Schema(
     science: Boolean,
     sport: Boolean,
     technology: Boolean,
-    // newsletter: Boolean,
+    newsletter: Boolean,
+     */
     likedArticles: [{ type: Schema.Types.ObjectId, ref: "Article" }],
     registerDate: { type: Date, required: true, default: Date.now },
   },
