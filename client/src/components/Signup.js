@@ -2,14 +2,14 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-const Signup = () => {
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [ConfPassword, setConfPassword] = useState("");
   const [email, setEmail] = useState("");
 
   axios.defaults.withCredentials = true;
-  const signup = () => {
+  const register = () => {
     const data = new FormData();
     data.append("username", username);
     data.append("password", password);
@@ -30,7 +30,8 @@ const Signup = () => {
   return (
     <div>
       <div className="signUpWrapper">
-        <form className="formFather" action="/" method="get">
+        <h3>Register in Nuntium</h3>
+        <form className="formFather">
           <div className="inputFather">
             <label>User Name</label>
             <input
@@ -43,22 +44,44 @@ const Signup = () => {
             />
           </div>
           <div className="inputFather">
+            <label>Email</label>
+            <input
+              className="email"
+              type="email"
+              value={email}
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email Address"
+            />
+          </div>
+          <div className="inputFather">
             <label>Password</label>
-            <input className="password" type="password" name="password" />
+            <input
+              className="password"
+              type="password"
+              value={password}
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
           </div>
 
           <div className="inputFather">
             <label>Confirm Password</label>
-            <input className="passConf" type="password" name="confpassword" />
-          </div>
-
-          <div className="inputFather">
-            <label>Email</label>
-            <input className="email" type="email" name="email" />
+            <input
+              className="passConf"
+              type="password"
+              value={ConfPassword}
+              name="confPassword"
+              onChange={(e) => setConfPassword(e.target.value)}
+              placeholder="Confirm Password"
+            />
           </div>
 
           <div>
-            <input className="submit" type="submit" value="Add user" />
+            <button className="submit" onClick={register}>
+              Register
+            </button>
           </div>
           <div>
             <input className="clear" type="reset" value="Clear" />
@@ -69,4 +92,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Register;
