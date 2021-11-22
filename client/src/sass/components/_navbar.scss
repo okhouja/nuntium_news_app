@@ -9,7 +9,6 @@
 }
 .dateFather{
     width: 20%;
-    
 }
 .date{
     color: white;
@@ -18,7 +17,6 @@
     width:10%;
     @include spaceBetweenStartRow;
     margin-right: 4vh;
-
 }
 .icon{
     color: white;
@@ -32,25 +30,51 @@
     color: white;
 }
 
-.dropDownFather{
-    width: 80%;
-@include spaceBetweenCenterRow
-}
-
 .dropDown{
     @include spaceBetweenStartRow;
-    width: 40%;
+    width: 30%;
      color: white;
-    position: relative;
-    left: 1vw;
     font-weight: bolder;
-    z-index: 5;
-    
+    z-index: 5; 
+    position: relative;
+left: -4vw;   
+
+}
+.ulFather{
+    @include spaceBetweenStartColumn;
+    background-color: black;
+    width: 100%;
+    height: 40px;
+}
+.dropdownUl{
+    height: auto;
+    width: 100%;
+    position: relative;
+    top: 2vh;
+    background-color: black;
 }
 
+.categoryLi, .langLi, .countriesLi{
+    width: 8vw;
+    font-weight: bolder;
+    text-align: center;
+    margin: 1vh;
+    cursor: pointer;
+    list-style: none;
+    color: white;
+    &:hover{
+        transform: scale(1.5);
+    }
+    &:active{
+        box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
+    }
+    }
+
 .openDropDown{
+    
     color: yellow;
     font-weight: bolder;
+    
     
     &:hover{
         color: white;
@@ -59,8 +83,6 @@
     &:active{
         transform: scale(1.5);
     }
-
-
 }
 .closeDropDown{
     color: white;
@@ -73,32 +95,25 @@
 
     }
 }
-.categoryLi, .langLi, .countriesLi{
-width: 8vw;
-font-weight: bolder;
-text-align: center;
-margin: 1vh;
-cursor: pointer;
-list-style: none;
-color: white;
-
-
-&:hover{
-    transform: scale(1.5);
+.dropopenSign{
+    height: 0;
+    width: 0;
+    position: relative;
+    top: -1vh;
+    left: 8vh;
+    border-left: 10px solid transparent;
+    border-right: 10px solid  transparent;
+    border-bottom: 10px solid  white;
 }
-&:active{
-    box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
-}
-
-}
-
-.dropdownUl{
-    @include spaceBetweenColumn;
-    background-color: black;
-    width: 100%;
-    height: auto;
-
-    
+.dropcloseSign{
+    height: 0;
+    width: 0;
+    position: relative;
+    top: -1vh;
+    left: 8vh;
+    border-left: 10px solid transparent;
+    border-right: 10px solid  transparent;
+    border-top: 10px solid  white;
 }
 .categoeryLiActive{
 display: none;

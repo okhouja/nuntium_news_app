@@ -1,14 +1,17 @@
 import {React, useState, useEffect} from 'react'
 import axios from "axios";
 import myKey from "../context/config";
+import LatestNews from './categories/LatestNews';
+import MustRead from './categories/MustRead';
 import {useHistory, Link} from "react-router-dom";
 
 
 const LanguagesCollection = (props) => {
-    const [language, setLanguage] = useState(props.location.language);
+    const [language, setLanguage] = useState(props.location && props.location.language);
     const [langArr, setLangArr] = useState([]);
-    const API_KEY = myKey.apiKey;
+    const API_KEY = myKey.news.apiKey;
 const history = useHistory();
+
     // useEffect(() => {
     //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&&languages=${language}&sort=published_desc`)
     //           .then((data)=>setLangArr(data.data.data.filter((item)=> item.image)))
@@ -47,19 +50,25 @@ const history = useHistory();
                             </div> 
                    )
       });
-        return (
-         <div >
-        <div  className="redirectFather">     
-                  {showNews}
-                  <Link className="backLink" to="/home"><p className="back">Back</p></Link>
-           <div className="goUpRedirect"><a className="goUpanchor" href="#img">˄</a></div>
-           <p className="goupwordRedirect">Go up</p>
+      return (
+        <div className="redirectContainerFather" >
+                <LatestNews />
+              
+       <div  className="redirectFather"> 
+       <div className="redirectTopTitle"> 
+       <div> {props.location.language} </div>
+       <div className="lineredirect"></div>
+       </div>
+                 {showNews}  
+                 <div className="goUpRedirect">        
+                 <Link className="backLink" to="/home"><p className="back">Back</p></Link>
+          <a className="goUpanchorlang" href="#img">Go Up</a>
+          <p className="goupwordRedirect">ᐱ</p>
 
-           </div> 
-          
-               
-                </div>
-           
-        )
+          </div>    
+               </div>
+               <MustRead /> 
+               </div>
+       )
 }
 export default LanguagesCollection;

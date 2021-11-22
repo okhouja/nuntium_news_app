@@ -58,7 +58,7 @@ import { useHistory } from 'react-router-dom';
               {healthNews}
        </div>    
        <div className="line"></div>
-        <div className="advertise">  </div>  
+        <div className="advertise">Place Your Ads Here</div>  
              
             </div>
        

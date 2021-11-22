@@ -1,63 +1,95 @@
-.linkContainer{
-    @include spaceBetweenStartColumn;
-width: 100%;
-height: 100%;
-position: relative;
-top: 4vh;
-
-
+.linkContainerFather{
+    @include startRow;
+    width: 1800px;
+    height: 2200px;
 }
 
+.linkContainer{
+    @include spaceBetweenStartColumn;
+    position: relative;
+    width: 1000px;
+    top: 4vh;
+@include responsive(mobile){
+    width: 400px;
+}
+}
 .linkFather{
    @include spaceBetweenStartColumn;
-   width: 1200px;
-   height: 1000px;
+   height: 1200px;
+   width: 1000px;
+   @include responsive(mobile){
+    width: 400px;
+}
+}
+.topFather{
+    @include startRow;
+    height: 1vh;
+    width: 10%;
 }
 .imgDiv{
     @include startColumn;
-
+    width: 50%;
+    position: relative;
+    left: -8vh;
 }
 .imgLink{
     height: 600px;
-    width: 1000px;
-}
-.linkmidFather{
-    width: 100%;
-   position: relative;
-   left: 8vh;
+    width: 800px;
+    @include responsive(mobile){
+        width: 400px;
+        height: 400px;
+    }
 }
 .linkmidContainer{
-    @include startRow;
-    height: 2vh;
+    @include flex-center;
+    height: 22vh;
+    width: 50%;
+    @include responsive(mobile){
+        height: 22vh;
+        width: 400px;
+        @include startRow;
+    }
+}
+
+.linkmidFather{
     width: 100%;
+   @include responsive(mobile){
+    width: 400px;
+    height: 16vh;
+}
+}
+.linkInfoFather{
+    @include spaceBetweenStartRow;
+    width: 100%;
+
 }
 
  .linkInfo{
     height: 2vh;
     @include startRow;
     width: 50%;
+    @include responsive(mobile){
+    height: 4vh;
+     width: 100%;   
+    
+    }
 }
-.topFather{
-    @include startRow;
-    width: 100%;
-}
+
 .linkPuplish{
     color: #000;
     @include endRow;
-    width: 100%;
+    width: 400px;
 }
 .linkCategory{
     color: #000;
 
 }
 
-.linkAuthorWord, .linkAuthor{
-    color: #000;
-    width: 4vw;
-}
 .linkAuthorWord{
+    color: #000;
     font-weight: bolder;
 
+    
 }
 .shareIcon{
     font-size: 2rem;
@@ -65,28 +97,100 @@ top: 4vh;
     left: -2vh;
     top: -.5vh;
     color: rgba(0, 0, 0, 0.192);
-  
     filter: grayscale(50%);
-
+    @include responsive(mobile){
+       top: -1vh;
+       left: 0;
+     }
+}
+.otherIcons{
+    position: relative;
+    @include responsive(mobile){
+        top: -0.5vh;
+      }
 }
  .linkDes{
     font-size: 1.5rem;
     font-weight: bolder;
-    height: 4vh;
-    width: 800px;
+    height: 8vh;
+    width: 400px;
     overflow: hidden;
 }
 .seemoreFather{
     @include spaceBetweenendRow;
-    width: 70%;
+    width: 25%;
+}
+.seemore{
+    @include responsive(mobile){
+       width: 100%;
+    }
 }
 .linkTitle{
+    @include flex-center;
     font-size: 2rem;
     font-weight: bolder;
-    height: 4vh;
-    width: 800px;
+    height: 12vh;
+    width: 100%;
     text-align: center;
+    @include responsive(mobile){
+        width: 400px;
+        height: 12vh;
+        font-size: 1.5rem;
+        text-align: left;
+    }
 }
 .linkAuthor, .linkSpurce{
     color: #000;
+    @include responsive(mobile){
+       @include flex-center; 
+        width: 100%;
+    }
+}
+.goUpanchorLink{
+    color: #000;
+        font-weight: bolder;
+    @include responsive(mobile){
+        width: 12vw;
+        
+    }
+}
+
+.goUpLink{
+    height: 22vh;
+    @include flexCenterColumn;
+}
+.goupwordLink{
+    animation: go 1s infinite ease-in-out;
+    @include responsive(mobile){
+        animation: go 1s infinite ease-in-out;
+@keyframes go {
+   from{
+      transform: scale(0);
+
+   }
+   to{
+      transform: scale(1);
+   }  
+}
+    }
+}
+.advertiseLink{
+    width: 44vw;
+   @include  flex-center; 
+    height: 9vh;
+    background-color: blue;
+    font-weight: bolder;
+    color: white;
+    font-size: 2rem;
+    animation: ads 1s infinite ease-in-out;
+    @keyframes ads {
+        5%{
+            color: red;
+
+        }
+        20%{
+            color: white;
+
+        }   
+    }   
 }

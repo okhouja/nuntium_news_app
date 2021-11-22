@@ -12,10 +12,6 @@ import {
     const [active, setActive] = useState(false);
     const [hover, setHover] = useState(false);
 
-
-
-
-
      const centerText = {
         textAlign: "center",
         wordSpacing: "5px",
@@ -38,8 +34,8 @@ import {
 
                 <div className="rightFooter">
                     <div className="aboutUs">
-                        <p style={centerText}>ABOUT US</p>
-                       <p style={centerText} >NUNTUINM NEWS</p> 
+                        <p className="aboutustext" style={centerText}>ABOUT US</p>
+                       <p className="aboutustext" style={centerText} >NUNTUINM NEWS</p> 
                        <p></p>
                        </div>
                 </div>
@@ -102,7 +98,7 @@ import {
                         </div>
 
                 <div className="copyright">
-                    <p  style={{wordSpacing: "5px", margin: "auto"}} className="copyrightnfo">Powered By <a 
+                    <p  style={{wordSpacing: "5px", margin: "auto", color: "white"}}>Powered By <a 
              
                  onMouseOver={()=>{
                          setHover(true);

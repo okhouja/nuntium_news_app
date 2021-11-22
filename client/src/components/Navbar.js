@@ -83,12 +83,10 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
                       <div className="date">{fulldate}</div>
                       </div> 
 
-                       <div className="dropDownFather">
                     <div className="dropDown" >
-                        
-                      <div>
-                        <div className={dropdown.cat? "openDropDown": "closeDropDown"} onClick={() => {dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? "ᐯ ": "ᐱ"  }</div>
-                    
+                    <div className="ulFather">
+                        <div className={dropdown.cat? "openDropDown": "closeDropDown"} onClick={() => {dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? <div className="dropopenSign"></div>:  <div className="dropcloseSign"></div> }</div>
+                   
                         {dropdown.cat &&
                         <ul className="dropdownUl" >
                             
@@ -97,21 +95,21 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
                             <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category: "business"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Technology</li>
                             <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category: "science"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Business</li>
                             <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category:"technology"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Science</li>
-                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category:"health"}});setDropdown({ cat: false, lang: false, countries: false }) }}>Entertainment</li>
-                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category:"entertainment"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Health</li>
-
+                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category:"health"}});setDropdown({ cat: false, lang: false, countries: false }) }}>Health</li>
+                            <li className="categoryLi" onClick={()=>{history.push({pathname:"/newscollection", state:{category:"entertainment"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Entertainment</li>
+                            
                         </ul>
                                 }
                                 </div>
-                            
                                 
-                                
-                               <div>
-                                <div className={dropdown.lang? "openDropDown": "closeDropDown"} onClick={() => {dropdown.lang? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: true, countries: false })}}>Languages{dropdown.lang? "ᐯ ": "ᐱ"  }</div>
-                        
+                               
+                                <div className="ulFather">
+
+                                <div className={dropdown.lang? "openDropDown": "closeDropDown"} onClick={() => {dropdown.lang? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: true, countries: false })}}>Languages{dropdown.lang? <div className="dropopenSign"></div>:  <div className="dropcloseSign"></div>  }</div>
                         {dropdown.lang &&
 
                         <ul className="dropdownUl" >
+                    
                             <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"en"}); setDropdown({ cat: false, lang: false, countries: false })}}>English</li>
                             <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"de"}); setDropdown({ cat: false, lang: false, countries: false })}}>Germany</li>
                             <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"ar"}); setDropdown({ cat: false, lang: false, countries: false })}}>Arabic</li>
@@ -122,22 +120,24 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
                             <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"no"}); setDropdown({ cat: false, lang: false, countries: false })}}>Norweigan</li>
                             <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"pt"}); setDropdown({ cat: false, lang: false, countries: false })}}>Portgueese</li>
                             <li className="langLi" onClick={()=>{history.push({pathname:"/languagescollection", language:"ru"}); setDropdown({ cat: false, lang: false, countries: false })}}>Russian</li>
-
+                            
                         </ul>
         
 }
 </div>
 
 
-<div>
 
 
-<div className={dropdown.countries? "openDropDown": "closeDropDown"} onClick={() => {dropdown.countries? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: false, countries: true })}}>Countries{dropdown.countries? "ᐯ": "ᐱ"  }</div>
-                        
+<div className="ulFather"> 
+
+
+<div className={dropdown.countries? "openDropDown": "closeDropDown"} onClick={() => {dropdown.countries? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: false, countries: true })}}>Countries{dropdown.countries? <div className="dropopenSign"></div>:  <div className="dropcloseSign"></div>  }</div>
                         {dropdown.countries &&
 
                         <ul className="dropdownUl" >
-                            
+                                                    
+
                             <li className="countriesLi" onClick={()=>{history.push({pathname: "/countriescollection", country: "au"}); setDropdown({ cat: false, lang: false, countries: false })}}>Australia</li>
                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "be"})}; setDropdown({ cat: false, lang: false, countries: false })}}>Belgium</li> 
                            <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "ca"}); setDropdown({ cat: false, lang: false, countries: false })}}}>Canda</li>
@@ -150,12 +150,15 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
                             <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "ch"}); setDropdown({ cat: false, lang: false, countries: false })}}}>Switzerland</li>
                             <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "us"}); setDropdown({ cat: false, lang: false, countries: false })}}}>U.S.A</li>
                             <li className="countriesLi" onClick={()=>{{history.push({pathname: "/countriescollection", country: "gb"}); setDropdown({ cat: false, lang: false, countries: false })}}}>United Kingdom</li>
+                          
+
                         </ul>                      
 }
+</div>    
 </div>
 
-</div>
-</div>
+
+
 
 
 

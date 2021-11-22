@@ -6,15 +6,20 @@
     position: relative;
     top: 1vw;
     left: 8vw;
-  
 }
 .ul-search-bar{
     @include spaceBetweenCenterRow;
-    width: 70%;
+    width: 70%; 
+    @include responsive(mobile){
+       @include endRow;
+       width: 1%;
+    }
 }
 a{
     text-decoration: none;
 }
+// .searchClick{
+// }
 
 .searchLi{
     align-self:flex-start;
@@ -28,6 +33,9 @@ a{
     }
     &:active{
         color: red;
+    }
+    @include responsive(mobile){
+        display: none;
     }
 
 }
@@ -50,7 +58,10 @@ a{
 .searchInput{
     border: none;
     outline: none;
-    border-bottom: 1px solid lightgray
+    border-bottom: 1px solid lightgray;
+    @include responsive(mobile){
+   
+     }
 }
 .search-button{
     border: none;
@@ -69,6 +80,12 @@ a{
     left: 18vw;
     top: -1vh;
     @include searchFlex;
+    @include responsive(mobile){
+        top: -4vh;
+        width: 66vw;
+        left: 1vw;
+
+    }
     
 
 }
@@ -80,5 +97,9 @@ position: relative;
 left: 44vh;
 list-style: none;
 font-size: 1.7rem;
+@include responsive(mobile){
+left: 81vw;
+}
+
 }
 

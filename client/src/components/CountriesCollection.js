@@ -2,11 +2,13 @@ import {React, useState, useEffect } from 'react';
 import {Link, useHistory} from "react-router-dom";
 import axios from "axios";
 import myKey from "../context/config";
+import LatestNews from './categories/LatestNews';
+import MustRead from './categories/MustRead';
 
 const CountriesCollection = (props) => {
-    const [country , setCountry] = useState(props.location.country);
+    const [country , setCountry] = useState(props.location && props.location.country);
     const [countryArr, setCountryArr] = useState({});
-    const API_KEY = myKey.apiKey;
+    const API_KEY = myKey.news.apiKey;
     const history = useHistory();
 
 
@@ -18,6 +20,7 @@ const CountriesCollection = (props) => {
     // }, [])
     // console.log(countryArr);
     // console.log(country);
+    
 
     const showNews =  Object.entries(countryArr).map(([key, value], i) =>{
     
@@ -46,22 +49,25 @@ const CountriesCollection = (props) => {
                             </div> 
                    )
       });
-        return (
-         <div >
-        <div  className="redirectFather">     
-                  {showNews}
-                  <Link className="backLink" to="/home"><p className="back">Back</p></Link>
-           <div className="goUpRedirect"><a className="goUpanchor" href="#img">˄</a></div>
-           <p className="goupwordRedirect">Go up</p>
+      return (
+        <div className="redirectContainerFather" >
+                <LatestNews />
+              
+       <div  className="redirectFather"> 
+       <div className="redirectTopTitle"> 
+       <div> {props.location.country} </div>
+       <div className="lineredirect"></div>
+       </div>
+                 {showNews}  
+                 <div className="goUpRedirect">        
+                 <Link className="backLink" to="/home"><p className="back">Back</p></Link>
+          <a className="goUpanchorcountry" href="#img">Go Up</a>
+          <p className="goupwordRedirect">ᐱ</p>
 
-           </div> 
-          
-               
-                </div>
-           
-        )
-    
-
-
+          </div>    
+               </div>
+               <MustRead /> 
+               </div>
+       )
 }
 export default CountriesCollection;

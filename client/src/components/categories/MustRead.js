@@ -3,17 +3,32 @@ import myKey from "../../context/config";
 import axios from "axios";
 import { useHistory } from 'react-router-dom';
 
+
+
 const MustRead = () => {
     const [mustRead, setMustRead] = useState([]);
     const API_KEY = myKey.news.apiKey;
 
-//      useEffect(() => {
-//       axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&languages=en&sort=published_desc`)
-//   .then((data)=>setMustRead(data.data.data.filter((item)=> item.image).slice(0,3)))
-//   .catch((err) => console.log(`Your had an ${err}`));
+  //    useEffect(() => {
+  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&languages=en&sort=published_desc`)
+  // .then((data)=>setMustRead(data.data.data.filter((item)=> item.image).slice(0,3)))
+  // .catch((err) => console.log(`Your had an ${err}`));
       
-//   }, [])
-//   console.log(mustRead);
+  // }, [])
+  // console.log(mustRead);
+  // let containerFatherClasses = 
+  // ({
+  //   'mustreadContainer': true,
+  //   'mustreadContainerLink': false,
+  // });
+  // let containerClasses = ({
+  //   'latestContainer': true,
+  //   'latestContainerLink': false,
+  // });
+
+  
+  
+
 
 const showNews = mustRead.map((value,i)=>{
     const {image, author, title, source, published_at} = value;
@@ -34,9 +49,24 @@ const showNews = mustRead.map((value,i)=>{
 })
   return (
       <div>
-          <div className="latestContainer">
+          
+              
+          <div className={ "mustreadContainer"}>
+          <div className={"latestContainer"}>
+                <div className="adsLatestFather">
+                
+               
+          <p className="mustreadtword"> 
+              Must Read</p>
+              
               
               {showNews}
+              <div className="adsLatest1">Place Your Ads Here</div>
+                <div className="adsLatest2">Place Your Ads Here</div>
+                <div className="adsLatest3">Place Your Ads Here</div>
+              </div>
+              </div>
+
               </div>
       </div>
   )

@@ -34,8 +34,21 @@ import { useHistory } from 'react-router-dom';
   })
     return (
         <div>
-            <div className="latestContainer">
+            <div className="latestContainer latestContainerLink">
+                <div className="adsLatestFather">
+                <div className="adsLatest1">Place Your Ads Here</div>
+                <div className="adsLatest2">Place Your Ads Here</div>
+                <div className="adsLatest3">Place Your Ads Here</div>
+               
+
+                <p className="latestword">
+                Latest News</p>
+
                 {showNews}
+                                </div>
+
+                
+
                 </div>
         </div>
     )

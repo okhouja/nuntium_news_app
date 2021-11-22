@@ -2,9 +2,24 @@
     @include centerRow;
     width: 1200px;
     height: 100%;
+    @include responsive(laptop){
+    @include centerRow;
+    width: 1200px;
+    height: 100%;
+    }
+    @include responsive(mobile){
+        @include spaceBetweenColumn;
+        width: 400px;
+    }
 }
 .generalFather{
     width: 600px;
+    @include responsive(laptop){
+        width: 600px;
+        }
+    @include responsive(mobile){
+        width: 400px;
+    }
 }
 .generalwrapperActive{
     @include spaceBetweenColumn;
@@ -13,11 +28,14 @@
     margin-bottom: 12vh;
     &::after{
         content: "";
-        border-top: 2px solid gray;
+        border-bottom: 2px solid gray;
         position: absolute;
         width: 32vw;
-        top: 74vh;
+        top: 100vh;
         height: 1vh;
+    }
+    @include responsive(mobile){
+        @include spaceBetweenColumn;
     }
 }
 .generalwrapper{
@@ -77,6 +95,9 @@ width: 5%;
 .img{
     height: 100%;
     width: 6vw;
+    @include responsive(mobile){
+        width: 30%;
+    }
 }
 .generalimg{
     height: 100%;
@@ -110,7 +131,7 @@ width: 5%;
     margin-bottom: 12vh;
     &::after{
         content: "";
-        border-top: 2px solid gray;
+        border-bottom: 2px solid gray;
         position: absolute;
         width: 16vw;
         top: 88vh;
@@ -179,8 +200,33 @@ font-weight: bolder;
     .advertise{
         width: 55vw;
         height: 12vh;
-        border: 1px  solid red;
         margin: 5% auto;
+        font-weight: bolder;
+        color: white;
+        @include flex-center;
+        font-size: 3rem;
+        background-color: blue;
+        animation: ads 1s infinite ease-in-out;
+        @keyframes ads {
+            5%{
+                color: white;
+
+            }
+            20%{
+                color: red;
+
+            }
+            
+        }
+        @include responsive(laptop){
+            
+
+            }
+        
+        @include responsive(mobile){
+            font-size: 1.5rem;
+
+        }
     }
     .line{
         width: 66vw;
@@ -205,6 +251,7 @@ font-weight: bolder;
    position: relative;
    width: 4vh;
    height: 4vw;
+   left: -0.5vw;
 
    top: -2vh;
    animation: go 1s infinite ease-in-out;

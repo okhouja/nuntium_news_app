@@ -1,25 +1,29 @@
 .scienceContainer{
     @include spaceBetweenCenterRow;
-    height: 250px;
+    height: 400px;
     width: 1400px;
-    border: 1px solid red;
+    // border: 1px solid red;
+    @include responsive(mobile){
+        @include flexCenterColumn;
+        width: 400px;
+        height: 1500px;
+        border: 1px solid red;
 
-    
+    } 
 }
 .scienceFather{
     @include column;
     width: 200px;
     height: 100%;
     border: 1px solid blue;
+    @include responsive(mobile){
+        width: 400px;
+        height: 250px;
+        
+        
+    }
 }
-.scienceFatherIndex{
-    @include column;
-    width: 200px;
-    height: 100%;
-    border: 1px solid yellow;
-    order: 6;
 
-}
 .scienceImg{
    height: 100px;
    width: 100%;
@@ -31,6 +35,9 @@
     width: auto;
     height: 100%;
     font-size: 15px;
+    @include responsive(mobile){
+      height: 22px;
+    }
 }
 .scienceAuthorContainer{
     @include column;

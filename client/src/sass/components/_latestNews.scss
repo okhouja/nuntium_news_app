@@ -1,22 +1,38 @@
-.latestContainer{
+.latestContainer, .mustreadContainer{
     @include spaceBetweenStartColumn;
-    height: 100px;
-    width: 200px;
-    margin-left: 33vw;
-    &::after{
-        content: "";
-        border-top: 2px solid gray;
-        position: absolute;
-        width: 16vw;
-        top: 60vh;
-        height: 1vh;
+    height: 200px;
+    width: 400px;
+    @include responsive(mobile){
+        display: none;
     }
+}
+.latestword, .mustreadtword{
+    color: #000;
+    font-weight: bolder;
+    font-size: 2rem;
+    position: relative;
+    top: -3vh;
+    margin: 2vh;
+    @include responsive(mobile){
+        display: none;
+    }
+}
+
+.latestContainer{
+    position: relative;
+    top: 60vh;
+
+}
+.mustreadContainer{
+position: relative;
+
+top: 0vh;
 }
 .latestFather{
     @include  spaceBetweenStartRow;
     width: 300px;
     height: 100px;
-    margin: 2vh;
+    margin: 4vh;
     position: relative;
     
 }
@@ -25,6 +41,15 @@
     width: 300px;
     height: 300px;
     margin-bottom: 12vh;
+
+    &::after{
+        content: "";
+        border-bottom:2px solid gray;
+        position: relative;
+        width: 16vw;
+        top: 8vh;
+        height: 1vh;
+    }
     
 
 }
@@ -63,4 +88,33 @@ font-size: 20px
     font-size: 10px;
 }.latestAuthor{
     width: 100%;
+}
+.adsLatestFather{
+    
+    @include spaceBetweenStartColumn;
+    position: relative;
+    top: -55vh;
+}
+.adsLatest1,.adsLatest2,.adsLatest3{
+height: 30vh;
+width: 12vw;
+background-color: red;
+margin: 10% auto;
+font-size: 1.5rem;
+@include flex-center;
+font-weight: bolder;
+border: 1px solid black;
+color: white;
+animation: ads 1s infinite ease-in-out;
+@keyframes ads {
+    5%{
+        color: white;
+
+    }
+    20%{
+        color: red;
+
+    }   
+}   
+
 }

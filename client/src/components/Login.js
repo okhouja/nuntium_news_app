@@ -1,25 +1,21 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
 
 function Login() {
-  const [users, setUsers] = useState([]);
-  useEffect(() => {
-    getData();
-  }, []);
-  const getData = () => {};
   return (
     <div className="loginFather">
-      <div className="inputFather">
+      <div className="inputFatherLogin">
         <label>User Name</label>
-        <input type="text" name="username" />
+        <input className="usernameLogin" type="text" name="username" />
       </div>
 
-      <div className="inputFather">
-        <label>Password</label>
+      <div className="inputFatherLogin">
+        <label className="passwordLogin">Password</label>
         <input className="loginPass" type="password" name="password" />
       </div>
       <button className="login">Login</button>
+      <Link className="backLinksignup" to="/home"><p className="back">Back</p></Link>
+
     </div>
   );
 }
