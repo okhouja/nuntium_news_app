@@ -2,8 +2,9 @@
 const { User } = require("../models/User");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const Session = require("../models/session");
-const uuid = require("uuid").v4;
+// const Session = require("../models/session");
+const { createToken, checkToken } = require("../middleware/jwt");
+// const uuid = require("uuid").v4;
 
 const userCont = {};
 
@@ -88,13 +89,22 @@ userCont.login = async (req, res) => {
   }
   try {
     if (await bcrypt.compare(req.body.password, user.password)) {
-      res.send(`Welcome Back ${user.username}!`);
+      req.session.user = user.username;
+      const token = createToken(user);
+      res.json({
+        auth: true,
+        token,
+        message: `Welcome Back ${user.username}!`,
+      });
     } else {
-      res.send(`Unfortunately an error has occurred.
-        The username or password are not entered correctly. Please try again. If an account has not yet been created, please click on "Register"`);
+      res.json({
+        auth: true,
+        message: `Unfortunately an error has occurred.
+        The username or password are not entered correctly. Please try again. If an account has not yet been created, please click on "Register"`,
+      });
     }
   } catch (err) {
-    res.status(err.status).json({ message: err.message });
+    res.status(err.status).json({ auth: false, message: err.message });
   }
 };
 

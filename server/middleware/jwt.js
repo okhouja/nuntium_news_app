@@ -12,7 +12,7 @@ const createToken = (user) => {
 
   return accessToken;
 };
-const checkToken = (req, res, next) => {
+const checkToken = async (req, res, next) => {
   console.log(req.headers.authorization);
   const accessToken = req.headers.authorization.split(" ")[1];
   console.log(accessToken);
