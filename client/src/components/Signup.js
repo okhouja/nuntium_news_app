@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
@@ -17,7 +17,7 @@ const Register = () => {
     data.append("email", email);
 
     axios
-      .post("", data, {
+      .post("http://localhost:5000/signup", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -33,7 +33,7 @@ const Register = () => {
         <h3>Register in Nuntium</h3>
         <form className="formFather">
           <div className="inputFather">
-            <label>User Name</label>
+            <label>Username :</label>
             <input
               className="userName"
               type="text"
@@ -44,7 +44,7 @@ const Register = () => {
             />
           </div>
           <div className="inputFather">
-            <label>Email</label>
+            <label>Email :</label>
             <input
               className="email"
               type="email"
@@ -55,7 +55,7 @@ const Register = () => {
             />
           </div>
           <div className="inputFather">
-            <label>Password</label>
+            <label>Password :</label>
             <input
               className="password"
               type="password"
@@ -67,7 +67,7 @@ const Register = () => {
           </div>
 
           <div className="inputFather">
-            <label>Confirm Password</label>
+            <label>Confirm Password :</label>
             <input
               className="passConf"
               type="password"
