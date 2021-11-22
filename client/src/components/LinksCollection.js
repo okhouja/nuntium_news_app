@@ -3,12 +3,12 @@ import {Link} from "react-router-dom";
 import LatestNews from './categories/LatestNews';
 import MustRead from './categories/MustRead';
 import {
-   EmailShareButton,
-   FacebookShareButton,
-   InstapaperShareButton,
-   TwitterShareButton,
-   WhatsappShareButton,
- } from "react-share";
+  EmailShareButton,
+  FacebookShareButton,
+  InstapaperShareButton,
+  TwitterShareButton,
+  WhatsappShareButton,
+} from "react-share";
 
 import {
    EmailIcon,
@@ -94,35 +94,38 @@ const separator = " ";
            <div className="linkDes">{linkArr.description} </div><div className="seemore"><a href={linkArr.url}>See more</a></div> 
            </div>
            <div className="backFather">
+           
+
            <FontAwesomeIcon className="shareIcon" icon={faShareAlt} />
-           <FacebookShareButton  url={url} appid={306951887722234}>
-              <FacebookIcon size={32} round={true} >
-              {"share" + url}
-              </FacebookIcon>
-            </FacebookShareButton>
 
-            <InstapaperShareButton  url={url}>
-              <InstapaperIcon size={32} round={true} >
-              {"share" + url}
-              </InstapaperIcon>
-            </InstapaperShareButton>
+<FacebookShareButton  url={url} appid={306951887722234}>
+   <FacebookIcon className="otherIcons" size={32} round={true} >
+   {"share" + url}
+   </FacebookIcon>
+ </FacebookShareButton>
 
-            <TwitterShareButton  url={url} >
-              <TwitterIcon size={32} round={true} >     
-              {"share" + url}
-              </TwitterIcon>
-            </TwitterShareButton>
-            
-            <WhatsappShareButton   url={url} >
-              <WhatsappIcon size={32} round={true} >
-              {"share" + url}
-              </WhatsappIcon>
-            </WhatsappShareButton>
+ <InstapaperShareButton  url={url}>
+   <InstapaperIcon className="otherIcons" size={32} round={true} >
+   {"share" + url}
+   </InstapaperIcon>
+ </InstapaperShareButton>
 
-          <EmailShareButton url={url} body={body} separator={separator}  >
-              <EmailIcon size={32} round={true} >
-              </EmailIcon>
-            </EmailShareButton> 
+ <TwitterShareButton  url={url} >
+   <TwitterIcon className="otherIcons" size={32} round={true} >         
+   {"share" + url}
+   </TwitterIcon>
+ </TwitterShareButton>
+
+ <WhatsappShareButton  url={url} >
+   <WhatsappIcon className="otherIcons" size={32} round={true} >
+   {"share" + url}
+   </WhatsappIcon>
+ </WhatsappShareButton>
+
+<EmailShareButton  url={url} body={body} separator={separator}  >
+   <EmailIcon className="otherIcons" size={32} round={true} >
+   </EmailIcon>
+ </EmailShareButton> 
             </div>
 
 

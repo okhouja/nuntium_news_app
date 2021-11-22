@@ -5,6 +5,15 @@ app.use(morgan("dev"));
 // Allow Express to understand json
 app.use(express.json());
 
+const cors = require("cors");
+app.use(
+  cors({
+    origin: "http://localhost:3000",
+    method: ["GET", "POST", "DELETE", "PATCH"],
+    credentials: true,
+  })
+);
+
 // Import Router
 const userRouter = require("./router/user");
 app.use("/", userRouter);

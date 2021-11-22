@@ -21,12 +21,12 @@ const UserSchema = Schema(
       unique: [true, "Email already exists"],
       match: [/.+\@.+\..+/, "Please fill a valid email address"],
     },
-    country: String,
-    city: {
-      type: String,
-      required: [true, "You need to enter your City"],
-      trim: true,
-    },
+    /* country: String,
+    // city: {
+    //   type: String,
+    //   required: [true, "You need to enter your City"],
+    //   trim: true,
+    // },
     general: Boolean,
     business: Boolean,
     entertainment: Boolean,
@@ -35,6 +35,7 @@ const UserSchema = Schema(
     sport: Boolean,
     technology: Boolean,
     newsletter: Boolean,
+     */
     likedArticles: [{ type: Schema.Types.ObjectId, ref: "Article" }],
     registerDate: { type: Date, required: true, default: Date.now },
   },

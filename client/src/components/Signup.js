@@ -1,53 +1,97 @@
-import { React , useState, useEffect } from "react";
-import axios from "axios";
-import {Link} from "react-router-dom";
 
-function Signup() {
+  
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
+
+const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
-  const [confPassword, setConfPassword] = useState("");
-  useEffect(() => {
-    
-    
-  }, []);
+  const [ConfPassword, setConfPassword] = useState("");
+  const [email, setEmail] = useState("");
+
+  axios.defaults.withCredentials = true;
+  const register = () => {
+    const data = new FormData();
+    data.append("username", username);
+    data.append("password", password);
+    data.append("ConfPassword", ConfPassword);
+    data.append("email", email);
+
+    axios
+      .post("http://localhost:5000/signup", data, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  };
 
   return (
     <div>
       <div className="signUpWrapper">
-        <form className="formFather" action="/" method="get">
-          <div className="inputFatherSignup">
-            <label className="labelsignup">User Name</label>
-            <input className="userName" type="text" name="username" />
+        <h3>Register in Nuntium</h3>
+        <form className="formFather">
+          <div className="inputFather">
+            <label>Username :</label>
+            <input
+              className="userName"
+              type="text"
+              value={username}
+              name="username"
+              onChange={(e) => setUsername(e.target.value)}
+              placeholder="Username"
+            />
           </div>
-          <div  className="inputFatherSignup">
-            <label className="labelsignup">Password</label>
-            <input className="password" type="password" name="password" />
+          <div className="inputFather">
+            <label>Email :</label>
+            <input
+              className="email"
+              type="email"
+              value={email}
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="Email Address"
+            />
+          </div>
+          <div className="inputFather">
+            <label>Password :</label>
+            <input
+              className="password"
+              type="password"
+              value={password}
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password"
+            />
           </div>
 
-          <div  className="inputFatherSignup">
-            <label className="labelsignup">Confirm Password</label>
-            <input className="passConf" type="password" name="confpassword" />
-          </div>
-
-          <div  className="inputFatherSignup">
-            <label className="labelsignup">Email</label>
-            <input className="email" type="email" name="email" />
+          <div className="inputFather">
+            <label>Confirm Password :</label>
+            <input
+              className="passConf"
+              type="password"
+              value={ConfPassword}
+              name="confPassword"
+              onChange={(e) => setConfPassword(e.target.value)}
+              placeholder="Confirm Password"
+            />
           </div>
 
           <div>
-            <input className="submit" type="submit" value="Add user" />
+            <button className="submit" onClick={register}>
+              Register
+            </button>
           </div>
           <div>
             <input className="clear" type="reset" value="Clear" />
           </div>
-
         </form>
-
       </div>
-      <Link className="backLinksignup" to="/home"><p className="back">Back</p></Link>
-
     </div>
   );
-}
+};
 
-export default Signup;
+export default Register;

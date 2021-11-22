@@ -1,21 +1,52 @@
 import { useState, useEffect } from "react";
+
+import { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 
 function Login() {
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState("");
+
+  axios.defaults.withCredentials = true;
+  const loginUser = () => {
+    axios
+      .post("http://localhost:3000/login", {
+        username,
+        password,
+      })
+      .then((res) => console.log(res));
+  };
+
+  const getData = () => {};
   return (
     <div className="loginFather">
-      <div className="inputFatherLogin">
+      <div className="inputFather">
         <label>User Name</label>
-        <input className="usernameLogin" type="text" name="username" />
+        <input
+          type="text"
+          value={username}
+          name="username"
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Enter your username"
+        />
       </div>
 
-      <div className="inputFatherLogin">
-        <label className="passwordLogin">Password</label>
-        <input className="loginPass" type="password" name="password" />
+      <div className="inputFather">
+        <label>Password</label>
+        <input
+          className="loginPass"
+          value={password}
+          type="password"
+          name="password"
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Enter your password"
+        />
       </div>
-      <button className="login">Login</button>
-      <Link className="backLinksignup" to="/home"><p className="back">Back</p></Link>
-
+      <button className="login" onClick={loginUser}>
+        Login
+      </button>
     </div>
   );
 }
