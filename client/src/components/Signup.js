@@ -1,5 +1,3 @@
-
-  
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -85,9 +83,9 @@ const Register = () => {
               Register
             </button>
           </div>
-          <div>
-            <input className="clear" type="reset" value="Clear" />
-          </div>
+          <Link to="/login" className="submit">
+            Login
+          </Link>
         </form>
       </div>
     </div>

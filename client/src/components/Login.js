@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -16,10 +15,17 @@ function Login() {
         username,
         password,
       })
-      .then((res) => console.log(res));
+      .then((res) => {
+        console.log(res);
+        if (res.data.user) {
+          localStorage.setItem("token", res.data.token);
+          setLoginMessage(`Welcome Back ${res.data.user.username}`);
+        } else {
+          setLoginMessage(res.data.message);
+        }
+      });
   };
 
-  const getData = () => {};
   return (
     <div className="loginFather">
       <div className="inputFather">
@@ -47,6 +53,7 @@ function Login() {
       <button className="login" onClick={loginUser}>
         Login
       </button>
+      <h4>{loginMessage}</h4>
     </div>
   );
 }

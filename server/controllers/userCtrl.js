@@ -43,16 +43,16 @@ userCont.addNewUser = async (req, res) => {
       username: req.body.username,
       password: hashedPassword,
       email: req.body.email.toLowerCase(),
-      country: req.body.country,
-      city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
-      general: req.body.general,
-      business: req.body.business,
-      entertainment: req.body.entertainment,
-      health: req.body.health,
-      science: req.body.science,
-      sport: req.body.sport,
-      technology: req.body.technology,
-      newsletter: req.body.newsletter,
+      // country: req.body.country,
+      // city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
+      // general: req.body.general,
+      // business: req.body.business,
+      // entertainment: req.body.entertainment,
+      // health: req.body.health,
+      // science: req.body.science,
+      // sport: req.body.sport,
+      // technology: req.body.technology,
+      // newsletter: req.body.newsletter,
     });
 
     await newuser.save();
@@ -94,7 +94,10 @@ userCont.login = async (req, res) => {
       res.json({
         auth: true,
         token,
-        message: `Welcome Back ${user.username}!`,
+        user: {
+          id: user._id,
+          username: user.username,
+        },
       });
     } else {
       res.json({
@@ -170,16 +173,16 @@ userCont.updateProfile = async (req, res) => {
         username: req.body.username,
         password: hashedPassword,
         email: req.body.email,
-        country: req.body.country,
-        city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
-        general: req.body.general,
-        business: req.body.business,
-        entertainment: req.body.entertainment,
-        health: req.body.health,
-        science: req.body.science,
-        sport: req.body.sport,
-        technology: req.body.technology,
-        newsletter: req.body.newsletter,
+        // country: req.body.country,
+        // city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
+        // general: req.body.general,
+        // business: req.body.business,
+        // entertainment: req.body.entertainment,
+        // health: req.body.health,
+        // science: req.body.science,
+        // sport: req.body.sport,
+        // technology: req.body.technology,
+        // newsletter: req.body.newsletter,
       },
       { new: true }
     );
