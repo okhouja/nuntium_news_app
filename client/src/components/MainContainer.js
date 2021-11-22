@@ -11,7 +11,7 @@ import Business from "./categories/Business";
             <Business />
         </div>
         <div className="line"></div>
-        <div className="advertise">  </div>  
+        <div className="advertise">Place Your Ads Here</div>  
              
         </div>
     )

@@ -60,8 +60,6 @@ const handleSubmit = (e) => {
           <ul className="ul-search-bar">
 
           <li className="searchLi" onClick={()=>history.push( "/")} >Home</li> 
-          
-
           <li className="searchLi" onClick={()=>history.push({pathname:"/newscollection",
      state: {category:"general"}})} >General</li> 
 

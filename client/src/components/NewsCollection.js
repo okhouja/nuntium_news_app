@@ -50,18 +50,23 @@ import MustRead from './categories/MustRead';
                        )
           });
             return (
-             <div >
+             <div className="redirectContainerFather" >
                      <LatestNews />
-                    <MustRead /> 
+                   
             <div  className="redirectFather"> 
-            <div className="redirectTopTitle">  {props.location.state.category}
-            <div className="line"></div>
+            <div className="redirectTopTitle"> 
+            <div> {props.location.state.category} </div>
+            <div className="lineredirect"></div>
             </div>
-                      {showNews}            
+                      {showNews}  
+                      <div className="goUpRedirect">        
                       <Link className="backLink" to="/home"><p className="back">Back</p></Link>
-               <div className="goUpRedirect"><a className="goUpanchor" href="#img">˄</a></div>
-               <p className="goupwordRedirect">Go up</p>
+               <a className="goUpanchor" href="#img">Go Up</a>
+               <p className="goupwordRedirect">ᐱ</p>
+
                </div>    
+                    </div>
+                    <MustRead /> 
                     </div>
             )
 }

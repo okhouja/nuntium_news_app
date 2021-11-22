@@ -4,6 +4,11 @@
   justify-content: center;
   align-items: center;
 }
+@mixin flexEnd {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
 
 @mixin flexCenterColumn {
   display: flex;
@@ -91,14 +96,12 @@ align-items: center;
 flex-direction: row;
 }
 
-@mixin  responsive($breakpoint) {
-  @if $breakpoint == bigScreen {
-@media only screen and (min-width:1200px ){@content};
-  }
+
+@mixin  responsive ($breakpoint) {
+   @if $breakpoint == laptop  {
+    @media (max-width: 1200px) {@content};
+                  }    
+       @if $breakpoint == mobile {
+           @media  (max-width: 400px) {@content};
+                                        }                                         
 }
-
-
-
-
-
-
