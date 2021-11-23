@@ -43,6 +43,7 @@ userCont.addNewUser = async (req, res) => {
       username: req.body.username,
       password: hashedPassword,
       email: req.body.email.toLowerCase(),
+      role: "USER",
       // country: req.body.country,
       // city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
       // general: req.body.general,

@@ -2,8 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Dashboard() {
+const Article = () => {
   return <div></div>;
-}
+};
 
-export default Dashboard;
+export default Article;
