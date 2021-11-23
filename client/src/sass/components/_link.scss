@@ -2,6 +2,10 @@
     @include startRow;
     width: 1800px;
     height: 2200px;
+    @include responsive(mobile){
+        width: 400px;
+        height: auto;
+    }
 }
 
 .linkContainer{
@@ -24,11 +28,14 @@
 .topFather{
     @include startRow;
     height: 1vh;
-    width: 10%;
+    width: 50%;
+    @include responsive(mobile){
+        width: 100%;
+    }
 }
 .imgDiv{
     @include startColumn;
-    width: 50%;
+    width: 60%;
     position: relative;
     left: -8vh;
 }
@@ -61,6 +68,10 @@
 .linkInfoFather{
     @include spaceBetweenStartRow;
     width: 100%;
+    @include responsive(mobile){
+        @include startColumn;
+        
+        }
 
 }
 
@@ -175,13 +186,15 @@
     }
 }
 .advertiseLink{
-    width: 44vw;
+    width: 45vw;
    @include  flex-center; 
     height: 9vh;
     background-color: blue;
     font-weight: bolder;
     color: white;
     font-size: 2rem;
+    position: relative;
+    left: 1vw;
     animation: ads 1s infinite ease-in-out;
     @keyframes ads {
         5%{

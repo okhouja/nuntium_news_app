@@ -29,7 +29,7 @@ const separator = " ";
     console.log(linkArr);
     return (
       <div className="linkContainerFather">
-        <MustRead className="mustreadContainerLink"  />
+        <MustRead  />
         <div className="linkContainer">
         
             <div className="linkFather">

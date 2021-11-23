@@ -1,0 +1,34 @@
+.mobileNav{
+    display: none;
+    @include responsive(mobile){
+        display: block;
+        width: 400px;
+    }
+}
+.dexktopNav{
+    @include responsive(mobile){
+        display: none;
+    }
+}
+ .navbarFatherMob{
+        @include responsive(mobile){
+        width: 400px;
+        height: 8vh;
+        background-color: #000;
+       @include spaceBetweenCenterRow;
+    }
+}
+.hamburgerMenuFather{
+    background-color: black;
+}
+.hamburgerMenu{
+    color: white;
+        font-size: 2rem;
+}
+.dropdownMobile{
+    display: block;
+
+}
+.dropdownMobileActive{
+display: none;
+}

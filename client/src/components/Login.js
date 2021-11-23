@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 
-import { useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
@@ -21,10 +20,12 @@ function Login() {
 
   const getData = () => {};
   return (
+    <div className="loginContainer">
     <div className="loginFather">
-      <div className="inputFather">
+      <div className="inputFatherLogin">
         <label>User Name</label>
         <input
+        className="usernameLogin"
           type="text"
           value={username}
           name="username"
@@ -33,7 +34,7 @@ function Login() {
         />
       </div>
 
-      <div className="inputFather">
+      <div className="inputFatherLogin">
         <label>Password</label>
         <input
           className="loginPass"
@@ -47,6 +48,7 @@ function Login() {
       <button className="login" onClick={loginUser}>
         Login
       </button>
+    </div>
     </div>
   );
 }

@@ -16,7 +16,7 @@ import { useHistory} from 'react-router-dom';
 //   .catch((err) => console.log(`Your had an ${err}`));
       
 //   }, [])
-//   console.log(business);
+  console.log(business);
 
   const businessNews = business.map((item,i)=>{
   
