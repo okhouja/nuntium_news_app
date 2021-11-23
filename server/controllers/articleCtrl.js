@@ -116,6 +116,34 @@ articleCtrl.addNewArticle = async (req, res) => {
     });
 };
 
+// update Article
+
+articleCtrl.updateArticle = async (req, res) => {
+  try {
+    const article = await Article.findByIdAndUpdate(
+      { _id: req.body._id },
+      {
+        title: req.params.title,
+        author: req.params.author,
+        description: req.params.description,
+        content: req.body.content,
+        source: req.body.source,
+        image: req.file.path,
+        category: req.body.category,
+        languages: req.body.languages,
+        country: req.body.country,
+      },
+      { new: true }
+    );
+    article.save();
+    res
+      .status(200)
+      .json({ message: `The Article has been updated successfully` });
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
+  }
+};
+
 // Delete Article
 
 articleCtrl.deleteArticle = async (req, res) => {

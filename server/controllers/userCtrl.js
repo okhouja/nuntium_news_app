@@ -166,7 +166,7 @@ userCont.updateProfile = async (req, res) => {
 
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    let cityVar = req.body.city;
+    // let cityVar = req.body.city;
     const user = await User.findByIdAndUpdate(
       { _id: req.params._id },
 
