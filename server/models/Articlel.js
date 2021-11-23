@@ -7,7 +7,7 @@ const articleSchema = Schema({
   title: { type: String },
   author: { type: String },
   description: { type: String },
-  content: { type: String, unique: true },
+  content: { type: String },
   source: { type: String },
   image: { type: String },
   category: { type: String },

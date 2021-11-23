@@ -3,6 +3,7 @@ const Comment = require("../models/Comment");
 const { Article } = require("../models/Articlel");
 const mongoose = require("mongoose");
 const { User } = require("../models/User");
+const { createToken, checkToken } = require("../middleware/jwt");
 
 const articleCtrl = {};
 
@@ -41,6 +42,7 @@ articleCtrl.getArticle = async (req, res) => {
     res.status(err.message).json({ message: err.message });
   }
 };
+
 // Create Article
 
 articleCtrl.likeArticle = (req, res) => {
@@ -84,20 +86,27 @@ articleCtrl.likeArticle = (req, res) => {
 
 articleCtrl;
 
-/*
 articleCtrl.AddNewArticle = async (req, res) => {
-  Article.findOne({ url: req.body.url })
+  Article.findById(req.body._id)
     .then((article) => {
       if (article) {
         console.log(article);
-        const article = new Article({
+        const newArticle = new Article({
           _id: new mongoose.Types.ObjectId(),
-          url: req.params.url,
+          title: req.params.title,
+          author: req.params.author,
+          description: req.params.description,
+          content: req.body.content,
+          source: req.body.source,
+          image: req.file.path,
+          category: req.body.category,
+          languages: req.body.languages,
+          country: req.body.country,
         });
-        article.save();
-        user.articleCollection.push(article._id);
-        user.save();
-        res.status(201).json(article);
+        newArticle.save();
+        res
+          .status(201)
+          .json({ message: "New Article has been added successfully" });
       } else {
         return res
           .status(404)
@@ -109,7 +118,6 @@ articleCtrl.AddNewArticle = async (req, res) => {
     });
 };
 
-*/
 /*
 
 articleCtrl.createArticle = async (req, res) => {
