@@ -13,4 +13,5 @@ router
   .route("/dashboard")
   .post(upload.single("image"), articleCtrl.addNewArticle);
 
+router.route("/dashboard/article/:_id").delete(articleCtrl.deleteArticle);
 module.exports = router;

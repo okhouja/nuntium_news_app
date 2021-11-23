@@ -116,6 +116,19 @@ articleCtrl.addNewArticle = async (req, res) => {
     });
 };
 
+// Delete Article
+
+articleCtrl.deleteArticle = async (req, res) => {
+  try {
+    const article = await Article.findByIdAndDelete(req.params._id);
+    res.status(200).json({
+      message: `Article ${article.title} has been deleted successfully`,
+    });
+  } catch (err) {
+    res.status(err.status).json({ message: err.message });
+  }
+};
+
 // upload
 
 const multer = require("multer");
