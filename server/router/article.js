@@ -9,4 +9,8 @@ router.route("/article/:_id").get(articleCtrl.getArticle);
 
 router.route("/article/like").post(articleCtrl.likeArticle);
 
+router
+  .route("/dashboard")
+  .post(upload.single("image"), articleCtrl.addNewArticle);
+
 module.exports = router;

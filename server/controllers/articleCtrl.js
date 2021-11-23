@@ -3,7 +3,7 @@ const Comment = require("../models/Comment");
 const { Article } = require("../models/Articlel");
 const mongoose = require("mongoose");
 const { User } = require("../models/User");
-const { createToken, checkToken } = require("../middleware/jwt");
+// const { createToken, checkToken } = require("../middleware/jwt");
 
 const articleCtrl = {};
 
@@ -84,9 +84,7 @@ articleCtrl.likeArticle = (req, res) => {
     });
 };
 
-articleCtrl;
-
-articleCtrl.AddNewArticle = async (req, res) => {
+articleCtrl.addNewArticle = async (req, res) => {
   Article.findById(req.body._id)
     .then((article) => {
       if (article) {
@@ -110,7 +108,7 @@ articleCtrl.AddNewArticle = async (req, res) => {
       } else {
         return res
           .status(404)
-          .json({ message: "You need to sign in to create a new Artikel" });
+          .json({ message: "You need to sign in to add a new Artikel" });
       }
     })
     .catch((err) => {
@@ -118,6 +116,32 @@ articleCtrl.AddNewArticle = async (req, res) => {
     });
 };
 
+// upload
+
+const multer = require("multer");
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./uploads/");
+  },
+  filename: function (req, file, cb) {
+    cb(null, new Date().toISOString() + file.originalname);
+  },
+});
+articleCtrl.upload = multer({
+  storage: storage,
+  limits: { fileSize: 1024 * 1024 * 10 },
+  fileFilter: function (req, file, cb) {
+    if (
+      file.mimetype == "image/jpeg" ||
+      file.mimetype == "image/png" ||
+      file.mimetype == "image/gif"
+    ) {
+      cb(null, true);
+    } else {
+      cb(new Error("Only .JPG .GIF .PNG files are supported"), false);
+    }
+  },
+});
 /*
 
 articleCtrl.createArticle = async (req, res) => {

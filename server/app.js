@@ -68,6 +68,10 @@ mongoose
     console.log(`There is a problem ${error.message}`);
   });
 
+// Allow uploads
+
+app.use("/uploads", express.static("uploads"));
+
 app.get("/", (req, res) => {
   try {
     res.status(200).send("Welcome To Nuntuim News Website");
