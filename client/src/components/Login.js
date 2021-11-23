@@ -15,10 +15,17 @@ function Login() {
         username,
         password,
       })
-      .then((res) => console.log(res));
+      .then((res) => {
+        console.log(res);
+        if (res.data.user) {
+          localStorage.setItem("token", res.data.token);
+          setLoginMessage(`Welcome Back ${res.data.user.username}`);
+        } else {
+          setLoginMessage(res.data.message);
+        }
+      });
   };
 
-  const getData = () => {};
   return (
     <div className="loginContainer">
     <div className="loginFather">
@@ -48,6 +55,7 @@ function Login() {
       <button className="login" onClick={loginUser}>
         Login
       </button>
+      <h4>{loginMessage}</h4>
     </div>
     </div>
   );
