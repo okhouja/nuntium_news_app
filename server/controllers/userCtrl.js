@@ -37,7 +37,7 @@ userCont.addNewUser = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     console.log(hashedPassword);
-    let cityVar = req.body.city;
+    // let cityVar = req.body.city;
     const newuser = new User({
       _id: mongoose.Types.ObjectId(),
       username: req.body.username,
