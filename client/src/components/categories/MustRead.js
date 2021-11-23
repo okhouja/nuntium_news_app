@@ -16,20 +16,7 @@ const MustRead = () => {
       
   // }, [])
   // console.log(mustRead);
-  // let containerFatherClasses = 
-  // ({
-  //   'mustreadContainer': true,
-  //   'mustreadContainerLink': false,
-  // });
-  // let containerClasses = ({
-  //   'latestContainer': true,
-  //   'latestContainerLink': false,
-  // });
-
   
-  
-
-
 const showNews = mustRead.map((value,i)=>{
     const {image, author, title, source, published_at} = value;
     return(

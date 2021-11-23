@@ -10,6 +10,8 @@ import NewsCollection from "./components/NewsCollection";
 import LinksCollection from "./components/LinksCollection";
 import LanguagesCollection from "./components/LanguagesCollection";
 import CountriesCollection from "./components/CountriesCollection";
+import DesktopNavbar from "./components/DesktopNavbar";
+import MobileNavbar from "./components/MobileNavbar";
 import Loading from "./components/Loading";
 // import General from "./components/categories/General";
 
@@ -27,7 +29,8 @@ function App() {
 
   return (
     <Router>
-      <Navbar />
+      <DesktopNavbar />
+      <MobileNavbar />
 
       <Header />
       <SearchBar />

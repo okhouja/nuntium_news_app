@@ -32,10 +32,11 @@ const Register = () => {
   return (
     <div>
       <div className="signUpWrapper">
-        <h3>Register in Nuntium</h3>
+        
         <form className="formFather">
-          <div className="inputFather">
-            <label>Username :</label>
+        <h3>Register in Nuntium</h3>
+          <div className="inputFatherSignup">
+            <label className="labelSignup">Username :</label>
             <input
               className="userName"
               type="text"
@@ -45,8 +46,8 @@ const Register = () => {
               placeholder="Username"
             />
           </div>
-          <div className="inputFather">
-            <label>Email :</label>
+          <div className="inputFatherSignup">
+            <label className="labelSignup" >Email :</label>
             <input
               className="email"
               type="email"
@@ -56,8 +57,8 @@ const Register = () => {
               placeholder="Email Address"
             />
           </div>
-          <div className="inputFather">
-            <label>Password :</label>
+          <div className="inputFatherSignup">
+            <label className="labelSignup">Password :</label>
             <input
               className="password"
               type="password"
@@ -68,8 +69,8 @@ const Register = () => {
             />
           </div>
 
-          <div className="inputFather">
-            <label>Confirm Password :</label>
+          <div className="inputFatherSignup">
+            <label className="labelSignup">Confirm Password :</label>
             <input
               className="passConf"
               type="password"

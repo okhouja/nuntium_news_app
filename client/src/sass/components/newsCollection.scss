@@ -160,7 +160,7 @@ width: 12vw;
         height:15vh;
         font-size: 1rem;
         width: 6vw;
-        top: 0;
+
      }
     
  }
@@ -170,6 +170,9 @@ width: 12vw;
     font-weight: bolder;
     position: relative;
     left: 0.5vh;
+    @include responsive (mobile){
+        left: -2vw;
+    }
 }
 
 .goupwordRedirect{
@@ -186,6 +189,9 @@ width: 12vw;
    to{
       transform: scale(1);
    }  
+}
+@include responsive (mobile){
+    left: -1.5vw;
 }
     
 }
