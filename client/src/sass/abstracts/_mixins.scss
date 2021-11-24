@@ -97,6 +97,7 @@ flex-direction: row;
 }
 
 
+
 @mixin  responsive ($breakpoint) {
    @if $breakpoint == laptop  {
     @media (max-width: 1200px) {@content};

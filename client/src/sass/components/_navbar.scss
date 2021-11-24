@@ -8,6 +8,9 @@
 .weather{
     width: 10%;
 }
+.temp{
+    color: white;
+}
 .dateFather{
     width: 20%;
 }
@@ -31,14 +34,20 @@
     color: white;
 }
 
+.dropDownFather{
+    @include spaceBetweenStartRow;
+    width: 33vw;
+    height: 4vh;
+}
 .dropDown{
     @include spaceBetweenStartRow;
-    width: 30%;
+    width: 80%;
      color: white;
     font-weight: bolder;
     z-index: 5; 
     position: relative;
 left: -4vw;   
+@include flex-center;
 
 }
 .ulFather{
@@ -55,7 +64,7 @@ left: -4vw;
     background-color: black;
 }
 
-.categoryLi, .langLi, .countriesLi{
+.categoryLi{
     width: 8vw;
     font-weight: bolder;
     text-align: center;
