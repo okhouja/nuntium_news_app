@@ -37,12 +37,13 @@ userCont.addNewUser = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     console.log(hashedPassword);
-    let cityVar = req.body.city;
+    // let cityVar = req.body.city;
     const newuser = new User({
       _id: mongoose.Types.ObjectId(),
       username: req.body.username,
       password: hashedPassword,
       email: req.body.email.toLowerCase(),
+      role: "USER",
       // country: req.body.country,
       // city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
       // general: req.body.general,
@@ -165,7 +166,7 @@ userCont.updateProfile = async (req, res) => {
 
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    let cityVar = req.body.city;
+    // let cityVar = req.body.city;
     const user = await User.findByIdAndUpdate(
       { _id: req.params._id },
 

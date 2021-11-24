@@ -21,6 +21,7 @@ const UserSchema = Schema(
       unique: [true, "Email already exists"],
       match: [/.+\@.+\..+/, "Please fill a valid email address"],
     },
+    role: String,
     /* country: String,
     // city: {
     //   type: String,
