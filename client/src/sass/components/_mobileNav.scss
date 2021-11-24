@@ -1,8 +1,11 @@
 .mobileNav{
     display: none;
     @include responsive(mobile){
-        display: block;
+        display: flex;
+
+
         width: 400px;
+        border: 1px solid yellow;
     }
 }
 .dexktopNav{
@@ -12,7 +15,7 @@
 }
  .navbarFatherMob{
         @include responsive(mobile){
-        width: 400px;
+        width: 340px;
         height: 8vh;
         background-color: #000;
        @include spaceBetweenCenterRow;
@@ -25,10 +28,119 @@
     color: white;
         font-size: 2rem;
 }
-.dropdownMobile{
-    display: block;
-
+.dropDownMobileFather{
+@include startColumn;
+height: auto;
+width: 4vw;
+order: -1;
+z-index: 5;
+}
+.dropDownMobile{
+    visibility: hidden;
 }
 .dropdownMobileActive{
-display: none;
+    @include spaceBetweenCenterRow;
+    height: 8vh;
+    width: 14vh;
+    background-color: white;
+    position: relative;
+    top: 8vh;
+}
+.ulFatherMobile{
+    background-color: white;
+}
+
+.closedDropDownMobile{
+    color: #000;
+    font-weight: bolder;
+}
+.dropopenSignMobile{
+    height: 0;
+    width: 0;
+    position: relative;
+    top: -1vh;
+    left: 9vh;
+    border-left: 10px solid transparent;
+    border-right: 10px solid  transparent;
+    border-bottom: 10px solid  #000;
+
+}
+
+.openDropDown{
+    @include responsive(mobile){
+        &:hover{
+            color: #000;
+            transform: scale(1.2);
+    
+        }
+        &:active{
+            color: red;
+
+        }
+    }
+}
+.dropcolseSignMobile{
+    height: 0;
+    width: 0;
+    position: relative;
+    top: -1vh;
+    left: 9vh;
+    border-left: 10px solid transparent;
+    border-right: 10px solid  transparent;
+    border-top: 10px solid  #000;
+    
+}
+.dropdownUlMobile{
+    background-color: white;
+    position: relative;
+    left: 4vh;
+    top: 4vh;
+    list-style: none;
+    z-index: 4;
+    width: 33vw;
+    @include column;
+    font-weight: bolder;
+}
+.liMobile{
+    position: relative;
+    left: 4vh;
+    &:hover{
+    
+        transform: scale(1.2);
+
+    }
+    &:active{
+        color: red;
+
+    }
+}
+.weatherMobileFather{
+    @include startColumn;
+   width: 80px;
+   height: 44px;
+   order: 2;
+   
+}
+.dateFatherMobile{
+    @include spaceBetweenStartRow;
+    width: 100px;
+   
+    order:3;
+
+}
+.iconFatherMobile{
+    width: 20px;
+    order: 4;
+}
+.signUpFatherMobile{
+    width: 20px;
+    order: 5;
+}
+
+.logInMobile{
+    width: 4vh;
+    height: 5vh;
+    position: relative;
+    left: -1vh;
+    font-weight: bolder;
 }
