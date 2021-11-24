@@ -34,6 +34,8 @@ router.route("/articles").get(articleCtrl.getAllArticle);
 
 router.route("/article/:_id").get(articleCtrl.getArticle);
 
+router.route("/article/categories").get(articleCtrl.getCategories);
+
 // router.route("/article/like").post(articleCtrl.likeArticle);
 
 router
