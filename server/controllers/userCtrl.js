@@ -2,8 +2,9 @@
 const { User } = require("../models/User");
 const bcrypt = require("bcrypt");
 const mongoose = require("mongoose");
-const Session = require("../models/session");
-const uuid = require("uuid").v4;
+// const Session = require("../models/session");
+const { createToken, checkToken } = require("../middleware/jwt");
+// const uuid = require("uuid").v4;
 
 const userCont = {};
 
@@ -36,22 +37,23 @@ userCont.addNewUser = async (req, res) => {
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
     console.log(hashedPassword);
-    let cityVar = req.body.city;
+    // let cityVar = req.body.city;
     const newuser = new User({
       _id: mongoose.Types.ObjectId(),
       username: req.body.username,
       password: hashedPassword,
       email: req.body.email.toLowerCase(),
-      country: req.body.country,
-      city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
-      general: req.body.general,
-      business: req.body.business,
-      entertainment: req.body.entertainment,
-      health: req.body.health,
-      science: req.body.science,
-      sport: req.body.sport,
-      technology: req.body.technology,
-      newsletter: req.body.newsletter,
+      role: "USER",
+      // country: req.body.country,
+      // city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
+      // general: req.body.general,
+      // business: req.body.business,
+      // entertainment: req.body.entertainment,
+      // health: req.body.health,
+      // science: req.body.science,
+      // sport: req.body.sport,
+      // technology: req.body.technology,
+      // newsletter: req.body.newsletter,
     });
 
     await newuser.save();
@@ -88,13 +90,25 @@ userCont.login = async (req, res) => {
   }
   try {
     if (await bcrypt.compare(req.body.password, user.password)) {
-      res.send(`Welcome Back ${user.username}!`);
+      req.session.user = user.username;
+      const token = createToken(user);
+      res.json({
+        auth: true,
+        token,
+        user: {
+          id: user._id,
+          username: user.username,
+        },
+      });
     } else {
-      res.send(`Unfortunately an error has occurred.
-        The username or password are not entered correctly. Please try again. If an account has not yet been created, please click on "Register"`);
+      res.json({
+        auth: true,
+        message: `Unfortunately an error has occurred.
+        The username or password are not entered correctly. Please try again. If an account has not yet been created, please click on "Register"`,
+      });
     }
   } catch (err) {
-    res.status(err.status).json({ message: err.message });
+    res.status(err.status).json({ auth: false, message: err.message });
   }
 };
 
@@ -152,7 +166,7 @@ userCont.updateProfile = async (req, res) => {
 
   try {
     const hashedPassword = await bcrypt.hash(req.body.password, 10);
-    let cityVar = req.body.city;
+    // let cityVar = req.body.city;
     const user = await User.findByIdAndUpdate(
       { _id: req.params._id },
 
@@ -160,16 +174,16 @@ userCont.updateProfile = async (req, res) => {
         username: req.body.username,
         password: hashedPassword,
         email: req.body.email,
-        country: req.body.country,
-        city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
-        general: req.body.general,
-        business: req.body.business,
-        entertainment: req.body.entertainment,
-        health: req.body.health,
-        science: req.body.science,
-        sport: req.body.sport,
-        technology: req.body.technology,
-        newsletter: req.body.newsletter,
+        // country: req.body.country,
+        // city: cityVar.charAt(0).toUpperCase() + cityVar.slice(1).toLowerCase(),
+        // general: req.body.general,
+        // business: req.body.business,
+        // entertainment: req.body.entertainment,
+        // health: req.body.health,
+        // science: req.body.science,
+        // sport: req.body.sport,
+        // technology: req.body.technology,
+        // newsletter: req.body.newsletter,
       },
       { new: true }
     );

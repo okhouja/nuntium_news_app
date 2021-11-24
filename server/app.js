@@ -2,8 +2,30 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 app.use(morgan("dev"));
-// Allow Express to understand json
+
+const cookieParser = require("cookie-parser");
+const session = require("express-session");
+
 app.use(express.json());
+// Let Express understand  Content-Type: application/x-www-form-urlencoded aka form data
+
+app.use(
+  express.urlencoded({
+    extended: true,
+  })
+);
+
+// cookies
+app.use(cookieParser());
+// session
+app.use(
+  session({
+    key: "token-key",
+    secret: process.env.TOKEN_TEXT,
+    resave: false,
+    saveUninitialized: false,
+  })
+);
 
 const cors = require("cors");
 app.use(
@@ -45,6 +67,10 @@ mongoose
   .catch((error) => {
     console.log(`There is a problem ${error.message}`);
   });
+
+// Allow uploads
+
+app.use("/uploads", express.static("uploads"));
 
 app.get("/", (req, res) => {
   try {

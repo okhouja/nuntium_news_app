@@ -1,5 +1,3 @@
-
-  
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -11,18 +9,22 @@ const Register = () => {
   const [email, setEmail] = useState("");
 
   axios.defaults.withCredentials = true;
-  const register = () => {
-    const data = new FormData();
-    data.append("username", username);
-    data.append("password", password);
-    data.append("ConfPassword", ConfPassword);
-    data.append("email", email);
+  const register = (e) => {
+    e.preventDefault();
 
+    // const data = new FormData();
+    // data.append("username", username);
+    // data.append("password", password);
+    // data.append("ConfPassword", ConfPassword);
+    // data.append("email", email);
+
+    const data = { username, password, email };
+    console.log(data);
     axios
       .post("http://localhost:5000/signup", data, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
+        // headers: {
+        //   "Content-Type": "multipart/form-data",
+        // },
       })
       .then((res) => {
         console.log(res);
@@ -86,9 +88,9 @@ const Register = () => {
               Register
             </button>
           </div>
-          <div>
-            <input className="clear" type="reset" value="Clear" />
-          </div>
+          <Link to="/login" className="submit">
+            Login
+          </Link>
         </form>
       </div>
     </div>
