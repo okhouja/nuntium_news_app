@@ -1,7 +1,6 @@
 import { React, useState, useEffect } from "react";
 import Home from "./components/Home";
 import Header from "./components/Header";
-import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import Footer from "./components/Footer";
 import Register from "./components/Signup";
@@ -13,7 +12,9 @@ import CountriesCollection from "./components/CountriesCollection";
 import DesktopNavbar from "./components/DesktopNavbar";
 import MobileNavbar from "./components/MobileNavbar";
 import Loading from "./components/Loading";
-// import General from "./components/categories/General";
+import Dashboard from "./components/Dashboard";
+
+
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
@@ -31,6 +32,8 @@ function App() {
     <Router>
       <DesktopNavbar />
       <MobileNavbar />
+      <Dashboard />
+      
 
       <Header />
       <SearchBar />

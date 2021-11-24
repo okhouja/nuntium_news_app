@@ -4,9 +4,6 @@ import App from "./App";
 import "./sass/main.scss";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-
-
-
 ReactDOM.render(
   <React.StrictMode>
     <Router>
