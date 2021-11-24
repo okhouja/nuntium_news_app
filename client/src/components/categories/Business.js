@@ -16,7 +16,19 @@ import { useHistory} from 'react-router-dom';
 //   .catch((err) => console.log(`Your had an ${err}`));
       
 //   }, [])
-  console.log(business);
+useEffect(() => {
+     axios
+      .get("http://localhost:5000/dashborad/article/add/",  {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((res) => {
+        console.log(res);
+      });
+  
+}, [])
+//   console.log(business);
 
   const businessNews = business.map((item,i)=>{
   

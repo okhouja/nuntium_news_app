@@ -12,6 +12,7 @@ import CountriesCollection from "./components/CountriesCollection";
 import DesktopNavbar from "./components/DesktopNavbar";
 import MobileNavbar from "./components/MobileNavbar";
 import Loading from "./components/Loading";
+import Dashboard from "./components/Dashboard";
 
 
 
@@ -31,6 +32,7 @@ function App() {
     <Router>
       <DesktopNavbar />
       <MobileNavbar />
+      <Dashboard />
       
 
       <Header />
