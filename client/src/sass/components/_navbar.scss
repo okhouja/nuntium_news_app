@@ -5,8 +5,20 @@
    @include spaceBetweenCenterRow;
    
 }
+.themeFather{
+    @include spaceBetweenCenterRow;
+}
+.toggel{
+    color: white;
+    font-weight: bolder;
+}
 .weather{
+    @include spaceBetweenCenterRow;
     width: 10%;
+}
+.imgWeatherFather{
+    @include spaceBetweenCenterRow;
+
 }
 .temp{
     color: white;
