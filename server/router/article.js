@@ -39,7 +39,7 @@ router.route("/article/categories").get(articleCtrl.getCategories);
 // router.route("/article/like").post(articleCtrl.likeArticle);
 
 router
-  .route("/dashboard/article/add/")
+  .route("/dashboard/article/add")
   .post(upload.single("image"), articleCtrl.addNewArticle);
 
 router
