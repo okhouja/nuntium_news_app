@@ -30,10 +30,18 @@ function App() {
 
   return (
     <Router>
+
         {/* <Dashboard /> */}
       <DesktopNavbar  theme={theme} setTheme={setTheme} />
       <MobileNavbar theme={theme} setTheme={setTheme} />
       <Header theme={theme} />
+
+      <DesktopNavbar />
+      <MobileNavbar />
+      <Dashboard />
+
+      <Header />
+
       <SearchBar />
 
       <Switch>
