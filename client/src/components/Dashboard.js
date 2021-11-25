@@ -41,7 +41,7 @@ const Dashboard = () => {
     // };
     console.log(data);
     axios
-      .post("http://localhost:5000/dashborad/article/add/", data, {
+      .post("http://localhost:5000/dashboard/article/add", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -58,7 +58,7 @@ const Dashboard = () => {
     <div>
       <div className="signUpWrapper">
         <h3>Add New Article in Nuntium</h3>
-        <form className="formFather">
+        <div className="formFather">
           <div className="inputFather">
             <label>Title :</label>
             <input
@@ -151,7 +151,7 @@ const Dashboard = () => {
             <label>Country :</label>
             <input
               className="country"
-              type="password"
+              type="text"
               value={country}
               name="country"
               onChange={(e) => setCountry(e.target.value)}
@@ -167,7 +167,7 @@ const Dashboard = () => {
           <Link to="/home" className="submit">
             Home
           </Link>
-        </form>
+        </div>
       </div>
     </div>
   );

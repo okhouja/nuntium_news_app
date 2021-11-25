@@ -97,15 +97,16 @@ articleCtrl.getArticle = async (req, res) => {
 // };
 
 articleCtrl.addNewArticle = async (req, res) => {
+  console.log(req.file);
   try {
     const newArticle = new Article({
       _id: new mongoose.Types.ObjectId(),
       title: req.body.title,
       author: req.body.author,
-      description: req.params.description,
+      description: req.body.description,
       content: req.body.content,
       source: req.body.source,
-      image: req.body.image,
+      image: "http://localhost:5000/" + req.file.path,
       category: req.body.category,
       languages: req.body.languages,
       country: req.body.country,

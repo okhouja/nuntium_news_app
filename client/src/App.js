@@ -14,8 +14,6 @@ import MobileNavbar from "./components/MobileNavbar";
 import Loading from "./components/Loading";
 import Dashboard from "./components/Dashboard";
 
-
-
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
@@ -33,7 +31,6 @@ function App() {
       <DesktopNavbar />
       <MobileNavbar />
       <Dashboard />
-      
 
       <Header />
       <SearchBar />
