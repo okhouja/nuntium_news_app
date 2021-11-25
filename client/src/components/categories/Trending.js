@@ -1,6 +1,23 @@
-import {React} from 'react'
+import {React, useEffect, useState} from 'react';
+import axios from 'axios';
 
 const Trending = () => {
+    const [users, setUsers] = useState([]);
+    useEffect(() => {
+      getData();
+    }, []);
+    const getData = () => {
+        
+
+      axios.get("http://localhost:5000/articles", {
+       
+        credentials: "include",// we have omit don allow to send cookies 
+        //same origine 
+      })
+        .then((data) => setUsers(data))
+        // .then((result) => setUsers(result));
+    };
+    console.log(users);
     
 
     return (

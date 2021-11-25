@@ -28,6 +28,21 @@
     color: white;
         font-size: 2rem;
 }
+.themeMobileFather{
+    @include flexCenterColumn;
+    order: 0;
+    width: 5px;
+    height: 10vh;
+}
+.toggelMobile{
+    color: white;
+    height: 1vh;
+    width: 12vh;
+    font-weight: bolder;
+}
+.iconThemeMobile{
+    width: 6vh;
+}
 .dropDownMobileFather{
 @include startColumn;
 height: auto;

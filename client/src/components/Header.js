@@ -1,10 +1,12 @@
 import {React} from 'react';
 
   
-function Header (){
+function Header ({theme}){
+
+    console.log(theme);
   
    return(
-     <div >
+     <div className={`${theme}`}>
         
         
                     <div  className="imgDivFather">                      

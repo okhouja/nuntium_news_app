@@ -4,12 +4,13 @@ import WrapperCategories from "./WrapperCategories";
 
 
 
-function Home() {
+function Home({theme}) {
+  console.log(theme);
   
 
   return (
     
-  <div >    
+  <div className={`home ${theme}`} >    
 <WrapperCategories  />
 
 </div>   
