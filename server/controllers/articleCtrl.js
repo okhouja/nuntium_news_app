@@ -106,9 +106,9 @@ articleCtrl.addNewArticle = async (req, res) => {
       description: req.body.description,
       content: req.body.content,
       source: req.body.source,
-      image: "http://localhost:5000/" + req.file.path,
+      image: req.file.path,
       category: req.body.category,
-      languages: req.body.languages,
+      language: req.body.language,
       country: req.body.country,
     });
     await newArticle.save();
@@ -134,7 +134,7 @@ articleCtrl.updateArticle = async (req, res) => {
         source: req.body.source,
         image: req.file.path,
         category: req.body.category,
-        languages: req.body.languages,
+        language: req.body.language,
         country: req.body.country,
       },
       { new: true }

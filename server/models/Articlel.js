@@ -11,7 +11,7 @@ const articleSchema = Schema({
   source: { type: String },
   image: { type: String },
   category: { type: String },
-  languages: { type: String },
+  language: { type: String },
   country: { type: String },
   comments: { type: ObjectId, ref: "Comment" },
   likes: { type: Number, default: 0 },
