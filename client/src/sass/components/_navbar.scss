@@ -14,17 +14,38 @@
 }
 .weather{
     @include spaceBetweenCenterRow;
-    width: 10%;
+    width:8%;
+    height: 2vh;
+    position: relative;
+    left: -4vw;
 }
 .imgWeatherFather{
+    height: 7.5vh;
+}
+.weatherOtherFather{
     @include spaceBetweenCenterRow;
+    height: 10vh;
+}
+
+.temFather{
+    @include column;
+    height: 4vh;
+    width: 2vw;
 
 }
+.temInfo{
+    color:white;
+    height: 2vh;
+}
+
 .temp{
     color: white;
 }
 .dateFather{
-    width: 20%;
+    width: 12%;
+    height: 3vh;
+    position: relative;
+    left: -6vh;
 }
 .date{
     color: white;
@@ -53,10 +74,9 @@
 }
 .dropDown{
     @include spaceBetweenStartRow;
-    width: 80%;
+    width: 10%;
      color: white;
     font-weight: bolder;
-    z-index: 5; 
     position: relative;
 left: -4vw;   
 @include flex-center;
@@ -67,13 +87,15 @@ left: -4vw;
     background-color: black;
     width: 100%;
     height: 40px;
+
 }
 .dropdownUl{
     height: auto;
-    width: 100%;
+    width: auto;
     position: relative;
     top: 2vh;
     background-color: black;
+    z-index: 5;
 }
 
 .categoryLi{

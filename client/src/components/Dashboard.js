@@ -12,6 +12,7 @@ const Dashboard = () => {
   const [category, setCategory] = useState("");
   const [language, setLanguage] = useState("");
   const [country, setCountry] = useState("");
+ 
 
   axios.defaults.withCredentials = true;
   const addNewArticle = (e) => {
@@ -53,7 +54,6 @@ const Dashboard = () => {
   const uploadHandel = (e) => {
     setImage(e.target.files[0]);
   };
-
   return (
     <div>
       <div className="signUpWrapper">
@@ -92,7 +92,6 @@ const Dashboard = () => {
               placeholder="description"
             />
           </div>
-
           <div className="inputFather">
             <label>Content :</label>
             <input
@@ -151,14 +150,13 @@ const Dashboard = () => {
             <label>Country :</label>
             <input
               className="country"
-              type="text"
+              type="password"
               value={country}
               name="country"
               onChange={(e) => setCountry(e.target.value)}
               placeholder="country"
             />
           </div>
-
           <div>
             <button className="submit" onClick={addNewArticle}>
               Add New Article
@@ -172,5 +170,6 @@ const Dashboard = () => {
     </div>
   );
 };
+
 
 export default Dashboard;
