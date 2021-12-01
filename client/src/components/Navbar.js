@@ -1,10 +1,12 @@
-import {React, useEffect, useState} from 'react';
+import {React, useEffect, useState, useRef, useContext} from 'react';
 import axios from "axios";
 import {useMediaQuery} from '@react-hook/media-query';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormGroup from '@mui/material/FormGroup';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
+import { StoreContext } from "../context/index";
+
 
 import {
     FaFacebook,
@@ -65,85 +67,93 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
     },
   }));
   
-export const Navbar = ({state, theme, setTheme}) => {
+export const Navbar = ({nav}) => {
     const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
     const [weather , setWeather] = useState({});
     const [themeState , setThemeState] =  useState(false);
+    const inputRef = useRef();
 
   const API_KEY = myKey.weather.apiKeyWeather;
+  const contextObj = useContext(StoreContext);
+  console.log(contextObj.store.data);
 
-  
-  // useEffect(() => {
-  //   axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
-  // }, []);
-  // console.log(weather );
+
+  useEffect(() => {
+    axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
+  }, []);
+  console.log(weather );
 
   let date = new Date();
 let day = date.toLocaleString('en-us', {weekday: 'short'});
-  
   const today = new Date().toLocaleString();
   const fulldate = day + " " +  today;
   
-// useEffect(() => {
-//   const weatherToParse = localStorage.getItem("weather");
-//   if (weatherToParse){
-// setWeather(JSON.parse(weatherToParse))
-// }
-// }, [])
-
-  // useEffect(() => {
-  // localStorage.setItem("weather", JSON.stringify(weather))
-  // }, [weather])
-  // console.log(localStorage);
   const  matches = useMediaQuery('only screen and (max-width: 400px)')
 
-    useEffect(() => {
-        document.addEventListener("mousedown", ()=>{
-            if (dropdown.cat || dropdown.lang || dropdown.countries ){
-                setDropdown({cat: false, lang:false , countries: false})
-            }  
-        })
-    }, [dropdown.cat, dropdown.lang, dropdown.countries])
+    // useEffect(() => {
+  
+    //   inputRef.current.addEventListener("mousedown", ()=>{
+    //         if (dropdown.cat || dropdown.lang || dropdown.countries ){
+    //             setDropdown({cat: false, lang:false , countries: false})
+    //         }  
+    //     })
+    // }, [dropdown.cat, dropdown.lang, dropdown.countries])
+
+    
 
     const history = useHistory();
     return (
       <FormGroup >
-        <div>
+        <div  >
               <div className={matches? "navbarFatherMob": "navbarFather"} >
                 <div className={matches? "themeMobileFather": "themeFather"}>
-              <span className={matches? "toggelMobile": "toggel"}>{themeState? "Dark Mode": "Light Mode"}</span>
+              <span className={matches? "toggelMobile": "toggel"}>{themeState? "Light Mode": "Dark Mode"}</span>
       <FormControlLabel className={matches? "iconThemeMobile":"iconTheme"}
       onChange={()=>setThemeState(!themeState)}
       
-
-      onClick={()=>theme === "light"? setTheme("dark"): setTheme("light")}
+      onClick={()=>contextObj.store === "light"? contextObj.setStore("dark"):
+    contextObj.setStore("light")
+    }
         control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-        label="MUI switch"
+        label=""
       />
       </div>
-          <div className="weather">
+      {weather &&
+          <div className={matches? "weatherMobile":"weather"}>
             <div className={matches? "weatherMobileFather":"imgWeatherFather"}>
-              {/* <img src={`${process.env.PUBLIC_URL}/${weather.current.condition.icon}`} alt="img" />  */}
-                 {/* <p className="temp">{weather.current.temp_c}</p>
-              <p className="temp">{weather.forecast.forecastday[0].day.maxtemp_c}</p>
-              <p className="temp">{weather.forecast.forecastday[0].day.mintemp_c}</p> */}
+              <img src={weather?.current?.condition?.icon} alt="img"/> 
+              </div>
+              <div className={matches?"weatherOtherFatherMobile":"weatherOtherFather"}>
+                <div className={matches? "tempFatherMobile":"temFather"}>
+                  <p className={matches?"tempInfoMobile":"temInfo"}>Cur</p>
+                 <p className="temp">{weather?.current?.temp_c}</p>
+                 </div>
+                 <div className={matches? "tempFatherMobile":"temFather"}>
+                 <p className={matches?"tempInfoMobile":"temInfo"}>Max</p>
+              <p className="temp">{weather?.forecast?.forecastday[0]?.day?.maxtemp_c}</p>
+              </div>
+              <div className={matches? "tempFatherMobile":"temFather"}>
+              <p className={matches?"tempInfoMobile":"temInfo"}>Min</p>
+              <p className="temp">{weather?.forecast?.forecastday[0]?.day?.mintemp_c}</p>
+              </div>
 
             </div> 
             </div>
+            }
        
                     <div className={matches? "dateFatherMobile":"dateFather"} >
-                      <div className="date">{fulldate}</div>
+                      <div className={matches?"dateMobile":"date"}>{fulldate}</div>
                       </div> 
 
               <div className={matches?  "dropDownMobileFather":"dropDownFather"}>
 
-                    <div className={  state? "dropdownMobileActive": matches? "dropDownMobile":"dropDown" }  >
+                    <div className={  nav? "dropdownMobileActive": matches? "dropDownMobile":"dropDown" }  >
 
-                    <div className={dropdown.cat? "openDropDown": matches?"closedDropDownMobile":"closeDropDown"} onClick={() => {dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? <div className={matches?"dropopenSignMobile":"dropopenSign"}></div>:  <div className={matches?"dropcolseSignMobile":"dropcloseSign"}></div> }</div>
+                    <div className={dropdown.cat? "openDropDown": matches?"closedDropDownMobile":"closeDropDown"} onClick={() =>  {   dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? <div className={matches?"dropopenSignMobile":"dropopenSign"}></div>:  <div className={matches?"dropcolseSignMobile":"dropcloseSign"}></div> }</div>
 <div className={matches? "ulFatherMobile":"ulFather"}>
-                        {dropdown.cat &&
+                        { dropdown.cat &&
                         <ul className={matches?"dropdownUlMobile":"dropdownUl"} >                        
-                            <li className={matches?"liMobile":"categoryLi"} onClick={()=>{history.push({pathname:"/newscollection", state: {category: "general"}}); setDropdown({cat:false, lang:false, countries:false})}}>General</li>
+                            <li className={matches?"liMobile":"categoryLi"} onClick={()=>{  history.push({pathname:"/newscollection", state:{category: "general"}}); setDropdown({cat:false, lang:false, countries:false})} }>General</li>
                             <li className={matches?"liMobile":"categoryLi"} onClick={()=>{history.push({pathname: "/newscollection", state:{category: "sports"}}); setDropdown({ cat: false, lang: false, countries: false }) }}>Sports</li>
                             <li className={matches?"liMobile":"categoryLi"} onClick={()=>{history.push({pathname:"/newscollection", state:{category: "business"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Technology</li>
                             <li className={matches?"liMobile":"categoryLi"} onClick={()=>{history.push({pathname:"/newscollection", state:{category: "science"}}); setDropdown({ cat: false, lang: false, countries: false })}}>Business</li>
@@ -156,7 +166,7 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
                             
                                 
                                 </div>
-                                <div className={  state? "dropdownMobileActive": matches? "dropDownMobile":"dropDown" }  >
+                                <div className={  nav? "dropdownMobileActive": matches? "dropDownMobile":"dropDown" }  >
 
                              <div className={dropdown.lang? "openDropDown": matches?"closedDropDownMobile":"closeDropDown"} onClick={() => {dropdown.lang? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: true, countries: false })}}>Languages{dropdown.lang? <div className={matches?"dropopenSignMobile":"dropopenSign"}></div>:  <div className={matches?"dropcolseSignMobile":"dropcloseSign"}></div> }</div>
                              <div className={matches? "ulFatherMobile":"ulFather"}>
@@ -177,7 +187,7 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
 }
 </div>
 </div>
-<div className={  state? "dropdownMobileActive": matches? "dropDownMobile":"dropDown" }  >
+<div className={  nav? "dropdownMobileActive": matches? "dropDownMobile":"dropDown" }  >
 
 
 <div className={dropdown.countries? "openDropDown": matches?"closedDropDownMobile":"closeDropDown"} onClick={() => {dropdown.countries? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: false, lang: false, countries: true })}}>Countries{dropdown.countries? <div className={matches?"dropopenSignMobile":"dropopenSign"}></div>:  <div className={matches?"dropcolseSignMobile":"dropcloseSign"}></div> }</div>

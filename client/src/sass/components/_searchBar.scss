@@ -1,4 +1,4 @@
-.search-bar{
+.searchBar, .searchBarDark{
     width: 80%;
     height: 4vh;
     border: 1px solid red;
@@ -7,6 +7,17 @@
     top: 1vw;
     left: 8vw;
 }
+.searchBarDark{
+    background-color: #000;
+
+}
+.searchFatherDark{
+    background-color: black;
+
+}
+
+
+
 .ul-search-bar{
     @include spaceBetweenCenterRow;
     width: 70%; 
@@ -39,6 +50,21 @@ a{
     }
 
 }
+.searchLiDark{
+    align-self:flex-start;
+    position: relative;
+    left: 16vw;
+    font-weight: bolder;
+    list-style: none;
+    cursor: pointer;
+    color: white;
+    &:hover{
+        color: yellow;
+    }
+    &:active{
+        color: red;
+    }
+}
 
 
 
@@ -62,7 +88,17 @@ a{
     @include responsive(mobile){
    
      }
+     
 }
+.searchInputDark{
+    border: none;
+    outline: none;
+background-color: gray;
+&::placeholder{
+color: white;
+}
+ }
+ 
 .search-button{
     border: none;
     outline: none;
@@ -86,8 +122,28 @@ a{
         left: 1vw;
 
     }
-    
-
+}
+.search-divDark{
+    @include searchFlex;
+    visibility: visible;
+    width: 44vw;
+    height: 4vh;
+    background-color: lightgray;
+    position: relative;
+    border-radius: 100px 100px 100px 100px;
+    left: 18vw;
+    top: -1vh;
+}
+.searchDivDarkMobile{
+    @include searchFlex;
+    visibility: visible;
+    width: 66vw;
+    height: 4vh;
+    background-color: lightgray;
+    position: relative;
+    border-radius: 100px 100px 100px 100px;
+    left: 6vw;
+    top: -2vh;
 }
 .search-div-active{
     visibility: hidden;
@@ -100,6 +156,4 @@ font-size: 1.7rem;
 @include responsive(mobile){
 left: 81vw;
 }
-
 }
-

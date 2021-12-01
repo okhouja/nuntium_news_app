@@ -1,14 +1,9 @@
-import {React} from 'react';
+import {React, useState, useEffect, useRef} from 'react';
 
   
-function Header ({theme}){
-
-    console.log(theme);
-  
+function Header (props){
    return(
-     <div className={`${theme}`}>
-        
-        
+     <div >
                     <div  className="imgDivFather">                      
             <img id="img" className="logo" src="./img/Logo_lightmode.svg" alt="logo"></img>                
             </div>   

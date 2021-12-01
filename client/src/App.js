@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import { React, useState, useEffect} from "react";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
@@ -13,14 +13,16 @@ import DesktopNavbar from "./components/DesktopNavbar";
 import MobileNavbar from "./components/MobileNavbar";
 import Loading from "./components/Loading";
 import Dashboard from "./components/Dashboard";
+import { Store, StoreContext } from "./context/index";
+
 
 
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [load, setLoading] = useState(true);
-  const [theme , setTheme] = useState("light");
-  
+  const [store, setStore] = useState(Store);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -29,26 +31,21 @@ function App() {
   if (load) return <Loading />;
 
   return (
+    <StoreContext.Provider  value={{ store, setStore }}>
     <Router>
+     
 
         {/* <Dashboard /> */}
-      <DesktopNavbar  theme={theme} setTheme={setTheme} />
-      <MobileNavbar theme={theme} setTheme={setTheme} />
-      <Header theme={theme} />
+      <DesktopNavbar   />
+      <MobileNavbar  />
+      <Header   />
+      <SearchBar  />
 
-      <DesktopNavbar />
-      <MobileNavbar />
-      <Dashboard />
-
-      <Header />
-
-      <SearchBar />
-
-      <Switch>
-        <Route  path="/" exact component={()=><Home theme={theme}/>} />
+      <Switch >
+        <Route  path="/" exact component={Home}/>
         <Route path="/signup" exact component={Register} />
         <Route path="/login" exact component={Login} />
-        <Route path="/newscollection" exact component={NewsCollection} />
+        <Route path="/newscollection" exact component={NewsCollection}/>
         <Route path="/linkscollection" exact component={LinksCollection} />
         <Route
           path="/languagescollection"
@@ -62,11 +59,10 @@ function App() {
         />
       </Switch>
       <Footer />
-    
-
-
     </Router>
+
+    </StoreContext.Provider>
   );
 }
 
-export default App;
+export default App
