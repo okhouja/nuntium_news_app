@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+
 const Dashboard = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
@@ -11,9 +12,12 @@ const Dashboard = () => {
   const [category, setCategory] = useState("");
   const [language, setLanguage] = useState("");
   const [country, setCountry] = useState("");
+ 
+
   axios.defaults.withCredentials = true;
   const addNewArticle = (e) => {
     e.preventDefault();
+
     const data = new FormData();
     data.append("title", title);
     data.append("author", author);
@@ -24,6 +28,7 @@ const Dashboard = () => {
     data.append("category", category);
     data.append("language", language);
     data.append("country", country);
+
     //     // const data = {
     //     //   title,
     //     //   author,
@@ -37,7 +42,7 @@ const Dashboard = () => {
     //     // };
     console.log(data);
     axios
-      .post("http://localhost:5000/dashborad/article/add/", data, {
+      .post("http://localhost:5000/dashboard/article/add/", data, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -165,4 +170,6 @@ const Dashboard = () => {
     </div>
   );
 };
+
+
 export default Dashboard;
