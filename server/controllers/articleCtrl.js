@@ -19,14 +19,15 @@ articleCtrl.getAllArticle = async (req, res) => {
 
 // Get all articles with categories
 articleCtrl.getCategories = async (req, res) => {
-  const categories = await Article.find({ categories: req.body.categories });
-  try {
-    if (categories) {
-      return res.status(200).json({ categories });
-    }
-  } catch (err) {
-    res.status(err.status).json(err.message);
-  }
+  // const categories = await Article.find({ category: "sports" });
+  // try {
+  //   if (categories) {
+  //     return res.status(200).json({ categories });
+  //   }
+  // } catch (err) {
+  //   res.status(404).json(err.message);
+  // }
+  console.log("hii");
 };
 
 //                                   Check if the article exists
