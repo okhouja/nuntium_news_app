@@ -12,7 +12,6 @@ const Dashboard = () => {
   const [category, setCategory] = useState("");
   const [language, setLanguage] = useState("");
   const [country, setCountry] = useState("");
- 
 
   axios.defaults.withCredentials = true;
   const addNewArticle = (e) => {
@@ -170,6 +169,5 @@ const Dashboard = () => {
     </div>
   );
 };
-
 
 export default Dashboard;

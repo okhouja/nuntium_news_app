@@ -1,12 +1,8 @@
 .mainContainerWrapper{
     @include centerRow;
-    width: 1200px;
+    width: 100vw;
     height: 100%;
-    @include responsive(laptop){
-    @include centerRow;
-    width: 1200px;
-    height: 100%;
-    }
+   
     @include responsive(mobile){
         @include spaceBetweenColumn;
         width: 400px;
@@ -14,6 +10,9 @@
     }
 }
 .trendingContainer{
+    @include  spaceBetweenStartRow;
+
+    width: 1000px;
     @include  spaceBetweenCenterRow;
     width: 1800px;
     height: 55vh;
@@ -24,20 +23,20 @@
 .trendFather{
     @include spaceBetweenColumn;
     height: 44vh;
-    width: 100%;
+    width: 200px;
 }
 .sourceFather{
 @include startRow;
 }
 .midTrendFather{
     @include flexCenterColumn;
-    width: 350px;
+    width: 200px;
 
 }
 .trendTitle{
     color: black;
     font-size: 1.5rem;
-    width: 350px;
+    width: 200px;
     height: 10px;
     &:hover{
         color:yellow;
@@ -47,12 +46,15 @@
     }
 }
 .imgTrendFather{
-height: 350px;
-width: 350px;
+height: 200px;
+width: 200px;
 }
 .imgTrend{
-    height: 350px;
-    width: 350px;
+    height: 200px;
+    width: 200px;
+
+}
+
      opacity: 0.5;
     filter: grayscale(10%);
     object-fit: cover;
@@ -130,6 +132,7 @@ width: 350px;
 .generalDescriptionDark{
     display: none;
 }
+
 .generalTitleDark{
     color:white;
     &:hover{
@@ -202,7 +205,7 @@ height: 10%;
 }
 .SportsFather{
     @include spaceBetweenStartColumn;
-    width: 400px;
+    width: 300px;
     height: auto;
 
    }
