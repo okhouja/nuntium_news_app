@@ -19,14 +19,15 @@ articleCtrl.getAllArticle = async (req, res) => {
 
 // Get all articles with categories
 articleCtrl.getCategories = async (req, res) => {
-  const categories = await Article.find({ categories: req.body.categories });
-  try {
-    if (categories) {
-      return res.status(200).json({ categories });
-    }
-  } catch (err) {
-    res.status(err.status).json(err.message);
-  }
+  // const categories = await Article.find({ category: "sports" });
+  // try {
+  //   if (categories) {
+  //     return res.status(200).json({ categories });
+  //   }
+  // } catch (err) {
+  //   res.status(404).json(err.message);
+  // }
+  console.log("hii");
 };
 
 //                                   Check if the article exists
@@ -106,9 +107,9 @@ articleCtrl.addNewArticle = async (req, res) => {
       description: req.body.description,
       content: req.body.content,
       source: req.body.source,
-      image: "http://localhost:5000/" + req.file.path,
+      image: req.file.path,
       category: req.body.category,
-      languages: req.body.languages,
+      language: req.body.language,
       country: req.body.country,
     });
     await newArticle.save();
@@ -134,7 +135,7 @@ articleCtrl.updateArticle = async (req, res) => {
         source: req.body.source,
         image: req.file.path,
         category: req.body.category,
-        languages: req.body.languages,
+        language: req.body.language,
         country: req.body.country,
       },
       { new: true }
