@@ -7,7 +7,7 @@ function Header(props) {
         <img
           id="img"
           className="logo"
-          src="./img/Logo_Darkmode.svg"
+          src="./img/Nuntuim_logo.svg"
           alt="logo"
         ></img>
       </div>

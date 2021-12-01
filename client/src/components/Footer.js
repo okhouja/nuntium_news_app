@@ -151,7 +151,7 @@ const Footer = () => {
         <div className="leftFooter">
           <img
             className="logoFooter"
-            src="./img/Logo_Darkmode.svg"
+            src="./img/Nuntuim_logo.svg"
             alt="logo"
           ></img>
         </div>
