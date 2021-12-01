@@ -33,9 +33,9 @@ const upload = multer({
 // URL http://localhost:5000/article
 router.route("/articles").get(articleCtrl.getAllArticle);
 
-router.route("/article/:_id").get(articleCtrl.getArticle);
+router.route("/:_id").get(articleCtrl.getArticle);
 
-router.route("/article/categories").get(articleCtrl.getCategories);
+router.route("/categories").get(() => console.log("hii"));
 
 // router.route("/article/like").post(articleCtrl.likeArticle);
 
