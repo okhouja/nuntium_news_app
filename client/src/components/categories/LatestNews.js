@@ -8,13 +8,13 @@ import { useHistory } from 'react-router-dom';
     const API_KEY = myKey.news.apiKey;
     const history = useHistory();
 
-     useEffect(() => {
-      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&languages=en&sort=published_desc`)
-  .then((data)=>setTrend(data.data.data.filter((item)=> item.image).slice(14,18)))
-  .catch((err) => console.log(`Your had an ${err}`));
+//      useEffect(() => {
+//       axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&languages=en&sort=published_desc`)
+//   .then((data)=>setTrend(data.data.data.filter((item)=> item.image).slice(14,18)))
+//   .catch((err) => console.log(`Your had an ${err}`));
       
-  }, [])
-  console.log(typeof trend);
+//   }, [])
+//   console.log(typeof trend);
 
   const showNews = trend.map((value, i)=>{
       const {image, author, title, source, published_at} = value;
