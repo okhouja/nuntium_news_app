@@ -20,7 +20,7 @@ import { StoreContext } from "../../context/index";
   // .catch((err) => console.log(`Your had an ${err}`));
       
   // }, [])
-  console.log(entrrtainment);
+  // console.log(entrrtainment);
 
   const entertainmentNews = entrrtainment.map((value,i)=>{
   
