@@ -15,14 +15,14 @@ const LanguagesCollection = (props) => {
     const API_KEY = myKey.news.apiKey;
 const history = useHistory();
 
-    // useEffect(() => {
-    //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&&languages=${language}&sort=published_desc`)
-    //           .then((data)=>setLangArr(data.data.data.filter((item)=> item.image)))
-    //     .catch((err) => console.log(`Your had an ${err}`));
+    useEffect(() => {
+        axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&&languages=${language}&sort=published_desc`)
+              .then((data)=>setLangArr(data.data.data.filter((item)=> item.image)))
+        .catch((err) => console.log(`Your had an ${err}`));
                     
-    // }, [])
-    // console.log(langArr);
-    // console.log(language);
+    }, [])
+    console.log(langArr);
+    console.log(language);
 
     
         

@@ -6,6 +6,8 @@ import FormGroup from '@mui/material/FormGroup';
 import Switch from '@mui/material/Switch';
 import { styled } from '@mui/material/styles';
 import { StoreContext } from "../context/index";
+import {Link, useHistory} from "react-router-dom";
+
 
 
 import {
@@ -15,7 +17,6 @@ import {
     FaYoutube,
     FaUserAlt,
   } from "react-icons/fa";
-  import { Link, useHistory } from "react-router-dom";
   import myKey from "../context/config";
 
 
@@ -78,10 +79,12 @@ export const Navbar = ({nav}) => {
   console.log(contextObj.store.data);
 
 
-  useEffect(() => {
-    axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
-  }, []);
-  console.log(weather );
+  // useEffect(() => {
+  //   axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
+  // }, []);
+  // console.log(weather );
+  
+
 
   let date = new Date();
 let day = date.toLocaleString('en-us', {weekday: 'short'});
@@ -146,11 +149,26 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
                       </div> 
 
               <div className={matches?  "dropDownMobileFather":"dropDownFather"}>
-
+            
                     <div className={  nav? "dropdownMobileActive": matches? "dropDownMobile":"dropDown" }  >
 
-                    <div className={dropdown.cat? "openDropDown": matches?"closedDropDownMobile":"closeDropDown"} onClick={() =>  {   dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? <div className={matches?"dropopenSignMobile":"dropopenSign"}></div>:  <div className={matches?"dropcolseSignMobile":"dropcloseSign"}></div> }</div>
+
+
 <div className={matches? "ulFatherMobile":"ulFather"}>
+  <div>{matches && <ul><li className="liHome" onClick={()=>history.push( "/")}>Home</li></ul>}</div>
+  </div>
+  </div>
+  <div className={  nav? "dropdownMobileActive": matches? "dropDownMobile":"dropDown" }  >
+
+  
+  
+                 
+                 
+                   <div className={dropdown.cat? "openDropDown": matches?"closedDropDownMobile":"closeDropDown"} onClick={() =>  {   dropdown.cat? setDropdown ({ cat: false, lang: false, countries: false }): setDropdown ({ cat: true, lang: false, countries: false })}}>categories{dropdown.cat? <div className={matches?"dropopenSignMobile":"dropopenSign"}></div>:  <div className={matches?"dropcolseSignMobile":"dropcloseSign"}></div> }</div>
+
+<div className={matches? "ulFatherMobile":"ulFather"}>
+
+
                         { dropdown.cat &&
                         <ul className={matches?"dropdownUlMobile":"dropdownUl"} >                        
                             <li className={matches?"liMobile":"categoryLi"} onClick={()=>{  history.push({pathname:"/newscollection", state:{category: "general"}}); setDropdown({cat:false, lang:false, countries:false})} }>General</li>
@@ -163,6 +181,7 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
                         </ul>
                                 }
                                 </div>
+                                
                             
                                 
                                 </div>

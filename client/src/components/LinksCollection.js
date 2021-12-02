@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import LatestNews from './categories/LatestNews';
 import MustRead from './categories/MustRead';
 import axios from 'axios';
+import Loading from './Loading';
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -24,6 +25,13 @@ import {
  const LinksCollection = (props) => {
 
   const [content, setContent] = useState([]);
+  const [load, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
   useEffect(() => {
     getData();
   }, []);
@@ -53,6 +61,8 @@ const separator = " ";
           
     const [linkArr, setLinkArr] = useState(props.location.state.value);
     console.log(linkArr);
+
+    if (load) return <Loading />;
     return (
       <div className="linkContainerFather">
         <MustRead  />

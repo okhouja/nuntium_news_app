@@ -1,4 +1,13 @@
-.homeDark, .homeDarkMobile{
+.homeDark{
+    background-color: hsl(249,6%,18%);
+width: 380px;
+}
+.homeDarkMobile{
 background-color: hsl(249,6%,18%);
+width: 380px;
     
 }
+.home{
+    @include responsive(mobile){
+    width:  350px;
+}}

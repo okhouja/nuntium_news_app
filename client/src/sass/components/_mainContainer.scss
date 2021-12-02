@@ -1,3 +1,4 @@
+
 .mainContainerWrapper{
     @include centerRow;
     width: 100vw;
@@ -7,6 +8,7 @@
         @include spaceBetweenColumn;
         width: 400px;
         margin: 5% auto;
+      
     }
 }
 .trendingContainer{
@@ -36,6 +38,7 @@
     font-size: 1.5rem;
     width: 200px;
     height: 10px;
+    cursor: pointer;
     &:hover{
         color:yellow;
     }
@@ -59,17 +62,14 @@ width: 200px;
     width: 600px;
     @include responsive(mobile){
         width: 400px;
-        border: 1px solid red;
-        height: 100%;
-        margin-bottom: 5vh;
-    
         &::after{
             content: "";
-            border: 10px solid gray;
-            width: 32vw;
-            height: 1vh;
-
-        }
+            position: absolute;
+            height: 4vh;
+            width: 66vw;
+            border-top: 2px solid gray;
+            left: 8vh;
+    }
     }
 }
 .generalwrapperActive{
@@ -92,6 +92,9 @@ width: 200px;
     width: 100%;
     height: 12vh;
     margin: 2% auto;
+    @include responsive(mobile){
+        height: auto;
+    }
 }
 .generalAuthorContainer{
    @include column;
@@ -102,7 +105,10 @@ width: 200px;
    @include spaceBetweenStartColumn;
    width: 75%;
    height: auto;
-   margin-left: 2vh
+   margin-left: 2vh;
+   @include responsive(mobile){
+       height: auto;
+   }
 }
 .generalAuthorFather{
    @include startRow;
@@ -201,6 +207,14 @@ height: 10%;
     @include spaceBetweenStartColumn;
     width: 300px;
     height: auto;
+    @include responsive(mobile){
+        &::after{
+            content: "";
+            height: 4vh;
+            width: 32vh;
+            border-bottom: 2px solid gray;
+    }
+}
 
    }
    
@@ -241,6 +255,7 @@ height: 10%;
         border-bottom: 2px solid gray;
         width: 16vw;
         height: 1vh;
+        margin-top: 2vh;
     }
 }
 .sportsOthers{
@@ -256,6 +271,11 @@ width: 100%;
     @include column;
     width: 400px;
     height: 100%;
+    @include responsive(mobile){
+        height: auto;
+        width: 80%;
+      
+    }
     
 }
 
@@ -268,7 +288,7 @@ width: 100%;
     @include column;
     height: 1vh;
     width: 100%;
-
+    
 }
 .businessAuthorFatherActive{
   @include  spaceBetweenStartRow;
@@ -304,6 +324,10 @@ font-weight: bolder;
        &:active{
           color: red;
        }
+       @include responsive(mobile){
+           margin-top: 2vh;
+           text-indent: 2vh;
+       }
     }
     .generalDark{
         color: white;
@@ -333,9 +357,8 @@ font-weight: bolder;
             }
             20%{
                 color: red;
-
             }
-            
+
         }
     
         @include responsive(mobile){

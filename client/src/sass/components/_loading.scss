@@ -1,76 +1,33 @@
-
-    // .load{
-    //     width: 4vw;
-    //     height: 5vh;
-    //     border: 7px solid #999;
-    //     border-bottom: 13px solid transparent;
-    //     border-radius: 50%;
-    //     animation: load 200ms infinite linear;
-    //     margin: 25% auto;
-    //     position: relative;
-    //     left: 4vh;
-    //     @include responsive (bigmobile){
-    //       animation: load 150ms infinite linear;
-
-    //       border-bottom: 1px solid transparent;
-    //       width: 6vw;
-    //       height: 5vh;
-    //       border: 7px solid gray;
-    //     }
-    //     @include responsive(tap){
-          
-    //       animation: load 100ms infinite linear;
-
-    //       border-bottom: 1px solid transparent;
-    //       width: 6vw;
-    //       height: 6vh;
-    //       border: 5px solid #999;
-    //     }
-    //     @include responsive(minmobile){
-              
-    //       border-bottom: 1px solid transparent;
-    //       width: 3vw;
-    //       height:1vh;
-    //       border: 3px solid #999;
-         
-
-    //     }
-        
-    //   }
-    //   .father-load{
-    //       @include flex-column-center;
-    //   }
-    //   .load-word{
-    //       color: white;
-    //       position: relative;
-    //       top: -47vh;
-    //       left: -3vw;
-          
-    //       @include responsive(tab){
-
-    //       top:  -12vh;
-    //       bottom: 22vh;
-    //       left: 4vh;
-    //   }
-    //   @include responsive(mobile){
-
-    //     left: -7vw;
-    //     top: -22vh;
-    // }
-    // @include responsive(minmobile){
-    //   top: -5vh;
-    //   left: 7vw;
-    // }
-    // }
+.father-load{
+    @include flexCenterColumn;
+    height: 100vh;
+    width: 100vw;
+    border: 1px solid red;
+}
+    .load{
+        width: 4vw;
+        height: 5vh;
+        border: 14px solid #999;
+        border-bottom: 13px solid transparent;
+        border-radius: 50%;
+        animation: load 200ms infinite linear;
+        position: relative;
+        left: 4vh;
+      @include responsive(mobile){
+          color: #000;
+          height: 44px;
+          width:43px;
+       
+    }    }
+    
       
-    //   @keyframes load{
-    //     from{
-    //       transform: rotate(0);
+      @keyframes load{
+        from{
+          transform: rotate(0);
       
-    //     }
-    //     to{
-    //       transform: rotate(360deg);
-    //     }
-    //   }
-      
+        }
+        to{
+          transform: rotate(360deg);
+        }
+      }
       

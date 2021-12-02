@@ -92,6 +92,7 @@ const Register = () => {
             Login
           </Link>
         </form>
+        <Link  to="/home"><p className="backSignUp" >Back</p></Link>
       </div>
     </div>
   );
