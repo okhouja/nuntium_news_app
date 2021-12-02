@@ -15,13 +15,13 @@ import { StoreContext } from "../../context/index";
 
      const history = useHistory();
      
-  //    useEffect(() => {
-  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=technology&languages=en&sort=published_desc`)
-  // .then((data)=>setTechnology(data.data.data.filter((item)=> item.image).slice(0,6)))
-  // .catch((err) => console.log(`Your had an ${err}`));
+     useEffect(() => {
+      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=technology&languages=en&sort=published_desc`)
+  .then((data)=>setTechnology(data.data.data.filter((item)=> item.image).slice(0,6)))
+  .catch((err) => console.log(`Your had an ${err}`));
       
-  // }, [])
-  // console.log(technology);
+  }, [])
+  console.log(technology);
 
   const technologyNews = technology.map((value,i)=>{
   
