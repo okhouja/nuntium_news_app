@@ -57,6 +57,8 @@ function Login() {
       </button>
       <h4>{loginMessage}</h4>
     </div>
+    <Link  to="/home"><p className="backSignUp" >Back</p></Link>
+
     </div>
   );
 }

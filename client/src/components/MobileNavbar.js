@@ -2,14 +2,14 @@ import {React,useState} from 'react'
 import Navbar from './Navbar';
 import { AiOutlineMenu } from 'react-icons/ai';
 import {AiOutlineClose} from 'react-icons/ai';
+import { StoreContext } from "../context/index";
+
 
  const MobileNavbar = () => {
-     const [state , setState] = useState(false);
-     const [theme , setTheme] = useState("light");
+     const [nav , setNav] = useState(false);
 
-    
      const handelChange = ()=>{
-         setState(!state);
+         setNav(!nav);
      }
 
      const hamurgerButton = <AiOutlineMenu className="hamburgerMenu" onClick={handelChange}/>
@@ -17,9 +17,9 @@ import {AiOutlineClose} from 'react-icons/ai';
     return (
         <div className="mobileNav">
             <div className=" hamburgerMenuFather" >
-                {state? closeButton: hamurgerButton }
+                {nav? closeButton: hamurgerButton }
              </div>
-             <Navbar state={state} theme={theme} setTheme={setTheme}/>
+             <Navbar nav={nav}/>
         </div>
     )
 }

@@ -45,7 +45,7 @@ const commentRouter = require("./router/comment");
 app.use("/", commentRouter);
 
 const articleRouter = require("./router/article");
-app.use("/", articleRouter);
+app.use("/article", articleRouter);
 
 const apiRouter = require("./router/api");
 app.use("/", apiRouter);

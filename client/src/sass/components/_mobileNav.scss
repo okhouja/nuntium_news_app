@@ -2,10 +2,7 @@
     display: none;
     @include responsive(mobile){
         display: flex;
-
-
-        width: 400px;
-        border: 1px solid yellow;
+        width: 350px;
     }
 }
 .dexktopNav{
@@ -31,7 +28,7 @@
 .themeMobileFather{
     @include flexCenterColumn;
     order: 0;
-    width: 5px;
+    width: 1px;
     height: 10vh;
 }
 .toggelMobile{
@@ -49,20 +46,27 @@ height: auto;
 width: 4vw;
 order: -1;
 z-index: 5;
+
 }
 .dropDownMobile{
     visibility: hidden;
 }
 .dropdownMobileActive{
     @include spaceBetweenCenterRow;
-    height: 8vh;
+    height: 6vh;
     width: 14vh;
-    background-color: white;
+    background-color: wheat;
     position: relative;
     top: 8vh;
 }
 .ulFatherMobile{
-    background-color: white;
+    @include flexCenterColumn;
+    height: 100%;
+}
+.liHome{
+    color: black;
+    font-size: 1rem;
+    font-weight: bolder;
 }
 
 .closedDropDownMobile{
@@ -86,11 +90,9 @@ z-index: 5;
         &:hover{
             color: #000;
             transform: scale(1.2);
-    
         }
         &:active{
             color: red;
-
         }
     }
 }
@@ -103,7 +105,6 @@ z-index: 5;
     border-left: 10px solid transparent;
     border-right: 10px solid  transparent;
     border-top: 10px solid  #000;
-    
 }
 .dropdownUlMobile{
     background-color: white;
@@ -120,31 +121,41 @@ z-index: 5;
     position: relative;
     left: 4vh;
     &:hover{
-    
         transform: scale(1.2);
-
     }
     &:active{
         color: red;
-
     }
 }
+
 .weatherMobileFather{
     @include startColumn;
-   width: 80px;
-   height: 44px;
-   order: 2;
-   
+   width: 10px;
+   height: 33px;
+   order: 2;   
+}
+
+.weatherOtherFatherMobile{
+
+@include spaceBetweenCenterRow;
+height: 10vh;
+}
+.tempInfoMobile, .temp{
+    color: white;
+    font-size: 0.8rem;
 }
 .dateFatherMobile{
     @include spaceBetweenStartRow;
-    width: 100px;
-   
+    width: 20px;
     order:3;
 
 }
+.dateMobile{
+    width: 100px;
+    color:white;
+}
 .iconFatherMobile{
-    width: 20px;
+    width: 2px;
     order: 4;
 }
 .signUpFatherMobile{

@@ -1,10 +1,13 @@
-import {React , useEffect, useState} from 'react';
+import {React , useEffect, useState, useContext} from 'react';
 import myKey from "../../context/config";
 import axios from "axios";
 import { Link, useHistory } from 'react-router-dom';
+import { StoreContext } from "../../context/index";
 
 
  const General = () => {
+  const contextObj = useContext(StoreContext);
+
      const [general, setGeneral] = useState([]);
      const API_KEY = myKey.news.apiKey;
      const history = useHistory();
@@ -34,22 +37,22 @@ import { Link, useHistory } from 'react-router-dom';
                       <div    className= {i === 0 ? "generalwrapperActive":"generalwrapper"}  >                          
                          <img className={i === 0? "imgActive" : "generalimg"} src={image} alt={title} width="200px" height="250px"   />    
                        <div className= "otherFather">
-                       <h3 className={i == 0 ? "generalTitleActive": "generalTitle"}
+                       <h3 className={i == 0  && contextObj.store === "light"? "generalTitleActive":"generalTitleActiveDark", contextObj.store === "light"? "generalTitle": "generalTitleDark"}
                        onClick={()=>
                         {if(i === 0 || i)
                          history.push({pathname: "/linkscollection", state: {value}
                         })}}
                        >{title}</h3>
-                       <p className={i === 0? "generalPublishActive": "generalPublish"}>{published_at}</p> 
-                        <p  className={i === 0? "generalDescriptionActive": "generalDescription"}>{description}</p>
-                        
+  <p className={i === 0 && contextObj.store === "lighjt"? "generalPublishActive":"generalPublishActiveDark",contextObj.store === "light"?  "generalPublish":"generalPublishDark"}>{published_at}</p> 
+                        <p  className={i === 0 && contextObj.store === "light"?  "generalDescriptionActive":"generalDescriptionActiveDark",contextObj.store ==="lighjt"?  "generalDescription":"generalDescriptionDark"}>{description}</p>                        
                           <div className="generalAuthorContainer">
                              <div className={i === 0? "generalAuthorFatherActive" : "generalAuthorFather"}>
-                             <p className={ i === 0? "generalAuthorWordActive": "generalAuthorWord"}>Author: </p>
-                              <p className={ i === 0? "generalAuthorActive": "generalAuthor"}> {author}</p></div>
+                             <p className={ i === 0 && contextObj.store ==="light"? "generalAuthorWordActive":"generalAuthorWordActiveDark", contextObj.store === "light"? "generalAuthorWord":"generalAuthorWordDark"}>Author: </p>
+                              <p className={ i === 0 && contextObj.store === "light"? "generalAuthorActive":"generalAuthorActiveDark",contextObj.store ==="light"? "generalAuthor":"generalAuthorDark"}> {author}</p></div>
                               <div className={i === 0? "generalAuthorFatherActive" : "generalAuthorFather"} >
-                               <p className={ i === 0? "generalAuthorWordActive": "generalAuthorWord"} >Source: </p> 
-                               <p className={ i === 0? "generalAuthorActive": "generalAuthor"}> {source}</p></div>
+                              <p className={ i === 0 && contextObj.store ==="light"? "generalAuthorWordActive":"generalAuthorWordActiveDark", contextObj.store === "light"? "generalAuthorWord":"generalAuthorWordDark"}>Source: </p>
+                              <p className={ i === 0 && contextObj.store ==="light"? "generalAuthorActive":"generalAuthorActiveDark",contextObj.store ==="light"? "generalAuthor":"generalAuthorDark"}> {source}</p></div>
+
                                </div>
                                </div>
                              </div> 
@@ -60,7 +63,7 @@ import { Link, useHistory } from 'react-router-dom';
     return (
      <div >
      <div onClick={()=>history.push({pathname:"/newscollection",
-     state: {category:"general"}})} id="general" className="general">GENERAL</div> 
+     state: {category:"general"}})} id="general" style={{textAlign: "center"}}  className={contextObj.store === "dark"? "generalDark":"general"}>GENERAL</div> 
         
     <div className="generalFather"  >     
               {generalNews}

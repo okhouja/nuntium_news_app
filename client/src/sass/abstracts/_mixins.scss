@@ -97,12 +97,15 @@ flex-direction: row;
 }
 
 
-
 @mixin  responsive ($breakpoint) {
+  
+
    @if $breakpoint == laptop  {
-    @media (max-width: 1200px) {@content};
-                  }    
-       @if $breakpoint == mobile {
-           @media  (max-width: 400px) {@content};
-                                        }                                         
-}
+    @media only screen and (max-width: 1200px) {@content};
+                  }
+
+    
+         @if $breakpoint == mobile  {
+      @media only screen and (max-width: 400px) {@content};
+       }
+                      }

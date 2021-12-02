@@ -1,10 +1,11 @@
 .linkContainerFather{
     @include startRow;
     width: 1800px;
-    height: 2200px;
+    height: 2800px;
     @include responsive(mobile){
+        @include spaceBetweenStartColumn;
         width: 400px;
-        height: auto;
+        height: 2000px;
     }
 }
 
@@ -15,6 +16,8 @@
     top: 4vh;
 @include responsive(mobile){
     width: 400px;
+    height: 2000px;
+   
 }
 }
 .linkFather{
@@ -31,6 +34,8 @@
     width: 50%;
     @include responsive(mobile){
         width: 100%;
+        height: 2vh;     
+  
     }
 }
 .imgDiv{
@@ -42,6 +47,7 @@
 .imgLink{
     height: 600px;
     width: 800px;
+    object-fit: contain;
     @include responsive(mobile){
         width: 400px;
         height: 400px;
@@ -50,10 +56,10 @@
 .linkmidContainer{
     @include flex-center;
     height: 22vh;
-    width: 50%;
+    width: 100%;
     @include responsive(mobile){
-        height: 22vh;
         width: 400px;
+        height: 33vh;
         @include startRow;
     }
 }
@@ -62,7 +68,7 @@
     width: 100%;
    @include responsive(mobile){
     width: 400px;
-    height: 16vh;
+    
 }
 }
 .linkInfoFather{
@@ -78,7 +84,7 @@
  .linkInfo{
     height: 2vh;
     @include startRow;
-    width: 50%;
+    width: 100%;
     @include responsive(mobile){
     height: 4vh;
      width: 100%;   
@@ -128,28 +134,51 @@
     overflow: hidden;
 }
 .seemoreFather{
-    @include spaceBetweenendRow;
-    width: 25%;
-}
-.seemore{
+    @include flex-center;
+    width: 800px;
+    height: 3000px;
+
     @include responsive(mobile){
-       width: 100%;
+        width: 400px;
+        height: 2900px;
     }
 }
+.content{
+    color: #000;
+    font-weight: bolder;
+    font-size: 1.6rem;
+    line-height: 44px;
+    margin-bottom: 2vh;
+    height: 100%;
+    margin-top: 3vh;
+    &::first-letter{
+        color: red;
+        font-size: 4rem;
+    }
+    &::first-line{
+        text-indent: 222px;
+    }
+    @include responsive(mobile){
+        font-size: 1rem;
+        line-height: 22px;
+        
+    }
+}
+
+
+
 .linkTitle{
     @include flex-center;
     font-size: 2rem;
     font-weight: bolder;
     height: 12vh;
     width: 100%;
-    text-align: center;
-    @include responsive(mobile){
-        width: 400px;
+    text-align: center; @include responsive (mobile){
         height: 12vh;
-        font-size: 1.5rem;
-        text-align: left;
+        font-size: 1rem;
     }
-}
+    }
+
 .linkAuthor, .linkSpurce{
     color: #000;
     @include responsive(mobile){
@@ -167,8 +196,18 @@
 }
 
 .goUpLink{
-    height: 22vh;
+    height: 33vh;
     @include flexCenterColumn;
+    @include responsive (mobile){
+        height: 18vh;
+
+    }
+}
+.back{
+    height: 6vh;
+    @include responsive (mobile){
+        height: 6vh;
+    }
 }
 .goupwordLink{
     animation: go 1s infinite ease-in-out;

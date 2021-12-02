@@ -4,33 +4,44 @@
     @include responsive(mobile){
         @include flexCenterColumn;
         width: 400px; 
-        height: 100%; 
+        height: 100%;   
         }
 }
 .redirectContainerFather{
+   
     width: 1800px;
     height: 100%;
     position: relative;
-    top: 4vh;
+    top: 1vh;
+    @include startRow;
+    @include responsive(mobile){
+        width: 400px;
+        }
+}
+.redirectContainerFatherDark{
+    width: 1800px;
+    height: 100%;
     @include startRow;
 }
+.redirectContainerFatherDark{
+    background-color: hsl(249,6%,18%);
+}
+    
 .redirectContainer{
-    @include spaceBetweenStartRow;
+    @include centerRow;
     width: 800px;
-    height: 400px;
-    margin: 1%  auto;
-    position: relative;
-    margin: 5% auto;
+    height: 330px;
+    margin: 5%;
     &::after{
+        position: absolute;
         content: "Place Your ads here";
-        width: 40vw;
+        width: 44vw;
         height: 6vh;
         background-color: blue;
         color: white;
         font-weight: bolder;
+        margin-top: 41vh;
         font-size: 2rem;
-        position: absolute;
-        top: -8vh;
         @include flex-center;
         animation: ads 1s infinite ease-in-out;
     }
@@ -38,7 +49,6 @@
         @include spaceBetweenStartColumn;
         width: 400px;
         height: 300px;
-        border: 1px solid blue;
         margin: 10% auto;
         position: relative;
         &::after{
@@ -48,7 +58,7 @@
             width: 80vw;
             height: 6vh;
             position: absolute;
-            top: -8vh;
+            top: 1vh;
             background-color: red;
             color: white;
             @include flex-center;
@@ -68,9 +78,10 @@
 }
 
 .redirectimgFather{
-    @include spaceBetweenColumn;
-    height: 300px;
-    width: 300px;
+    @include flex-center;
+    height: 200px;
+    width: 400px;
+    
     @include responsive(mobile){
         height: 150px;
         width: 200px;
@@ -78,7 +89,7 @@
 }
 .otherredirectFather{
     @include spaceBetweenStartColumn;
-    height: 280px;
+    height: 180px;
     width: 400px;
     @include responsive(mobile){
         @include spaceBetweenStartColumn;
@@ -97,7 +108,8 @@ text-align: center;
 .redirectTitle{
     margin-top: 1vh;
     cursor: pointer;
-    color: #000;
+    color: blue;
+    opacity: 0.5;
     &:hover{
         color: yellow;
      }
@@ -123,22 +135,38 @@ text-align: center;
 }
 .back{
     color:blue;
+    position: relative;
+    top: 4vh;
 }
 .down{
     width: 100%
 }
 .authorFather{
-    @include spaceBetweenCenterRow;
+    @include startRow;
     height: 2vh;
+    width: 22vw;
+    border: 1px soild red;
+   
+
+    color: #000;
+    @include responsive(mobile){
+        @include startRow;
+        width: 100%;
+    }
+}
+.redirectAuthorWord{
     color: #000;
 }
-.redirectAuthor, .redirectAuthorWord, .redirectSource{
+.redirectAuthor, .redirectSource{
 color: #000;
-width: 12vw;
+width: 100%;
 @include responsive(mobile){
     height: 2vh;
     width: auto;
 }
+}
+.redirectTitleDark,.redirectPuplishedDark,.redirectDescriptionDark,.redirectAuthorWordDark,.redirectAuthorDark{
+    color: white;
 }
 .redirectAuthorWord{
     font-weight: bolder;
@@ -147,38 +175,40 @@ width: 12vw;
     min-width: 90%;
     max-width: 90%;
     height: 100%;
+    object-fit: contain;
 }
 
 .goUpRedirect{
     @include spaceBetweenStartColumn;
     font-size: 1rem;
-    position: relative;
-    top: -2vh;
     width: 4vh;
-    height: 6vw;
+    height: 8vw;
     @include responsive(mobile){
-        height:15vh;
+        height:22vh;
         font-size: 1rem;
         width: 6vw;
-
      }
-    
  }
  .goUpanchor, .goUpanchorlang, .goUpanchorcountry{
     color: #000;
     width: 3vw;
     font-weight: bolder;
+    height: 1vh;
     position: relative;
     left: 0.5vh;
     @include responsive (mobile){
-        left: -2vw;
+        width: 12vw;
     }
+}
+.goUpanchorredirectDark{
+color:white;
+width: 3vw;
 }
 
 .goupwordRedirect{
-    position: relative;
     font-weight: bolder;
     color: #000;
+    position: relative;
     top: -2vh;
     animation: go 1s infinite ease-in-out;
 @keyframes go {
@@ -191,16 +221,36 @@ width: 12vw;
    }  
 }
 @include responsive (mobile){
-    left: -1.5vw;
+    left: -1.5;
+    top: -5vh;
 }
     
 }
- .redirectTopTitle{
+.goupwordRedirectDrak{
+    position: relative;
+    font-weight: bolder;
+    color: white;
+    top: -2vh;
+    animation: go 1s infinite ease-in-out;
+@keyframes go {
+   from{
+      transform: scale(0);
+
+   }
+   to{
+      transform: scale(1);
+   }  
+}
+}
+ .redirectTopTitle,.redirectTopTitleDark{
      font-size: 2rem;
      font-weight: bolder;
      &::first-letter{
 text-transform: capitalize;
      }
+ }
+ .redirectTopTitleDark{
+color: white;
  }
  .lineredirect{
     margin-bottom: 4vh;

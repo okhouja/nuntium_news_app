@@ -1,7 +1,9 @@
-import {React, useState} from 'react';
+import {React, useState,useEffect} from 'react';
 import {Link} from "react-router-dom";
 import LatestNews from './categories/LatestNews';
 import MustRead from './categories/MustRead';
+import axios from 'axios';
+import Loading from './Loading';
 import {
   EmailShareButton,
   FacebookShareButton,
@@ -21,12 +23,46 @@ import {
  import { faShareAlt } from '@fortawesome/free-solid-svg-icons'
  
  const LinksCollection = (props) => {
+
+  const [content, setContent] = useState([]);
+  const [load, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 2000);
+  }, []);
+  useEffect(() => {
+    getData();
+  }, []);
+  const getData = () => {
+    axios.get("http://localhost:5000/articles", {
+      credentials: "include",
+    })
+      .then((data) => setContent(data.data))
+  };
+  console.log(content);
+  
+
+const newsContent = Object.entries(content).map(([key, value],i)=>{
+  if(i<1){
+   return(
+    <div>
+      <p className="content">{value.content}</p>
+    </div>
+  )
+   }
+  
+})
+
 const body= "Email";
 const separator = " ";
    const url = "http://localhost:3000/linkscollection";
           
     const [linkArr, setLinkArr] = useState(props.location.state.value);
     console.log(linkArr);
+
+    if (load) return <Loading />;
     return (
       <div className="linkContainerFather">
         <MustRead  />
@@ -87,11 +123,12 @@ const separator = " ";
            </div>
 
           <div className="imgDiv">
-        <img className="imgLink" src={linkArr.image} alt={linkArr.title} />
+       
+        <img className="imgLink" src={linkArr.image}  alt={linkArr.title} />
       
            </div>
         <div className="seemoreFather">
-           <div className="linkDes">{linkArr.description} </div><div className="seemore"><a href={linkArr.url}>See more</a></div> 
+           <div >{newsContent} </div> 
            </div>
            <div className="backFather">
            
@@ -138,9 +175,10 @@ const separator = " ";
                </div>    
                </div>
               
-              
+            
            </div>
           <LatestNews /> 
+         
            </div>
         
     )
