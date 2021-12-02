@@ -1,7 +1,10 @@
 .signUpWrapper{
     @include spaceBetweenStartColumn;
     margin: 5% auto;
+ 
 }
+
+
 .formFather{
     @include spaceBetweenStartColumn;
     height: 35vh;
@@ -52,12 +55,12 @@ width: 80vw;
         }
 }
 .loginContainer{
-    @include spaceBetweenStartColumn;
-    height: 22vh;
+    @include flexCenterColumn;
+    height: 54vh;
 }
 
 .loginFather{
-    @include spaceBetweenStartColumn;
+    @include flexCenterColumn;
     height: 22vh;
     margin: 5% auto;
 }
@@ -100,4 +103,9 @@ width: 80vw;
 
 .backLinksignup{
     @include flexCenterColumn;
+}
+.backSignUp{
+    color: blue;
+font-size: 1rem;
+margin-top: 2vh;
 }

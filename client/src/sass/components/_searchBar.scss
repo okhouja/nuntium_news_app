@@ -9,15 +9,11 @@
 }
 .searchBarDark{
     background-color: #000;
-
 }
 .searchFatherDark{
     background-color: black;
 
 }
-
-
-
 .ul-search-bar{
     @include spaceBetweenCenterRow;
     width: 70%; 
@@ -154,6 +150,6 @@ left: 44vh;
 list-style: none;
 font-size: 1.7rem;
 @include responsive(mobile){
-left: 81vw;
+left: 79vw;
 }
 }

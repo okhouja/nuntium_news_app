@@ -14,7 +14,7 @@ function Home() {
 
   return (
   <div   className={matches && contextObj.store === "dark" ? "homeDarkMobile":contextObj.store === "light"?"home":"homeDark" }  >    
-<WrapperCategories contextObj={contextObj} />
+<WrapperCategories  />
 </div>   
   );
 }

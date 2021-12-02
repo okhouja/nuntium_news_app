@@ -5,7 +5,7 @@
     @include responsive(mobile){
         @include spaceBetweenStartColumn;
         width: 400px;
-        height: 3050px;
+        height: 2000px;
     }
 }
 
@@ -16,7 +16,7 @@
     top: 4vh;
 @include responsive(mobile){
     width: 400px;
-    height: 3000px;
+    height: 2000px;
    
 }
 }
@@ -140,7 +140,7 @@
 
     @include responsive(mobile){
         width: 400px;
-        height: 2300px;
+        height: 2900px;
     }
 }
 .content{
@@ -160,9 +160,8 @@
     }
     @include responsive(mobile){
         font-size: 1rem;
-        line-height: 22pxl;
-        margin-top: 6vh;
-       
+        line-height: 22px;
+        
     }
 }
 
@@ -174,14 +173,12 @@
     font-weight: bolder;
     height: 12vh;
     width: 100%;
-    text-align: center;
-    @include responsive(mobile){
-        width: 400px;
+    text-align: center; @include responsive (mobile){
         height: 12vh;
-        font-size: 1.5rem;
-        text-align: left;
+        font-size: 1rem;
     }
-}
+    }
+
 .linkAuthor, .linkSpurce{
     color: #000;
     @include responsive(mobile){
@@ -199,8 +196,18 @@
 }
 
 .goUpLink{
-    height: 22vh;
+    height: 33vh;
     @include flexCenterColumn;
+    @include responsive (mobile){
+        height: 18vh;
+
+    }
+}
+.back{
+    height: 6vh;
+    @include responsive (mobile){
+        height: 6vh;
+    }
 }
 .goupwordLink{
     animation: go 1s infinite ease-in-out;

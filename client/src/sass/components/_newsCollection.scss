@@ -31,10 +31,7 @@
     @include centerRow;
     width: 800px;
     height: 330px;
-    border: 1px solid red;
     margin: 5%;
-  
-   
     &::after{
         position: absolute;
         content: "Place Your ads here";
@@ -52,7 +49,7 @@
         @include spaceBetweenStartColumn;
         width: 400px;
         height: 300px;
-        margin: 12% auto;
+        margin: 10% auto;
         position: relative;
         &::after{
             content: "Place Your Ads Here";
@@ -61,7 +58,7 @@
             width: 80vw;
             height: 6vh;
             position: absolute;
-            top: -8vh;
+            top: 1vh;
             background-color: red;
             color: white;
             @include flex-center;
@@ -138,6 +135,8 @@ text-align: center;
 }
 .back{
     color:blue;
+    position: relative;
+    top: 4vh;
 }
 .down{
     width: 100%
@@ -182,12 +181,10 @@ width: 100%;
 .goUpRedirect{
     @include spaceBetweenStartColumn;
     font-size: 1rem;
-    position: relative;
-    top: -2vh;
     width: 4vh;
-    height: 6vw;
+    height: 8vw;
     @include responsive(mobile){
-        height:15vh;
+        height:22vh;
         font-size: 1rem;
         width: 6vw;
      }
@@ -196,6 +193,7 @@ width: 100%;
     color: #000;
     width: 3vw;
     font-weight: bolder;
+    height: 1vh;
     position: relative;
     left: 0.5vh;
     @include responsive (mobile){
@@ -208,9 +206,9 @@ width: 3vw;
 }
 
 .goupwordRedirect{
-    position: relative;
     font-weight: bolder;
     color: #000;
+    position: relative;
     top: -2vh;
     animation: go 1s infinite ease-in-out;
 @keyframes go {
@@ -224,7 +222,7 @@ width: 3vw;
 }
 @include responsive (mobile){
     left: -1.5;
-    top: -4vh;
+    top: -5vh;
 }
     
 }

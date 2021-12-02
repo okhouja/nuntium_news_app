@@ -14,13 +14,13 @@ import { StoreContext } from "../../context/index";
 
      const history = useHistory();
      
-     useEffect(() => {
-          axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=sports&languages=en&sort=published_desc`)
-     .then((data)=>setSports(data.data.data.filter((item)=> item.image).slice(0,6)))
-      .catch((err) => console.log(`Your had an ${err}`));
+     // useEffect(() => {
+     //      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=sports&languages=en&sort=published_desc`)
+     // .then((data)=>setSports(data.data.data.filter((item)=> item.image).slice(0,6)))
+     //  .catch((err) => console.log(`Your had an ${err}`));
           
-      }, [])
-      console.log(sports);
+     //  }, [])
+     //  console.log(sports);
 
   const sportNews = sports.map((value,i)=>{
   

@@ -20,15 +20,7 @@ import { Store, StoreContext } from "./context/index";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
-  const [load, setLoading] = useState(true);
   const [store, setStore] = useState(Store);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-  }, []);
-  if (load) return <Loading />;
 
   return (
     <StoreContext.Provider  value={{ store, setStore }}>

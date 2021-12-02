@@ -1,415 +1,406 @@
-.mainContainerWrapper {
-  @include centerRow;
-  width: 100vw;
-  height: 100%;
-
-  @include responsive(mobile) {
-    @include spaceBetweenColumn;
-    width: 400px;
-    margin: 5% auto;
-  }
-}
-.trendingContainer {
-  @include spaceBetweenStartRow;
-
-  width: 1000px;
-  @include spaceBetweenCenterRow;
-  width: 1800px;
-  height: 55vh;
-  @include responsive(mobile) {
-    display: none;
-  }
-}
-.trendFather {
-  @include spaceBetweenColumn;
-  height: 44vh;
-  width: 200px;
-}
-.sourceFather {
-  @include startRow;
-}
-.midTrendFather {
-  @include flexCenterColumn;
-  width: 200px;
-}
-.trendTitle {
-  color: black;
-  font-size: 1.5rem;
-  width: 200px;
-  height: 10px;
-  &:hover {
-    color: yellow;
-  }
-  &:active {
-    color: red;
-  }
-}
-.imgTrendFather {
-  height: 200px;
-  width: 200px;
-}
-.imgTrend {
-  height: 200px;
-  width: 200px;
-
-  opacity: 0.5;
-  filter: grayscale(10%);
-  object-fit: cover;
-}
-.generalFather {
-  width: 600px;
-  @include responsive(mobile) {
-    width: 400px;
-    border: 1px solid red;
+.mainContainerWrapper{
+    @include centerRow;
+    width: 100vw;
     height: 100%;
-    margin-bottom: 5vh;
-
-    &::after {
-      content: "";
-      border: 10px solid gray;
-      width: 32vw;
-      height: 1vh;
+    @include responsive(mobile){
+        @include spaceBetweenColumn;
+        width: 400px;
+        margin: 5% auto;
+    }
+}
+.trendingContainer{
+    @include  spaceBetweenStartRow;
+    width: 1000px;
+    height: 55vh;
+    @include responsive (mobile){
+        display: none;
     }
   }
-}
-.generalwrapperActive {
-  @include spaceBetweenColumn;
-  width: 100%;
-  height: 10%;
-  margin-bottom: 12vh;
-  &::after {
-    content: "";
-    border-bottom: 2px solid gray;
-    width: 32vw;
-    height: 1vh;
-  }
-  @include responsive(mobile) {
+.trendFather{
     @include spaceBetweenColumn;
-  }
+    height: 44vh;
+    width: 200px;
 }
-.generalwrapper {
-  @include spaceBetweenStartRow;
-  width: 100%;
-  height: 12vh;
-  margin: 2% auto;
+.sourceFather{
+@include startRow;
 }
-.generalAuthorContainer {
-  @include column;
-  height: 8vh;
-  width: 100%;
+.midTrendFather{
+    @include flexCenterColumn;
+    width: 200px;
 }
-.otherFather {
-  @include spaceBetweenStartColumn;
-  width: 75%;
-  height: auto;
-  margin-left: 2vh;
-}
-.generalAuthorFather {
-  @include startRow;
-  width: 100%;
-  height: 2vh;
-}
-.generalAuthorFatherActive {
-  @include centerRow;
-  height: 2vh;
-  width: 100%;
-}
-.generalPublishDark,
-.generalPublishActiveDark,
-.generalDescriptionDark,
-.generalDescriptionActiveDark,
-.generalAuthorWordActiveDark,
-.generalAuthorWordDark,
-.generalAuthorActiveDark,
-.generalAuthorDark,
-.businessAuthorWordActiveDark,
-.businessAuthorWordDark,
-.businessAuthorActiveDark,
-.businessAuthordark {
-  color: white;
-}
-.generalTitleActiveDark {
-  color: white;
-  cursor: pointer;
-}
-.generalDescriptionDark {
-  display: none;
-}
-
-.generalTitleDark {
-  color: white;
-  &:hover {
-    color: yellow;
-  }
-  &:active {
-    color: red;
-  }
-}
-.generalPublish,
-.generalAuthorWord,
-.generalAuthorWord {
-  color: #000;
-  font-size: 15px;
-  width: 100%;
-}
-.generalTitle {
-  color: blue;
-  opacity: 0.5;
-  cursor: pointer;
-  &:hover {
-    color: yellow;
-  }
-  &:active {
-    color: red;
-  }
-}
-.generalTitleDark {
-  width: 100%;
-  height: 10%;
-}
-
-.generalAuthor {
-  color: #000;
-  width: 100%;
-}
-.generalAuthorActive {
-  color: #000;
-  width: 100%;
-}
-.generalAuthorWordActive {
-  color: #000;
-}
-
-.generalPublishActive,
-.generalDescriptionActive,
-.generalAuthorWordActive,
-.generalAuthorActive {
-  color: #000;
-}
-.generalTitleActive {
-  color: blue;
-  opacity: 0.5;
-  text-align: center;
-}
-.img {
-  height: 100%;
-  width: 6vw;
-  @include responsive(mobile) {
-    width: 30%;
-  }
-}
-.generalimg {
-  height: 100%;
-  width: 25%;
-}
-.imgActive {
-  width: 100%;
-  height: 100%;
-  opacity: 0.7;
-  filter: grayscale(10%);
-}
-.generalDescription,
-.generalDescriptionDark {
-  display: none;
-}
-.SportsFather {
-  @include spaceBetweenStartColumn;
-  width: 300px;
-  height: auto;
-}
-
-.sportswrapper,
-.businesswrapper {
-  @include spaceBetweenStartRow;
-  width: 100%;
-  height: 100%;
-  margin: 15% auto;
-}
-.sportsOthers,
-.businessOthers {
-  @include spaceBetweenColumn;
-  height: 100%;
-  width: 100%;
-}
-.businessimg {
-  width: 50%;
-  height: 50%;
-}
-.sportTitleDark {
-  font-size: 1rem;
-  cursor: pointer;
-  color: white;
-  &:hover {
-    color: yellow;
-  }
-  &:active {
-    color: red;
-  }
-}
-.sportswrapperActive,
-.businesswrapperActive {
-  @include spaceBetweenColumn;
-  width: 100%;
-  height: auto;
-  margin-bottom: 12vh;
-  &::after {
-    content: "";
-    border-bottom: 2px solid gray;
-    width: 16vw;
-    height: 1vh;
-  }
-}
-.sportsOthers {
-  @include spaceBetweenStartColumn;
-  width: auto;
-  height: auto;
-}
-.businessOthers {
-  @include spaceBetweenStartColumn;
-  width: 100%;
-}
-.businessFather {
-  @include column;
-  width: 400px;
-  height: 100%;
-}
-
-.businessContainerActive {
-  @include column;
-  height: 4vh;
-}
-.businessContainer {
-  @include column;
-  height: 1vh;
-  width: 100%;
-}
-.businessAuthorFatherActive {
-  @include spaceBetweenStartRow;
-  height: 2vh;
-  width: 100%;
-}
-.businessAuthorFather {
-  @include spaceBetweenStartRow;
-  width: 100%;
-}
-.businessAuthorWordActive,
-.businessAuthorWord {
-  color: #000;
-  font-weight: bolder;
-}
-.businessAuthorActive,
-.businessAuthor {
-  width: 100%;
-  color: #000;
-}
-.businessAuthordark {
-  width: 100%;
-}
-.general {
-  margin-bottom: 2vh;
-  color: black;
-  font-size: 2rem;
-  font-weight: bolder;
-  position: relative;
-  top: 1vh;
-  &:hover {
-    color: yellow;
-  }
-  &:active {
-    color: red;
-  }
-}
-.generalDark {
-  color: white;
-  font-size: 2rem;
-  font-weight: bolder;
-  &:hover {
-    color: yellow;
-  }
-  &:active {
-    color: red;
-  }
-}
-.advertise {
-  width: 55vw;
-  height: 12vh;
-  margin: 5% auto;
-  font-weight: bolder;
-  color: white;
-  @include flex-center;
-  font-size: 3rem;
-  background-color: blue;
-  animation: ads 1s infinite ease-in-out;
-  @keyframes ads {
-    5% {
-      color: white;
-    }
-    20% {
-      color: red;
-    }
-  }
-
-  @include responsive(mobile) {
+.trendTitle{
+    color: black;
     font-size: 1.5rem;
-  }
+    width: 200px;
+    height: 10px;
+    cursor: pointer;
+    &:hover{
+        color:yellow;
+    }
+    &:active{
+        color:red;
+    }
 }
-.line {
-  width: 66vw;
-  border: gray 3px solid;
-  margin: 5% auto;
+.imgTrendFather{
+height: 200px;
+width: 200px;
 }
-.goUpanchor {
-  color: #000;
+.imgTrend{
+    height: 200px;
+    width: 200px;
+     opacity: 0.5;
+    filter: grayscale(10%);
+    object-fit: cover;
 }
-.goUpanchorDark {
-  color: white;
+.generalFather{
+    width: 600px;
+    @include responsive(mobile){
+        width: 400px;
+        &::after{
+            content: "";
+            position: absolute;
+            height: 4vh;
+            width: 66vw;
+            border-top: 2px solid gray;
+            left: 8vh;
+    }
+    }
 }
-.goupWord {
-  color: #000;
-  position: relative;
-  top: -4vh;
-  left: -1vh;
-  font-weight: bolder;
+.generalwrapperActive{
+    @include spaceBetweenColumn;
+    width: 100%;
+    height: 10%;
+    margin-bottom: 12vh;
+    &::after{
+        content: "";
+        border-bottom: 2px solid gray;
+        width: 32vw;
+        height: 1vh;
+    }
+    @include responsive(mobile){
+        @include spaceBetweenColumn;
+    }
 }
-.goupWordDark {
-  color: white;
-  position: relative;
-  top: -4vh;
-  left: -1vh;
-  font-weight: bolder;
+.generalwrapper{
+  @include  spaceBetweenStartRow;
+    width: 100%;
+    height: 12vh;
+    margin: 2% auto;
+    @include responsive(mobile){
+        height: auto;
+    }
 }
-.goUpDark {
-  font-size: 3rem;
-  position: relative;
-  width: 4vh;
-  height: 4vw;
-  left: -0.5vw;
-  top: -2vh;
-  animation: go 1s infinite ease-in-out;
-  @keyframes go {
-    from {
+.generalAuthorContainer{
+   @include column;
+   height: 8vh;
+   width: 100%;
+}
+.otherFather{
+   @include spaceBetweenStartColumn;
+   width: 75%;
+   height: auto;
+   margin-left: 2vh;
+   @include responsive(mobile){
+       height: auto;
+   }
+}
+.generalAuthorFather{
+   @include startRow;
+   width: 100%;
+   height: 2vh;
+}
+.generalAuthorFatherActive{
+    @include centerRow;
+    height: 2vh;
+    width: 100%;
+}
+ .generalPublishDark,.generalPublishActiveDark,.generalDescriptionDark
+,.generalDescriptionActiveDark, .generalAuthorWordActiveDark,.generalAuthorWordDark,.generalAuthorActiveDark
+,.generalAuthorDark,.businessAuthorWordActiveDark,.businessAuthorWordDark,.businessAuthorActiveDark
+,.businessAuthordark{
+    color: white;
+}
+.generalTitleActiveDark{
+    color:white;
+    cursor: pointer;
+}
+.generalDescriptionDark{
+    display: none;
+}
+.generalTitleDark{
+    color:white;
+    &:hover{
+        color:yellow;
+    }
+    &:active{
+        color: red;
+    }
+}
+.generalPublish, .generalAuthorWord, .generalAuthorWord {
+    color: #000;
+    font-size: 15px;
+    width: 100%;
+}
+.generalTitle{
+    color: blue;
+    opacity: 0.5;
+    cursor: pointer;
+    &:hover{
+        color: yellow;
+    }
+    &:active{
+        color: red;
+    }
+}
+.generalTitleDark{
+width: 100%;
+height: 10%;
+}
+.generalAuthor{
+    color: #000;
+    width: 100%;
+}
+.generalAuthorActive{
+    color: #000;
+    width: 100%;
+}
+.generalAuthorWordActive{
+    color: #000;
+}
+ .generalPublishActive, .generalDescriptionActive,.generalAuthorWordActive,.generalAuthorActive{
+    color: #000;
+}
+.generalTitleActive{
+    color: blue;
+    opacity: 0.5;
+    text-align: center;
+}
+.img{
+    height: 100%;
+    width: 6vw;
+    @include responsive(mobile){
+        width: 30%;
+    }
+}
+.generalimg{
+    height: 100%;
+    width: 25%;
+}
+.imgActive{
+    width: 100%;
+    height: 100%;
+    opacity: 0.7;
+    filter: grayscale(10%);
+}
+.generalDescription,.generalDescriptionDark{
+    display: none;
+}
+.SportsFather{
+    @include spaceBetweenStartColumn;
+    width: 300px;
+    height: auto;
+    @include responsive(mobile){
+        &::after{
+            content: "";
+            height: 4vh;
+            width: 32vh;
+            border-bottom: 2px solid gray;
+    }
+}
+   }
+.sportswrapper, .businesswrapper{
+    @include spaceBetweenStartRow;
+    width: 100%;
+    height: 100%;
+    margin: 15% auto;
+}
+.sportsOthers, .businessOthers{
+   @include spaceBetweenColumn;
+   height: 100%;
+   width: 100%;
+}
+.businessimg{
+    width: 50%;
+    height: 50%;
+}
+.sportTitleDark{
+    font-size: 1rem;
+    cursor: pointer;
+    color: white;
+    &:hover{
+        color:yellow;
+    }
+    &:active{
+        color: red;
+    }
+}
+.sportswrapperActive, .businesswrapperActive{
+    @include spaceBetweenColumn;
+    width: 100%;
+    height: auto;
+    margin-bottom: 12vh;
+    &::after{
+        content: "";
+        border-bottom: 2px solid gray;
+        width: 16vw;
+        height: 1vh;
+        margin-top: 2vh;
+    }
+}
+.sportsOthers{
+    @include spaceBetweenStartColumn;
+    width: auto;
+    height: auto;
+}
+.businessOthers{
+    @include spaceBetweenStartColumn;
+width: 100%;
+}
+.businessFather{
+    @include column;
+    width: 400px;
+    height: 100%;
+    @include responsive(mobile){
+        height: auto;
+        width: 80%;
+    }
+}
+.businessContainerActive{
+    @include column;
+    height: 4vh;
+}
+.businessContainer{
+    @include column;
+    height: 1vh;
+    width: 100%;
+}
+.businessAuthorFatherActive{
+  @include  spaceBetweenStartRow;
+   height: 2vh;
+   width: 100%;
+}
+.businessAuthorFather{
+    @include  spaceBetweenStartRow;
+    width: 100%;
+}
+.businessAuthorWordActive, .businessAuthorWord{
+color: #000;
+font-weight: bolder;
+}
+.businessAuthorActive, .businessAuthor{
+    width: 100%;
+    color: #000;
+}
+.businessAuthordark{
+    width: 100%;
+}
+.general{
+    margin-bottom: 2vh;
+       color:  black;;
+       font-size: 2rem;
+       font-weight: bolder;
+       position: relative;
+       top: 1vh;
+       &:hover{
+          color: yellow;
+       }
+       &:active{
+          color: red;
+       }
+       @include responsive(mobile){
+           margin-top: 2vh;
+           text-indent: 2vh;
+       }
+    }
+    .generalDark{
+        color: white;
+        font-size: 2rem;
+        font-weight: bolder;
+        &:hover{
+            color: yellow;
+         }
+         &:active{
+            color: red;
+         }
+    }
+    .advertise{
+        width: 55vw;
+        height: 12vh;
+        margin: 5% auto;
+        font-weight: bolder;
+        color: white;
+        @include flex-center;
+        font-size: 3rem;
+        background-color: blue;
+        animation: ads 1s infinite ease-in-out;
+        @keyframes ads {
+            5%{
+                color: white;
+            }
+            20%{
+                color: red;
+            }
+        }
+        @include responsive(mobile){
+            font-size: 1.5rem;
+        }
+    }
+    .line{
+        width: 66vw;
+        border: gray 3px solid;
+        margin: 5% auto;
+    }
+    .goUpanchor{
+   color: #000;
+}
+.goUpanchorDark{
+    color: white;
+}
+.goupWord{
+   color:#000;
+   position: relative;
+   top: -4vh;
+   left: -1vh;
+   font-weight: bolder;
+}
+.goupWordDark{
+    color: white;
+    position: relative;
+    top: -4vh;
+    left: -1vh;
+    font-weight: bolder;
+}
+.goUpDark{
+    font-size: 3rem;
+    position: relative;
+    width: 4vh;
+    height: 4vw;
+    left: -0.5vw;
+    top: -2vh;
+    animation: go 1s infinite ease-in-out;
+ @keyframes go {
+    from{
+       transform: scale(0);
+    }
+    to{
+       transform: scale(1);
+    }
+ }
+}
+.goUp{
+   font-size: 3rem;
+   position: relative;
+   width: 4vh;
+   height: 4vw;
+   left: -0.5vw;
+   top: -2vh;
+   animation: go 1s infinite ease-in-out;
+@keyframes go {
+   from{
       transform: scale(0);
-    }
-    to {
+   }
+   to{
       transform: scale(1);
-    }
-  }
+   }
 }
-.goUp {
-  font-size: 3rem;
-  position: relative;
-  width: 4vh;
-  height: 4vw;
-  left: -0.5vw;
-
-  top: -2vh;
-  animation: go 1s infinite ease-in-out;
-  @keyframes go {
-    from {
-      transform: scale(0);
-    }
-    to {
-      transform: scale(1);
-    }
-  }
 }

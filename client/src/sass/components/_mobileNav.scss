@@ -2,7 +2,7 @@
     display: none;
     @include responsive(mobile){
         display: flex;
-        width: 400px;
+        width: 350px;
     }
 }
 .dexktopNav{
@@ -46,20 +46,27 @@ height: auto;
 width: 4vw;
 order: -1;
 z-index: 5;
+
 }
 .dropDownMobile{
     visibility: hidden;
 }
 .dropdownMobileActive{
     @include spaceBetweenCenterRow;
-    height: 8vh;
+    height: 6vh;
     width: 14vh;
-    background-color: white;
+    background-color: wheat;
     position: relative;
     top: 8vh;
 }
 .ulFatherMobile{
-    background-color: white;
+    @include flexCenterColumn;
+    height: 100%;
+}
+.liHome{
+    color: black;
+    font-size: 1rem;
+    font-weight: bolder;
 }
 
 .closedDropDownMobile{
