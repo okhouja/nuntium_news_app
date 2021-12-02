@@ -11,13 +11,13 @@ const Trending = () => {
     const history = useHistory();
 
     const [trend, setTrend] = useState([]);
-//      useEffect(() => {
-//       axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&languages=en&sort=published_desc`)
-//   .then((data)=>setTrend(data.data.data.filter((item)=> item.image).slice(0,4)))
-//   .catch((err) => console.log(`Your had an ${err}`));
+     useEffect(() => {
+      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&languages=en&sort=published_desc`)
+  .then((data)=>setTrend(data.data.data.filter((item)=> item.image).slice(0,4)))
+  .catch((err) => console.log(`Your had an ${err}`));
       
-//   }, [])
-//   console.log(trend);
+  }, [])
+  console.log(trend);
 
   const showNews = trend.map((value, i)=>{
     const {image, author, title, source, published_at} = value;

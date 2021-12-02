@@ -1,4 +1,4 @@
-const news  = {
+const news = {
          apiKey: "067ffb4d194c6f3d70b271a31ef60932",
       };
 
