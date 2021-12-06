@@ -7,8 +7,11 @@ import { StoreContext } from "../../context/index";
 const Science = () => {
   const contextObj = useContext(StoreContext);
 
-  const [science, setScience] = useState([]);
-  const API_KEY = myKey.news.apiKey;
+
+     
+     const [science, setScience] = useState([]);
+     const API_KEY = myKey.news.apiKey;
+
 
   const history = useHistory();
 

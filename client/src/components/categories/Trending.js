@@ -18,6 +18,7 @@ const Trending = () => {
       )
       .catch((err) => console.log(`Your had an ${err}`));
   }, []);
+
   console.log(trend);
 
   const showNews = trend.map((value, i) => {

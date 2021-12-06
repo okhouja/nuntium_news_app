@@ -22,6 +22,7 @@ const Science = () => {
       )
       .catch((err) => console.log(`Your had an ${err}`));
   }, []);
+
   console.log(health);
 
   const healthNews = health.map((value, i) => {

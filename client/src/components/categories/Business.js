@@ -22,6 +22,7 @@ const Sports = () => {
       )
       .catch((err) => console.log(`Your had an ${err}`));
   }, []);
+
   console.log(business);
 
   const businessNews = business.map((value, i) => {

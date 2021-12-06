@@ -24,6 +24,7 @@ const Science = () => {
       )
       .catch((err) => console.log(`Your had an ${err}`));
   }, []);
+
   console.log(entrrtainment);
 
   const entertainmentNews = entrrtainment.map((value, i) => {

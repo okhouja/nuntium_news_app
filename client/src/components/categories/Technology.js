@@ -12,6 +12,7 @@ const Science = () => {
 
   const history = useHistory();
 
+
   useEffect(() => {
     axios
       .get(

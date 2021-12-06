@@ -24,6 +24,7 @@ const Sports = () => {
   }, []);
   console.log(sports);
 
+
   const sportNews = sports.map((value, i) => {
     const { author, title, image, url, description, source, published_at } =
       value;

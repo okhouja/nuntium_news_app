@@ -23,6 +23,7 @@ const General = () => {
   }, []);
   console.log(general);
 
+
   //   const myfunc = (lang)=>{/*  */
   // history.push({pathname:"/newscollection",language:lang })
   //   }

@@ -6,6 +6,8 @@
    
 }
 .themeFather{
+    position: relative;
+    left: 4vh;
     @include spaceBetweenCenterRow;
 }
 .toggel{
@@ -14,10 +16,10 @@
 }
 .weather{
     @include spaceBetweenCenterRow;
-    width:8%;
+    width:12%;
     height: 2vh;
     position: relative;
-    left: -4vw;
+    left: 0vw;
 }
 .imgWeatherFather{
     height: 7.5vh;
@@ -45,7 +47,7 @@
     width: 12%;
     height: 3vh;
     position: relative;
-    left: -6vh;
+    left: 4vh;
 }
 .date{
     color: white;
