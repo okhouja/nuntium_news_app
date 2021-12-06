@@ -18,8 +18,6 @@ Nuntium is a MERN full Stack News Website that helps you:
 
 ## **Tech**
 
-======
-
 We used number of different technologies
 
 - Node.js
@@ -36,7 +34,7 @@ We used number of different technologies
 
 <img src="./screenshots/Nuntium_LightMode2.png" alt="Nuntium_LightMode_content" width="600"/>
 
-## **Future Plan**
+## **Future Plan:**
 
 - Video news
 - Printable PDF (NEWS Magazin)
@@ -45,7 +43,7 @@ We used number of different technologies
 - Login by Social media
 - Make a Newsletter
 
-## **TEAM Member**
+## **TEAM Members:**
 
 - [ Ahmad Nabbaa / focus on FrontEnd ](https://github.com/anabbaa)
 - [ Omar Khouja / focus on BackEnd ](https://github.com/okhouja)
