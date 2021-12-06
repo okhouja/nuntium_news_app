@@ -44,3 +44,8 @@ We used number of different technologies
 - Web Admin can add Articles
 - Login by Social media
 - Make a Newsletter
+
+## **TEAM Member**
+
+- [ Ahmad Nabbaa / focus on FrontEnd ](https://github.com/anabbaa)
+- [ Omar Khouja / focus on BackEnd ](https://github.com/okhouja)
