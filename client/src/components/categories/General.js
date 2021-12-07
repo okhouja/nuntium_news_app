@@ -14,6 +14,7 @@ import { StoreContext } from "../../context/index";
 //   .catch((err) => console.log(`Your had an ${err}`));
 //   }, [])
 //   console.log(general);
+
   //   const myfunc = (lang)=>{/*  */
 // history.push({pathname:"/newscollection",language:lang })
 //   }
