@@ -1,4 +1,4 @@
-import { React, useState, useEffect} from "react";
+import { React, useState} from "react";
 import Home from "./components/Home";
 import Header from "./components/Header";
 import SearchBar from "./components/SearchBar";
@@ -11,24 +11,17 @@ import LanguagesCollection from "./components/LanguagesCollection";
 import CountriesCollection from "./components/CountriesCollection";
 import DesktopNavbar from "./components/DesktopNavbar";
 import MobileNavbar from "./components/MobileNavbar";
-import Loading from "./components/Loading";
-import Dashboard from "./components/Dashboard";
 import { Store, StoreContext } from "./context/index";
-
-
-
+import SearchShow from "./components/SearchShow";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 function App() {
   const [store, setStore] = useState(Store);
 
   return (
-    <StoreContext.Provider  value={{ store, setStore }}>
+    <StoreContext.Provider value={{ store, setStore }}>
     <Router>
-     
-
-        {/* <Dashboard /> */}
-      <DesktopNavbar   />
+              <DesktopNavbar   />
       <MobileNavbar  />
       <Header   />
       <SearchBar  />
@@ -39,6 +32,7 @@ function App() {
         <Route path="/login" exact component={Login} />
         <Route path="/newscollection" exact component={NewsCollection}/>
         <Route path="/linkscollection" exact component={LinksCollection} />
+        <Route path="/searchshow" exact component={SearchShow} />
         <Route
           path="/languagescollection"
           exact
@@ -49,6 +43,8 @@ function App() {
           exact
           component={CountriesCollection}
         />
+            <Route path="/footer" exact component={Footer} />
+        <Route path={() => "/main" || "/admin" || "/any-other-word"}></Route>
       </Switch>
       <Footer />
     </Router>

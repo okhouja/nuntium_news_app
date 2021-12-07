@@ -4,9 +4,24 @@
     height: 2800px;
     @include responsive(mobile){
         @include spaceBetweenStartColumn;
-        width: 400px;
+        width: 100%;
         height: 2000px;
     }
+}
+.linkContainerFatherDark{
+    @include startRow;
+    width: 100%;
+    height: 2800px;
+    background-color: hsl(249,6%,18%);
+}
+.linkContainerFatherDarkMobile{
+    @include flexCenterColumn;
+    width: 100%;
+    height: 2000px;
+}
+
+.linkContainerFatherDarkMobile{
+     background-color: hsl(249,6%,18%);
 }
 
 .linkContainer{
@@ -15,9 +30,8 @@
     width: 1000px;
     top: 4vh;
 @include responsive(mobile){
-    width: 400px;
+    width: 100%;
     height: 2000px;
-   
 }
 }
 .linkFather{
@@ -25,7 +39,7 @@
    height: 1200px;
    width: 1000px;
    @include responsive(mobile){
-    width: 400px;
+    width: 100%;
 }
 }
 .topFather{
@@ -33,10 +47,16 @@
     height: 1vh;
     width: 50%;
     @include responsive(mobile){
-        width: 100%;
-        height: 2vh;     
+        width: 90%;
+        height: 2vh;    
+        margin-top: 1vh; 
   
     }
+}
+.topFatherDarkMobile{
+    @include spaceBetweenStartRow;
+    width: 75%;
+    height: 1vh;   
 }
 .imgDiv{
     @include startColumn;
@@ -49,7 +69,7 @@
     width: 800px;
     object-fit: contain;
     @include responsive(mobile){
-        width: 400px;
+        width: 350px;
         height: 400px;
     }
 }
@@ -58,7 +78,7 @@
     height: 22vh;
     width: 100%;
     @include responsive(mobile){
-        width: 400px;
+        width: 90%;
         height: 33vh;
         @include startRow;
     }
@@ -75,10 +95,8 @@
     @include spaceBetweenStartRow;
     width: 100%;
     @include responsive(mobile){
-        @include startColumn;
-        
+        @include startColumn; 
         }
-
 }
 
  .linkInfo{
@@ -88,26 +106,39 @@
     @include responsive(mobile){
     height: 4vh;
      width: 100%;   
-    
     }
 }
-
 .linkPuplish{
     color: #000;
+}
+.linkPuplishDark, .linkPuplishDarkMobile{
+    color:white;
+}
+
+.linkPuplish,.linkPuplishDark{
     @include endRow;
     width: 400px;
 }
 .linkCategory{
     color: #000;
+}
+.linkCategoryDark,.linkCategoryDarkMobile{
+    color: white;
+}
 
+.linkAuthorDark, .linkAuthorDarkMobile{
+    color: white;
 }
 
 .linkAuthorWord{
     color: #000;
     font-weight: bolder;
-
-    
 }
+.linkAuthorWordDark, .linkAuthorWordDarkMobile{
+    color: white;
+    font-weight: bolder;
+}
+
 .shareIcon{
     font-size: 2rem;
     position: relative;
@@ -126,6 +157,15 @@
         top: -0.5vh;
       }
 }
+.shareIconDarkMobile{
+    font-size: 1.5rem;
+    position: relative;
+    top: -1.3vh;
+    left: 0;
+    filter: grayscale(50%);
+    color: white;
+    margin-left: 2vh;
+}
  .linkDes{
     font-size: 1.5rem;
     font-weight: bolder;
@@ -143,9 +183,16 @@
         height: 2900px;
     }
 }
+
 .content{
     color: #000;
+}
+.contentDark{
+    color:white;
+}
+.content{
     font-weight: bolder;
+    color: #000;
     font-size: 1.6rem;
     line-height: 44px;
     margin-bottom: 2vh;
@@ -161,13 +208,52 @@
     @include responsive(mobile){
         font-size: 1rem;
         line-height: 22px;
-        
+    }
+}
+.contentDark{
+    font-weight: bolder;
+    color: white;
+    font-size: 1.6rem;
+    line-height: 44px;
+    margin-bottom: 2vh;
+    height: 100%;
+    margin-top: 3vh;
+    &::first-letter{
+        color: red;
+        font-size: 4rem;
+    }
+    &::first-line{
+        text-indent: 222px;
+    }
+}
+.contentDarkMobile{
+    color: white;
+    line-height: 44px;
+    height: 100%;
+    font-size: 1rem;
+    line-height: 22px;
+    &::first-letter{
+        color: red;
+        font-size: 4rem;
+    }
+    &::first-line{
+        text-indent: 222px;
     }
 }
 
+.linkTitleDark,.linkTitleDarkMobile{
+    color:white;
+}
+.linkTitleDarkMobile{
+    @include flex-center;
+    font-weight: bolder;
+    height: 12vh;
+    width: 100%;
+    font-size: 1rem;
+    text-align: center;
+}
 
-
-.linkTitle{
+.linkTitle,.linkTitleDark{
     @include flex-center;
     font-size: 2rem;
     font-weight: bolder;
@@ -209,10 +295,11 @@
         height: 6vh;
     }
 }
-.goupwordLink{
+.goUpanchorLinkDark,.goupwordLinkDark{
+    color: white;
+}
+.goupwordLink,.goupwordLinkDark{
     animation: go 1s infinite ease-in-out;
-    @include responsive(mobile){
-        animation: go 1s infinite ease-in-out;
 @keyframes go {
    from{
       transform: scale(0);
@@ -223,7 +310,7 @@
    }  
 }
     }
-}
+
 .advertiseLink{
     width: 45vw;
    @include  flex-center; 

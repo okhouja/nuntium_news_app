@@ -3,34 +3,39 @@
     width: 1000px;
     @include responsive(mobile){
         @include flexCenterColumn;
-        width: 400px; 
-        height: 100%;   
+        
         }
 }
 .redirectContainerFather{
-   
-    width: 1800px;
+    width: 1000px;
     height: 100%;
     position: relative;
     top: 1vh;
     @include startRow;
     @include responsive(mobile){
-        width: 400px;
+        max-width: 90%;
         }
 }
 .redirectContainerFatherDark{
-    width: 1800px;
+    width: 100%;
     height: 100%;
     @include startRow;
+    @include responsive(mobile){
+        max-width: 100%;
+    
+    }
 }
 .redirectContainerFatherDark{
     background-color: hsl(249,6%,18%);
+    @include responsive(mobile){
+        width: 390px;
+        }
 }
     
 .redirectContainer{
     @include centerRow;
     width: 800px;
-    height: 330px;
+    height: 400px;
     margin: 5%;
     &::after{
         position: absolute;
@@ -47,9 +52,9 @@
     }
     @include responsive(mobile){
         @include spaceBetweenStartColumn;
-        width: 400px;
-        height: 300px;
-        margin: 10% auto;
+        width: 380px;
+        height: 400px;
+        margin: 1% auto;
         position: relative;
         &::after{
             content: "Place Your Ads Here";
@@ -81,21 +86,20 @@
     @include flex-center;
     height: 200px;
     width: 400px;
-    
     @include responsive(mobile){
-        height: 150px;
+        height: 100px;
         width: 200px;
     }
 }
 .otherredirectFather{
     @include spaceBetweenStartColumn;
     height: 180px;
-    width: 400px;
+    width: 100%;
     @include responsive(mobile){
-        @include spaceBetweenStartColumn;
-        width: 250px;
-        top: 0;
-        height: 150px;
+        @include column;
+        width: 200px;
+        height: 100%;
+    
     }
 }
  .redirectPuplished{
@@ -105,29 +109,35 @@ height: 20%;
 text-align: center;
 
 }
-.redirectTitle{
-    margin-top: 1vh;
+.redirectTitle, .redirectTitleDark{
     cursor: pointer;
     color: blue;
-    opacity: 0.5;
+  
     &:hover{
         color: yellow;
      }
      &:active{
         color: red;
      }
+    
 }
 .redirectDescription{
     color: #000;
     font-family: sans-serif;
-    height: 50%;
+    height: 10%;
     width: 400px;
     font-weight: bolder;
     overflow: hidden;
     @include responsive(mobile){
         height: 10%;
         overflow: hidden;
+        width: 100%;
     }
+}
+.redirectDescriptionDarkMobile{
+        height: 10%;
+    overflow: hidden;
+    width: 100%;
 }
 .backLink{
     text-decoration: none;
@@ -165,9 +175,18 @@ width: 100%;
     width: auto;
 }
 }
-.redirectTitleDark,.redirectPuplishedDark,.redirectDescriptionDark,.redirectAuthorWordDark,.redirectAuthorDark{
+.redirectTitleDark,.redirectPuplishedDark,.redirectAuthorWordDark,.redirectAuthorDark{
     color: white;
 }
+.redirectAuthorWordDark{
+    font-weight: bolder;
+}
+.redirectDescriptionDark{
+    color: white;
+    height: 30%;
+    overflow: hidden;
+}
+
 .redirectAuthorWord{
     font-weight: bolder;
 }
@@ -189,6 +208,7 @@ width: 100%;
         width: 6vw;
      }
  }
+ 
  .goUpanchor, .goUpanchorlang, .goUpanchorcountry{
     color: #000;
     width: 3vw;
@@ -203,6 +223,10 @@ width: 100%;
 .goUpanchorredirectDark{
 color:white;
 width: 3vw;
+margin-left: 1vh;
+@include responsive(mobile){
+    width: 12vw;
+}
 }
 
 .goupwordRedirect{
@@ -258,3 +282,4 @@ color: white;
      height: 2vh;
      border-top:  3px solid gray;
  }
+ 

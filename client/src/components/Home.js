@@ -5,15 +5,10 @@ import { StoreContext } from "../context/index";
 
 function Home() {
   const contextObj = useContext(StoreContext);
-
-  console.log(contextObj);
-
-  
-  
   const  matches = useMediaQuery('only screen and (max-width: 400px)')
 
   return (
-  <div   className={matches && contextObj.store === "dark" ? "homeDarkMobile":contextObj.store === "light"?"home":"homeDark" }  >    
+  <div   className={matches && contextObj.store === "dark" ? "homeDark":contextObj.store === "light"?"home":"homeDarkMobile" }  >    
 <WrapperCategories  />
 </div>   
   );

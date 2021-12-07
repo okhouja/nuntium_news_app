@@ -1,6 +1,12 @@
 .copyrightFather{
     @include spaceBetweenStartRow;
     width: 100vw;
+
+}
+.footer{
+    @include responsive(mobile){
+width: 395px;
+    }
 }
 .rightFooter{
     @include column;

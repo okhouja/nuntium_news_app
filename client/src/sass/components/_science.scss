@@ -1,11 +1,11 @@
 .scienceContainer{
     @include spaceBetweenCenterRow;
     height: 300px;
-    width: 1400px;
+    width: 1000px;
     // border: 1px solid red;
     @include responsive(mobile){
         @include flexCenterColumn;
-        width: 400px;
+        width: 390px;
         height: 1500px;
     } 
 }
@@ -15,7 +15,7 @@
     height: 300px;
     @include responsive(mobile){
         @include spaceBetweenStartRow;
-        width: 400px;
+        width: 390px;
         height: 250px;
     }
 }
@@ -44,7 +44,7 @@
       height: 22px;
     }
 }
-.scienceTitle, .dark.scienceTitle{
+.scienceTitle, .scienceTitleDark{
     cursor: pointer;
     &:hover{
         color: yellow;
@@ -56,6 +56,10 @@
 .scienceTitleDark, .sciencePuplishDark,.scienceAuthorWordDark,.scienceAuthorDark{
     color: white;
 }
+.scienceAuthorWordDark{
+    font-weight: bolder;
+}
+
 .scienceTitleDark{
     font-size: 1rem;
 }
@@ -72,9 +76,12 @@
 
 .scienceAuthorWord{
     color: #000;
+    font-weight: bolder;
+
     
 }
 .scienceAuthor{
     color: #000;
     width: 100%;
+
 }

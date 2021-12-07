@@ -1,4 +1,4 @@
-import {React, useEffect, useState, useRef, useContext} from 'react';
+import {React, useEffect, useState, useContext} from 'react';
 import axios from "axios";
 import {useMediaQuery} from '@react-hook/media-query';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -8,8 +8,6 @@ import { styled } from '@mui/material/styles';
 import { StoreContext } from "../context/index";
 import {Link, useHistory} from "react-router-dom";
 
-
-
 import {
     FaFacebook,
     FaTwitter,
@@ -18,6 +16,7 @@ import {
     FaUserAlt,
   } from "react-icons/fa";
   import myKey from "../context/config";
+import { TableBody } from '@mui/material';
 
 
 const label = { inputProps: { 'aria-label': 'Switch demo' } };
@@ -72,20 +71,15 @@ export const Navbar = ({nav}) => {
     const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
     const [weather , setWeather] = useState({});
     const [themeState , setThemeState] =  useState(false);
-    const inputRef = useRef();
-
   const API_KEY = myKey.weather.apiKeyWeather;
   const contextObj = useContext(StoreContext);
-  console.log(contextObj.store.data);
+  console.log(contextObj.store);
 
-
-  // useEffect(() => {
-  //   axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
-  // }, []);
-  // console.log(weather );
+// useEffect(() => {
+//     axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
+//   }, []);
+//   console.log(weather );
   
-
-
   let date = new Date();
 let day = date.toLocaleString('en-us', {weekday: 'short'});
   const today = new Date().toLocaleString();
@@ -102,8 +96,6 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
     //     })
     // }, [dropdown.cat, dropdown.lang, dropdown.countries])
 
-    
-
     const history = useHistory();
     return (
       <FormGroup >
@@ -116,7 +108,7 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
       
       onClick={()=>contextObj.store === "light"? contextObj.setStore("dark"):
     contextObj.setStore("light")
-    }
+    } 
         control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
         label=""
       />
@@ -248,7 +240,7 @@ let day = date.toLocaleString('en-us', {weekday: 'short'});
             </a>
          </div>   
 <div className={matches? "signUpFatherMobile":"signUpFather"}>
-                      <Link className="signUp" to="signup">  <i><FaUserAlt/></i> </Link>
+                      <Link className={matches? "signUpMobile":"signUp"} to="signup">  <i><FaUserAlt/></i> </Link>
                       <Link  to="login"><button className={matches?"logInMobile":"logIn"}>Log In</button></Link>   
 </div>
 </div>

@@ -15,11 +15,13 @@ import { StoreContext } from "../context/index";
      const hamurgerButton = <AiOutlineMenu className="hamburgerMenu" onClick={handelChange}/>
      const closeButton = < AiOutlineClose className="hamburgerMenu" onClick={handelChange}/>
     return (
+        <div className="mobileNavFather">
         <div className="mobileNav">
             <div className=" hamburgerMenuFather" >
                 {nav? closeButton: hamurgerButton }
              </div>
              <Navbar nav={nav}/>
+        </div>
         </div>
     )
 }

@@ -12,13 +12,13 @@ import { StoreContext } from "../../context/index";
      const API_KEY = myKey.news.apiKey;
      const history = useHistory();
      
-    useEffect(() => {
-      axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=general&languages=en&sort=published_desc`)
- .then((data)=>setGeneral(data.data.data.filter((item)=> item.image).slice(0,6)))
-  .catch((err) => console.log(`Your had an ${err}`));
+//     useEffect(() => {
+//       axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=general&languages=en&sort=published_desc`)
+//  .then((data)=>setGeneral(data.data.data.filter((item)=> item.image).slice(0,6)))
+//   .catch((err) => console.log(`Your had an ${err}`));
       
-  }, [])
-  console.log(general);
+//   }, [])
+//   console.log(general);
   
 
   
@@ -61,9 +61,9 @@ import { StoreContext } from "../../context/index";
                )
   })
     return (
-     <div >
-     <div onClick={()=>history.push({pathname:"/newscollection",
-     state: {category:"general"}})} id="general" style={{textAlign: "center"}}  className={contextObj.store === "dark"? "generalDark":"general"}>GENERAL</div> 
+     <div className="genralword" >
+     <p onClick={()=>history.push({pathname:"/newscollection",
+     state: {category:"general"}})} id="general" style={{textAlign: "center"}}  className={contextObj.store === "dark"? "generalDark":"general"}>GENERAL</p> 
         
     <div className="generalFather"  >     
               {generalNews}

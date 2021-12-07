@@ -11,6 +11,7 @@ import { StoreContext } from "../context/index";
  const WrapperCategories = () => {
     const contextObj = useContext(StoreContext);
     return (
+        
         <div className="wrapperCategories">
         <Trending />
             <MainContainer contextObj={contextObj}/>
