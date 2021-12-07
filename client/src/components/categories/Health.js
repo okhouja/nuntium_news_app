@@ -10,18 +10,6 @@ const Science = () => {
   const [health, setHealth] = useState([]);
   const API_KEY = myKey.news.apiKey;
 
-  const history = useHistory();
-
-  useEffect(() => {
-    axios
-      .get(
-        `http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=health&languages=en&sort=published_desc`
-      )
-      .then((data) =>
-        setHealth(data.data.data.filter((item) => item.image).slice(0, 6))
-      )
-      .catch((err) => console.log(`Your had an ${err}`));
-  }, []);
 
      const history = useHistory();
      

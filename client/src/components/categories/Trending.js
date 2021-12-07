@@ -14,6 +14,7 @@ const Trending = () => {
 //   .catch((err) => console.log(`Your had an ${err}`));
 //   }, [])
 //   console.log(trend);
+
   const showNews = trend.map((value, i)=>{
     const {image, author, title, source, published_at} = value;
     return(
