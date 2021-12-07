@@ -6,39 +6,29 @@ import {useMediaQuery} from '@react-hook/media-query';
 import LatestNews from './categories/LatestNews';
 import MustRead from './categories/MustRead';
 import { StoreContext } from "../context/index";
-
-
  const NewsCollection = (props) => {
         const contextObj = useContext(StoreContext);
         console.log(contextObj);
-
     const API_KEY = myKey.news.apiKey;
     const history = useHistory();
     const  matches = useMediaQuery('only screen and (max-width: 400px)')
-
-
      const [newsarray, setNewsarray] = useState([]);
      const [category, setCategory] =useState(props.location.state && props.location.state.category)
-
-//    useEffect(() => { 
+//    useEffect(() => {
 //             axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=${category}&languages=en&sort=published_desc`)
 //         .then((data)=>setNewsarray(data.data.data.filter((item)=> item.image)))
 //         .catch((err) => console.log(`Your had an ${err}`));
-            
 //         }, [category])
 //         console.log(newsarray);
 //         console.log(category);
-        
-        
         const showNews = newsarray.map((value,i)=>{
             const {author, title, image, description,source,published_at} = value;
-            
             return(
-                           <div  key={i}>          
+                           <div  key={i}>
                               <div className="redirectContainer">
                                    <div className="redirectimgFather" >
                                                        <img className="imgRedirect" src={image} alt=""   />
-                </div>               
+                </div>
                                <div className="otherredirectFather">
                                <h3 className={contextObj.store ==="light"?"redirectTitle":"redirectTitleDark"}
                        onClick={()=>
@@ -51,31 +41,28 @@ import { StoreContext } from "../context/index";
                                 <div className="down">
                              <div className="authorFather"><p className={contextObj.store ==="light"?"redirectAuthorWord":"redirectAuthorWordDark"}>Author: </p> <p className={contextObj.store ==="light"?"redirectAuthor":"redirectAuthorDark"}> {author}</p></div>
                              <div className="authorFather"><p className={contextObj.store ==="light"?"redirectAuthorWord":"redirectAuthorWordDark"}>Source: </p> <p className={contextObj.store ==="light"?"redirectAuthor":"redirectAuthorDark"}> {source}</p></div>
-                             </div> 
-         
-                             </div>           
+                             </div>
+                             </div>
                             </div>
-                                </div> 
+                                </div>
                        )
           });
             return (
              <div className={contextObj.store === "light"? "redirectContainerFather":"redirectContainerFatherDark"} >
                      <LatestNews />
-                   
-            <div  className="redirectFather"> 
-            <div style={{marginTop: "4vh"}} className={contextObj.store ==="light"?"redirectTopTitle":"redirectTopTitleDark"}> 
+            <div  className="redirectFather">
+            <div style={{marginTop: "4vh"}} className={contextObj.store ==="light"?"redirectTopTitle":"redirectTopTitleDark"}>
             <div> {props.location.state.category} </div>
             <div className="lineredirect"></div>
             </div>
-                      {showNews}  
-                      <div className="goUpRedirect">        
+                      {showNews}
+                      <div className="goUpRedirect">
                       <Link className="backLink" to="/home"><p className="back">Back</p></Link>
                <a className={contextObj.store ==="light"?"goUpanchor":"goUpanchorredirectDark"} href="#img">Go Up</a>
                <p className={contextObj.store ==="light"?"goupwordRedirect":"goupwordRedirectDrak"}>ᐱ</p>
-
-               </div>    
+               </div>
                     </div>
-                    <MustRead /> 
+                    <MustRead />
                     </div>
             )
 }
