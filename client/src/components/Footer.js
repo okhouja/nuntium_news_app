@@ -21,7 +21,7 @@ const Footer = () => {
   };
 
   return (
-    <div>
+    <div className="footer">
       <div className="copyrightFather">
         <div className="rightFooter">
           <div className="aboutUs">

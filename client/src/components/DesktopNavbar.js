@@ -1,15 +1,10 @@
-import {React, useState, useContext} from 'react'
-import { StoreContext } from "../context/index";
-
+import {React} from 'react'
 import Navbar from './Navbar';
 
 const DesktopNavbar = () => {
-    const contextObj = useContext(StoreContext);
-
-  
     return (
         <div className="dexktopNav">
-            <Navbar contextObj={contextObj}/>
+            <Navbar />
         </div>
     )
 }

@@ -1,11 +1,10 @@
 .mainContainerWrapper{
     @include centerRow;
-    width: 100vw;
     height: 100%;
     @include responsive(mobile){
         @include spaceBetweenColumn;
-        width: 400px;
-        margin: 5% auto;
+        width: 393px;
+        
     }
 }
 .trendingContainer{
@@ -14,6 +13,7 @@
     height: 55vh;
     @include responsive (mobile){
         display: none;
+        border:1px solid red;
     }
   }
 .trendFather{
@@ -28,10 +28,22 @@
     @include flexCenterColumn;
     width: 200px;
 }
+.trendDark{
+    font-size: 1.5rem;
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+    &:hover{
+        color:yellow;
+    }
+    &:active{
+        color:red;
+    }
+}
 .trendTitle{
     color: black;
     font-size: 1.5rem;
-    width: 200px;
+    width: 100%;
     height: 10px;
     cursor: pointer;
     &:hover{
@@ -164,11 +176,12 @@ height: 10%;
     color: #000;
     width: 100%;
 }
-.generalAuthorWordActive{
-    color: #000;
-}
+
  .generalPublishActive, .generalDescriptionActive,.generalAuthorWordActive,.generalAuthorActive{
     color: #000;
+}
+.generalAuthorWordActive, .generalAuthorWord{
+    font-weight: bolder;
 }
 .generalTitleActive{
     color: blue;
@@ -245,6 +258,9 @@ height: 10%;
         width: 16vw;
         height: 1vh;
         margin-top: 2vh;
+        @include responsive(mobile){
+            margin-top: 4vh;
+        }
     }
 }
 .sportsOthers{
@@ -254,7 +270,7 @@ height: 10%;
 }
 .businessOthers{
     @include spaceBetweenStartColumn;
-width: 100%;
+width: 90%;
 }
 .businessFather{
     @include column;
@@ -262,7 +278,7 @@ width: 100%;
     height: 100%;
     @include responsive(mobile){
         height: auto;
-        width: 80%;
+        width: 100%;
     }
 }
 .businessContainerActive{
@@ -294,6 +310,9 @@ font-weight: bolder;
 .businessAuthordark{
     width: 100%;
 }
+.businessAuthorWordDark,.generalAuthorWordDark{
+    font-weight: bolder;
+}
 .general{
     margin-bottom: 2vh;
        color:  black;;
@@ -310,12 +329,16 @@ font-weight: bolder;
        @include responsive(mobile){
            margin-top: 2vh;
            text-indent: 2vh;
+        font-size: 1rem;
        }
     }
+    
+    
     .generalDark{
         color: white;
-        font-size: 2rem;
+        font-size: 1.5rem;
         font-weight: bolder;
+        text-indent: 3vh;
         &:hover{
             color: yellow;
          }
@@ -355,6 +378,7 @@ font-weight: bolder;
 }
 .goUpanchorDark{
     color: white;
+    font-size: 2rem;
 }
 .goupWord{
    color:#000;
@@ -375,17 +399,13 @@ font-weight: bolder;
     position: relative;
     width: 4vh;
     height: 4vw;
-    left: -0.5vw;
     top: -2vh;
     animation: go 1s infinite ease-in-out;
- @keyframes go {
-    from{
-       transform: scale(0);
+    @include responsive(mobile){
+        height: 15vw;
     }
-    to{
-       transform: scale(1);
-    }
- }
+
+  
 }
 .goUp{
    font-size: 3rem;
@@ -402,5 +422,9 @@ font-weight: bolder;
    to{
       transform: scale(1);
    }
+}
+@include responsive(mobile){
+    height: 14vw;
+    margin: 1%;
 }
 }

@@ -6,7 +6,8 @@
         display: none;
     }
 }
-.latestword, .mustreadtword{
+ 
+.latestWord, .mustreadtword{
     color: #000;
     font-weight: bolder;
     font-size: 2rem;
@@ -17,15 +18,21 @@
         display: none;
     }
 }
+.latestWordDark,.mustreadtwordDark{
+    color: white;
+    font-weight: bolder;
+    font-size: 2rem;
+    position: relative;
+    top: -3vh;
+    margin: 2vh auto;
+}
 
 .latestContainer{
     position: relative;
     top: 60vh;
-
 }
 .mustreadContainer{
 position: relative;
-
 top: 0vh;
 }
 .latestFather{
@@ -34,14 +41,12 @@ top: 0vh;
     height: 100px;
     margin: 4vh;
     position: relative;
-    
 }
 .latestFatherActive{
     @include spaceBetweenColumn;
     width: 300px;
     height: 300px;
     margin-bottom: 12vh;
-
     &::after{
         content: "";
         border-bottom:2px solid gray;
@@ -50,13 +55,11 @@ top: 0vh;
         top: 8vh;
         height: 1vh;
     }
-    
-
 }
 .latestOther{
     @include spaceBetweenStartColumn;
     width: 100%;
-    height: 100px;
+    height: 150px;
 }
 .latestImg{
     width: 50%;
@@ -68,10 +71,9 @@ top: 0vh;
     opacity: 0.5;
     filter: grayscale(10%);
     object-fit: contain;
-
 }
 .latestTitle{
-    font-size: 10px;
+    font-size: 1rem;
     text-align: center;
     color: blue;
     opacity: 0.5;
@@ -82,7 +84,7 @@ top: 0vh;
     font-size: 10px;
     text-align: center;
 }
-.latestTitle,.latestTitleActive{
+.latestTitle,.latestTitleActive, .latestTitleActiveDark,.latestTitleDark{
     cursor: pointer;
 &:hover{
     color:yellow;
@@ -91,15 +93,24 @@ top: 0vh;
     color:red;
 }}
 .latestTitleActive{
-    font-size: 20px;
+    font-size: 1rem;
     color: blue;
     opacity: 0.5s;
-
 }
 
  .latestpublishActive{
 color: #000;
 font-size: 20px
+}
+.latestpublishActiveDark,.latestAuthorWordActiveDark,.latestTitleActiveDark,.latestpublishDark
+,.latestAuthorWordDark,.latestAuthorDark,.latestTitleDark{
+    color: white;
+}
+.latestAuthorWordDark,.latestAuthorWordActiveDark{
+    font-weight: bolder;
+}
+.latestTitleDark{
+    font-size: 1rem;
 }
 .authorLatestFather, .authorLatestFatherActive{
   @include  startRow;
@@ -108,6 +119,9 @@ font-size: 20px
 .latestAuthorWordActive, .latestAuthorActive{
     color: #000;
     font-size: 15px;
+}
+.latestAuthorWordActive,.latestAuthorWord{
+    font-weight: bolder;
 }
 .latestAuthorWord, .latestAuthor{
     color: #000;

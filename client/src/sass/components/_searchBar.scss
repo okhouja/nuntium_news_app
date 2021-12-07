@@ -1,4 +1,4 @@
-.searchBar, .searchBarDark{
+.searchBar{
     width: 80%;
     height: 4vh;
     border: 1px solid red;
@@ -6,13 +6,40 @@
     position: relative;
     top: 1vw;
     left: 8vw;
+    z-index: 5;
 }
+
 .searchBarDark{
+    width: 80%;
+    height: 4vh;
+    box-shadow: 1px 1px 1px 1px rgba(0,0,0,1);
+    position: relative;
+    top: 1vw;
+    left: 8vw;
+    z-index: 5;
     background-color: #000;
+    @include responsive(mobile){
+    max-width: 100%;
+   
+    left: 0;
+
+    }
+}
+.searchFather{
+    @include responsive(mobile){
+        width: auto;
+        position: absolute;
+        @include flex-center;
+    }
 }
 .searchFatherDark{
-    background-color: black;
 
+    background-color: black;
+    @include responsive(mobile){
+        @include flex-center;
+
+
+    }
 }
 .ul-search-bar{
     @include spaceBetweenCenterRow;
@@ -20,14 +47,12 @@
     @include responsive(mobile){
        @include endRow;
        width: 1%;
+
     }
 }
 a{
     text-decoration: none;
 }
-// .searchClick{
-// }
-
 .searchLi{
     align-self:flex-start;
     position: relative;
@@ -43,6 +68,7 @@ a{
     }
     @include responsive(mobile){
         display: none;
+
     }
 
 }
@@ -61,29 +87,17 @@ a{
         color: red;
     }
 }
+.searchLiDarkMobile{
+    display: none;
+}
 
-
-
-
-// .latest-news-overlay, .health-overlay, .general-overlay,.busniess-overlay,
-// .entertainment-overlay, .science-overlay, .sports-overlay,.tech-overlay, .more-overlay {
-//     width: 100%;
-//     height: 8vh;
-//     border: 1px solid red;
-//     opacity: 0;
-    
-//     &:hover{
-//         opacity: 1;
-//         transition: 500ms;
-//     }
-// }
 .searchInput{
     border: none;
     outline: none;
     border-bottom: 1px solid lightgray;
-    @include responsive(mobile){
-   
-     }
+    &[type=text]{
+        font-weight: bolder;
+    }
      
 }
 .searchInputDark{
@@ -92,7 +106,13 @@ a{
 background-color: gray;
 &::placeholder{
 color: white;
+font-weight: bolder;
 }
+&[type=text]{
+    font-weight: bolder;
+    color: white;
+}
+
  }
  
 .search-button{
@@ -116,7 +136,6 @@ color: white;
         top: -4vh;
         width: 66vw;
         left: 1vw;
-
     }
 }
 .search-divDark{
@@ -151,5 +170,6 @@ list-style: none;
 font-size: 1.7rem;
 @include responsive(mobile){
 left: 79vw;
+
 }
 }

@@ -1,10 +1,12 @@
 .mobileNav{
     display: none;
     @include responsive(mobile){
-        display: flex;
-        width: 350px;
+        display: inline;;
+        margin: 0;
+        padding: 0;
     }
 }
+
 .dexktopNav{
     @include responsive(mobile){
         display: none;
@@ -12,14 +14,17 @@
 }
  .navbarFatherMob{
         @include responsive(mobile){
-        width: 340px;
         height: 8vh;
         background-color: #000;
        @include spaceBetweenCenterRow;
+
+       
     }
 }
 .hamburgerMenuFather{
     background-color: black;
+    margin: 0;
+    padding: 0;
 }
 .hamburgerMenu{
     color: white;
@@ -167,6 +172,11 @@ height: 10vh;
     width: 4vh;
     height: 5vh;
     position: relative;
-    left: -1vh;
+    left: -3vh;
     font-weight: bolder;
+}
+.signUpMobile{
+    position: relative;
+    left: -4vw;
+    color: white;
 }

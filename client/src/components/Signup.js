@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import {StoreContext} from "../context/index"
 
 const Register = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [ConfPassword, setConfPassword] = useState("");
   const [email, setEmail] = useState("");
+  const contextObj = useContext(StoreContext);
 
   axios.defaults.withCredentials = true;
   const register = (e) => {
@@ -32,7 +34,7 @@ const Register = () => {
   };
 
   return (
-    <div>
+    <div >
       <div className="signUpWrapper">
         
         <form className="formFather">

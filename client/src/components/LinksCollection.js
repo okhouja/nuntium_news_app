@@ -1,4 +1,5 @@
-import {React, useState,useEffect} from 'react';
+import {React, useState,useEffect, useContext} from 'react';
+import {useMediaQuery} from '@react-hook/media-query';
 import {Link} from "react-router-dom";
 import LatestNews from './categories/LatestNews';
 import MustRead from './categories/MustRead';
@@ -21,11 +22,14 @@ import {
  } from "react-share";
  import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
  import { faShareAlt } from '@fortawesome/free-solid-svg-icons'
+ import { StoreContext } from '../context/index';
  
  const LinksCollection = (props) => {
 
   const [content, setContent] = useState([]);
   const [load, setLoading] = useState(true);
+  const contextObj = useContext(StoreContext);
+  const  matches = useMediaQuery('only screen and (max-width: 400px)')
 
   useEffect(() => {
     setTimeout(() => {
@@ -36,7 +40,7 @@ import {
     getData();
   }, []);
   const getData = () => {
-    axios.get("http://localhost:5000/articles", {
+    axios.get("http://localhost:5000/article/articles", {
       credentials: "include",
     })
       .then((data) => setContent(data.data))
@@ -48,8 +52,11 @@ const newsContent = Object.entries(content).map(([key, value],i)=>{
   if(i<1){
    return(
     <div>
-      <p className="content">{value.content}</p>
+      <p className={contextObj.store==="dark"&&matches?"contentDarkMobile":
+    contextObj.store==="light"?"content":contextObj.store==="dark" &&matches?
+    "contentDarkMobile":"contentDark"}>{value.content}</p>
     </div>
+    
   )
    }
   
@@ -64,29 +71,39 @@ const separator = " ";
 
     if (load) return <Loading />;
     return (
-      <div className="linkContainerFather">
+      <div className={contextObj.store === "dark"&& matches?"linkContainerFatherDarkMobile":contextObj.store
+      ==="dark"?"linkContainerFatherDark":"linkContainerFather"}>
         <MustRead  />
         <div className="linkContainer">
         
             <div className="linkFather">
-               <div className="topFather">
-            <p className="linkCategory">{linkArr.category}</p>
-            <p className="linkPuplish">{linkArr.published_at}</p> 
+               <div className={contextObj.store ==="dark" && matches? "topFatherDarkMobile":"topFather"}>
+            <p className={contextObj.store === "dark"&& matches?"linkCategoryDarkMobile":
+          contextObj.store ==="light"?"linkCategory":"linkCategoryDark"}>{linkArr.category}</p>
+            <p className={contextObj.store ==="dark"&&matches?"linkPuplishDarkMobile":
+          contextObj.store==="light"?"linkPuplish":"linkPuplishDark"}>{linkArr.published_at}</p> 
             </div>
 
            <div className="linkmidContainer">
            <div className="linkmidFather"> 
-           <div className="linkTitle">{linkArr.title}</div> 
+           <div className={contextObj.store ==="dark"&&matches?"linkTitleDarkMobile":
+          contextObj.store ==="light"?"linkTitle":"linkTitleDark"}>{linkArr.title}</div> 
 
            <div className="linkInfoFather">
              <div>
 
-           <div className="linkInfo"><p className="linkAuthorWord">Author:</p><p className="linkAuthor">{linkArr.author}</p></div> 
-           <div className="linkInfo"><p className="linkAuthorWord">Source:</p><p className="linkAuthor">{linkArr.source}</p></div> 
+           <div className="linkInfo"><p className={contextObj.store ==="dark"&&matches?"linkAuthorWordDarkMobile":
+          contextObj.store==="light"?"linkAuthorWord":"linkAuthorWordDark"}>Author:</p>
+          <p className={contextObj.store==="dark" &&matches?"linkAuthorDarkMobile":
+        contextObj.store==="light"?"linkAuthor":"linkAuthorDark"}>{linkArr.author}</p></div> 
+          <div className="linkInfo"><p className={contextObj.store ==="dark"&&matches?"linkAuthorWordDarkMobile":
+          contextObj.store==="light"?"linkAuthorWord":"linkAuthorWordDark"}>source:</p>
+          <p className={contextObj.store==="dark" &&matches?"linkAuthorDarkMobile":
+        contextObj.store==="light"?"linkAuthor":"linkAuthorDark"}>{linkArr.source}</p></div> 
            </div>
           
            <div>
-           <FontAwesomeIcon className="shareIcon" icon={faShareAlt} />
+           <FontAwesomeIcon className={contextObj.store==="dark" && matches?"shareIconDarkMobile":"shareIcon"} icon={faShareAlt} />
 
            <FacebookShareButton  url={url} appid={306951887722234}>
               <FacebookIcon className="otherIcons" size={32} round={true} >
@@ -133,7 +150,7 @@ const separator = " ";
            <div className="backFather">
            
 
-           <FontAwesomeIcon className="shareIcon" icon={faShareAlt} />
+           <FontAwesomeIcon className={contextObj.store==="dark" && matches?"shareIconDarkMobile":"shareIcon"} icon={faShareAlt} />
 
 <FacebookShareButton  url={url} appid={306951887722234}>
    <FacebookIcon className="otherIcons" size={32} round={true} >
@@ -164,23 +181,16 @@ const separator = " ";
    </EmailIcon>
  </EmailShareButton> 
             </div>
-
-
             <div className="goUpLink">    
             <div className="advertiseLink"> place your Ads here</div>   
                       <Link className="backLink" to="/home"><p className="back">Back</p></Link>
-               <a className="goUpanchorLink" href="#img">Go Up</a>
-               <p className="goupwordLink">ᐱ</p>
-
+               <a className={contextObj.store ==="light"?"goUpanchorLink":"goUpanchorLinkDark"} href="#img">Go Up</a>
+               <p className={contextObj.store==="light"?"goupwordLink":"goupwordLinkDark"}>ᐱ</p>
                </div>    
                </div>
-              
-            
            </div>
-          <LatestNews /> 
-         
+          <LatestNews />   
            </div>
-        
     )
 }
 export default LinksCollection;

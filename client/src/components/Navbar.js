@@ -1,4 +1,5 @@
-import { React, useEffect, useState, useRef, useContext } from "react";
+import {React, useEffect, useState, useContext} from 'react';
+
 import axios from "axios";
 import { useMediaQuery } from "@react-hook/media-query";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -6,16 +7,19 @@ import FormGroup from "@mui/material/FormGroup";
 import Switch from "@mui/material/Switch";
 import { styled } from "@mui/material/styles";
 import { StoreContext } from "../context/index";
-import { Link, useHistory } from "react-router-dom";
+import {Link, useHistory} from "react-router-dom";
 
 import {
-  FaFacebook,
-  FaTwitter,
-  FaInstagram,
-  FaYoutube,
-  FaUserAlt,
-} from "react-icons/fa";
-import myKey from "../context/config";
+    FaFacebook,
+    FaTwitter,
+    FaInstagram,
+    FaYoutube,
+    FaUserAlt,
+  } from "react-icons/fa";
+  import myKey from "../context/config";
+import { TableBody } from '@mui/material';
+
+
 
 const label = { inputProps: { "aria-label": "Switch demo" } };
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
@@ -57,6 +61,22 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
         "#fff"
       )}" d="M9.305 1.667V3.75h1.389V1.667h-1.39zm-4.707 1.95l-.982.982L5.09 6.072l.982-.982-1.473-1.473zm10.802 0L13.927 5.09l.982.982 1.473-1.473-.982-.982zM10 5.139a4.872 4.872 0 00-4.862 4.86A4.872 4.872 0 0010 14.862 4.872 4.872 0 0014.86 10 4.872 4.872 0 0010 5.139zm0 1.389A3.462 3.462 0 0113.471 10a3.462 3.462 0 01-3.473 3.472A3.462 3.462 0 016.527 10 3.462 3.462 0 0110 6.528zM1.665 9.305v1.39h2.083v-1.39H1.666zm14.583 0v1.39h2.084v-1.39h-2.084zM5.09 13.928L3.616 15.4l.982.982 1.473-1.473-.982-.982zm9.82 0l-.982.982 1.473 1.473.982-.982-1.473-1.473zM9.305 16.25v2.083h1.389V16.25h-1.39z"/></svg>')`,
     },
+  }));
+  
+export const Navbar = ({nav}) => {
+    const [dropdown, setDropdown] = useState({ cat: false, lang: false, countries: false });
+    const [weather , setWeather] = useState({});
+    const [themeState , setThemeState] =  useState(false);
+  const API_KEY = myKey.weather.apiKeyWeather;
+  const contextObj = useContext(StoreContext);
+  console.log(contextObj.store);
+
+// useEffect(() => {
+//     axios.get(`http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`).then((data)=> setWeather(data.data));
+//   }, []);
+//   console.log(weather );
+  
+
   },
   "& .MuiSwitch-track": {
     opacity: 1,
@@ -65,28 +85,6 @@ const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   },
 }));
 
-export const Navbar = ({ nav }) => {
-  const [dropdown, setDropdown] = useState({
-    cat: false,
-    lang: false,
-    countries: false,
-  });
-  const [weather, setWeather] = useState({});
-  const [themeState, setThemeState] = useState(false);
-  const inputRef = useRef();
-
-  const API_KEY = myKey.weather.apiKeyWeather;
-  const contextObj = useContext(StoreContext);
-  console.log(contextObj.store.data);
-
-  useEffect(() => {
-    axios
-      .get(
-        `http://api.weatherapi.com/v1/forecast.json?Key=${API_KEY}&q=hamburg&days=1`
-      )
-      .then((data) => setWeather(data.data));
-  }, []);
-  console.log(weather);
 
   let date = new Date();
   let day = date.toLocaleString("en-us", { weekday: "short" });
@@ -95,41 +93,31 @@ export const Navbar = ({ nav }) => {
 
   const matches = useMediaQuery("only screen and (max-width: 400px)");
 
-  // useEffect(() => {
-  //   inputRef.current.addEventListener("mousedown", () => {
-  //     if (dropdown.cat || dropdown.lang || dropdown.countries) {
-  //       setDropdown({ cat: false, lang: false, countries: false });
-  //     }
-  //   });
-  // }, [dropdown.cat, dropdown.lang, dropdown.countries]);
+    const history = useHistory();
+    return (
+      <FormGroup >
+        <div  >
+              <div className={matches? "navbarFatherMob": "navbarFather"} >
+                <div className={matches? "themeMobileFather": "themeFather"}>
+              <span className={matches? "toggelMobile": "toggel"}>{themeState? "Light Mode": "Dark Mode"}</span>
+      <FormControlLabel className={matches? "iconThemeMobile":"iconTheme"}
+      onChange={()=>setThemeState(!themeState)}
+      
+      onClick={()=>contextObj.store === "light"? contextObj.setStore("dark"):
+    contextObj.setStore("light")
+    } 
+        control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
+        label=""
+      />
+      </div>
+      {weather &&
+          <div className={matches? "weatherMobile":"weather"}>
+            <div className={matches? "weatherMobileFather":"imgWeatherFather"}>
+              <img src={weather?.current?.condition?.icon} alt="img"/> 
 
-  const history = useHistory();
-  return (
-    <FormGroup>
-      <div>
-        <div className={matches ? "navbarFatherMob" : "navbarFather"}>
-          <div className={matches ? "themeMobileFather" : "themeFather"}>
-            <span className={matches ? "toggelMobile" : "toggel"}>
-              {themeState ? "Light Mode" : "Dark Mode"}
-            </span>
-            <FormControlLabel
-              className={matches ? "iconThemeMobile" : "iconTheme"}
-              onChange={() => setThemeState(!themeState)}
-              onClick={() =>
-                contextObj.store === "light"
-                  ? contextObj.setStore("dark")
-                  : contextObj.setStore("light")
-              }
-              control={<MaterialUISwitch sx={{ m: 1 }} defaultChecked />}
-              label=""
-            />
-          </div>
-          {weather && (
-            <div className={matches ? "weatherMobile" : "weather"}>
-              <div
-                className={matches ? "weatherMobileFather" : "imgWeatherFather"}
-              >
-                <img src={weather?.current?.condition?.icon} alt="img" />
+  
+
+  
               </div>
               <div
                 className={
@@ -825,23 +813,15 @@ export const Navbar = ({ nav }) => {
             >
               <FaYoutube />
             </a>
-          </div>
-          <div className={matches ? "signUpFatherMobile" : "signUpFather"}>
-            <Link className="signUp" to="signup">
-              {" "}
-              <i>
-                <FaUserAlt />
-              </i>{" "}
-            </Link>
-            <Link to="login">
-              <button className={matches ? "logInMobile" : "logIn"}>
-                Log In
-              </button>
-            </Link>
-          </div>
-        </div>
-      </div>
-    </FormGroup>
-  );
-};
+         </div>   
+<div className={matches? "signUpFatherMobile":"signUpFather"}>
+                      <Link className={matches? "signUpMobile":"signUp"} to="signup">  <i><FaUserAlt/></i> </Link>
+                      <Link  to="login"><button className={matches?"logInMobile":"logIn"}>Log In</button></Link>   
+</div>
+</div>
+</div>
+</FormGroup >
+      )
+}
 export default Navbar;
+  

@@ -23,7 +23,16 @@ const Sports = () => {
       .catch((err) => console.log(`Your had an ${err}`));
   }, []);
 
-  console.log(business);
+     const history = useHistory();
+     
+//      useEffect(() => {
+//       axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=business&languages=en&sort=published_desc`)
+//   .then((data)=>setBusiness(data.data.data.filter((item)=> item.image).slice(0,6)))
+//   .catch((err) => console.log(`Your had an ${err}`));
+      
+//   }, [])
+//   console.log(business);
+
 
   const businessNews = business.map((value, i) => {
     const { author, title, image, url, description, source, published_at } =

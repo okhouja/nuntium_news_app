@@ -25,7 +25,16 @@ const Science = () => {
       .catch((err) => console.log(`Your had an ${err}`));
   }, []);
 
-  console.log(entrrtainment);
+     const history = useHistory();
+     
+  //    useEffect(() => {
+  //     axios.get(`http://api.mediastack.com/v1/news?access_key=${API_KEY}&limit=100&categories=entertainment&languages=en&sort=published_desc`)
+  // .then((data)=>setEntertainment(data.data.data.filter((item)=> item.image).slice(0,6)))
+  // .catch((err) => console.log(`Your had an ${err}`));
+      
+  // }, [])
+  // console.log(entrrtainment);
+
 
   const entertainmentNews = entrrtainment.map((value, i) => {
     const { author, title, image, url, description, source, published_at } =
