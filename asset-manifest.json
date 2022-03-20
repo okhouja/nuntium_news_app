@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/nuntium_news_app/static/css/main.51f77dd5.chunk.css",
+    "main.js": "/nuntium_news_app/static/js/main.5854e07c.chunk.js",
+    "main.js.map": "/nuntium_news_app/static/js/main.5854e07c.chunk.js.map",
+    "runtime-main.js": "/nuntium_news_app/static/js/runtime-main.0b9712f8.js",
+    "runtime-main.js.map": "/nuntium_news_app/static/js/runtime-main.0b9712f8.js.map",
+    "static/js/2.c3f0760a.chunk.js": "/nuntium_news_app/static/js/2.c3f0760a.chunk.js",
+    "static/js/2.c3f0760a.chunk.js.map": "/nuntium_news_app/static/js/2.c3f0760a.chunk.js.map",
+    "index.html": "/nuntium_news_app/index.html",
+    "static/css/main.51f77dd5.chunk.css.map": "/nuntium_news_app/static/css/main.51f77dd5.chunk.css.map",
+    "static/js/2.c3f0760a.chunk.js.LICENSE.txt": "/nuntium_news_app/static/js/2.c3f0760a.chunk.js.LICENSE.txt",
+    "static/media/main.scss": "/nuntium_news_app/static/media/360_F_435309207_QlHm8Ep8USg6CFzpsLPXYVAwTaPc1zlI.f1a58716.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.0b9712f8.js",
+    "static/js/2.c3f0760a.chunk.js",
+    "static/css/main.51f77dd5.chunk.css",
+    "static/js/main.5854e07c.chunk.js"
+  ]
+}
