@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/nuntium_news_app/static/css/main.51f77dd5.chunk.css",
-    "main.js": "/nuntium_news_app/static/js/main.9452da21.chunk.js",
-    "main.js.map": "/nuntium_news_app/static/js/main.9452da21.chunk.js.map",
+    "main.js": "/nuntium_news_app/static/js/main.c8e3b818.chunk.js",
+    "main.js.map": "/nuntium_news_app/static/js/main.c8e3b818.chunk.js.map",
     "runtime-main.js": "/nuntium_news_app/static/js/runtime-main.0b9712f8.js",
     "runtime-main.js.map": "/nuntium_news_app/static/js/runtime-main.0b9712f8.js.map",
     "static/js/2.d19bced1.chunk.js": "/nuntium_news_app/static/js/2.d19bced1.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.0b9712f8.js",
     "static/js/2.d19bced1.chunk.js",
     "static/css/main.51f77dd5.chunk.css",
-    "static/js/main.9452da21.chunk.js"
+    "static/js/main.c8e3b818.chunk.js"
   ]
 }
